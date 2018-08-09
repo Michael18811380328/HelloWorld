@@ -3,6 +3,12 @@ This repository is the first trial repository of Michael An.
 
 ## 发展历程
 
+### 2018.01
+开始接触前端信息，了解当前前端和传统的网页编辑的不同。传统网页编辑使用的Dw在现在已经过时。学习新HTML5标准，接触CSS和CSS3。这部分内容难度不大。PS这部分是自己的强项。
+
+### 2018.02
+学习基本的JavaScript基础。JS来源于C，也有一部分借鉴与面向对象编程语言。JS正在从web转向更广阔的领域。
+
 ### 2018.03
 注册github账号，填写用户相关信息，绑定邮箱。
 
@@ -10,8 +16,17 @@ This repository is the first trial repository of Michael An.
 阅读数据文档，创建数据仓库，完善用户信息。
 HTML-CSS-JS基本内容熟悉，可以制作普通的网页。
 学习使用bootstrap框架和其他JS插件。
+接手京东项目、每时每刻项目。
 
 ### 2018.05
 深入学习JS高级编程；
 学习Ajax和PHP进行数据交互（XML和JSON）；
-学习Angular框架，后续学习react和vue框架，重点是Vue框架；
+了解Angular框架，后续学习react和vue框架，重点是Vue框架；
+接手京东移动端项目、新天地项目、微金所项目、苏宁项目。
+
+### 2018.06
+简单学习Vue框架和React框架，了解组件化构建思想，组件化可以很好的提高代码复用率。
+接手百度外卖项目、休闲帮项目，与后端人员进行项目联调测试。
+
+### 2018.07
+了解微信小程序Mina框架，创建自己的非商业化的小程序。
