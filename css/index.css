@@ -1,3 +1,8 @@
 /* 测试css文件 */
-
 /* 进一步熟悉预处理器less和sass */
+nav {
+	position: absolute;
+	height: 30px;
+	height: 100%;
+	background-color: #ccc;
+}
