@@ -1,16 +1,30 @@
 # HelloWorld
+
 This repository is the first trial repository of Michael An.
 
-## 发展历程
-
 ### 2018.01
-开始接触前端信息，了解当前前端和传统的网页编辑的不同。传统网页编辑使用的Dw在现在已经过时。学习新HTML5标准，接触CSS和CSS3。这部分内容难度不大。PS这部分是自己的强项。
+
+I start to learn front-end development. There are plenty of differences between traditional webpage editing (such as using Adobe Dreamweaver software to design a webpage). 
+
+The new standards of HTML5 and CSS3 are amazing. These parts are easy , I think. Probablly because I can use photoshop, firework and other Adobe softwares fluentlly.
+
+What's more, it is easy to use css. But using it well isn't an easy task.
 
 ### 2018.02
-学习基本的JavaScript基础。JS来源于C，也有一部分借鉴与面向对象编程语言。JS正在从web转向更广阔的领域。
+
+learning basic javascript codes. Basic JS codes are similar to other coding languages. JS is an O-O programming language. The polymorphism isn't obvious. 
+
+ECMAscript, a standard coding plan, is developing rapidly. ES5 is ripe and stable. In 2015, ES6 use class to create an object (from cpp?). And ES6 use string module. It maybe come from Ruby. 
+
+Recentlt some frineds told me that NodeJS could work in desktop application. In one day JS will work every place.
 
 ### 2018.03
-注册github账号，填写用户相关信息，绑定邮箱。
+
+I got a github account. Learning git is an essential step. When I fell asleep, I find that writing and coding could make me patient and calm. 
+
+I find a project, Codecombat. Codecombat is a perfect open-source project. It uses coffeeScript rather than javascript. A little upset => => In this project, people can learn coding including Python, Javascript, Java and other languages. 
+
+Learing coding and English every day!
 
 ### 2018.04
 阅读数据文档，创建数据仓库，完善用户信息。
