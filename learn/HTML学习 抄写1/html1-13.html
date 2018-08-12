@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	用户名：&nbsp;
+
+	<input type="text" placeholder="please input user names"/>   
+
+	<!-- 灰色的提示文本H5新增，占位符，用户输入过程中自动消失 -->
+
+	用户名：<input type="text" autofocus="autofocus" />
+
+	<!-- autofocus 自动获得焦点（光标 -->
+
+	上传单个文件：<input type="file" /> 
+
+	上传多个文件：<input type="file" multiple="multiple" />
+
+	<!-- multiple表示可以上传多个文件 -->
+	<input type="submit" />
+	<input type="reset" />
+
+	<h3 align="center" >autocomplete自动记录完成27</h3>
+
+	<!-- 提交一次表单之后记录保留表单（个人电脑记录信息）-->
+	<!-- 注意事项：
+	1.首先需要form与submit操作
+	2.需要增加name命名 -->
+	<form action="">
+		请输入账号 <input type="text" autocomplete="autocomplete" name="username" accesskey="s" />                        
+		请输入密码 <input type="password" autocomplete="off" name="username2" maxlength="6" required="required" accesskey="p" />                         
+		autocomplete 属性 on-off 默认为on
+		                         
+		<input type="submit" />                         
+		required=内容不能为空（不同浏览器显示不一样）
+		accesskey=按住alt+其他键 光标直接定位到特定的表单中
+	</form>
+	<hr />
+
+
+	<h3 align="center" >综合练习 学生档案</h3>
+	<form action="">
+		<fieldset>
+			<legend>学生档案</legend>
+			<label>name: <input type="text" placeholder="please input your name" /></label>                        
+			mobile: <input type="number" />                        
+			email: <input type="email" />                        
+			college: <input type="text" palceholder="please choose colleges" list="college"/>
+			<datalist id="college">
+				<option>java</option>
+				<option>C++</option>
+				<option>PHP</option>
+				<option>design</option>
+			</datalist>
+			                        
+			birthday: <input type="date" />                        
+			grades: <input type="number" />                        
+			<input type="submit" />
+			<input type="reset" />
+		</fieldset>
+	</form>
+</body>
+</html>

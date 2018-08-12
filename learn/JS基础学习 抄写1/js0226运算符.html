@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var a = 123 ;
+		var b = "123";
+		console.log(a+a+a+b);
+		//首先number计算，之后转化为string
+		console.log(b+a+a+a);
+		//直接string计算，每一个number类型转化为string计算
+		var c=10*Math.random();
+		var d=10*Math.random();
+		var e=10*Math.random();
+		// cde均为随机数
+		var c1=Math.floor(c);
+		var d1=Math.floor(d);
+		var e1=Math.floor(e);
+		//cde向下取整函数
+		console.log(c+"近似值"+c1);
+		console.log(d+"近似值"+d1);
+		console.log(e+"近似值"+e1);
+		//输出向下取整函数
+		console.log("The max number is "+Math.max(c1,d1,e1));
+		console.log("The min number is "+Math.min(c1,d1,e1));
+		//输出取整函数最值
+
+		var f=1;
+		var g=2;
+		console.log(f);
+		console.log(g);
+		//结果是1和2
+		var h= f++ + g++;
+		console.log(f);
+		console.log(g);
+		console.log(h);
+		//先运算，后++ 结果是 2 3 3
+
+		//逻辑运算符
+		var i=123;
+		var j="123";
+		var k= i == j;
+		//true ==表示变量内容相等
+		var l= i === j;
+		//false ===表示变量内容和数据类型相等 分别是number and string
+		var m=true;
+		var n="true";
+		var o= m == n;
+		//结果是false。true内容上是1，与string中true不相等。
+	</script>
+</head>
+<body>	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	/*设置两个盒子的颜色轮廓*/
+	#div1, #div2 {
+		float:left; width:198px; height:66px; 
+		margin:10px;padding:10px;border:1px solid red;
+	}
+	</style>
+
+	<script type="text/javascript">
+		// 方法：设置元素可以拖动；拖动的元素执行函数；接受区域执行函数；拖动后函数
+		// 拖动元素后不执行默认的动作（打开链接）在盒子中调用此函数
+		function allowDrop(ev) {
+			ev.preventDefault();
+		}
+
+		// 设置拖动的图片的函数（具体拖动的数据格式和ID）
+		function drag(ev) {
+			ev.dataTransfer.setData("Text",ev.target.id);
+		}
+
+		// 设置接受盒子的函数
+		function drop(ev) {
+			ev.preventDefault();
+			// 调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+			var data=ev.dataTransfer.getData("Text");
+			// 通过 dataTransfer.getData("Text") 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。
+			ev.target.appendChild(document.getElementById(data));
+			// 被拖数据是被拖元素的 id ("drag1")
+			// 把被拖元素追加到放置元素（目标元素）中
+		}
+	</script>
+
+	</head>
+
+	<body>
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+			<img src="image/oil.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="100px" />
+			<!-- draggable设置元素可拖动 -->
+			<!-- 事件：ondragstart ondragover ondrop -->
+		</div>
+		<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</body>
+</html>

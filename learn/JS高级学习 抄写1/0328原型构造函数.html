@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 原始构造函数
+		function Person (name,age,gender) {
+			var temp = {};
+			temp.name = name;
+			temp.age = age;
+			temp.gender = gender;
+			temp.car = function (){
+				alert("car");
+			};
+			return temp;
+		}
+		function Student (name,age,gender) {
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+			this.car = function (){
+				alert("car");
+			};
+		}
+		var person1 = new Person("Mike",19,"male");
+		console.log(person1);
+		person1.car();
+		var person2 = new Student("Mike",19,"male");
+
+		// 更改后的构造函数
+		function Bingo (name,age,gender) {
+			this.age = age;
+			this.name = name;
+			this.gender = gender;
+		}
+		Bingo.prototype.sayHi = function (){
+			console.log("hi");
+		};
+
+		var bingo = new Bingo("Mike",24,"male");
+		bingo.sayHi;
+
+		//原型
+		function Foo (){
+
+		}
+		Foo.prototype.age = 19;
+		var p = new Foo();
+		console.log(p.age);
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="result"></div>
+	<script>
+		var xhr = new XMLHttpRequest();
+		xhr.open("post","1.php");
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoeded");
+		xhr.send("name=anbing&pass=123456");
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4){
+				var result =xhr.responseText;
+				document.getElementById("#result") = result;
+			}
+		}
+	</script>
+</body>
+</html>

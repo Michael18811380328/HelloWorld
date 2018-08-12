@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		body {
+			background-color: #eee;
+		}
+		table {
+			margin:50px auto;
+			width: 600px;
+			height: 400px;
+			background-color: pink;
+			cellspacing: 0%;
+			cellpadding: 0%;
+			border:1px solid black;
+		}
+		td {
+			border:1px solid red;
+		}
+	</style>
+	<script>
+		document.write("<table>");
+		for (var i=1 ; i<=9 ; i++){
+			//外层循环
+			document.write("<tr>");
+			for (var j=1; j<=i ; j++){
+				//内层循环
+				document.write("<td>");
+				document.write(i+"*"+j+"="+(i*j));
+				document.write("</td>");
+			}
+			document.write("<tr>");
+		}
+		document.write("</table>");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

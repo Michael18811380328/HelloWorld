@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//函数参数调用
+		console.log(getFib(45));
+		function getFib (n) {
+			if (n ===1 || n === 2) {
+				return 1;
+			}
+			 return (getFib(n-1) + getFib(n-2));
+		}
+
+		//函数参数调用
+		function f1 (a , fn) {
+			fn(a);
+		}
+
+		var a = 5; 
+		var myFun = function(a) {
+			console.log(a);
+		};
+		f1(n,myFun);
+
+	</script>
+</head>
+<body>
+</body>
+</html>

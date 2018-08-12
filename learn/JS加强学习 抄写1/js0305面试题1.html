@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	// 第一题.请问输出什么？undefined
+
+	var num = 10; 
+	fun ();
+	function fun() {
+		console.log(num);
+		var num = 20;
+	}
+	//JavaScript解析器原理：
+		//预解析（全局作用域）：提前在script标签中寻找var和function和参数。将变量声明和函数声明提前到script位置（变量赋值不变），将num和function提前。
+		//从上到下执行代码
+		//
+			//执行到函数fun后，进入局部作用域，进行局部作用域预解析（寻找var function和参数——找到num），此时num只定义未赋值，console.log执行结果就是undefined。
+			//
+	//下面是解析器执行过程。
+	var num;
+	function fun() {
+		var num;
+		console.log(num);
+		num = 20;
+	}		
+
+	number = 10; 
+	fun ();		
+			
+	//变形：输出什么？//20
+	var number = 10; 
+	fun ();
+	function fun() {
+		var num = 20;
+		console.log(num);
+	}
+	</script>
+</head>
+<body>
+</body>
+</html>

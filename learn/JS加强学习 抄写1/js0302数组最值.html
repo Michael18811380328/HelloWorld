@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//求一个未知数组的最值及未知（索引）
+		var array = new Array(1,2,4,5,2,1,6,8,2,6,3,6,4,9);
+		//查看数组长度及内容
+		console.log(array.length);
+		console.log(array);
+		//求最值
+		var max = array[0], min = array[0];
+		for (var i = 1; i < array.length ; i++) {
+			if (array[i] > max) {
+				max = array[i];
+			} 
+			else if (array[i] < min) {
+				min = array[i];
+			}
+		}
+		console.log(max);
+		console.log(min);
+		//计算最值位置
+		var num1 = 0, num2 = 0;
+		for (var j = 0 ;j < array.length ; j++) {
+			if (array[j] == max) {
+				console.log("The max number is in "+(j+1));
+				num1 ++ ;
+			}
+			if (array[j] == min) {
+				console.log("The min number is in "+(j+1));
+				num2 ++ ;
+			}
+		}
+		console.log("最大值"+num1+"个");
+		console.log("最小值"+num2+"个");
+		alert("over");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

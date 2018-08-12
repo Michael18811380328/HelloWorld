@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		console.log(1);
+		var o1;
+		try {
+			o1 = new Error("hi");
+			throw o1;
+			//抛出异常o1
+		} catch (e) {
+			console.log(e === o1);
+			//catch中对象e就是抛出的异常对象
+		}
+		console.log(2);
+		//throw是抛出异常的语法，后面加入一个对象，就是错误的消息对象；一般该对象使用“new Error”创建，也支持任意的对象。
+		//抛出异常的使用：自己写一个自定义函数，如果输入参数不合规，抛出异常。
+		function showMessage(msg){
+			if (typeof msg !== "string"){
+				throw new Error("传入的参数不是一个字符串")；
+			}
+			console.log(msg);
+		}
+	</script>
+</body>
+</html>

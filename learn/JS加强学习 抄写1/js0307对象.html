@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		console.log("练习一");
+		var obj ={};
+		//新建一个对象
+		for (var i = 0; i < 10; i++) {
+			obj[i] = i*2;
+		}
+		//对象增加属性和值
+		for(var key in obj) {
+			console.log(key + "==" + obj[key]);
+		}
+		//遍历对象中的属性和值
+		console.log("练习二");
+		function f3(arr) {
+			arr[0] = -100;
+		}
+		//新建一个f3函数
+		var array = [1,2,3,4];
+		f3(array);
+		//将数组（复杂）作为函数的参数
+		console.log(array);
+		for (j = 0 ; j <array.length ; j++) {
+			console.log(array[j]);
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	div {
+		position: relative;
+		margin: 0 auto;
+		width:300px;
+		height: 300px;
+		background-color: #eee;
+	}
+	li { 
+		color:red;
+		font-size: 60px;
+		display:inline-block;
+		float:left;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<ul id="txt">
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+		</ul>
+	</div>
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<script>
+		// 定义内容（实心和空心五角星）
+		var shixin = "★";
+		var kongxin = "☆";
+		console.log(shixin+kongxin);//测试五角星显示情况
+		// 1.鼠标经过文字，当前文字及之前文字改变为实心，后面的兄弟改变为空心。
+		$(function(){
+			$("li").on("mouseenter",function(){
+				$(this).text(shixin).prevAll().text(shixin);
+				$(this).nextAll().text(kongxin);
+			});
+		});
+		// 2.鼠标离开文字，所有文字变成空心。
+		$(function(){
+			$("ul").on("mouseleave",function(){
+				$("li").text(kongxin);
+				$("li.current").text(shixin).prevAll().text(shixin);
+				$("li.current").nextAll().text(kongxin);
+			});
+		});
+		// 3.鼠标单击某个文字，增加类（这个类之前的文字变成实心）
+		$(function(){
+			$("li").on("click",function(){
+				$(this).addClass("current").siblings().removeClass();
+			});
+		});
+		//这串代码完全是自己写出来的，没有参考任何笔记。自己的jquery学的很灵活！加油！
+	</script>
+</body>
+</html>

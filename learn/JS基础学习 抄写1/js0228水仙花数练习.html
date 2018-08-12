@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var num=0;
+		var mul=0;
+		for(i=100000 ; i<=999999; i++){
+			var a = i%10;
+			var b = Math.floor(i%100/10);
+			var c = Math.floor(i%1000/100);
+			var d = Math.floor(i%10000/1000);
+			var e = Math.floor(i%100000/10000);
+			var f = Math.floor(i/100000);
+			//使用数组实现更合适
+			mul = Math.pow(a,6)+Math.pow(b,6)+Math.pow(c,6)+Math.pow(d,6)+Math.pow(e,6)+Math.pow(f,6)
+			if (mul == i){
+				console.log(mul);
+				num ++;
+			}
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

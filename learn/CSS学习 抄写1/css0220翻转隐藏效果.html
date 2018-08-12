@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	div {
+		width: 105px;
+		height: 90px;
+		margin: 100px auto;
+		/*background-color: pink;*/
+		position:relative;
+	}
+	div img {
+		position:absolute;
+		transition: all 1s;
+	}
+	div img:first-child {
+		z-index: 1;
+		backface-visibility: hidden;
+	}
+	div:hover img {
+		transform:rotateY(180deg);
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="image/pic2_img.jpg" alt="">
+		<img src="image/pic1_img.jpg" alt="">
+	</div>
+</body>
+</html>

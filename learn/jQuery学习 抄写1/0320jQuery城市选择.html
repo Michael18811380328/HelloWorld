@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	select {
+		width:100px;
+	}
+	</style>
+</head>
+<body>
+	<h1>城市列表</h1>
+	<select name="src-city" id="city-before" multiple size="3">
+		<option value="1">Tokyo</option>
+		<option value="2">Beijing</option>
+		<option value="3">London</option>
+	</select>
+	<br>
+	<div>
+		<button id="btn1">&gt;&gt;</button>
+		<button id="btn2">&lt;&lt;</button>
+		<button id="btn3">&gt;</button>
+		<button id="btn4">&lt;</button>
+	</div>
+	<br>
+	<select name="end-city" id="city-after" multiple size="3">
+	</select>
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<script>
+		//将选框1全部option放到2中
+		$(function(){
+			$("#btn1").click(function(){
+				$("#city-before>option").appendTo("#city-after");
+			});
+		});
+		//将选框2全部option放到1中
+		$(function(){
+			$("#btn2").click(function(){
+				$("#city-after>option").appendTo("#city-before");
+			});
+		});
+		//将选框1中选中的部分放到2中
+		$(function(){
+			$("#btn3").click(function(){
+				$("#city-before>option:selected").appendTo("#city-after");
+			});
+		});
+		//将选框2中选中的部分放到1中
+		$(function(){
+			$("#btn4").click(function(){
+				$("#city-after>option:selected").appendTo("#city-before");
+			});
+		});
+	</script>
+</body>
+</html>

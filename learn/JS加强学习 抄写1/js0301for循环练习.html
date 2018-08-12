@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//程序一：输出1-100及和
+		var sum = 0;
+		for(var i=1 ; i<=100; i++){
+			// console.log(i);
+			sum = sum + i;
+		}
+		alert("程序结束，1-100和为"+sum);
+		//程序二：计算兔子数列第12个数：分别使用数组和简单方法
+		//数组array方法，注意数组从0开始，
+		var a = new Array;
+		a[0]=1,a[1]=1;
+		for (var j=2 ; j < 12 ; j++) {
+			a[j]=a[j-1]+a[j-2]
+			console.log(a[j]);
+		}
+		//常规方法
+		var num1=1, num2=1, num3=0, tem=3;
+		console.log(num1);
+		console.log(num2);
+		while(tem<=12){
+			num3 = num2 + num1;
+			num1 = num2;
+			num2 = num3;
+			tem +=1;
+			console.log(num3);
+		}
+		alert("兔子程序while方法over");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

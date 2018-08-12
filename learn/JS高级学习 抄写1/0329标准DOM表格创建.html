@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		 /* 要求：创建表格
+		1.创建table+tbody+thead
+		2.创建tr+td
+		3.创建每一行的hr和td
+		4.最后加载到页面中（减少浏览器的渲染次数，从而优化性能）*/
+		var data = [
+		{name:"Jim",age:20,gender:"male"},
+		{name:"Jom",age:20,gender:"male"},
+		{name:"Jam",age:20,gender:"male"},
+		{name:"Jem",age:20,gender:"male"},
+		{name:"Jum",age:20,gender:"male"},
+		];
+
+		// 1.创建表格
+		var table = document.createElement("table");
+		var thead = document.createElement("thead");
+		var tbody = document.createElement("tbody");
+		table.appendChild(thead);
+		table.appendChild(tbody);
+
+		// 2.创建表头
+		var trHead = document.createElement("tr");
+		thead.appendChild(trHead);
+
+		for (var k in data[0]){
+			var th = document.createElement("th");
+			// th.appendChild( document.createTextNode( k ) );
+			th.innerHTML = k;
+			trHead.appendChild( th );
+		}
+
+		// 3.创建内容（循环）
+		for(var i = 0 ; i < data.length ;i ++){
+			var tr = document.createElement("tr");
+			for (var k in data[i]){
+				var td = document.createElement("td");
+				// td.appendChild( document.createTextNode( data [i] [k] ));
+				td.innerHTML = data[i][k];
+				tr.appendChild(td);
+			}
+			tbody.appendChild(tr);
+		}
+
+		table.border = 1;
+
+		// 4.将表格放入文档中
+		document.body.appendChild (table);
+
+	</script>
+</body>
+</html>

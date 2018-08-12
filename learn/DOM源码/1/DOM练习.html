@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//1.事件三要素：事件源+事件+驱动程序
+	var divs = document.getElementsByTagName('div');
+	divs[0].onclick = function(){
+		alert(1);
+	}
+
+	//2.获取事件源：查找对象
+	var arr = document.getElementById('arr');
+	var arr = document.getElementsByTagName('span');
+	var arr = document.getElementsByClass('head');
+	var arr = document.getElementByName('aaa');
+
+	//绑定事件+事件驱动程序
+	arr.ondbclick = function(){
+		arr.className = 'aaa';
+		arr.style.width = '200px';
+		arr.style.height = '200px';
+		arr.style.backgroundColor = 'red';
+	}
+
+	//3.onload事件：页面元素加载之后执行JS代码（js与html同步加载）或者JS代码放在html后面执行。
+	window.onload = function(){
+		console.log(document.getElementById('header'));
+	}
+
+	// 4.关闭广告案例
+	// 思路：点击按钮，广告隐藏（加类名）
+	var closeBtn = document.getElementById('close');
+	var ad = document.getElementById('id');
+	closeBtn.onclick = function(){
+		ad.className += 'hide';
+		//保留原始类名，加入hide类名
+		ad.className = 'hide';
+		//替换原始类名
+		ad.style.display = 'none';
+		//直接设置属性
+	}
+
+	// 5.鼠标移入改变图片地址
+	window.onload = function(){
+		var img = document.getElementById('box');
+		img.onmouseover = function(this){
+			this.src = "image/jd2.png";
+		}
+		img.onmouseout = function(this){
+			this.src = "image/jd1.png";
+		}
+	}
+
+	//6.document对象结构
+	console.log(document.getElementByName('aaa').length);
+	console.log(document);
+	//如果查找不到这个名字，返回一个长度为0的伪数组。
+	
+	// 7.节点操作
+	var box = document.getElementsByTagName('div')[2];
+	console.log(box.parentNode);
+	var box1 = box.nextElementSibling || box.nextSibling;
+	var box2 = box.firstElementChild || box.firstChild;
+	var box3 = box.parentNode,childNodes || box.parentNode.children;
+	//父节点，兄弟节点，子节点-兼容性
+	
+	//节点创建
+	var lis = document.createElement('<li>');
+	var dis = document.createElement('<div>');
+	function createTag(str){
+		return document.createElement(str);
+	}
+	var spans = createTag('span');
+
+	//节点增删改查
+	divs.appendChild(lis);
+	divs.insertBefore(spans,lis);
+
+	divs.removeChild(lis);
+	spans.parentNode.removeChild(spans);
+	//不清楚父母情况下删除元素
+	var divs2 = divs.cloneNode();
+	//默认为false 浅复制 只复制当前节点
+	var divs3 = divs.cloneNode(true);
+	//深复制 复制当前节点及子节点
+	
+	// 8.元素节点属性
+	var img = document.getElementById('img2');
+	img.aaa = 'bbb';
+
+	img.aaa
+	img.src
+	img.tagName
+	img['title'] img['className'] img['alt'] 
+
+	img.getAttribute('id');
+	img.setAttribute('ccc');
+	img.removeAttribute('ccc');
+
+	// 10.文字显示隐藏更改
+	var btn = document.getElementById('btn1');
+	btn.onclick = function(){
+		if(this.innerHTML = 'hide'){
+			div.className = 'hide';
+			btn.innerHTML = 'block';
+		}else {
+			div.className = 'block';
+			btn.innerHTML = 'hide';
+		}
+	}
+
+	// 12.innerHTML innerText value
+	// innerHTML表示双标签内部的HTML（包含子标签的标签名）；innerText表示双标签内部Text（不包括子标签的标签名）；value表示input标签的value名；
+	console.log(document.getElementById('btn').value);
+	console.log(document.getElementById('div2').innerHTML);
+
+	// 13.事件触发其他机制
+	//在标签中可以使用onclick=function fn();处理事件 addEventLisner比较
+</script>
+</body>
+</html>

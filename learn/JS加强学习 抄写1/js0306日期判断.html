@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//使用数组记录每月的日期，直接使用switch代码较多
+		//前提：用户输入数据合法合理
+		console.log("是否是闰年："+runNian(2018));
+		//闰年函数正确性检验
+		console.log(getDays(2018,12,31) );
+		//主函数
+		function getDays(year, month, day) {
+			var days = day;
+			var months = [31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31];
+			month --;
+			for (var i = 0 ; i < month ; i++ ) {
+				days += months[i];
+			}
+			if (month > 2 && runNian(year)) {
+				days ++;
+			}
+			return days;
+		}
+		//闰年函数
+		function runNian (year) {
+			if ((year % 4 === 0 && year % 100 !== 0)||(year % 400 === 0)) {
+				return true;
+			}
+			return false;
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>

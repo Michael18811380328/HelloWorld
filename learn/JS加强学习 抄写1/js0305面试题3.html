@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		f1();
+		console.log(c);
+		console.log(b);
+		console.log(a);
+	
+	function f1 () {
+		var a = b = c = 9;
+		console.log(a);
+		console.log(b);
+		console.log(c);
+	}
+	//实际上解析过程 99999 a is not defined 
+	function f1 () {
+		var a;
+		a = b = c = 9;
+		// a是局部变量，bc是全局变量；
+		console.log(a);
+		console.log(b);
+		console.log(c);
+	}
+	f1();
+		console.log(c);
+		console.log(b);
+		console.log(a);
+	</script>
+</head>
+<body>
+</body>
+</html>

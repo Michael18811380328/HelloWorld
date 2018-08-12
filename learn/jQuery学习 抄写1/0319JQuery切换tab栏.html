@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {margin:0;padding:0;}
+	div {
+		float:left;
+		position: absolute;
+		display:none;
+	}
+	nav {
+		position:relative;
+		display: block;
+		clear: both;
+		/*子元素新加浮动后，父元素必须去除浮动*/
+	}
+	ul {
+		list-style: none;
+		width:200px;
+	}
+	li {
+		border:1px dashed black;
+		width:50px;
+		display:inline-block;
+		float:left;
+	}
+	.in {
+		display: block;
+	}
+	.liout {
+		border-top:2px solid red;
+		background-color: pink;
+	}
+	</style>
+	<script src="jQuery/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			//窗口函数
+			$("li").mouseenter(function (){
+				//注册鼠标进入事件
+				$(this).addClass("liout").siblings().removeClass("liout");
+				//当前对象增加类，兄弟对象移除类
+				var inx = $(this).index();
+				//提取当前索引
+				$("div").eq(inx).addClass("in").siblings().removeClass("in");
+				//对应索引的div改变样式
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+	<nav>
+		<div><a href="#"><img src="image/H5 game/block1.png" alt="1"></a></div>
+		<div><a href="#"><img src="image/H5 game/block2.png" alt="2"></a></div>
+		<div><a href="#"><img src="image/H5 game/block3.png" alt="3"></a></div>
+	</nav>
+</body>
+</html>

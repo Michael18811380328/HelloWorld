@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="d1">
+	<p id="p1">This is a paragraph.</p>
+	<p id="p2">This is another paragraph.</p>
+	</div>
+
+	<script>
+		// 改变HTML内容
+		document.getElementById("p1").innerHTML = "Bingo";
+		// 改变HTML样式
+		document.getElementById("p1").style.color = "red";
+		// 创建标签、创建节点、链接标签和节点
+		var para = document.createElement("div");
+		var node = document.createTextNode("this is HTML DOM");
+		para.appendChild(node);
+		console.log(node);
+		console.log(para);
+		//将已经创建好的内容增加到已有的文本中
+		var bingo = document.getElementById("p1");
+		bingo.appendChild(para);
+		var br = document.createElement("br");
+		bingo.appendChild(br);
+		bingo.appendChild(br);
+		//输出全部文件内容
+		// document.write(document.body.innerHTML);
+	</script>
+</body>
+</html>

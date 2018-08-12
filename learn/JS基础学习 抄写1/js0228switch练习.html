@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+
+		// 输入五个成绩，判断平均分的段位
+		var one = prompt("please input the grade");
+		var two = prompt("please input the grade");
+		var three = prompt("please input the grade");
+		var four = prompt("please input the grade");
+		var five = prompt("please input the grade");
+
+		//使用math方法计算最值
+		var Max = Math.max(one,two,three,four,five);
+		var Min = Math.min(one,two,three,four,five);
+		alert("最佳成绩为"+Max+"最差成绩为"+Min);
+
+		// 最好使用数组形式叠加计算平均数
+		var Sum = +one + +two + +three + +four + +five;
+		alert("The sum grade is "+Sum);
+		var Ave = Sum / 5;
+		alert("The average grade is "+Ave);
+		Ave = Math.floor(Ave / 10);
+
+		//使用switch函数进行分类,case只能选择一个数字，不能选择范围
+		// 所以必须使用向下取整函数处理
+		switch (Ave) {
+			case 10:
+			alert("great");
+			break;
+			case 9:
+			alert("great");
+			break;
+			case 8:
+			alert("good");
+			break;
+			case 7:
+			alert("good job");
+			break;
+			case 6:
+			alert("just so so");
+			break;
+			default:
+			alert("Your grades are so low!");
+			break;
+		}
+		console.log("程序结束");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

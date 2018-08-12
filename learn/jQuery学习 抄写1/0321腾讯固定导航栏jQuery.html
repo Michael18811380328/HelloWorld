@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<!-- 当滚动栏滚动事件发生执行函数
+	当卷曲的高度大于.top的高度时
+	给导航栏固定定位，同时给主页增加margin-top属性 -->
+	<script>
+		$(function() {
+			$(window).scroll(function() {
+				if ($(window).scrollTop > $(".top").height() + 10) {
+					$(".nav").addClass("fixed");
+					$(".main").css("margin-top",$('#nav').height() + 10);
+				} else {
+					$(".nav").removeClass("fixed");
+					$(".main").css("margin-top",10);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function () {
+
+            var eleNode = document.getElementsByTagName("img")[0];
+
+            //属性、赋值获取两种方式
+            //1.元素节点.属性或者元素节点[属性]
+            eleNode.src = "image/jd2.png";
+            eleNode.aaa = "bbb";
+            console.log(eleNode.aaa);
+            console.log(eleNode.src);
+            console.log(eleNode.tagName);
+            console.log(eleNode["title"]);
+            console.log(eleNode["className"]);
+            console.log(eleNode["alt"]);
+
+            //2.元素节点.方法();
+            console.log(eleNode.getAttribute("id"));
+            eleNode.setAttribute("id","你好");
+            eleNode.setAttribute("ccc","ddd");
+
+            eleNode.removeAttribute("id");
+        }
+    </script>
+</head>
+<body>
+<img src="image/jd1.png" class="box" title="图片" alt="京东狗" id="aaa"/>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="result"></div>
+	<script>
+		//1 get method
+		var xhr = new XMLHttpRequest;
+		xhr.open("get","1.php?name=MichaelAn&age=25&sex=female",true);
+		xhr.send(null);
+		xhr.onreadystatechange = function(){
+			console.log(xhr.status);
+			if (xhr.readyState == 4 && xhr.states == 200){
+				console.log(1);
+				console.log(xhr.responseText);
+			}
+		}
+
+		//2 post method
+		var xhr = new XMLHttpRequest();
+		xhr.open = ("post","2.php");
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.send('name=MichaelAn&age=25&sex=female');
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.states == 200){
+				var result = xhr.responseText;
+				console.log(result);
+			}
+		}
+	</script>
+</body>
+</html>

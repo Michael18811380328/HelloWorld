@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动门测试</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			background-color: rgba(250,250,250,0.9);
+		}
+		div {
+			background-color: pink;
+			width: 400px;
+			height: 400px;
+			margin: 100px auto;
+		}
+		a {
+			display: inline-block;
+			text-decoration: none;
+			height: 200px;
+			/*注意：不能定义宽度，否则滑动门效果失效，使用padding撑开盒子*/
+			padding-left: 15px;
+			/*background-color: red;*/
+			background-image: url(image/door/skipping.png) no-repeat;
+		}
+		a span {
+			/*background-color: skyblue;*/
+			display: inline-block;
+			height: 200px;
+			padding-right: 20px;
+			/*撑开盒子，便于调试*/
+			background-image: url(image/door/skipping.png) no-repeat right;
+			/*a是精灵图左边部分，span是右侧部分*/
+		}
+		div::before {
+			content: "summer";
+			background-color:#ccc;
+			border:1px dashed black;
+			display: inline-block;
+		}
+		/*类选择器和伪类选择器选择具有某一类对象
+		伪元素选择器——新建一个元素（盒子-模型） 默认添加行内元素
+		可以设置内容-元素-边界 不能设置宽度和高度
+		伪元素可以转化为块级元素*/
+	</style>
+</head>
+<body>
+	<div>
+		<a href="#">
+			<span>spring</span>
+		</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		body {
+			background-color: #eee;
+		}
+		table {
+			background-color: pink;
+			background-image: url(image/girl/3.gif);
+			margin: 50px auto;
+			width: 320px;
+			height: 178px;
+			cellpadding:0px;
+			cellspacing: 0px;
+			border: 2px solid dashed black;
+		}
+	</style>
+	<script>
+		//乘法表本质是for双重嵌套
+		var mul=1;
+		for (var i=1 ; i<=9; i++){
+			for (var j=1; j<=i; j++){
+				mul= i*j;
+				console.log(i+"*"+j+"="+mul);
+			}
+		}
+		document.write("<table>");
+	</script>
+</head>
+<body>
+</body>
+</html>

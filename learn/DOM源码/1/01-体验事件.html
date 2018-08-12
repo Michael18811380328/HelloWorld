@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+<script>
+    
+    //体验事件
+    //1.事件源（引发后续事件的标签）
+    //2.事件（js已经定义好，直接使用）
+    //3.事件驱动程序（对样式和html的操作）（DOM操作）
+
+
+    //需求：点击盒子，弹出对话框alert(1)。
+    //步骤：
+    //1.获取事件源（document.getElementById("box")）
+    //2.绑定事件 （事件源.事件 = function(){ 事件驱动程序 }）
+    //3.书写事件驱动程序。
+
+
+    //1.获取事件源（document.getElementById("box")）
+    var div = document.getElementById("box");
+    //2.绑定事件 （事件源.事件 = function(){ 事件驱动程序 }）
+    div.onclick = function () {
+        //3.书写事件驱动程序。
+        alert(1);
+    }
+
+
+
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+
+		//练习一 创建单个对象
+		var hero = new Object();
+
+		//增加属性（特征-名词）
+		hero.name = "Mike";
+		hero.level = 0;
+		hero.diamond = 0;
+
+		//增加行为（方法-动词）
+		//函数表达式-匿名函数
+		hero.moveLeft = function () {
+			console.log("left");
+		}
+		hero.attack = function (name) {
+			console.log(this.name+" attack "+name);
+		}
+			//攻击的对手的名字
+			//this.name表示当前对象hero的名字
+			//this用在当前函数的方法中
+			//第二个name表示对手的名字
+
+		//获取对象的属性值（相当于参数）
+		console.log(hero.name);
+		//此时不能使用this.name
+		
+		//使用对象的方法（相当于函数）
+		hero.attack("John");
+		// 类似于
+		console.log("John");
+		
+
+		//练习二 创建多个对象
+		/**
+		 * 创建学生对象的函数
+		 * @param  {[string]} name [学生姓名]
+		 * @param  {[number]} age  [学生年龄]
+		 * @return {[object]}      [学生对象]
+		 */
+		function createStudentObject(name,age) {
+			var student = new Object();
+			//不同对象属性不同，通过函数参数确定
+			student.name = name;
+			student.age = age;
+			//不同对象方法相同
+			student.sayHi = function() {
+				console.log("Hello！My name is "+ this.name);
+				console.log("I am "+ this.age + " years old.");
+			}
+			return student;
+		}
+		var student1 = createStudentObject("Amy",20);
+		var student2 = createStudentObject("Tom",22);
+		console.log(student1.name);
+		console.log(student2.age);
+		student1.sayHi();
+	</script>
+</head>
+<body>
+</body>
+</html>

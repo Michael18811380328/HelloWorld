@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            margin-top: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 100px;
+            left: 10px;
+            z-index: 1;
+        }
+        img {
+            position: absolute;
+            top: 100px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>动！！！</button>
+    <div></div>
+    <img src="image/mm.png" alt="" width="200px"/>
+
+    <script>
+        //需求：点击按钮，让盒子和图片同事移开，并且，图片压住盒子.
+        var btn = document.getElementsByTagName("button")[0];
+        var div = document.getElementsByTagName("div")[0];
+        var img = document.getElementsByTagName("img")[0];
+
+        //绑定事件
+        btn.onclick = function () {
+            div.style.top = "300px";
+            div.style.left = "300px";
+
+            img.style.top = "300px";
+            img.style.left = "300px";
+            img.style.zIndex = "2";
+        }
+
+    </script>
+
+</body>
+</html>

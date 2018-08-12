@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {margin: 0; padding: 0;}
+	div {width: 1000px; position:relative; margin:0 auto;} 
+	ul {
+		list-style: none;
+		position:absolute;
+		float:left;
+		text-decoration: none;
+	}
+	video {
+		position:absolute;
+		float:left;
+	}
+	ul {
+		font-size: 30px;
+		color:white;
+	}
+	h1 {
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<h1>视频弹幕</h1>
+	<nav>
+		<div>
+			<video src="video/1.mp4" controls autoplay ></video>
+			<ul id="ul">
+				<li></li>
+			</ul>
+		</div>
+	</nav>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="发送弹幕">
+	
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function () {
+			$("#btn").click(function (){
+				//如果输入框文本为空，直接返回
+				if($("#txt").val().trim().length == 0) {
+					return;
+				}
+				//新增节点li将输入框中的文本放到li中
+				$("<li></li>").text($("#txt").val()).prependTo("#ul");
+				$("#txt").val("");
+			})
+		});
+	</script>
+</body>
+</html>

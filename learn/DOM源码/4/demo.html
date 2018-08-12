@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--5秒钟后跳转到新浪！-->
+
+    <button>回退</button>
+
+<script>
+
+//    setTimeout(function () {
+//        location.href = "http://www.sina.com.cn";
+//    },5000);
+
+    var btn = document.getElementsByTagName("button")[0];
+
+    btn.onclick = function () {
+        //回退
+//        history.go(-1);
+        history.back();
+    }
+
+
+</script>
+</body>
+</html>

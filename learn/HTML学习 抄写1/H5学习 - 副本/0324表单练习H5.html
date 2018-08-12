@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0;padding: 0;
+	}
+	.main {
+		width: 30%;
+		height:800px;
+		margin:0 auto;
+	}
+	h1 {
+		text-align: center;
+		margin:10px;
+	}
+	label {
+		height:50px;
+		margin:5px;
+		display:block;
+		box-sizing: border-box;
+	}
+/*	input {
+		width:100px;
+		height:15px;
+	}*/
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h1>学生信息</h1>
+		<form action="result.jsp" id="form1" method="post" name="form1">
+			<fieldset value="学生信息">
+				<label for="">
+					姓名<input type="text" autofocus required>
+				</label>
+				<label for="">
+					手机<input type="number">
+				</label>
+				<label for="">
+					邮箱<input type="email">
+				</label>
+				<label for="">
+					学院<input type="text" list="collage">
+				</label>
+				<datalist id="collage">
+					<option value="java"></option>
+					<option value="Ruby"></option>
+					<option value="C++"></option>
+					<option value="CSS"></option>
+				</datalist>
+				<label for="">
+					成绩<input type="number" min="0" max="100" id="grade">
+				</label>
+				<label for="">
+					<meter min="0" max="100" low="60" high="90" value="30"></meter>
+				</label>
+				<label for="">
+					时间<input type="date">
+				</label>
+				<label for="">
+					填写进度<progress max="100" value="60"></progress>
+				</label>
+				<label for="">
+					<progress>
+				</label>
+				<input type="submit" onclick="submitData()">
+				<input type="reset">
+			</fieldset>
+		</form>
+	</div>
+	<script type="text/javascript">
+		function submitData(){
+			var form = document.getElementById("form1");   
+			//获取id为“form1”表单中所有的属性的数据    
+    		var content = form.elements[0].value;   //获取form表单中第一个元素的值  
+    		alert("姓名:"+content); //就是username的值
+
+			var grades = getElementById('grade').value;
+			console.log(grades);
+		}
+	</script>
+</body>
+</html>

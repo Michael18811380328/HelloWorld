@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        //返回值，清除定时器。
+        var num = 1;
+
+        //setInterval他的返回值就是定时器的名字
+        var timer = setInterval(function () {
+            console.log(num);
+            num++
+            if(num===10){
+                //如何停止定时器呢？？？
+                clearInterval(timer);
+            }
+        },500);
+
+
+    </script>
+</body>
+</html>

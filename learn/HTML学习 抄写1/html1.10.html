@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML第二部分学习</title>
+	<style>
+		table {
+			width:500px;
+			height:500px;
+			background-color: pink;
+			float:right;
+		}
+		div {
+			width:500px;
+			height:500px;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+
+	
+	<script>
+		var table = document.createElement("table");
+		var thead = document.createElement("thead");
+		table.appendChild(thead);
+
+		function c (index){
+			var temp = document.createElement(index);
+			return(temp);
+		}
+		var div = c("div");
+		document.body.appendChild(table);
+		document.body.appendChild(div);
+	</script>
+
+
+
+	<table width="500" height="300" border="2px solid blue" cellspacing="20" cellpadding="20" align="center">
+	
+	<!-- 使用JS或者JQ增加更改表格 -->
+		<caption>演员表</caption>
+		<!-- 表格的标题（放在表格内部） -->
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+			</tr>
+		</thead>
+			<tbody>
+			<tr>
+				<td>小仓唯</td>
+				<td>女</td>
+				<td>24</td>
+			</tr>
+			<tr>
+				<td>牧野由依</td>
+				<td>女</td>
+				<td>28</td>
+			</tr>
+			<tr>
+				<td>桥本田歌</td>
+				<td>女</td>
+				<td>26</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<table width="500" height="300" border="2" cellspacing="2" cellpadding="2" align="center">
+		<!-- 合并单元格：rowspan and column span -->
+		<caption>演员表</caption>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+			</tr>
+		</thead>
+			<tbody>
+			<tr>
+				<td>小仓唯</td>
+				<td>女</td>
+				<td rowspan="2">24</td>
+				<!-- 跨行合并：合并几行属性为多少，在下一行减掉对应的标签；跨列合并：在同一行减掉对应的标签。原则：先上后下先左后右 -->
+			</tr>
+			<tr>
+				<td>牧野由依</td>
+				<td>女</td>
+			</tr>
+			<tr>
+				<td>桥本田歌</td>
+				<td colspan="2">女</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- 表单的学习：表单域（提交信息）+提示内容+表单 -->
+	<!-- input是一个单标签（br/hr/img/base) -->
+	<h3 align="center">I want to learn charts</h3>
+	请输入账户名称
+	<input type="text" value="username"/> 
+	<!-- value=username表示预设文字 -->
+	单行文本框
+	请输入密&nbsp;码
+
+
+	<input type="password" maxlength="6" />
+	性别
+	male <input type="radio" name="sex"/> 
+	female <input type="radio" name="sex"/> 
+	others <input type="radio" name="sex2"> 
+	<br/>
+	<!-- same "names" means one group of choice -->
+
+	hobby: 
+	<input type="checkbox" checked="checked"/> soccer 
+	<input type="checkbox" />basketball 
+	<input type="checkbox" /> tennis
+
+
+	<h3 align="center">button study</h3>
+	search: 
+	<input type="button" value="search"/>
+	<input type="submit" /> <input type="reset" />
+	<input type="image" src="image/banner_girl.gif" />
+	
+	<!-- 图像按钮-设计图像 -->
+	文件上传：<input type="file" />
+	<!-- 文件上传按钮 -->
+	lable 标签的使用,直接点击表单文字即可完成输入 
+	<label> 请输入文字 <input type="text"/> </label>
+	<label> 请输入文字 <input type="text"/> </label>
+	<label for="to"> 请输入文字 <input type="text"/> <input type="text" id="to"/></label>
+	<hr />
+	<h3 align="center">文本域的使用</h3>
+	<textarea rows="10" cols="50"> </textarea>
+	实际上通过CSS控制结构和样式（留言框的长宽）没有必要再HTML中控制行列情况
+	
+	select 多选菜单使用
+	选择你的城市
+	<select>
+		<option>Tokyo</option>
+		<option>New York</option>
+		<option selected="selected">Beijing</option>
+	</select>
+	<input type="submit" />
+	
+	
+	<h3 align="center">表单域</h3>
+	<form action="www.baidu.php" method="get" name="usermessage">
+		<!-- action需要提交后台，method有get和post两个状态，使用Ajax控制 -->
+		search: 
+		<input type="button" value="search"/>
+		<input trpe="text" />
+		<input type="submit" /> <input type="reset" />
+	</form>
+
+	<header>定义页眉</header>
+	<nav>定义导航区</nav>
+	<footer>定义页脚</footer>
+	<article>定义文章</article>
+	<section>定义区块</section>
+	<aside>定义侧旁栏</aside>
+
+
+	<h3 align="center" >datalist and input using</h3>
+	
+	<input type="text" value="please enter" list="star" />
+	<datalist id="star" >
+		<option>APPLE</option>
+		<option>ORANGE</option>
+		<option>BANANA</option>
+		<option>BARBEQUE</option>
+	</datalist>
+	
+	<!-- use list and id to connect datalist and input -->
+	<h3 align="center" > how to use submit and reset buttons?</h3>
+	
+	<input type="submit" />
+	<input type="reset" />
+	
+	<hr />
+	try your best to learn coding
+	<h3>how to use fieldset and legend</h3>
+	<fieldset align="center" >
+		<legend>user information</legend>
+		<input type="text" value="vacant" />
+		<input type="password" value="I know" maxlength="6"/>
+		<input type="submit" />
+	</fieldset>
+	
+	<!-- input 新增属性 -->
+	<fieldset>
+		<legend>new input type</legend>
+		<form action="XXX.php">
+			please input your email address<input type="email" />
+			please input your phone number<input type="number" />
+			please input network address<input type="address" />
+			please search <input type="search" />
+			<!-- 普通的文字写错必须一个一个删除，搜索框直接点击错号就能全部删除 -->
+			you can control volumn <input type="range" />
+			
+			please choose color<input type="color" />
+			<!-- time-date-week-datetime 其他标签在官网查询最新标签-->
+			<input type="submit" />
+	</fieldset>
+</body>

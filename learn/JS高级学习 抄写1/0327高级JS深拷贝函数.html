@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- 很重要 -->
+</head>
+<body>
+	<script>
+		var deepCopy = function (){
+			// 1新建空对象
+			var temp = {};
+			// 2 遍历对象的属性和方法
+			for(var k in this) {
+				// 如果对象中某个属性是对象,继续调用deepCopy函数(递归)
+				if ( typeof this[k] === 'object'){
+					temp[k] = this[k].deepCopy();
+				} 
+				// 如果对象中是值类型,直接拷贝
+				else {
+					temp[k] = this[k];
+				}
+			}
+			// 返回新建的对象
+			return temp;
+		}
+		var car = {name:"porsche"};
+		var p = {name:"Mike",car:car};
+
+		// 错误的写法：返回的是函数的结果，实际上要求将函数给到对象中
+		// car.deepCopy = deepCopy();
+		// p.deepCopy = deepCopy();
+		
+		// 正确的写法,将deepCopy放入每一个对象中。
+		car.deepCopy = deepCopy;
+		p.deepCopy = deepCopy;
+
+		// 调用对象的deepCopy方法深拷贝对象
+		var p1 = p.deepCopy();
+		p.car.name = "BMW";
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>exercise</title>
+	<script type="text/javascript">
+		//练习一 简单四则运算（运算符优先级）直接量 输出
+		var a = (123+45*78)/(34+543)-9*(324-34);
+		console.log(a);
+		//练习二 温度转换（数据输入输出、隐式转换）
+		var b = prompt("请输入摄氏度！");
+		var c = b * 9 / 5 +32;
+		alert("实际的华氏度是"+c);
+		//练习三：指数运算，调用math方法
+		var d = Math.pow((23+Math.pow(5,7))/45,2);
+		console.log(d);
+		//练习四：计算六边形的面积
+		var length = prompt("请输入六边形边长！");
+		var S = Math.pow(3,3/2)/2*Math.pow(length,2);
+		alert("六边形的面积是"+S);
+		// 练习五：今天是星期某，1000天后是周几？
+		// 自己扩展面对周日输出使用判断
+		var today = prompt("请输入今天是周几");
+		var day = ( 1 + 1*today) % 7;
+		if(day == 0) {
+			alert("1天后是周日");
+		}
+		else {
+			alert("1天后是周"+day);
+		}
+		// 练习六：计算一个三位数的每一个数的和（向下取整函数）
+		var number = prompt("请输入一个三位数");
+		console.log(Math.floor(number/100)+Math.floor(number%100/10)+number%10);
+	</script>
+</head>
+<body>
+</body>
+</html>

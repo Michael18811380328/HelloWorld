@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2 id="para">时间开始</h2>
+	<input type="button" onclick="change()" value="开始"/>
+	<script>
+		var i = 0;
+		var t;
+		function change() {
+			document.getElementById("para").innerHTML = i;
+			i++;
+			t = setTimeout("change()", 1000);
+		}
+		//注意setTimeout函数中参数代码需要加引号！
+		//setTimeout自身就是根据时间执行，使用函数递归相当于循环，不需要继续使用for循环。函数不需要设置返回值，直接自己调用自己即可，每一秒调用一次函数。
+	</script>
+</body>
+</html>

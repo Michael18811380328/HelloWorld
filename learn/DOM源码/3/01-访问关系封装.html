@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 5px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li id="box"></li>
+        <li></li>
+        <li></li>
+    </ul>
+<script src="tools.js"></script>
+<script>
+
+    //获取box改为red
+    var box = getEle("box");
+    box.style.backgroundColor = "red"
+
+    //获取第一个和最后一个子节点
+    var parent = box.parentNode;
+    getFirstNode(parent).style.backgroundColor = "yellow";
+    getLastNode(parent).style.backgroundColor = "yellow";
+
+    //获取上一个和下一个兄弟节点
+    getNextNode(box).style.backgroundColor = "blue";
+    getPrevNode(box).style.backgroundColor = "blue";
+
+
+    //指定兄弟节点
+    getEleOfIndex(box,0).style.backgroundColor = "green";
+    getEleOfIndex(box,1).style.backgroundColor = "green";
+
+    //获取所有的兄弟节点（返回值是数组，所以用for循环操作）
+    var arr = getAllSiblings(box);
+    for(var i=0;i<arr.length;i++){
+        arr[i].style.backgroundColor = "black";
+    }
+
+//    //父节点
+//    div.parentNode;
+//
+//    //访问兄弟节点
+//    div.previousSibling;
+//    div.previousElementSibling;
+//    div.nextSibling;
+//    div.nextElementSibling;
+//
+//    //访问单个子节点
+//    div.firstChild;
+//    div.firstElementChild;
+//    div.lastChild;
+//    div.lastElementChild;
+//
+//
+//    //获取所有子节点
+//    div.childNodes;
+//    div.children;
+//
+//
+//    //获取指定的兄弟节点
+//    div.parentNode.children[index];
+//
+//    //获取所有的兄弟节点（返回值是一个数组）
+//    function fn(ele){
+//        //定义一个新数组，装所有的兄弟元素，将来返回
+//        var newArr = [];
+//        var arr = ele.parentNode.children;
+//        for(var i=0;i<arr.length;i++){
+//            //判断，如果不是传递过来的元素本身，那么添加到新数组中。
+//            if(arr[i]!==ele){
+//                newArr.push(arr[i]);
+////                newArr[newArr.length] = arr[i];
+//            }
+//        }
+//        return newArr;
+//    }
+
+</script>
+</body>
+</html>

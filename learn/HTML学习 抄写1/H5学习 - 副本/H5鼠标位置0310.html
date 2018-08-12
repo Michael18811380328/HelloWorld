@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<style type="text/css"> 
+		* {margin: 0; padding:0;}
+		#coordiv {
+			float:left;
+			width:500px;
+			height:500px;
+			border:1px solid red;
+		}
+	</style>
+		
+	<script type="text/javascript"> 
+		function cnvs_getCoordinates(e) {
+		x=e.clientX;
+		y=e.clientY;
+		document.getElementById("xycoordinates").innerHTML="Coordinates: (" + x + "," + y + ")";
+		}
+		// 获取x和y的坐标并且写出来
+ 
+		function cnvs_clearCoordinates() {
+			document.getElementById("xycoordinates").innerHTML="请移动鼠标到内部";
+			}
+		//鼠标移出去清除坐标信息
+	</script>
+</head>
+
+	<body>
+		<h3>把鼠标悬停在下面的矩形上可以看到坐标：</h3>
+		<div id="coordiv" 
+		onmousemove="cnvs_getCoordinates(event)" 
+		onmouseout="cnvs_clearCoordinates()">
+		<!-- 鼠标内部外部分别调用函数 -->
+	</div>
+		<div id="xycoordinates"></div>
+</body>
+</html>

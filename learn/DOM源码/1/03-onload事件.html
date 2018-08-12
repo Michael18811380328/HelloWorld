@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--<img src="image/1.jpg" alt=""/>-->
+
+
+<script>
+
+    //什么条件下触动这个事件呢？页面加载（文本和图片）完毕的时候。
+    //用途
+    //js的加载时和html同步加载的。（如果使用元素在定义元素之间，容易报错。）
+    //整个页面上所有元素加载完毕在执行js内容
+    //window.onload可以预防使用标签在定义标签之前。
+    window.onload = function () {
+        var aaa = document.getElementById("box");
+        console.log(aaa);
+        aaa.style.width = "100px";
+    }
+
+//    var aaa = document.getElementById("box");
+//    console.log(aaa);
+//    aaa.style.width = "100px";
+
+</script>
+
+<div id="box"></div>
+
+
+</body>
+</html>

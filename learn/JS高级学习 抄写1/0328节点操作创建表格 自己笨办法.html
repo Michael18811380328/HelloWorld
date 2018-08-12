@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 自己的笨办法 -->
+	<script>
+		window.onload = function () {
+			//创建表格节点
+			var tableTag = document.createElement("table");
+			document.body.appendChild(tableTag);
+
+			// 创建行节点
+			for(var i = 0 ; i < 3; i ++){
+				var trTag = document.createElement("tr");
+				var table = document.getElementsByTagName('table')[0];
+				table.appendChild(trTag);
+			}
+
+			// 创建列节点
+			for(var i = 0 ;i < document.getElementsByTagName('tr').length; i++) {
+				for (var j = 0 ; j < 4; j++) {
+					var tdTag = document.createElement("td");
+					var tr = document.getElementsByTagName('tr')[i];
+					tr.appendChild(tdTag);
+				}
+			}
+			
+			// 设置表格整体属性(不好)
+			var tablestyle = document.getElementsByTagName("table")[0];
+			tablestyle.setAttribute("style","width:300px; height:300px; border:1px solid black;margin: 0 auto; background-color:pink;border-collapse: collapse");
+
+			var tdstyle = document.getElementsByTagName("td");
+			for(j = 0 ; j< tdstyle.length; j++ ) {
+				tdstyle[j].setAttribute("style","border:1px solid black; padding:0");
+			}
+		}
+	</script>
+	
+	<!-- 标准答案 -->
+	<script>
+		onload = function(){
+			function c (tag){
+				return document.createElement(tag);
+			}
+
+			var table = c("table");
+			var tbody = c("tbody");
+			table.appendChild(tbody);
+
+			for (var i = 0 ; i < 4 ; i ++){
+				var tr = c("tr");
+				for (var j = 0 ; j < 3; j ++){
+					var td = c("td");
+					var txt = document.createTextNode(" ");
+					td.appendChild(txt);
+					tr.appendChild(td);
+
+					td.width = 200;
+					td.height = 50;
+				}
+				tbody.appendChild( tr );
+			}
+			table.setAttribute("border","1");
+			document.body.appendChild(table);
+		};
+	</script>
+
+</body>
+</html>

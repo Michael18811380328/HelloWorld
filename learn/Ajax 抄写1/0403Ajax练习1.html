@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		h3 {
+			font-size:30px;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<h3>XMLHttpRequest</h3>
+	<p id="result"></p>
+	<script>
+		// 实例化一个对象，并返回一个对象实例，这个对象实例提供一些方法
+		var xhr = new XMLHttpRequest();
+		console.log(xhr.readyState);
+
+		// 设置请求行
+		xhr.open("post","1.php");
+		// 请求行有三个参数，请求方法，请求地址URL，请求格式（http1.1）
+		console.log(xhr.readyState);
+
+		// 设置请求头（键值对）
+		xhr.setRequestHeader("Content-type","application/x-www/form-urlencoded");
+		// post方法具有请求头，这部分是固定的
+		console.log(xhr.readtState);
+
+		// 设置请求主体（key-value&key-value）
+		xhr.send("username=anbing&pass=123");
+
+		// 接收服务器响应（监听并处理响应结果，由于网络原因，响应并不能马上完成）
+		xhr.onreadystatechange = function(){
+			console.log(xhr.readyState);
+
+			// 响应主体
+			if(xhr.readyState == 4){
+				console.log(xhr.reponseText);
+				document.querySelector("#result").innerHTML = xhr.responseText;
+			}
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div>
+		<li>第1个</li>
+		<li>第2个</li>
+		<li>第3个</li>
+		<li>第4个</li>
+		<li>第4个</li>
+		<li>第5个</li>
+		<li>第6个</li>
+		<li>第7个</li>
+		<li>第8个</li>
+		<li>第9个</li>
+	</div>
+	<script>
+		var $lis = $("li");
+		console.log($lis);
+		for (var i = 0 ; i < $lis.length ; i++) {
+			if (i % 2 == 0 ) {
+				$lis[i].style.backgroundColor = "red"
+			} else {
+				$lis[i].style.backgroundColor = "blue"
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		//冒泡排序法 计算内循环和外循环次数
+		//方法一
+		var array = [1,2,4,5,2,1,6,8,2,6,3,6,4,9];
+		//默认第一项是最小值,number1和2分别是内外循环的次数
+		var tem ;
+		var number1 = 0 , number2 = 0 ;
+		for (i = 0 ; i < array.length ; i++) {
+			var sort = true;
+			for (j = 1 ; j < array.length - i ; j++) {
+				if (array[j] < array[j-1] ) {
+					tem = array[j-1];
+					array[j-1] = array[j];
+					array[j] = tem;
+					sort = false;
+				}
+				number1 ++;
+			}
+			number2 ++;
+			//如果没有继续变换位置，直接终止循环。
+			if (sort) {
+					break;
+				}
+		}
+		console.log(array);
+		console.log("数组的长度为"+array.length);
+		console.log("内循环的次数为"+number1);
+		console.log("外循环的次数为"+number2);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

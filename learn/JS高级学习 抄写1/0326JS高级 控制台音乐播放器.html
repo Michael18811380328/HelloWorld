@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<audio src="music/1.mp3" autoplay controls id="music"></audio>
+	<ol></ol>
+	<script>
+		//不清楚什么原因一直无法自动播放，到最后自动停止了——音乐设置loop自动播放，不会触发onended事件，现在的问题是事件能否一直触发？第二次播放音乐后不会触发事件？
+		var audio = document.getElementById('music');
+		var musics = ["music/2.mp3","music/3.mp3","music/4.mp3","music/5.mp3"];
+		//初始化列表
+		var list =document.createElement("ol");
+		for (var i = 0 ; i < musics.length ; i++){
+			var li = document.createElement("li");
+			li.innerHTML = musics[i];
+			list.appendChild(li);
+		}
+
+		var index = 0;
+		//添加事件
+		audio.onended = function() {
+			list.childNodes[index].className = '';
+			if (index + 1 >= musics.length) {
+				index = 0;
+			} else {
+				index++;
+			}
+			this.src = musics[index];
+			list.childNodes[ index ].className = 'select';
+		};
+		// 添加样式和src
+		list.firstChild.className = 'select';
+		audio.src = musics[index];
+		//将列表加入页面
+		document.body.appendChild(list);
+	</script>
+</body>
+</html>

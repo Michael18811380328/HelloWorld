@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {margin: 0;padding: 0;}
+	ul {list-style: none;}
+	div {
+		width:1200px;
+		height:500px;
+		border:2px solid black;
+		margin:50px auto;
+		overflow: hidden;
+	}
+	li {
+		width:240px;
+		height:500px;
+		float:left;
+		display:inline-block;
+		opacity:0.8;
+	}
+	</style>
+</head>
+<body>
+	<div id="cor">
+		<ul id="cor-ul">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			// 1给定li背景颜色
+			var colors = ["red","blue","yellow","green","purple"];
+			console.log($(colors));
+			var $li = $("#cor-ul li");
+
+			$li.each(function(index,e){
+				$(e).css("backgroundColor",colors[index]);
+			});
+			// 2注册鼠标经过事件
+			$li.mouseenter(function (){
+				$(this).stop().animate({width:800}).siblings().stop().animate({width:100});
+			});
+			// 3注册鼠标移除事件
+			$li.mouseleave(function (){
+				$li.stop().animate({width:240});
+			});
+			// 4封装（参数）
+			
+		});
+	</script>
+</body>
+</html>

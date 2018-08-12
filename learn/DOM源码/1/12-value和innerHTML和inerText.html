@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--<input type="button" value="我是input中的button"/>-->
+<!--<button>我是button</button>-->
+<input id="inp1" type="text" value="我是inpput的value属性值"/>
+
+<div id="box1">
+    我是box1的内容
+    <div id="box2">我是box2的内容</div>
+</div>
+
+<div id="box3">
+    我是box1的内容
+    <div id="box4">我是box2的内容</div>
+</div>
+
+
+<script>
+
+    //value：标签的value属性。
+    console.log(document.getElementById("inp1").value);
+
+    //innerHTML：获取双闭合标签里面的内容。（识别标签）
+    console.log(document.getElementById("box1").innerHTML);
+    document.getElementById("box1").innerHTML = "<h1>我是innerHTML</h1>";
+
+    //innerText：获取双闭合标签里面的内容。（不识别标签）（老版本的火狐用textContent）
+    console.log(document.getElementById("box3").innerText);
+    document.getElementById("box3").innerText = "<h1>我是innerText</h1>";
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//要求：给出年月日，计算这是当年的第几天？
+		//年函数：是否是闰年？（如果是闰年，月份大于3，最后结果+1）
+		//月函数：月份减一 使用switch——case函数，调用大月函数小月函数计算
+			//大月函数+小月函数
+		//日函数
+		var year = prompt("请输入年");
+		var month = prompt("请输入月");
+		var date = prompt("请输入日");
+		
+		year = 1 * year;
+		month = 1 * month;
+		date = 1 * date;
+
+		console.log ( getDay(year,month,date) );
+		alert ( year+"年"+month+"月"+date+"日");
+		alert ( "今天是第"+getDay(year,month,date)+"天");
+
+		function getDay (year, month ,date) {
+			//转化为数值合法值
+			year = year || 0;
+			month = month || 1;
+			date = date || 1;
+			
+			//判断输入数据范围
+			
+			//如果月份大于12或者日期大于31，提示错误。
+			if (month > 12 || date > 31) {
+				alert("error");
+			}
+			// 2月没有30日，提示错误
+			if (month == 2 && date == 30) {
+				alert("error");
+			}
+			// 闰年2月没有29日，提示错误
+			if ((getYear(year) == 1) && month == 2 && date == 29) {
+				alert("error");
+			}
+			//小月没有31日 提示错误
+			if ( ((month == 4)||(month == 6)||(month == 9)||(month == 11))&&(date == 31) ) {
+				alert("error");
+			}
+
+			// 以上判断通过后计算天数
+			var day = 0;
+			if (getYear(year) == 1 && month > 2) {
+				day = getYear(year)+ getMonth(month) + getDate(date);
+			}else {
+				day = getMonth(month) + getDate(date);
+			}
+			return day;
+		}
+
+		function getYear(year) {
+			//判断是否是闰年，闰年返回1 ，平年返回0.
+			if ( ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+
+		function getMonth(month) {
+			//计算月份对应的天数
+			//不能计算当月数据
+			var sum = 0 ;
+			switch(month) {
+				case 1 :
+				sum = 0;
+				break;
+				case 2 :
+				sum = gerLarge();
+				break;
+				case 3 :
+				sum = 28 + gerLarge();
+				break;
+				case 4 :
+				sum = 28 + 2 * gerLarge();
+				break;
+				case 5 :
+				sum = 2 * gerLarge() + gerSmall() + 28;
+				break;
+
+
+				case 6 :
+				sum = 3 * gerLarge() + gerSmall() + 28;
+				break;
+				case 7 :
+				sum = 3 * gerLarge() + 2*gerSmall() + 28;
+				break;
+				case 8 :
+				sum = 4 * gerLarge() + 2*gerSmall() + 28;
+				break;
+				case 9 :
+				sum = 5 * gerLarge() + 2*gerSmall() + 28;
+				break;
+
+
+				case 10 :
+				sum = 5 * gerLarge() + 3*gerSmall() + 28;
+				break;
+				case 11 :
+				sum = 6 * gerLarge() + 3*gerSmall() + 28;
+				break;
+				case 12 :
+				sum = 6 * gerLarge() + 4*gerSmall() + 28;
+				break;
+			}
+			return sum;
+		}
+				function gerLarge() {
+					return 31;
+				}
+				function gerSmall() {
+					return 30;
+				}
+
+		function getDate(date) {
+			return date;
+		}
+
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 要求：新建一个div，填入内容，并更改样式，不使用jq -->
+	<script>
+		//面向过程的思路
+		//创建一个div
+		var div = document.createElement("div");
+		//寻找body节点并加入子节点，设置div的样式
+		document.body.appendChild(div);
+		div.style.border = "1px solid red";
+		div.style.width = "100px";
+		div.style.height = "100px";
+	</script>
+	<script>
+		var br = document.createElement("br");
+		document.body.appendChild(br);
+
+		var span = document.createElement("span");
+		document.body.appendChild(span);
+		span.style.backgroundColor = "#097532";
+		span.style.border = "2px solid black";
+		span.innerHTML = "Hello,today is Sunday";
+		span.style.color = "white";
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//传统方法
+		var arr7 = [];
+		var isover = false;
+		var arr = [
+		[1,2,3,4],
+		[5,6,7,8],
+		[9,10,11,12]
+		];
+		for (i = 0 ; i < arr.length; i ++){
+			for (j = 0 ; j < arr[0].length ; j ++){
+				if (arr[i][j] == 7){
+					i ++;
+					j ++;
+					arr7.push(i);
+					arr7.push(j);
+					isover = true;
+					break;
+					//跳出第一层循环
+				}
+			}
+			if (isover){ break; }
+			//跳出第二层循环
+		}
+
+		//标记语言直接跳出循环
+		var arr7 = [];
+		var arr = [
+		[1,2,3,4],
+		[5,6,7,8],
+		[9,10,11,12]
+		];
+		anbing:for (i = 0 ; i < arr.length; i ++){
+			for (j = 0 ; j < arr[i].length ; j ++){
+				if (arr[i][j] == 7){
+					i ++;
+					j ++;
+					arr7.push(i);
+					arr7.push(j);
+					break anbing;//直接跳出双重或者多重循环
+				}
+			}
+		}
+		//在JS中，标记语言用处主要为多重循环的break和continue；
+	</script>
+</body>
+</html>

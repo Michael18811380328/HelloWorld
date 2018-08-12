@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .site-nav {
+            height: 30px;
+            background-color: #ccc;
+        }
+        .top-banner {
+            background-color: blue;
+        }
+        .w {
+            width: 1210px;
+            height: 80px;
+            background-color: pink;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search {
+            width: 1210px;
+            height: 80px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        a {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+</head>
+<body>
+    <div class="site-nav"></div>
+    <div class="top-banner" style="opacity: 1">
+        <div class="w">
+            <a href="#">×</a>
+        </div>
+    </div>
+    <div class="search">
+
+        <script>
+            //需求：点击关闭按钮，先让top-banner这个盒子透明度变为0，紧接着display：none;
+            //步骤：
+            //1.获取事件源
+            //2.绑定事件
+            //3.书写事件驱动程序（定时器，透明度变为0，清除定时器，并隐藏盒子）
+
+
+            //1.获取事件源
+            var topBaner = document.getElementsByClassName("top-banner")[0];
+            var a = topBaner.children[0].firstElementChild || topBaner.children[0].firstChild ;
+            //定义定时器
+            var timer = null;
+            //2.绑定事件
+            a.onclick = function () {
+                //3.书写事件驱动程序（定时器，透明度变为0，清除定时器，并隐藏盒子）
+                timer = setInterval(function () {
+                    topBaner.style.opacity -= 0.1;
+                    if(topBaner.style.opacity<0){
+                        topBaner.style.display = "none";
+                        clearInterval(timer);
+                    }
+                },50);
+            }
+
+
+        </script>
+</div>
+</body>
+</html>

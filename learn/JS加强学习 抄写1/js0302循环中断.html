@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//计算1-1000内不能被7整除的数的和，如果和大于500终值并输出和
+		for (var i = 1 , sum = 0 ; i <=1000; i++) {
+			if(i % 7 == 0) {
+				continue;
+				//如果是7的倍数，直接跳出本次循环
+			}
+			sum += i;
+			if (sum > 500) {
+				console.log(sum+"\n"+i);
+				break;
+				//如果和大于500，直接终值循环
+			}
+		}
+		alert("over");
+	</script>
+</head>
+<body>
+</body>
+</html>

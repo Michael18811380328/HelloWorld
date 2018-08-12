@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function DivTag() {
+			this.DOM = document.createElement("div");
+			this._add = function(node) {
+				node.appendChild(this.DOM);
+				return this;
+			};
+			this.css = function(option) {
+				for (var k in option){
+					this.DOM.style[ k ] = option[ k ];
+				}
+				return this;
+			};
+		}
+
+		//for-in用于循环遍历对象的属性（array中有length属性）遍历的是color而不是pink
+
+		var div = new DivTag();
+		div._add(document.body);
+		div.css({
+			"border":"2px solid red",
+			"width":"100px",
+			"height":"200px",
+			"backgroundColor":"blue"
+		});
+		//直接传入对象设置属性
+		new DivTag()._add( document.body ).css({
+			"border":"1px solid green",
+			"width":"200px",
+			"height":"100px",
+			"backgroundColor":"skyblue"
+		});
+		//如果设置返回值，直接使用链式编程，依次设置对象的方法和属性
+	</script>
+</body>
+</html>

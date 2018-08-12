@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div {height: 200px;margin-bottom: 10px;background-color: pink;display:none;}
+	/*预设div属性display：none*/
+	</style>
+</head>
+<body>
+	<script src="jQuery/jquery-3.3.1.min.js"></script>
+	<!-- 第一步：载入jQuery文件 -->
+	<script>
+		// 第二步：入口函数标准-匿名函数
+		$(document).ready(function() {
+			// 注册事件（去掉on是一个方法）
+			$("#btn1").click(function() {
+				$("div").show();
+			});
+			$("#btn2").click(function(){
+				$("div").text("hello");
+			})
+		});
+	</script>
+	<input type="button" id="btn1" value="start">
+	<input type="button" id="btn2" value="word">
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

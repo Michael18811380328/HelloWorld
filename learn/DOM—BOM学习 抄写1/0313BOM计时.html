@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" onclick="time()" value="开始计时" id="input1"/>
+	<input type="button" onclick="timeend()" value="结束计时" id="input2"/>
+	<script>
+		var t;
+		var i = 0;
+		function time() {
+			t = setTimeout("changeColor()",1000);
+		// 一秒后执行函数changeColor
+		}
+		function changeColor() {
+			var arr = ['red','green','blue','purple','black','brown','white'];
+			document.body.style.backgroundColor = arr[i];
+			i++;
+		}
+		function timeend() {
+			clearTimeout(t);
+		}
+	</script>
+</body>
+</html>

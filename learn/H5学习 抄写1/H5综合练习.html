@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>综合练习</title>
+	<style>
+	label {
+		display: inline-block;
+	}
+	</style>
+</head>
+<body>
+	
+	<!-- 新增H5表单 -->
+	<label for="#">
+		<input type="text" name="name">
+		<input type="text" name="course">
+		<input type="submit" value="submit">
+		<input type="reset" value="reset">
+
+		encryption:
+		<keygen name="security" />
+	</label>
+
+	<datalist id="course">
+		<option value="PHP"></option>
+		<option value="java"></option>
+		<option value="HTML"></option>
+		<option value="python"></option>
+	</datalist>
+
+	<output>输出结果</output>
+
+	<label for="#">
+		<meter min="0" max="100" low="60" high="90" value="30"></meter>
+		<progress value="90" max="100"></progress>
+	</label>
+	
+	<!-- 新增H5表单 -->
+	<fieldset>
+		<legend>个人信息</legend>
+
+		<label for="#">
+			<select name="choose" id="chooseperson">
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C">C</option>
+			</select>
+		</label>
+		<label>
+			<input type="text">
+			<input type="number">
+			<input type="email">
+			<progress></progress>
+			<input type="submit" onclick="submitDate()">
+			<input type="reset">
+		</label>
+
+	</fieldset>
+	
+	<script>
+	// 提交表单部分
+	function submitData(){
+		var form = document.getElementById('form1');
+		var content = form.elements[0].value;
+		var grades = getElementById('grade').value;
+		console.log(grades);
+		// 获得表单value
+	}
+	</script>
+
+
+
+
+	<!-- 图片拖动效果 -->
+	<style>
+	#div1, #div2 {
+		float: left;
+		width: 198px;
+		height: 66px;
+		margin: 10px;
+		padding: 10px;
+		border:1px solid red;
+	}
+	</style>
+	<script>
+		// 设置元素可拖动，拖动后的元素执行函数，接受区域执行函数，拖动后执行函数，拖动元素不执行默认动作
+		function allowDrop(event) {
+			event.preventDefault();
+		}
+		function drag(event) {
+			event.dataTransfer.setData("Text",event.target.id);
+		}
+		function drop(event) {
+			event.preventDefault();
+			var data = event.dataTransfer.getData("Text");
+			event.target.appendChild(document.getElementById(data));
+		}
+	</script>
+
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<img src="#" alt="#" draggable="true" ondragstart="drag(event)" id="drag1" width="100px" />
+	</div>
+	<div id="div2" ondrop="drop(event)" ondragover="allowDrap(event)"></div>
+</body>
+</html>
+
+
+<!-- 画布 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<canvas width="1000px" height="500px" style="border:1px solid black;" id="myCanvas"></canvas>
+	<script>
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.rect(100,100,100,100);
+		ctx.fillStyle = "#ccc";
+		ctx.fill();
+
+		ctx.strokeStyle = "#222";
+		ctx.closePath();
+
+		ctx.beginPath();
+		ctx.moveTo(100,100);
+		ctx.lineTo(100,200);
+		ctx.strokeStyle = "#ab0";
+		ctx.stroke();
+		ctx.closePath();
+
+		ctx.beginPath();
+		ctx.arc(400,400,50,0,Math.PI,true);
+		ctx.closePath();
+		ctx.strokeStyle = "red";
+		ctx.stroke();
+
+	</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mycanvas</title>
+</head>
+<body>
+	<canvas width="1000px" height="500px" id="mycanvas" onmousemove="mouseEnter(event)" onmouseleave="mouseLeave(event)"></canvas>
+	<h2 id="word"></h2>
+
+	<script>
+		(function(){
+			var c = document.getElementById('mycanvas');
+			var ctx = c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(200,200,100,0,Math.PI*2,true);
+			ctx.fillStyle = "blue";
+			ctx.fill();
+			ctx.closePath();
+
+			ctx.beginPath();
+			ctx.arc(200,200,70,0,Math.PI*2,true);
+			ctx.fillStyle = "orange";
+			ctx.fill();
+			ctx.closePath();
+
+			ctx.beginPath();
+			ctx.arc(200,200,50,0,Math.PI*2,true);
+			ctx.fillStyle = "yellow";
+			ctx.fill();
+			ctx.closePath();
+
+		})();
+
+		var d = document.getElementById('mycanvas');
+		function mouseEnter(event){
+			var x = event.clientX;
+			var y = event.clientY;
+			document.getElementById('word'),innerHTML = "X的坐标是"+x+"Y的坐标是"+y;
+			d.classList.add('active');
+		}
+		function mouseLeave(event){
+			document.getElementById('word').innerHTML = "未知未知";
+			d.classList.remove("active");
+		}
+	</script>
+</body>
+</html>
+
+
+<!-- 音频视频及控件设置 -->
+
+<!-- 鼠标样式的改变 -->
+<!-- 方法一：css-hover -->
+<!-- 方法二：JS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="first" onmouseover="mousein(this)" onmouseout="mouseout(this)"></div>
+	<script>
+		function mousein(ev) {
+			ev.innerHTML = "come in";
+			ev.style.background = "pink";
+			ev.style = "pointer";
+		}
+		function mouseout(ev){
+			ev.innerHTML = "come out";
+			ev.style.background = "blue";
+			ev.style.cursor = "wait";
+		}
+	</script>
+</body>
+</html>
+
+<!-- 鼠标位置 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>position</h3>
+	<div id="box" onmousemove="move(event)" onmouseout="out(event)"></div>
+	<div id="xybox"></div>
+	<script>
+		window.onload = function(){
+			function move(ev){
+				var x = ev.clientX;
+				var y = ev.clientY;
+				document.getElementById('box').innerHTML ="坐标"+x+y;
+			}
+			function out(ev){
+				document.getElementById('box').innerHTML = "please";
+			}
+		}
+	</script>
+</body>
+</html>

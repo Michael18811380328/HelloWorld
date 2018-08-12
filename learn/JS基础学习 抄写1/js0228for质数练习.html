@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		console.log("1是一个质数");
+		console.log("2是一个质数");
+		console.log("3是一个质数");
+		for (var num=1000000; num<=1000100; num++) {
+				//判断num是否是质数
+			for (i=2; i<=Math.floor(num/2);i++){
+				if (num % i == 0){
+					//console.log(num+"不是质数");
+					break;
+				}
+				if (i ==Math.floor(num/2)){
+					console.log(num+"是一个质数");
+				}
+				//注意统一用英文符号，括号相对应
+				//否则出现bug-Uncaught SyntaxError: Unexpected token
+			}
+		}
+		console.log("程序结束");
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {margin: 0px; padding:0px;}
+		div {padding: 100px;}
+		ul {font-size:20px;list-style: none;width:40%;text-align: center;background-color: rgba(200,200,200,0.8)}
+		ul:first-child {
+			float:left;
+		}
+		ul:last-child {
+			float:right;
+		}
+		li {font-size:16px;list-style: none;display: none;line-height: 30px;text-align: center;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>主要菜单
+			<li>设置下拉菜单</li>
+			<li>设置下拉菜单</li>
+			<li>设置下拉菜单</li>
+		</ul>
+		<ul>主要菜单
+			<li>设置下拉菜单</li>
+			<li>设置下拉菜单</li>
+			<li>设置下拉菜单</li>
+		</ul>
+	</div>
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<script>
+		$( function() {
+			$("ul").mouseover( function() {
+				$(this).children().show(1000);
+			})
+			$("ul").mouseout( function() {
+				$(this).children().hide();
+			})
+		})
+	</script>
+</body>
+</html>

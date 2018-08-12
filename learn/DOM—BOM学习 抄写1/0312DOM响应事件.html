@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 通过点击按钮，执行函数，更改页面背景颜色 -->
+	<input type="button" onClick="changeColor()" value="change background color">
+	<br>
+	<input type="button" onClick="changeButtonColor()" value="change button color" id="button1" >
+	<script>
+		//使用数组定义颜色 i是全局变量
+		var array = ["red","blue","pink","yellow","brown"];
+		var i = 0;
+
+		//改变全局背景颜色
+		function changeColor() {
+			document.body.style.backgroundColor="lavender";
+		}
+
+		//改变按钮文字颜色，循环执行按钮
+		function changeButtonColor() {
+			document.getElementById("button1").style.color = array[i];
+			i++;
+		}
+	</script>
+</body>
+</html>

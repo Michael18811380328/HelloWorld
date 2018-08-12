@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            cursor: pointer;
+        }
+        .aaa {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" onclick="fn()"></div>
+
+<script>
+    
+    //体验事件
+    //1.事件源（引发后续事件的标签）
+    //2.事件（js已经定义好，直接使用）
+    //3.事件驱动程序（对样式和html的操作）（DOM操作）
+
+
+    //需求：点击盒子，弹出对话框alert(1)。
+    //步骤：
+    //1.获取事件源（document.getElementById("box")）
+    //2.绑定事件 （事件源.事件 = function(){ 事件驱动程序 }）
+    //3.书写事件驱动程序。
+
+
+    //1.获取事件源（document.getElementById("box")）
+    var div = document.getElementById("box");
+    //获取事件源(一共五种)
+//    var arr1 = document.getElementsByTagName("div");
+//    var arr2 = document.getElementsByClassName("leiming");
+    //不掌握
+//    var arr3 = document.getElementsByName("aaa");
+
+
+    //2.绑定事件 （事件源.事件 = function(){ 事件驱动程序 }）
+    //1.匿名绑定
+    div.onclick = function () {
+        //3.书写事件驱动程序。
+//        alert(1);
+        //可以操作标签的属性和样式。
+        div.className = "aaa";
+//        div.style.width = "200px";
+//        div.style.height = "200px";
+//        div.style.backgroundColor = "red";
+    }
+
+    //不能写写括号，否则成为了返回值（2.用函数名绑定）
+//    div.onclick = fn;
+//
+//    function fn() {
+//        //3.书写事件驱动程序。
+//        alert(1);
+//    }
+
+//
+//    //3.行内绑定
+//    function fn(){
+//        alert(1);
+//    }
+    
+</script>
+</body>
+</html>

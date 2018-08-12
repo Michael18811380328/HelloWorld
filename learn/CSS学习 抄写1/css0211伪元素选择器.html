@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		ul {
+			text-decoration: none;
+		}
+		div {
+			width: 1000px;
+			height: 562px;
+			margin: 10px auto;
+			position: relative;
+			/*子绝父相*/
+		}
+		div:hover::before {
+			content: "";
+			/*伪元素选择器内部必须有内容否则无法显示*/
+			display:block;
+			/*行内元素转化为块状元素，块状元素浮动后排列*/
+			width: 1000px;
+			height: 562px;
+			border:5px dashed black;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			box-sizing: border-box;
+			/*转化为边界盒模型，边界宽度更合理*/
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="image/banner_travel.jpg" alt="travel">
+	</div>
+</body>
+</html>

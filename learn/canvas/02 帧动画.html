@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	canvas {
+		/*border:1px solid red;*/
+		box-sizing: border-box;
+		/*background-color: pink;*/
+	}
+	img {
+		display: none;
+	}
+	</style>
+</head>
+<body>
+	<canvas width="500" height="500" id="cvs"></canvas>
+	<img src="../image/NPCrabbitbaby.png" alt="img">
+	<!-- 注意：图片加载必须放在window.onload中，否则JS代码执行过程中图片还没有加载，所以导致画布上无法显示图片（可以显示线段）canvas有先后次序，后面绘制内容会覆盖前面的内容。img.onload是最好的实现，window.onload需要将代码全部执行玩再绘制canvas -->
+	<script>
+		window.onload = function(){
+			var img = document.getElementsByTagName('img')[0];
+			var cvs = document.getElementById('cvs');
+			var ctx = cvs.getContext('2d');
+			// ctx.drawImage(img,100,100,300,300);
+			var i = 0;
+			setInterval(function(){
+				ctx.clearRect(0,0,cvs.width,cvs.height);
+				ctx.drawImage(img,img.width/4*i,img.height/4*0,img.width/4,img.height/4,100,100,300,300);
+				i++;
+				if(i >= 4){
+					i = 0;
+				}
+			},200);
+		}
+	</script>
+</body>
+</html>

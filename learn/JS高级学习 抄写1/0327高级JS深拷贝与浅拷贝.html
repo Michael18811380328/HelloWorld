@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var car ={name:"BMW"};
+		var person = {name:"Mike",age:20,car:car};
+
+		var personcopy = person;
+		//这种情况不属于拷贝；
+		var personcopy1 = {};
+		personcopy1.name = person.name;
+		personcopy1.age = person.age;
+		personcopy1.car = person.car;
+		//这种情况是浅拷贝，复制一份内存地址，实际上占用一份内存空间。如果改变personcopy1中内容，可能改变person对象中的内容。DOM树属于引用类型，避免出现浅拷贝，拷贝节点，内部的属性发生变化。
+		var personcopy2 = {};
+		personcopy2.name = person.name;
+		personcopy2.age = person.age;
+		personcopy2.car = {};
+		personcopy2.car.name = person.car.name;
+		//这样就是深拷贝，包括具体属性的引用情况也都拷贝过来。
+		person.car.name = "porsche";
+		//结果person和personcopy1中内容改变，personcopy2中仍然是BMW
+
+		// 对象具有浅拷贝功能的实现
+		var p {
+			name:"Mike",
+			age:19,
+			copy:function(){
+				// 1创建对象
+				var temp = {};
+				// 2使用for-in循环复制对象属性
+				for (var k in this) {
+					temp[ k ] = this[ k ];
+				}
+				// 3函数返回新对象
+				return temp;
+			}
+		};
+		var p2 = p.copy();
+	</script>
+</body>
+</html>

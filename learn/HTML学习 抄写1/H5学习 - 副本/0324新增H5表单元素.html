@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	label {
+		margin:10px auto;
+		display:inline-block;
+	}
+	keygen {
+		width: 100px;
+		height: 50px;
+	}
+	</style>
+</head>
+<body>
+	<label for="">
+		<input type="text" name="name">
+		<!-- name与后台php关系密切
+		前端表单是用户交互的核心 -->
+	</label>
+	<br>
+	<!-- datalist与option搭配使用，用list链接 -->
+	<label for="input">
+		<input type="text" list="course">
+	</label>
+	<datalist id="course">
+		<option value="PHP"></option>
+		<option value="Java"></option>
+		<option value="CSS"></option>
+		<option value="Python"></option>
+	</datalist>
+	<hr>
+	<!-- 在火狐浏览器中可以运行，其他浏览器存在兼容性 -->
+	<label for="">
+		Encryption: <keygen name="security" />
+	</label>
+	<br>
+	<input type="submit" value="提交">
+	<input type="reset" value="重置">
+	<br>
+	输出结果：<output>输出结果</output>
+	<br>
+	<label for="">
+		数据进展<meter min="0" max="100" low="60" high="90" value="30"></meter><br>
+		数据进展<meter min="0" max="100" low="60" high="90" value="70"></meter><br>
+		数据进展<meter min="0" max="100" low="60" high="90" value="95"></meter><br>
+	</label>
+	<hr>
+	<label for="">
+		<!-- 双标签显示进度百分比，单标签显示进度进展 -->
+		完成进度<progress value="90" max="100"></progress><br>
+		进度条<progress>
+	</label>
+</body>
+</html>

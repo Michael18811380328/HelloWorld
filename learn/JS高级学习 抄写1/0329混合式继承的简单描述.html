@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//混合式继承的初级方法
+
+		var Person = function () {
+			// 构造函数创建对象
+		};
+		//新建一个对象（内含方法）
+		var object = {
+			run :function() {console.log("hello");},
+			eat :function() {console.log("I can eat noodles");}
+		};
+		//新建混合函数
+		var extending = function (o1,o2){
+			for (var k in o2){
+				o1[k] = o2[k];
+			}
+		};
+		//混合对象和构造函数原型
+		extending (Person.prototype , object);
+
+		//构造函数创建对象，调用方法
+		var p1 = new Person();
+		p1.run();
+		p1.eat();
+
+
+		//混合式继承的高级方法
+		
+		var Student = function() {};
+
+		//直接将extend方法用点语法写入原型中
+		Student.prototype.extend = function (o){
+			for (var k in o ){
+				this[k] = o[k];
+			}
+		};
+
+		//通过调用原型的extend方法，传入一个对象，包含混入的方法（函数）即可
+		Student.prototype.extend({
+			run :function() {console.log("hi");},
+			eat :function() {console.log("I can eat dumplings");}
+		});
+
+		var q1 = new Student();
+		q1.run();
+		q1.eat();
+	</script>
+</body>
+</html>

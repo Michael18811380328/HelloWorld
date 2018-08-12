@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>携程网</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			color:#fff;
+			font-size: 16px;
+		}
+		body {
+			max-width: 540px;
+			min-width: 320px; /*!important 的优先级不会层叠max-width*/
+			margin: 0 auto;
+		}
+		header {
+			width: 100%; /*宽度高度继承父元素*/
+			height: 100px;
+		}
+		header img {
+			width: 100%;
+			height: 100%;
+		}
+		nav {
+			width:100%;
+			height:150px;
+			border-radius: 15px;
+			padding:2px;
+		}
+		.row {
+			width:100%;
+			height: 100%;
+			background-color: pink;
+			display:flex;
+			margin-bottom: 2px;
+		}
+		.row3 {
+			width:100%;
+			height: 100%;
+			flex:1;
+			border-right:2px solid #fff;
+			display:flex;
+			flex-direction: column;
+		}
+		.row3 a {
+			line-height: 70px;
+			text-align: center;
+			flex: 1;
+			border-bottom:2px solid #fff;
+		}
+		.row .jiudian a {
+			background-color: skyblue;
+			text-align: center;
+			line-height: 150px;
+			font-size:20px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<img src="image/xiecheng/header.jpg" />
+	</header>
+	<nav>
+		<div class="row">
+			<div class="row3 jiudian">
+				<a href="#">酒店</a>
+			</div>
+			<div class="row3">
+				<a href="#">星级宾馆</a>
+				<a href="#">普通酒店</a>
+			</div>
+			<div class="row3">
+				<a href="#">国内酒店</a>
+				<a href="#">国际酒店</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="row3 jiudian">
+				<a href="#">酒店</a>
+			</div>
+			<div class="row3">
+				<a href="#">星级宾馆</a>
+				<a href="#">普通酒店</a>
+			</div>
+			<div class="row3">
+				<a href="#">国内酒店</a>
+				<a href="#">国际酒店</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="row3 jiudian">
+				<a href="#">酒店</a>
+			</div>
+			<div class="row3">
+				<a href="#">星级宾馆</a>
+				<a href="#">普通酒店</a>
+			</div>
+			<div class="row3">
+				<a href="#">国内酒店</a>
+				<a href="#">国际酒店</a>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

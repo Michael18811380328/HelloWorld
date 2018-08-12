@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转效果</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			background-color: rgba(250,250,250,0.5);
+			/*边界初始化+背景颜色浅灰色*/
+		}
+		div {
+			width: 300px;
+			height: 300px;
+			border:1px solid blue;
+			margin: 20px auto;
+			/*多个盒子margin存在合并效果*/
+			box-sizing: border-box;
+			/*转换盒子样式：边界盒子*/
+			position:relative;
+			/*子绝父相*/
+			overflow: hidden;
+			/*注意：溢出隐藏适应于父亲盒子（不是图片）*/
+		}
+		div img {
+			height:100%;
+			width:100%;
+			position:absolute;
+			top:0;
+			left:0;
+			/*子绝父相，儿子需要设置位置*/
+			transition: all 1s;
+			/*变换时间*/
+			/*可以节省代码的地方尽量节省*/
+		}
+
+		.first:hover img {
+			transform: translate(10px,10px);
+			/*盒子移动位置*/
+		}
+		.middle:hover img {
+			transform: scale(1.2,1.2);
+			/*盒子缩放变形*/
+		}
+		.last {
+			width: 500px;
+			height: 500px;
+			background-color: #eee;
+			/*图片较多，盒子尺寸单独设置*/
+		}
+		.last img {
+			width: 30%;
+			height: 15%;
+			margin: 200px 200px;
+			transform-origin: left center;
+			/*旋转中心设置，五张图片不同旋转效果*/
+		}
+		.last:hover img:nth-child(1) {
+			transform: rotate(60deg);
+		}
+		.last:hover img:nth-child(2) {
+			transform: rotate(120deg);
+		}
+		.last:hover img:nth-child(3) {
+			transform: rotate(180deg);
+		}
+		.last:hover img:nth-child(4) {
+			transform: rotate(240deg);
+		}
+		.last:hover img:nth-child(5) {
+			transform: rotate(300deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="first">
+		<img src="image/oil.jpg" />
+	</div>
+	<div class="middle">
+		<img src="image/banner_travel.jpg" />
+	</div>
+	<div class="last">
+		<img src="image/cutterman/taobao/1.png" />
+		<img src="image/cutterman/taobao/2.png" />
+		<img src="image/cutterman/taobao/3.png" />
+		<img src="image/cutterman/taobao/4.png" />
+		<img src="image/cutterman/taobao/5.png" />
+	</div>
+</body>
+</html>

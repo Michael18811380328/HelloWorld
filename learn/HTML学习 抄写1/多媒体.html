@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		embed {
+			width:80%;
+			height:500px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<h3>多媒体标签</h3>
+	通过第三方视频软件平台，直接调用视频地址（节省网站空间）<br /><br />
+	<embed src="http://www.iqiyi.com/v_19rrlpgmt0.html?vfm=2008_aldbd" ></embed><br /><br />
+	<!-- 直接从视频网站中复制粘贴到embed中 -->
+	<audio src="media/Germany.mp3" autoplay="autoplay" controls="controls" loop="-1"></audio>
+	autoplay 自动播放；controls 显示控制按钮 ；loop 循环次数 （-1表示无限循环）
+	针对不同浏览器兼容性使用不同格式的音乐（ogg-mp3-wav）<br /> <br />
+	<audio controls autoplay>
+		<source src="mp3" />
+		<source src="ogg" />
+		您的浏览器不支持声音输出
+	</audio><br /><br />
+	<!-- embed适合于大视频-其他网站调用；video适合于小视频ogg-mp4-webM视频三种形式 -->
+	<video src="media/documentary.mp4" autoplay controls width="1000" /></video>
+	<br /><br />
+	本地（服务器）视频使用video标签命令
+</body>
+</html>

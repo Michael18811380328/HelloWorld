@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var arr2 = [7,6,15,4,13,2,1];
+
+    var aaa = sort(arr2, function (a,b) {
+        return b-a;
+    });
+
+    console.log(aaa);
+
+    function sort(arr,fn){
+        for(var i=0;i<arr.length-1;i++){
+            for(var j=0;j<arr.length-1;j++){
+                if(fn(arr[j],arr[+j1])>0){
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+
+        #imagegallery {
+
+            list-style: none;
+        }
+
+        #imagegallery li {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery li a img {
+            border: 0;
+        }
+    </style>
+
+</head>
+<body>
+<h2>
+    美女画廊
+</h2>
+<a href="#">注册</a>
+<ul id="imagegallery">
+    <li>
+        <a href="image/1.jpg" title="美女A">
+            <img src="image/1-small.jpg" width="100" alt="美女1"/>
+        </a>
+    </li>
+    <li>
+        <a href="image/2.jpg" title="美女B">
+            <img src="image/2-small.jpg" width="100" alt="美女2"/>
+        </a>
+    </li>
+    <li>
+        <a href="image/3.jpg" title="美女C">
+            <img src="image/3-small.jpg" width="100" alt="美女3"/>
+        </a>
+    </li>
+    <li>
+        <a href="image/4.jpg" title="美女D">
+            <img src="image/4-small.jpg" width="100" alt="美女4"/>
+        </a>
+    </li>
+</ul>
+
+
+<div style="clear:both"></div>
+
+<img id="image" src="image/placeholder.png" width="450px"/>
+
+<p id="des">选择一个图片</p>
+
+<script>
+    //需求：点击小图片，改变下面的大图片的src属性值。赋值为a链接的href属性值。
+        //让p标签的innnerHTML属性值，变成a标签的title属性值。
+    //步骤：
+    //1.获取事件源和相关元素
+    //2.绑定事件
+    //3.书写事件驱动程序
+
+
+    //1.获取事件源和相关元素
+    //利用元素获取其下面的标签。
+    var ul = document.getElementById("imagegallery");
+    var aArr = ul.getElementsByTagName("a");
+//    console.log(aArr[0]);
+    var img = document.getElementById("image");
+    var des = document.getElementById("des");
+    //2.绑定事件
+    //以前是一个一个绑定，但是现在是一个数组。for循环绑定
+    for(var i=0;i<aArr.length;i++){
+        aArr[i].onclick = function () {
+            //3.书写事件驱动程序
+            //修改属性
+            //this指的是函数调用者，和i并无关系，所以不会出错。
+            img.src = this.href;
+//            img.src = aArr[i].href;
+            des.innerHTML = this.title;
+            return false;
+        }
+    }
+
+</script>
+
+</body>
+</html>

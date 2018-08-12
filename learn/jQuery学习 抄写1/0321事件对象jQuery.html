@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {margin:0;padding:0;}
+	div {width: 500px;height: 500px;background-color: yellowgreen;margin:0;}
+	</style>
+</head>
+<body>
+	<div onmousedown="down(event)"></div>
+	<script>
+	function down (event) {
+		var x = event.clientX;
+		var y = event.clientY;
+		console.log(x);
+		console.log(y);
+		var a = event.screenX;
+		var b = event.screenY;
+		console.log(a);
+		console.log(b);
+	}
+	</script>
+</body>
+</html>

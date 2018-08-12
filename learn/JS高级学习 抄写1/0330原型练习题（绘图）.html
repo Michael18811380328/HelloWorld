@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//练习题
+		//1
+		function Person(){
+			this.name = "Mike";
+			this.sayHello = function(){
+
+			};
+		}
+		var p = new Person();
+
+		//2
+		function Person2(){
+			this.name = "John";
+		}
+		Person2.prototype.sayHello = function (){};
+		var q = new Person2();
+
+		//3
+		function Person3(){
+			this.name = "Amy";
+		}
+		Person3.prototype = {
+			sayHello:function(){ }
+		};
+		var r = new Person3();
+	</script>
+</body>
+</html>

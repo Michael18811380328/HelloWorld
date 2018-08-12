@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*css初始化*/
+		* {
+			margin:0;
+			padding:0;
+		}
+		body {
+			height: 1200px;
+			background-color: rgba(230,30,100,0.2);
+		}
+		ul {
+			list-style: none;
+		}/*去掉列表中的小点*/
+		h3 {
+			font-size: 36px;
+			text-align: center;
+			font-weight: normal;
+		}
+		.small {
+			box-sizing: content-box;
+		}
+		.small ul li {
+			margin: 16px;
+			display:inline;
+			height: 250px;
+			width: 300px;
+			overflow: hidden;
+		}
+		.small ul li img {
+			height: 200px;
+			border-radius: 5px;
+			transition: all 1s;
+		}
+		.small ul li img:hover {
+			transform: scale(1.05);
+		}
+		.large {
+			width:1200px;
+			margin: 20px auto;
+		}
+		.large img {
+			width:1200px;
+			margin: 20px auto;
+		}
+	</style>
+
+</head>
+<body>
+	<h3>美女相册</h3>
+	<br />
+	<div class="small">
+		<ul>
+			<li><a title="美国三个少女" href="image/girl/0_137.jpg" onclick="showPic(this);return false;">
+				<!-- 引用showPic函数，参数为对象a（this），return false 取消原始href效果 -->
+				<img src="image/girl/0_137.jpg" ></a></li>
+			<li><a title="美国四个少女" href="image/girl/1_332.jpg" onclick="showPic(this);return false;">
+				<img src="image/girl/1_332.jpg" ></a></li>
+			<li><a title="美国五个少女" href="image/girl/3_388.jpg" onclick="showPic(this);return false;">
+				<img src="image/girl/3_388.jpg" ></a></li>
+			<li><a title="美国六个少女" href="image/girl/6_934.jpg" onclick="showPic(this);return false;">
+				<img src="image/girl/6_934.jpg" ></a></li>
+		</ul>
+	</div>
+	<br />
+	<h3 id="words" style="font-size:20px;">点击上面缩略图查看高清图片</h3>
+	<div class="large">
+		<img id="image" src="image/girl/0_137.jpg" >
+		<!-- 一定注意：id和class的区别 -->
+		<!-- 务必确保自己的HTML和CSS没问题 -->
+		<!-- HTML和JS对接部分（标签、类、ID）完全无误 -->
+	</div>
+
+	<script>
+		function showPic (link) {
+			console.log(link);
+			//测试link是否有效
+			var img = document.getElementById("image");
+			//找到id为image的对象
+			console.log(img);
+			//测试img对象
+			img.src = link.href;
+			//将link的路径给img传过去
+			var word = document.getElementById("words");
+			//找到id为words的对象
+			console.log(word);
+			//测试word对象
+			word.innerText = link.title;
+			//将link对象的title属性赋值到word对象的文本内部
+		}
+	</script>
+</body>
+</html>

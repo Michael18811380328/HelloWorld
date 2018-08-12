@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding:0px;
+		}
+		div {
+			width: 200px;
+			height: 200px;
+			border: 2px dashed rgba(0,0,50,0.5);
+			margin: 100px auto;
+			background-color: skyblue;
+			/*transition: 过渡（渐变）对象 经历时间 加速度 开始时间
+			过渡对象 经历时间通常为0.5s 加速度默认ease 开始时间默认0s 后两项可以省略
+			transition放在div中，不能放在hover中，否则过渡效果不完整。
+			多个过渡效果使用逗号隔开。*/
+			/*CSS3 新加效果，很重要*/
+			transition: width 0.5s ease 0s, height 0.5s ease 0.5s, border 0.5s ease 1s, background-color 2.5s ease 1.5s;
+		}
+		div:hover {
+			width: 400px;
+			height: 400px;
+			border:5px solid rgba(1,1,1,0.3);
+			background-color: pink;
+		}
+
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

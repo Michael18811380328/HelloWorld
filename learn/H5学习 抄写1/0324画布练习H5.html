@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {margin: 0;padding: 0;}
+	div {
+		width: 1000px;
+		height: 500px;
+		margin: 0 auto;
+	}
+	canvas {
+		background-color: #eee;
+		border: 1px solid black;
+	}
+	.active {
+		cursor: crosshair;
+		background-color: pink;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<canvas width=1000px height= 500px id="myCanvas" onmousemove="mouseEnter(event)" onmouseleave="mouseLeave(event)"></canvas>
+	</div>
+	<h2 id="word">请将鼠标移到画布上</h2>
+	<!-- PI是大写 -->
+	<script type="text/javascript">
+		// 设置画布并绘制同心圆
+		(function(){
+			var c = document.getElementById('myCanvas');
+			var context = c.getContext("2d");
+			//绘制三个同心圆
+			context.beginPath();
+			context.arc(200,200,100,0,Math.PI*2,true);
+			context.fillStyle = "skyblue";
+			context.fill();
+			context.closePath();
+
+			context.beginPath();
+			context.arc(200,200,70,0,Math.PI*2,true);
+			context.fillStyle = "hotpink";
+			context.fill();
+			context.closePath();
+
+			context.beginPath();
+			context.arc(200,200,50,0,Math.PI*2,true);
+			context.fillStyle = "greenyellow";
+			context.fill();
+			context.closePath();
+		})();
+
+		// 获取鼠标位置并显示，鼠标进入增加类（改变样式）
+			var d = document.getElementById('myCanvas');
+			function mouseEnter(eve){
+				var x = eve.clientX;
+				var y = eve.clientY;
+				document.getElementById('word').innerHTML="X坐标为"+x+"Y坐标为"+y;
+				d.classList.add("active");
+			};
+			function mouseLeave(eve){
+				document.getElementById('word').innerHTML="请将鼠标移到画布上";
+				d.classList.remove("active");
+			};
+			// 注意事项：mouseenter是刚进去的坐标（静态）onmousemove是动态坐标
+	</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开门大吉旋转效果</title>
+	<style>
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	/*CSS初始化*/
+	section {
+		width: 240px;
+		height: 240px;
+		border: 1px solid #000;
+		/*background-color: skyblue;*/
+		background-image: url(image/oil.jpg);
+		margin: 50px auto;
+		position: relative;
+	/*section部分背景设置*/
+	}
+	section div {
+		width: 50%;
+		height: 240px;
+		border: 1px solid #000;
+		background-color: skyblue;
+		position:absolute;
+		perspective:100px;
+		transition: all 0.9s;
+	}
+	/*类设置子对象绝对浮动效果*/
+	/*3D效果父元素使用perspective参数*/
+/*	div.door-l:hover {
+		transform: translateX(-80%);
+	}
+	div.door-r:hover {
+		transform: translateX(80%);
+	}
+	左右滑动效果（单门移动）
+	*/
+	section:hover .door-l {
+		transform-origin: left;
+		transform:rotateY(130deg);
+	}
+	section:hover .door-r {
+		transform-origin: right;
+		transform:rotateY(130deg);
+		/*旋转门效果 设置变换中心*/
+	}
+	div.door-l {
+
+	}
+	div.door-r {
+		right:0;
+	}
+	.door-l::before {
+		content: " ";
+		width: 20px;
+		height: 20px;
+		border: 1px solid #000;
+		border-radius: 50%;
+		position:absolute;
+		right: 10px;
+		top:50%;
+		background-color: gold;
+	}
+	/*伪元素选择器，加入内容content，使用定位效果right和top参数；*/
+	.door-r::before {
+		content: " ";
+		width: 20px;
+		height: 20px;
+		border: 1px solid #000;
+		border-radius: 50%;
+		position:absolute;
+		left: 10px;
+		top:50%;
+		background-color: gold;
+	}
+	</style>
+</head>
+<body>
+	<!-- 背景图片+两扇门+动画效果 -->
+	<section>
+		<div class="door-l"></div>
+		<div class="door-r"></div>
+	</section>
+</body>
+</html>

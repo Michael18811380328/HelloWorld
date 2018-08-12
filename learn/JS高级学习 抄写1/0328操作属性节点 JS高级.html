@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 属性的增删改查
+		window.onload = function(){
+			//节点选择
+			var div = document.querySelectorAll ("#dv")[0];
+		// 增加属性
+		//方法一：使用setAttribute添加自定义属性（DOM-Core）
+			div.setAttribute("value","main");
+		//方法二：使用点语法添加标准 属性（HTML-DOM）
+			div.className = "top";
+		//使用点语法增加class必须用className（特殊）
+			
+		//方法三：使用DOM节点方法（了解）纯DOM-Core
+			var attr = document.createAttribute("test");
+			attr.nodeValue = "test";
+			div.setAttributeNode(attr);
+
+	//删除属性:
+	//方法一：removeAttribute
+	var ck = document.querySelectorAll("#ck")[0];
+	ck.removeAttribute("checked");
+		
+	// 不能使用setAttribute，因为属性checked是一个单标签，只有一个参数，只能删除属性。
+	
+	//方法二 纯DOM-core
+	var ck = document.querySelectorAll("#ck")[0];
+	var attr = ck.getAttributeNode("checked");
+	ck.removeAttributeNode(attr);
+
+	// 方法三 点语法
+	var ck = document.querySelectorAll("#ck")[0];
+	ck.checked = false;
+	// 注意：使用ck.checked = '';也可以实现非选中，将空字符串转换为false实现，这样消耗内存
+
+
+	//修改属性-查询属性
+	// set-get Attribute("XXX")
+	// set-get AttributeNode
+	//DOM树中的任何节点都可以增删改查
+		}
+	</script>
+	<div id='dv'></div>
+	<input type="checkbox" checked="checked" id="ck">
+</body>
+</html>

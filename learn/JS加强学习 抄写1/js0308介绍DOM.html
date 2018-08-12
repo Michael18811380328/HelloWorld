@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	li {
+		text-decoration: none;
+		list-style-type: none;
+		font-size: 30px;
+		text-align: center;
+		line-height: 50px;
+	}
+	div {
+		height: 400px;
+		width: 600px;
+		margin: 50px auto;
+		border: 1px solid black;
+		background-color: pink;
+		padding: 20px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li id="intro">1111</li>
+			<li>2222</li>
+			<li id="intro">3333</li>
+			<li>4444</li>
+		</ul>
+	</div>
+	<div>
+		<video src="video/papapahouru.mp4" controls="true" autoplay="true" loop="true" id="papa"></video>
+		<!-- video标签是H5中新加入的标签，在早期浏览器中不兼容。controls表示是否显示视频控件，autoplay表示视频是否自动播放，loop表示视频是否自动循环 -->
+	</div>
+	<script>
+		x = document.getElementById("intro");
+		console.log(typeof(x));
+		document.write(x.innerHTML);
+	</script>
+</body>
+</html>

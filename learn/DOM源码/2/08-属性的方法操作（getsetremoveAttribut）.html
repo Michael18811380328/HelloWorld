@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="box" title="主体" class="asdfasdfadsfd">我爱你中国</div>
+
+<script>
+
+    //两种方式不能交换使用，赋值和获取值必须使用用一种方法。
+    var div = document.getElementById("box");
+    //元素节点.属性（元素节点[属性]）:绑定的属性值不会出现在标签上。
+    div.aaaa = "1111";
+    console.log(div.aaaa);
+    //get/set/removeAttribut: 绑定的属性值会出现在标签上。
+    div.setAttribute("bbbb","2222");
+
+    console.log(div.getAttribute("aaaa"));
+    console.log(div.bbbb);
+
+</script>
+</body>
+</html>

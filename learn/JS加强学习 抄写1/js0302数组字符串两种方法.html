@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		//数组倒转
+		//方法一：新建数组
+		var array = [1,2,3,4,5];
+		var newarray = [];
+		for (var i = 0 ; i < array.length ; i++) {
+			newarray[i] = array[array.length-i-1]
+		}
+		console.log(newarray);
+		//方法二：直接原始数组倒转
+		var array = [1,2,3,4,5];
+		var tem;
+		for (i = 0 ;i <= Number(array.length/2) ; i++) {
+			tem = array[i];
+			array[i] = array[array.length-i-1];
+			array[array.length-i-1] = tem;
+		}
+		console.log(array);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

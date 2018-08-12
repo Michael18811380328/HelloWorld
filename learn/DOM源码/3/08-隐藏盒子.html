@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="box"></div>
+<script>
+    //获取盒子，设置样式
+    var box = document.getElementsByClassName("box")[0];
+//    box.style.width = "100px";
+//    box.style.height = "100px";
+//    box.style.backgroundColor = "pink";
+        box.style.cssText = "width:100px;height:100px;background-color:red";
+
+    //隐藏盒子
+    box.onclick = function () {
+        this.style.display = "none";
+//        this.style.visibility = "hidden";
+        this.style.opacity = "0";
+//        this.style.position = "absolute";
+//        this.style.top = "-50px";
+    }
+
+</script>
+</body>
+</html>

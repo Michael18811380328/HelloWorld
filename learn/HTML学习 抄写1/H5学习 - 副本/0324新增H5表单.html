@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {margin: 0;padding: 0;}
+	body {
+		background-color: #eee;
+		margin:20px auto;
+	}
+	fieldset {
+		width: 500px;
+		height:500px;
+		margin: 0 auto;
+	}
+	label {
+		display:block;
+		margin: 0 auto;
+	}
+	input {
+		display:block;
+		width: 160px;
+		height:40px;
+		margin:10px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+	 	<form action="#">
+	 		<fieldset> 
+	 			<legend>个人信息</legend>
+	 			<label for="personselect">
+					<select name="选择" id="personselect" >
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+					</select>
+	 			</label>
+	 			<label for="personinput">
+					person<input type="text" id="personinput">
+	 			</label>
+	 			<label>
+					TEl<input type="number">	
+	 			</label>
+	 			<label>
+					Email<input type="email">
+	 			</label>
+	 			<label>
+					<input type="submit">
+					<input type="reset">
+	 			</label>
+	 		</fieldset>
+	 	</form>
+	 </div> 
+</body>
+</html>

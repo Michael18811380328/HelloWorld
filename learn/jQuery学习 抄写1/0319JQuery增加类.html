@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.firstnumber {
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>A</li>
+		<li>B</li>
+		<li>C</li>
+		<li>D</li>
+	</ul>
+	<p>E</p>
+	<p>F</p>
+	<input type="button" value="press">
+	<script src="jQuery/jquery-1.12.4.min.js"></script>
+	<script>
+		//选择P增加类，改变样式
+		$(function(){
+			$("p").addClass("firstnumber");
+		});
+		//通过按钮事件，切换类，切换样式
+		$("input").click(function (){
+			$("p").toggleClass("firstnumber");
+		});
+		//选择标签改变样式
+		$("li").eq(0).css("color","red");
+		//选择标签输出样式
+		console.log($("li").eq(3).css("fontSize"));
+	</script>
+</body>
+</html>
