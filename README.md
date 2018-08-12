@@ -27,20 +27,30 @@ I find a project, Codecombat. Codecombat is a perfect open-source project. It us
 Learing coding and English every day!
 
 ### 2018.04
-阅读数据文档，创建数据仓库，完善用户信息。
-HTML-CSS-JS基本内容熟悉，可以制作普通的网页。
-学习使用bootstrap框架和其他JS插件。
-接手京东项目、每时每刻项目。
+
+Read readme.text of data repository. Finish user's information setting in github.
+
+I can make a basic webpage using sublime editor. HTML is the structure of pages, CSS is the style of pages, JS is the magic and action of pages.
+
+Other small JS plug-ins can help me to ease working stress. The fullpage plug-in can make different pages switching fluently. And a small shopping project (similar to JD) and a take-out meal project are finished. 
 
 ### 2018.05
-深入学习JS高级编程；
-学习Ajax和PHP进行数据交互（XML和JSON）；
-了解Angular框架，后续学习react和vue框架，重点是Vue框架；
+
+学习JS高级编程；
+学习Ajax和PHP进行数据交互（XML和JSON）；——以后学习axios
+学习Vue框架基础，了解MVVC流程。
 接手京东移动端项目、新天地项目、微金所项目、苏宁项目。
 
 ### 2018.06
+
 简单学习Vue框架和React框架，了解组件化构建思想，组件化可以很好的提高代码复用率。
 接手百度外卖项目、休闲帮项目，与后端人员进行项目联调测试。
+了解浏览器的渲染过程，不同引擎的具体工作情况。
 
 ### 2018.07
-了解微信小程序Mina框架，创建自己的非商业化的小程序。
+
+I start to learn Mina frame of WeChat small app. I have a personal Wechat Official Platform. In one day, I will design my own small app by myself.
+
+The Mina frame use different programming language, wxml and wxss. Wxml language uses different tags(such as View tag). Wxss use different length, rpx, rather than px or percentage methods. This frame has many useful modules and we can easily use the APIs. However, data tramsfer by using props and state is not easy for me. 
+
+Never stop coding!
