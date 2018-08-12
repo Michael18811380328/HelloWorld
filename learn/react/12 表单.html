@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React模板</title>
+	<script src='lib/react.min.js'></script>
+	<script src='lib/react-dom.min.js'></script>
+	<script src="lib/babel.min.js"></script>
+</head>
+<body>
+</body>
+<script type="text/babel">
+	//输入框中文字和段落文字绑定
+	var Input = React.createClass({
+		getInitialState:function(){
+			return {
+				value:"请输入"
+			};
+		},
+		handleChange:function(event){
+			this.setState({
+				value : event.target.value
+			});
+		},
+		render:function(){
+			var valueNow = this.state.value;
+			return (
+				<div>
+					<input type="text" value={valueNow} onChange={this.handleChange}/>
+					<p>{ valueNow }</p>
+				</div>
+			);
+		}
+	});
+	ReactDOM.render(
+		<Input/>,
+		document.getElementById("container")
+	);
+</script>
+</html>

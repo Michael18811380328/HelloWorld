@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/vue.min.js"></script>
+</head>
+<body>
+	<!-- 练习组件prop使用 -->
+	<!-- prop表示父组件向子组件传递的数据 -->
+	<div id="app1">
+		<child msg="hello"></child>
+	</div>
+	<script>
+		new Vue({
+			el:"#app1",
+			components: {
+				child: {
+					props: ['msg'],
+					template:'<span>{{ msg }}</span>'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

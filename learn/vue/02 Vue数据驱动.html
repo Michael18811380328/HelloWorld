@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="../../lib/vue.min.js"></script>
+	<!-- 案例一：数据驱动DOM -->
+	<div id="app1">{{name}}</div>
+	<script>
+		//数据
+		var Data = {
+			name:"hi JS"
+		}
+		//通过vue把数据链接到DOM中
+		var exampleVM1 = new Vue({
+			el:"#app1",
+			data:Data
+		})
+	</script>
+	<hr>
+
+
+	<!-- 案例二：Vue指令 -->
+	<div id="app2" >
+		<!-- 使用v-表示指令:v-if表示判断是否显示,v-bind绑定HTML特征,v-for显示数组元素 -->
+		<span v-if="greeting">Vue指令</span>
+	</div>
+	<script>
+		var exampleVM2 = new Vue({
+			el:"#app2",
+			data:{
+				greeting:false
+				//设置false和true控制元素的显示
+			}
+		})
+	</script>
+
+	<!-- 案例三：组件系统 -->
+	<div id="app3">
+		<app-nav></app-nav>
+		<app-sidebar></app-sidebar>
+	</div>
+	<!-- 实际上组件系统类似于自定义标签，可以复用的小型组件。 -->
+</body>
+</html>

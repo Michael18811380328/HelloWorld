@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 练习一：hello world-->
+	<div id="app">{{message}}</div>
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 新建一个Vue对象
+		new Vue({
+			// el表示目标的位置（定义域）
+			el:'#app',
+			// data表示数据集合（属性方法）
+			data: {
+				message:"hello world! hello Vue!"
+			}
+		})
+	</script>
+	
+	<hr>
+	<!-- 练习二：双向绑定 -->
+	<div id="app2">
+		<p>{{message}}</p>
+		<input v-model="message">
+		<!-- 双向绑定：v-model用户输入内容随时体现在p中 -->
+	</div>
+	<script>
+		new Vue({
+			el:'#app2',
+			data: {
+				message:"双向绑定"
+			}
+		})
+	</script>
+
+	<hr>
+	<!-- 练习三：渲染列表 -->
+	<div id="app3">
+		<ul>
+			<!-- todos指的是数据中的todos数组，todo是形参，text对应数组每一项的参数 -->
+			<li v-for="todo in todos">{{todo.text}}</li>
+		</ul>
+	</div>
+	<script>
+		new Vue({
+			el:'#app3',
+			data: {
+				todos:[
+					{text:'learn Angular'},
+					{text:'learn Vue'},
+					{text:'learn React'}
+				]
+			}
+		})
+	</script>
+
+	<hr>
+	<!-- 练习四：处理用户输入 -->
+	<div id="app4" class="demo">
+		<p>{{ message }}</p>
+		<!-- 点击按钮执行函数 -->
+		<button v-on:click="reverseMessage">Reverse Message</button>
+	</div>
+	<script>
+		new Vue({
+			el:'#app4',
+			data: {
+				// message中的内容是预设内容
+				message:'Hello Vue.js!'
+			},
+			// 函数放在methods中
+			methods: {
+				reverseMessage: function () {
+					// 1.字符串分割成字符串数组
+					// 2.翻转字符串数组
+					// 3.字符串数组连接成字符串输出
+					this.message = this.message.split('').reverse().join('')
+				}
+			}
+		})
+	</script>
+
+	<hr>
+	<!-- 练习五：综合练习 -->
+	<div class="demo" id="app5">
+		<input v-model="newTodo" v-on:keyup.enter='addTodo'>
+		<ul>
+			<li v-for="todo in todos">
+				<span>{{ todo.text }}</span>
+				<button v-on:click="removeTodo(index)"></button>
+			</li>
+		</ul>
+	</div>
+	<script>
+		new Vue({
+			el:"#app5",
+			data:{
+				newTodo:'',
+				todos:[
+					{ text:'vue stydying' }
+				]
+			},
+			methods:{
+				addTodo:function(){
+					var text = this.newTodo.trim()
+					if(text){
+						this.todos.push({ text: text })
+						this.newTodo = ''
+					}
+				},
+				removeTodo:function(index){
+					this.todos.splice(index,1)
+				}
+			}
+		})
+	</script>
+</body>
+</html>

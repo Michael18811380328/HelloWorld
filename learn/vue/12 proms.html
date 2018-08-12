@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+	<div id="prop-example-1" class="demo">
+	  <child msg="hello!"></child>
+	</div>
+	<script>
+	new Vue({
+	  el: '#prop-example-1',
+	  components: {
+	    child: {
+	      props: ['msg'],
+	      template: '<span>{{ msg }}</span>'
+	    }
+	  }
+	})
+	</script>
+</body>
+</html>

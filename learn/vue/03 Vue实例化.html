@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		// 构造器
+		var vm = new Vue({
+			//代码
+		})
+		// vm表示view model，通过构造函数创建一个根实例对象，构造函数和构造器
+	</script>
+
+
+	<!-- 组件构造器 -->
+	<script>
+	var myComponent = Vue.extend({
+		//扩展选项
+		});
+	var instance  = new myComponent();
+	// Vue的组件都来源于被扩展的Vue实例
+	</script>
+
+
+	<!-- 实例对象的属性和方法 -->
+	<script>
+		var vm = new Vue({
+			el:"#app3",
+			data:Data
+		})
+		var Data = {
+			sex:female
+			a:3
+		}
+
+		vm.$data === data;
+		vm.$el === docuemnt.getElementById('app3');	
+		vm.$watch('sex',function(newVal, oldVal){
+			//这个回调函数在sex属性改变之后执行
+		})
+		// $data和$el是实例对象的属性，$watch是对象的方法
+		// 其他的属性方法查询文档API
+ 	</script>
+
+
+	<!-- 实例的生命周期
+	在Vue中没有控制器的概念，控制器的功能由其他组件实现。
+	在实例对象创建的过程中，需要调用“生命周期钩子” ，钩子的this指向调用它的实例对象-->
+	<!-- 不同的钩子在不同阶段使用：created compiled ready destroyed  -->
+	<script>
+		var vm = new Vue({
+			data:{
+				a:1
+			},
+			created:function(){
+				console.log('a is ' + this.a)
+				// this指向新创建的vm实例对象
+			}
+		})
+	</script>
+
+</body>
+</html>

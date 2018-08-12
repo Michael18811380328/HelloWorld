@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 练习一：计算属性（数值） -->
+	<div id="app1">
+		<span>{{a}}</span>
+		<span>{{b}}</span>
+	</div>
+	<script src="../../lib/vue.min.js"></script>
+	<script>
+		var app = new Vue({
+			el:"#app1",
+			data:{
+				a : 1
+			},
+			computed:{
+				b : function(){
+					return this.a + 1
+					//this指向新创建的对象app，直接用点语法表示属性
+				} 
+			}
+		})
+	</script>
+	<!-- 练习二：计算属性（字符串） -->
+	<div id='app2'>{{name}}</div>
+	<script>
+		var app2 = new Vue({
+			el:"#app2",
+			data:{
+				firstName:'Donald',
+				lastName:'Trump'
+			},
+			computed:{
+				name:function(val){
+					return this.firstName + ' ' + this.lastName
+					//拼接字符串（计算属性）
+				}
+			}
+		})
+	</script>
+	<!-- 练习三：计算属性（setting） -->
+	<script>
+		var app3 = new Vue({
+			data : {
+				firstName:'Donald',
+				lastName:'Trump'
+			},
+			computed:{
+				fullName:{
+					// 如果没有传参，获得属性
+					get:function(){
+						return this.firstName + ' ' + this.lastName
+					},
+					// 如果传参，计算新的结果
+					set:function(newName){
+						var names = newName.split('');
+						this.firstName = names[0];
+						this.lastName = names[names.length - 1]
+					}
+				}
+			}
+		})
+		vm.fullName = 'John Doe';
+	</script>
+</body>
+</html>

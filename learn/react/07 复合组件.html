@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>React模板</title>
+		<script src='lib/react.min.js'></script>
+		<script src='lib/react-dom.min.js'></script>
+		<script src="lib/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+	</body>
+	<!-- 输出网站的网址，网址可以点击 webName用于输出网站名称，webLine用于输出网址并可以点击链接 -->
+	<script type="text/babel">
+		//定义两个子组件，最后统一用父组件处理
+		//定义webName
+		var WebName = React.createClass({
+			render:function(){
+				return <p>你好</p>;
+			}
+		});
+		var WebLine = React.createClass({
+			render:function(){
+				return <a href="http://www.baidu.com">网址</a>;
+			}
+		});
+		var HelloMessage = React.createClass({
+			render:function(){
+				return <h1>你好</h1>;
+			}
+		});
+		var WebShow = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<WebName />
+						<WebLine />
+						<HelloMessage />
+					</div>
+				); 
+			}
+		});
+		
+		ReactDOM.render(
+			<WebShow />,
+			document.getElementById("container")
+		);
+	</script>
+</html>

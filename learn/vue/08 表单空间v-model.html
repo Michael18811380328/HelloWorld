@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+	<!-- 练习一 文本框 -->
+	<div id="app1"> 
+		<span>{{ message }}</span>
+		<br>
+		<input type="text" v-model="message" palceholder="edit">
+	</div>
+
+	<script>
+		new Vue({
+			el:"#app1",
+			data:{
+				message:'hi'
+			}
+		})
+	</script>
+	
+	<!-- 练习二：单选框 -->
+	<hr>
+	<div id='app2'>
+		<input type="checkbox" id="checkbox" v-model="checked">
+		<lable for="checkbox">{{ checked }}</lable>
+	</div>
+	<script>
+		new Vue({
+			el:'#app2',
+			//注意：#一定加上
+			data:{
+				checked:false
+			}
+		})
+	</script>
+
+	<!-- 练习三：复选框 -->
+	<hr>
+	<div id="app3">
+		<input type="checkbox" id='jack' value='jack' v-model="checkedNames">
+		<lable for="jack"></lable>
+		<input type="checkbox" id='john' value='john' v-model="checkedNames">
+		<lable for="jack"></lable>
+		<input type="checkbox" id='mike' value='mike' v-model="checkedNames">
+		<lable for="jack"></lable>
+		<br>
+		<span>names:{{ checkedNames | json }}</span>
+	</div>
+	<script>
+		new Vue({
+			el:"#app3",
+			data:{
+				checkedNames: []
+			}
+		})
+	</script>
+
+	<!-- 练习四：ratio -->
+	<div id="app4">
+		<input type="ratio" id="one" value="One" v-model='picked'>
+		<lable for='one'></lable>
+		<br>
+		<input type="ratio" id="two" value="Two" v-model='picked'>
+		<lable for='one'></lable>
+		<br>
+		<span>{{ picked }}</span>
+	</div>
+	<script>
+		new Vue({
+			el:'#app4',
+			data:{
+				picked:''
+			}
+		})
+	</script>
+
+</body>
+</html>

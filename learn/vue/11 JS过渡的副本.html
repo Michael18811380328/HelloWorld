@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../../lib/jquery-1.12.4.min.js'></script>
+	<script src='../../lib/vue.min.js'></script>
+</head>
+<body>
+	<p transition="fade"></p>
+	<!-- 目前报错：Vue.transition不是一个函数 -->
+	<script>
+		Vue.transition('fade',{
+			css:false,
+			enter: function(el,done){
+				//在动画结束后调用done
+				$(el)
+				.css('opacity',0)
+				.anmation({opacity:1},1000,done)
+			},
+			enterCancelled:function(el){
+				$(el).stop()
+			},
+			leave:function(el, done){
+				$(el).animate({ opacity: 0 },1000, done)
+			},
+			leaveCamcelled: function(el){
+				$(el).stop()
+			}
+		})
+	</script>
+</body>
+</html>

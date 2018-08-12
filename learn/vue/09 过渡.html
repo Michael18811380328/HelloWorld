@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*设置过渡CSS*/
+		.expend-transition {
+			transition: all 0.3s ease;
+			height: 30px;
+			padding: 30px;
+			background-color: #eee;
+			overflow: hidden;
+		}
+		.expend-enter, .enpend-leave {
+			height: 0;
+			opacity: 0;
+			padding: 0 10px;
+		}
+	</style>
+	<script src="../../lib/vue.min.js"></script>
+</head>
+<body>
+	<div id="demo">
+		<!-- 添加条件渲染和transition transition属性具有不同的值，对应的CSS类不相同-->
+		<div v-if="show" transition="expend">hello Vue</div>
+		<!-- 按钮触发函数（没看懂） -->
+		<button v-on:click="show = !show">Toggle</button>
+	</div>
+	<script>
+		new Vue({
+			el:"#demo",
+			data:{
+				show: true,
+				transitionState: 'Idle'
+			},
+			transitions: {
+				expand: {
+					beforeEnter: function(el){
+						el.textContent = 'beforeEnter'
+					},
+					enter:function(el) {
+						el.textContent = 'enter'
+					},
+					afterEnter:function(el){
+						el.textContent = 'afterEnter'
+					},
+					beforeLeave:function(el){
+						el.textContent = "beforeLeave"
+					},
+					leave:function(el){
+						el.textContent = 'leave'
+					},
+					afterLeave:function(el){
+						el.textContent = "afterLeave"
+					}
+				} 
+			}
+		})
+	</script>
+</body>
+</html>

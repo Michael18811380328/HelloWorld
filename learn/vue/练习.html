@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<!-- 01 Vue介绍 -->
+	<div id="app">{{ message }}</div>
+	<script src='../lib/vue.min.js'></script>
+	<script>	
+		new Vue({
+			el:"#app",
+			data:{
+				message:"hello"
+			}
+		})
+	</script>
+
+	<div id="app1">
+		<p>{{ message }}</p>
+		<input type="text" v-model="message">
+	</div>
+	<script>
+		new Vue({
+			el:"#app1",
+			data:{
+				message:"double binding"
+			}
+		})
+	</script>
+
+	<!-- 渲染列表 -->
+	<div id="app2">
+		<ul>
+			<li v-for="todo in todos">
+				{{ todo.text }}
+			</li>
+		</ul>
+	</div>
+	<script>
+		new Vue({
+			el:"#app2",
+			data:{
+				todos:[
+					{text:"angular"},
+					{text:"vue"},
+					{text:"react"}
+				]
+			}
+		})
+	</script>
+
+	<!-- 用户输入 -->
+	<div id="app3">
+		<p>{{ message }}</p>
+		<button v-on:click="function1">Reverse Message</button>
+	</div>
+	<script>	
+		new Vue({
+			el:"app3",
+			data:{
+				message:"请输入内容"
+			},
+			methods:{
+				function1:function(){
+					this.message = this.message.split('').reverse().join('');
+				}
+			}
+		})
+	</script>
+
+	<!-- 小练习 -->
+	<div id="demo1">
+		<input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+		<ul>
+			<li v-for="todo in todos">
+				<span>{{ todo.text }}</span>
+				<button v-on:click="removeTodo(index)">按钮2</button>
+			</li>
+		</ul>
+	</div>
+	<script>	
+		new Vue({
+			el:"#demo1",
+			data:{
+				newTodo:"",
+				todos:[
+					{text:"vue"}
+				]
+			},
+			methods:{
+				addTodo:function(){
+					var text = this.newTodo.trim();
+					if(text){
+						this.todos.push({text:text});
+						this.newTodo = ''
+					}
+				},
+				removeTodo:function(index){
+					this.todos.splice(index,1);
+				}
+			}
+		})
+	</script>
+
+
+	<!-- 02 Vue数据驱动 -->
+	<div id="app1">
+		<span>{{ name }}</span>
+	</div>
+	<script>
+		var Date = {
+			name:"Mike"
+		}
+		var vue1 = new Vue({
+			el:"#app1",
+			data:Data
+		})
+	</script>
+
+	<div id="app2">
+		<span v-if="greeting">Vue指令</span>
+		<button v-on:click='changeName'></button>
+	</div>
+	<script>
+		var vue2 = new Vue({
+			el:"#app2",
+			data:{
+				greeting:false,
+				meeting:true
+			},
+			methods:{
+				changeName:function(){
+					this.greeting = !this.greeting;
+				}
+			}
+		})
+	</script>
+
+	<!-- 组件系统 -->
+	<div id="app3">
+		<app-nav></app-nav>
+		<app-sidebar></app-sidebar>
+	</div>
+	<!-- 自定义标签在渲染后不显示 -->
+
+	<!-- 03 Vue实例化 -->
+	<script>
+		var vm1 = new Vue({
+			// 代码
+			// vm表示view model，通过构造函数创建一个根实例对象，构造函数和构造器
+		})
+	</script>
+	<script>
+		var myComponent = Vue.extend({
+			// 扩展选项
+		});
+		var instance = new myComponent();
+	</script>
+	<!-- 实例对象的属性和方法 -->
+	<script>
+		var vm2 = new Vue({
+			el:"#app3",
+			data:Data
+		})
+		var Data = {
+			sex:female,
+			a:20
+		}
+
+		vm2.$data === Data;
+		vm2.$el === document.getElementById('app3');
+		vm.$watch("sex",function(newVal,oldVal){
+			// 匿名回调函数function在sex属性发生变化后执行。
+		})
+	</script>
+
+	<!-- 实例的生命周期：在Vue中没有控制器的概念，控制器的功能由其他组件实现。在实例对象创建的过程中，需要调用“生命周期钩子 ”，钩子的this指向调用它的实例对象。不同的钩子在不同阶段使用：created compiled ready destroyed -->
+	<script>
+		var vm = new Vue({
+			data:{
+				a:1
+			},
+			created:function(){
+				this.a ++;
+			}
+		})
+	</script>
+
+
+
+	<!-- 04.计算属性 -->
+	<div id="app1">
+		<span>{{a}} {{b}}</span>
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app1",
+			data:{a:1},
+			computed:{
+				b:function(){
+					return this.a + 1
+				}
+			}
+		})
+		var app2 = new Vue({
+			el:"#app2",
+			data:{
+				firstName:"Donald",
+				lastName:"Trump"
+			},
+			computed:{
+				name:function(){
+					return this.firstName + this.lastName
+				}
+			}
+		})
+		var app3 = new Vue({
+			data:{
+				firstName:"Harry",
+				lastName:"Potter"
+			},
+			computed:{
+				fullName:{
+					get:function(){
+						return this.firstName + '' + this.lastName
+					},
+					set:function(newName){
+						var names = newName.split('');
+						this.firstName = names[0];
+						this.lastName = names[names.length -1]
+					}
+				}
+			}
+		})
+		app3.fullName = "John Doea";
+	</script>
+
+
+	<!-- 05 绑定类名 -->
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.w1000{
+			width: 1000px;
+		}
+		.h300{
+			height: 300px;
+		}
+		div {
+			background-color: skyblue;
+			border:apx solid blue;
+			margin:0 auto;
+		}
+	</style>
+
+	<div class="w1000" v-bind:class="classObject" id="app1">hello</div>
+	<script>
+		var app1 = new Vue({
+			el:"#app1",
+			data:{
+				classObject:{
+					'h300':true,
+					'h400':false
+					// 当改变类名的布尔值，对应的类名会响应式改变
+				}
+			}
+		})
+	</script>
+
+
+	<!-- 06 条件渲染 -->
+	<div id="app1">
+		<div v-if="hello">条件成立</div>
+		<div v-else>条件不成立</div>
+		<template v-if="ok">
+			<span>0</span>
+			<span>1</span>
+			<span>2</span>
+		</template>
+		<div v-show="Math.random() > 0.4"></div>
+	</div>
+	<script>
+		var app1 = new Vue({
+			el:"#app1",
+			data:{
+				hello:false,
+				ok:true
+			}
+		})
+	</script>
+</boDy>
+</html>
