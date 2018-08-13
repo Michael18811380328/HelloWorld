@@ -161,7 +161,7 @@ es6的继承==>静态方法
         console.log("hi Seafile");
     });
 
-8.class 类
+8. class 类
 
     //创建一个类
     class Seafile {
