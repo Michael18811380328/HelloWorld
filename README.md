@@ -36,16 +36,15 @@ Other small JS plug-ins can help me to ease working stress. The fullpage plug-in
 
 ### 2018.05
 
-学习JS高级编程；
-学习Ajax和PHP进行数据交互（XML和JSON）；——以后学习axios
-学习Vue框架基础，了解MVVC流程。
-接手京东移动端项目、新天地项目、微金所项目、苏宁项目。
+laern senior javascript programming. And JS is not easy. Some JS codes are unique. Such as 0.1 plus 0.2 not equal 0.3, however, 0.1 plus 0.5 equal 0.6. And ajax is excellent. Now axios can work well without ajax. 
+
+In the free time, I learn about main structures and MVC or MVVM design modal. (Modal-View-View-Modal). The main structures are Angular, Vue and React. Recently, Angular is too large to design a single page, so people choose React or Vue. And I design three shopping webpages for mobile devices. The pages use different methods to suit different length and height(percentage, flex, rem). Now I should use it fluently.
 
 ### 2018.06
 
-简单学习Vue框架和React框架，了解组件化构建思想，组件化可以很好的提高代码复用率。
-接手百度外卖项目、休闲帮项目，与后端人员进行项目联调测试。
-了解浏览器的渲染过程，不同引擎的具体工作情况。
+Continue learning structue. Using modals can save more time and make codes use widely. Start designing Leisure website and a company fullpage. We have a small team and my main job is to design webpages. And I need to test my codes with others groupnumbers. There are many bugs that we can't realise until testing together. And sometimes designer perfer another color or logo, I need to clip them right away. The jobs are interesting and busy. Tired but happy.
+
+And I learn some chrome inside render methods. There are three engines and each engines can render diferent parts of webpage. There are much knowledge that needs me to learn. As a front-end develper, I have to know Internet basic and data structure.
 
 ### 2018.07
 
