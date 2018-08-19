@@ -1,0 +1,32 @@
+body div {
+	background-color: green;
+}                                                                   
+/*设置元素类别样式，多重限定，使用空格连接*/
+
+.hintclass{
+	display: inline;
+	float: left;
+	left: 30%;
+	height: 35%;
+	width: 70%;
+	color: white
+}   
+
+#hint1{
+	display:inline;
+	float:left;
+	height: 20%;
+	width: 70%;
+	left:30%;
+	background-color: aqua;
+}            
+
+.hintclass{  display: inline;  float: left;  left: 30%;  height: 35%;  width: 70%;color: white;overflow: auto}   
+
+#hint1{display:inline;float:left;height: 25%;width: 70%;left:30%;background-color: aqua;color: white}  
+
+/* background-image:url('chaoxian.jpg');background-size: cover */
+
+body div{background-color: green}
+
+div input{width: 200px;height: 40px}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>jsdemo</title>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <div id="hintdiv">
+      <label id="hint" name="tity"></label>
+      <label id="hint1" name="tity"></label>  <!--name是元素被包含在集合中时的key-->
+      <label class="hintclass" id="hint2" name="tity" title="label text" lang="en" dir="ltr" myatt="age" data-myname="luanpeng"></label>
+      <!--id唯一标识，title元素附件说明，lang语言，dir语言方向，class特性，myatt自定义属性，data-myname自定义数据属性-->
+    </div>
+
+    <div id="hintdiv1">  <!-- onclick="alert('div接收到事件')"-->
+      <input type="button" id="input1" value="点击1" onclick="alert('点击了')" >  <!--可以在事件中直接输入函数表达式-->
+      <input type="text" id="input2" value="输入内容" name="mytext" oninput="printf(event.type.toString()+this.value)" ><!--事件中自动具有event时间对象和this表示的元素本身，名称name的值就代表了当前元素对象的引用-->
+
+      <textarea rows="2" cols="25">textare初始化值</textarea> <!--rows行数，cols列数-->
+      <form accept-charset="GBK" action="" method="post" name="hello" id="myform" novalidate><!--novalidate表单不用验证-->
+        <input name="text1" type="text" size="15"  maxlength="20" placeholder="提示字" value="input初始化值" id="text1" autofocus required>
+        <!--autofocus自动聚焦，pattern="\d+"输入模式，placeholder提示字,size显示的字符数目，maxlength能存放的字符数目，required必填属性-->
+        <input type="email" value="123456@qq.com">
+        <input type="url" value="http://www.baidu.com">
+        <input type="number" min="0" max="100" step="5" value="2"> 
+        <!--min最小值，max最大值，step步进-->
+        <input type="range">
+        <input type="file" id="myfile">
+        <br>
+         <input type="detetime"><input type="date"> <input type="month"><input type="week"><input type="time">
+        <br>
+        <select id="myselect" name="myselect">
+          <option id="option1" value="myoption1">第1个选项</option>
+          <option id="option2" value="myoption2">第2个选项</option>
+        </select>
+        <br>
+        <input type="button" value="点击2" onclick="printf(mytext.value.toString())" />  
+        <!--在form元素中通过name值可以访问其他元素-->
+        <input type="submit" value="提交">
+      </form>
+      <canvas style="width: 500px;background-color: beige" id = "mycanvas">
+      </canvas>
+
+    </div>
+
+
+    <!--script脚本放在body后面为了避免浏览器空白，</script>不要省略，否则容容易出错-->
+    <script src="index.js"></script>
+    <!--引入外部文件或网络文件，src表示要包含的文件，type表示脚本语言内容类型，默认为text/javascript,charset代码所属字符集，async表示立即下载脚本，defer脚本可以延迟到文档完全被解析后再解析-->
+    <!--html文件中内嵌javascript，到文件遇到下一个</script>认为脚本结束，无论他出现在什么位置，尽量使用外部js文件实现-->
+    <script type="text/javascript">//相当于一个外部js文件。一个h5文件引用的所有js文件会自动合并成一个js文件，实现变量函数共享。但每个文件又有独立的活动空间，同名函数和变量会先在自己空间查询，再向前查询
+    hint =  document.getElementById("hint");    //定义变量，供js函数调用。
+    hint1 =  document.getElementById("hint1");    //定义变量，供js函数调用。
+    hint2 =  document.getElementById("hint2");    //定义变量，供js函数调用。
+    hintdiv = document.getElementById("hintdiv");  //定义变量
+    hintdiv1 = document.getElementById("hintdiv1");//定义变量
+    printf("===========栾鹏调试===========");     //调用在js文件中定义的函数，先再当前js文件查询，再在之前的js文件查询，再向之后的js文件查询
+    </script>
+    <script src="index1.js"></script>
+    <script src="index2.js"></script>
+    <script src="index5.js"></script>
+  </body>
+</html>
