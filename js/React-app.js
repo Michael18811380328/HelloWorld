@@ -15,55 +15,59 @@ import '../css/index.css';
 
 //ES6使用class定义构造函数
 class App extends Component {
-	//设置两个属性propTypes和defaultProps
-	static propTypes = {
-		name: React.PropTypes.string
-	};
-	static defaultProps = {
-		name:''
-	};
-	// 使用constructor定义默认的属性
-	constructor(props){
-		super(props);
-		this.handleClick = this.handleClick.bind(this);//在此绑定this也可以
-		this.state = {
-			isEditing: false
-		}
-		// 设置初始状态
-	}
-	// 在ES6中，属性不会自动绑定到react的实例上
-	handleClick(){
-		console.log(this);
-		//null
-	}
-	handleFocus(){
-		console.log(this);
-		//react component instance 
-		//手动绑定this（下文中）
-	}
-	handleBlur: () => {
-		console.log(this);
-		//react componnent instance 
-		//使用箭头函数绑定this
-	}
-	render() {
-		return (
-			<div className="App">
-				<header className="App-header">
-				<img src={ logo } className=s"APP-logo" alt="logo">
-				<h1 className="App-title">I like React</h1>
-				</header>
-				<p className="App-intro">
-					To get started, edit <code> src </code> and save to reload.
-				</p>
-				<input onClick={ this.handleClick } onFocus={ this.handleFocus.bind(this) } onBlur={ this.handleBlur }>
-			</div>
-		);
-	}
+    //设置两个属性propTypes和defaultProps
+    static propTypes = {
+        name: React.PropTypes.string
+    };
+    static defaultProps = {
+        name: ''
+    };
+    // 使用constructor定义默认的属性
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this); //在此绑定this也可以
+        this.state = {
+            isEditing: false
+        }
+        // 设置初始状态
+    }
+    // 在ES6中，属性不会自动绑定到react的实例上
+    handleClick() {
+        console.log(this);
+        //null
+    }
+    handleFocus() {
+        console.log(this);
+        //react component instance 
+        //手动绑定this（下文中）
+    }
+    handleBlur: () => {
+        console.log(this);
+        //react componnent instance 
+        //使用箭头函数绑定this
+    }
+    render() {
+        return ( <
+            div className = "App" >
+            <
+            header className = "App-header" >
+            <
+            img src = { logo } className = s "APP-logo"
+            alt = "logo" >
+            <
+            h1 className = "App-title" > I like React < /h1> <
+            /header> <
+            p className = "App-intro" >
+            To get started, edit < code > src < /code> and save to reload. <
+            /p> <
+            input onClick = { this.handleClick } onFocus = { this.handleFocus.bind(this) } onBlur = { this.handleBlur } >
+            <
+            /div>
+        );
+    }
 }
 
-/
-//在ES6中mixin的属性不能使用
+////在ES6中mixin的属性不能使用
 
 
 //2. React.createClass——自己之前接触这个多一点，现在主要使用上面的方法。
@@ -71,33 +75,24 @@ class App extends Component {
 import React from 'react';
 
 const Contacts = React.createClass({
-	//s使用propTypes和getDefaultProps设置获取prop
-	propTypes:{
-		name: React.PropTypes.string
-	},
-	getDefaultProps(){
-		return {
+    //s使用propTypes和getDefaultProps设置获取prop
+    propTypes: {
+        name: React.PropTypes.string
+    },
+    getDefaultProps() {
+        return {
 
-		};
-	},
-	handleClick(){
-		console.log(this);
-	},
-	//react component instance
-	render(){
-		return(
-			<div></div>
-		);
-	}
+        };
+    },
+    handleClick() {
+        console.log(this);
+    },
+    //react component instance
+    render() {
+        return ( <
+            div > < /div>
+        );
+    }
 });
 
 export default Contacts;
-
-
-
-
-
-
-
-
-
