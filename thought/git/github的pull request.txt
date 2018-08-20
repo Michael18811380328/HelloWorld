@@ -1,0 +1,112 @@
+Last login: Sat Aug 18 10:55:19 on ttys000
+Daniels-MacBook-Pro:~ seafile$ ls
+Applications	Documents	Library		Music		Public
+Desktop		Downloads	Movies		Pictures	VirtualBox VMs
+Daniels-MacBook-Pro:~ seafile$ cd desktop/PR\ test/
+Daniels-MacBook-Pro:PR test seafile$ ls
+seafile-js
+Daniels-MacBook-Pro:PR test seafile$ cd seafile-js/
+Daniels-MacBook-Pro:seafile-js seafile$ ls
+LICENSE			package.json		src
+package-lock.json	readme.md		test
+Daniels-MacBook-Pro:seafile-js seafile$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Daniels-MacBook-Pro:seafile-js seafile$ git remote -v
+origin	git@github.com:Michael18811380328/seafile-js.git (fetch)
+origin	git@github.com:Michael18811380328/seafile-js.git (push)
+upstream	git@github.com:haiwen/seafile-js.git (fetch)
+upstream	git@github.com:haiwen/seafile-js.git (push)
+Daniels-MacBook-Pro:seafile-js seafile$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   src/seafile-api.js
+	modified:   test/test.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Daniels-MacBook-Pro:seafile-js seafile$ git branch
+* master
+  newtest
+Daniels-MacBook-Pro:seafile-js seafile$ git checkout newtest
+error: Your local changes to the following files would be overwritten by checkout:
+	src/seafile-api.js
+	test/test.js
+Please commit your changes or stash them before you switch branches.
+Aborting
+Daniels-MacBook-Pro:seafile-js seafile$ git stash
+Saved working directory and index state WIP on master: 8c75a3a Add jest
+Daniels-MacBook-Pro:seafile-js seafile$ git checkout nestest
+error: pathspec 'nestest' did not match any file(s) known to git.
+Daniels-MacBook-Pro:seafile-js seafile$ git pop
+git: 'pop' is not a git command. See 'git --help'.
+
+The most similar command is
+	log
+Daniels-MacBook-Pro:seafile-js seafile$ git stash pop
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   src/seafile-api.js
+	modified:   test/test.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (943c7ec592df89731e576c7ba5710337adbde8ae)
+Daniels-MacBook-Pro:seafile-js seafile$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   src/seafile-api.js
+	modified:   test/test.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Daniels-MacBook-Pro:seafile-js seafile$ git add .
+Daniels-MacBook-Pro:seafile-js seafile$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   src/seafile-api.js
+	modified:   test/test.js
+
+Daniels-MacBook-Pro:seafile-js seafile$ git commit -m 'add shareLink API for share btn'
+[master 38f6285] add shareLink API for share btn
+ 2 files changed, 329 insertions(+), 36 deletions(-)
+ mode change 100644 => 100755 src/seafile-api.js
+Daniels-MacBook-Pro:seafile-js seafile$ git push origin master
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 2.18 KiB | 2.18 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:Michael18811380328/seafile-js.git
+   8c75a3a..38f6285  master -> master
+Daniels-MacBook-Pro:seafile-js seafile$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+Daniels-MacBook-Pro:seafile-js seafile$ git branch
+* master
+  newtest
+Daniels-MacBook-Pro:seafile-js seafile$ git push origin master
+Everything up-to-date
+Daniels-MacBook-Pro:seafile-js seafile$ 
