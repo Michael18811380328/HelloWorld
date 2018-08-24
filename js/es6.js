@@ -44,7 +44,7 @@ class App extends Component {
 }
 
 
-//ES6 使用class实现构造函数和继承的功能
+///ES6 使用class实现构造函数和继承的功能
 class Person {
 
     // 使用构造器设置静态属性
