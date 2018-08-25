@@ -8,18 +8,4 @@
       return;
     }
   }
-
-
-
-  e = document.currentdenfjejejbehcbcdcdll
-      Script ? document.currentScript.src: function() {
-        for (var
-
-e = document.currentdenfjejejbehcbcdcdll
-      Script cument.currentScript.src: function() {
-        for (var
-
-
-        e = document.currentdenfjejejbehcbcdcdll
-      Script ? document.currentScript.src: function() {
-        for (var
+  console.log("hi");
