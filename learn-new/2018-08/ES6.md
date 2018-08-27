@@ -422,45 +422,15 @@ c) 参数是0个
 
 ```js
      let name = 'Datura';
-
-
-
      let age = 18;
-
-
-
      let person = {
-
-
-
         name,
-
-
-
         age,
-
-
-
         sex:'Man',
-
-
-
         showName:function(){return this.name},
-
-
-
         showAge:function(){return this.age}    
-
-
-
     };
-
-
-
     alert(person.showAge());    //18
-
-
-
     alert(person.sex);    //Man
 ```
 
@@ -525,7 +495,9 @@ iiii) 调用
     alert(p2.showJob());      //boss
 ```
 
-###### es6的面向对象工厂模式：
+
+
+###### es6的面向对象工厂模式
 
 i) 首先定义一个构造函数（此处是 Person），注意用class关键字而不是function；
 ii) 定义Person的“属性”，写在constructor(){this.xxx = xxx }；
@@ -535,61 +507,18 @@ iiiii) 注意constructor和方法之间没有“;”，可以给属性初始值�
 
 ```js
     class Person{
-
-
-
-        constructor(name,age=25){  //可以给属性初始值或默认值,正常es的function函数也可以给默认值
-
-
-
+        constructor(name, age=25){  //可以给属性初始值或默认值,正常es的function函数也可以给默认值
             this.name = name;
-
-
-
             this.age = age;
-
-
-
         }
-
-
-
         showName(){
-
-
-
             return this.name;    
-
-
-
         }
-
-
-
         showAge(){
-
-
-
             return this.age;
-
-
-
         }    
-
-
-
     }
-
-
-
- 
-
-
-
     var p1 = new Person('alice',18);
-
-
-
     alert(p1.showAge());   // 18
 ```
 
@@ -597,135 +526,39 @@ iiiii) 注意constructor和方法之间没有“;”，可以给属性初始值�
 
 ```js
   //父类构造函数Person
-
-
-
    class Person{
-
-
-
         constructor(name,age){
-
-
-
             this.name = name;
-
-
-
             this.age = age;
-
-
-
         }
-
-
-
         showName(){
-
-
-
-            return this.name;    
-
-
-
+            return this.name;   
         }
-
-
-
- 
-
-
-
         showAge(){
-
-
-
             return this.age;
-
-
-
         }    
-
-
-
     }
-
-
-
 //子类继承父类
-
-
-
     class Worker extends Person{
-
-
-
-            constructor(name,age,job='搬砖的'){   //继承父类属性，并新加属性给默认值
-
-
-
-            super(name,age);    
-
-
-
+        constructor(name,age,job='搬砖的'){   //继承父类属性，并新加属性给默认值
+        super(name,age);    
 //这里必须传参，也就是需要把原来构造函数的参数传入。
-
-
-
 //子类必须在constructor方法中调用super方法，否则新建实例时会报错。
-
-
-
 //这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。
-
-
-
             this.job = job;
-
-
-
         }
-
-
-
       //给子类定义新方法showJob
-
-
-
             showJob(){
-
-
-
             return this.job;
-
-
-
         }    
-
-
-
- 
-
-
-
     }
-
-
-
     //调用
-
-
-
     var w1 = new Worker('rose',17);
-
-
-
     alert(w1.showJob());
-
-
-
     alert(w1.showName());
 ```
+
+
 
 #### 9. 模块化
 
@@ -737,9 +570,12 @@ iiiii) 注意constructor和方法之间没有“;”，可以给属性初始值�
 > a).导出，将变量a“暴露”出去
 > const a =12;
 > export default a;
+>
 > b).导入1.js文件“暴露”的东西，并用modA 接收
 > import modA from './1.js'; (./代表同级目录下)
+>
 > c).同一个模块导出多个值 export default {a:12,b:5};
+>
 > d).不同模块间的引入
 > import modA from './mod1.js';
 > import modB from './mod2.js';
@@ -748,81 +584,41 @@ iiiii) 注意constructor和方法之间没有“;”，可以给属性初始值�
 
 实例写个小例子：
 
-```
+```js
 //mod1.js文件的内容
-
-
-
 const a = 12;
-
-
-
 export default a;
 ```
 
-```
+```js
 //mod2.js文件的内容
-
-
-
 const b = 5;
-
-
-
 export default c;
 ```
 
-```
+```html
 //主入口（模块）的内容
-
-
-
 <script src="traceur.js"></script>
-
-
-
 <script src="bootstrap.js"></script>
-
-
-
 <script type="module">
-
-
-
     import modA from './mod1.js';
-
-
-
     import modB from './mod2.js';
-
-
-
     alert(modA+modB);   //17
-
-
-
 </script>
 ```
 
 一个子模块“暴露”一个json数据
 
-```
+```js
 //mod3.js文件的内容
-
-
-
 export default {a:12,b:5};
 //主入口（模块）的内容
-
-
-
 import modA from './mod3.js';
-
-
-
 console.log(modA.a+modA.b);   //  17
 ```
 在研究react和webpack的时候，经常看到在js文件中出现require，还有import，这两个都是为了JS模块化编程使用。CSS的是**@import**
+
+
 
 **1.ES6 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。**
 
@@ -830,7 +626,7 @@ Require是CommonJS的语法，CommonJS的模块是对象，输入时必须查找
 
 [![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
 
-```
+```js
 // CommonJS模块
 let { stat, exists, readFile } = require('fs');
 
@@ -841,17 +637,17 @@ let exists = _fs.exists;
 let readfile = _fs.readfile;
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 above：整体加载fs模块（即加载fs所有方法），生成一个对象"_fs"，然后再从这个对象上读取三个方法，这叫“运行时加载”，因为只有运行时才能得到这个对象，不能在编译时做到静态化。
 
 ES6模块不是对象，而是通过export命令显示指定输出代码，再通过import输入。
 
-```
+```js
 import { stat, exists, readFile } from 'fs';
 ```
 
-above：从fs加载“stat, exists, readFile” 三个方法，其他方法不加载，
+above：从fs加载“stat, exists, readFile” 三个方法，其他方法不加载
+
+
 
 **2.ES6模块默认使用严格模式，无论是否声明“use strict”**
 
@@ -860,6 +656,8 @@ ES6 模块之中，顶层的**this**指向`undefined`，即不应该在顶层代
  
 
 Module 主要由两个命令组成，import和export，export用于规定模块的对外接口，import命令用于输入其他模块提供的功能
+
+
 
 **3.Export**
 
@@ -906,13 +704,9 @@ export {
 };
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 **Attention:**
 
 export 命令规定的是对外接口，必须与模块内部变量建立一一对应的关系
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
 
 ```
 // 写法一
