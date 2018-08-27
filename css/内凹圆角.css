@@ -1,0 +1,19 @@
+/* 核心代码：背景颜色镜像渐变 */
+.class {
+  background-image: radial-gradient(200px at 50px 0px, #fff 50px, #4169E1 50px);
+}
+
+/* 立体质感小球 */
+.egg {
+  /* display: block; */
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: radial-gradient(at 35px 35px, #FFF, #CCC, #FFF);
+  background: -webkit-radial-gradient(35px 35px, #FFF, #CCC, #FFF);
+}
+/*
+分析：径向渐变默认是圆形渐变，从圆心向外部渐变。至少需要两个参数：开始颜色和结束颜色。前面的参数可选，表示渐变开始的位置。
+
+案例：在小球案例中，width-height-border-radius构建了小球外形。通过设置小球的背景颜色渐变（从白色-灰色-白色）默认的渐变开始点是（0，0），现在原始点改到（35，35）就是球的左上角。渐变需要光线和美术基础。
+ */
