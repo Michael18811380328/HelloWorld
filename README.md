@@ -16,7 +16,7 @@ learning basic javascript codes. Basic JS codes are similar to other coding lang
 
 ECMAscript, a standard coding plan, is developing rapidly. ES5 is ripe and stable. In 2015, ES6 use class to create an object (from cpp?). And ES6 use string module. It maybe come from Ruby. 
 
-Recentlt some frineds told me that NodeJS could work in desktop application. In one day JS will work every place.
+Recently some frineds told me that NodeJS could work in desktop application. In one day JS will work every place.
 
 ### 2018.03
 
@@ -44,11 +44,11 @@ In the free time, I learn about main structures and MVC or MVVM design modal. (M
 
 Continue learning structue. Using modals can save more time and make codes use widely. Start designing Leisure website and a company fullpage. We have a small team and my main job is to design webpages. And I need to test my codes with others groupnumbers. There are many bugs that we can't realise until testing together. And sometimes designer perfer another color or logo, I need to clip them right away. The jobs are interesting and busy. Tired but happy.
 
-And I learn some chrome inside render methods. There are three engines and each engines can render diferent parts of webpage. There are much knowledge that needs me to learn. As a front-end develper, I have to know Internet basic and data structure.
+And I learn some chrome inside render methods. There are three engines and each engines can render diferent parts of webpage. There are much knowledge that I need to learn. As a developing front-end develper, I have to know Internet basic and data structure knowledge as quickly as I can.
 
 ### 2018.07
 
-I start to learn Mina frame of WeChat small app. I have a personal Wechat Official Platform. In one day, I will design my own small app by myself.
+I start to learn Mina frame for WeChat small app. I have a personal Wechat Official Platform. In one day, I will design my own WeChat Small App by myself.
 
 The Mina frame use different programming language, wxml and wxss. Wxml language uses different tags(such as View tag). Wxss use different length, rpx, rather than px or percentage methods. This frame has many useful modules and we can easily use the APIs. However, data tramsfer by using props and state is not easy for me. 
 
