@@ -15,8 +15,6 @@ import '../css/index.css';
 
 //ES6使用class定义构造函数
 class App extends Component {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     //设置两个属性propTypes和defaultProps
     static propTypes = {
         name: React.PropTypes.string
@@ -40,12 +38,12 @@ class App extends Component {
     }
     handleFocus() {
         console.log(this);
-        //react component instance 
+        //react component instance
         //手动绑定this（下文中）
     }
     handleBlur: () => {
         console.log(this);
-        //react componnent instance 
+        //react componnent instance
         //使用箭头函数绑定this
     }
     render() {
@@ -70,9 +68,7 @@ class App extends Component {
 }
 
 ////在ES6中mixin的属性不能使用
-=======
-=======
->>>>>>> Stashed changes
+
 	//设置两个属性propTypes和defaultProps
 	static propTypes = {
 		name: React.PropTypes.string
@@ -96,12 +92,12 @@ class App extends Component {
 	}
 	handleFocus(){
 		console.log(this);
-		//react component instance 
+		//react component instance
 		//手动绑定this（下文中）
 	}
 	handleBlur: () => {
 		console.log(this);
-		//react componnent instance 
+		//react componnent instance
 		//使用箭头函数绑定this
 	}
 	render() {
@@ -120,21 +116,12 @@ class App extends Component {
 	}
 }
 
-/
-//在ES6中mixin的属性不能使用
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
-
-//2. React.createClass——自己之前接触这个多一点，现在主要使用上面的方法。
+////2. React.createClass——自己之前接触这个多一点，现在主要使用上面的方法。
 
 import React from 'react';
 
 const Contacts = React.createClass({
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     //s使用propTypes和getDefaultProps设置获取prop
     propTypes: {
         name: React.PropTypes.string
@@ -149,47 +136,10 @@ const Contacts = React.createClass({
     },
     //react component instance
     render() {
-        return ( <
-            div > < /div>
+        return (
+            <div > < /div>
         );
     }
 });
 
 export default Contacts;
-=======
-=======
->>>>>>> Stashed changes
-	//s使用propTypes和getDefaultProps设置获取prop
-	propTypes:{
-		name: React.PropTypes.string
-	},
-	getDefaultProps(){
-		return {
-
-		};
-	},
-	handleClick(){
-		console.log(this);
-	},
-	//react component instance
-	render(){
-		return(
-			<div></div>
-		);
-	}
-});
-
-export default Contacts;
-
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
