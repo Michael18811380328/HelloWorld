@@ -8,3 +8,4 @@
       return;
     }
   }
+  console.log("hi");
