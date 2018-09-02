@@ -1,24 +1,6 @@
-test file 
-
-
-test 2
-
-test3
-
-
-
-
-test4
-
-
-
-// we should learn ES6 and other codes in a short time 
-
-// ES6 
-
 /*
 
-1. let const 
+1. let const
 
 { let a = 2; } console.log(a);
 
@@ -33,9 +15,7 @@ setTimeout(() => {
 },1000);
 
 4. class === structure function Objected-oriented programming
-*/ 
-
-// this is the test react file with ES6
+*/
 
 import React, { Component } from 'react';
 import logo from '../images/index.jpg';
@@ -139,7 +119,6 @@ show({
     c: 3
 });
 
-// 字符串用的不多
 let [a, b, c, d] = "ECMA";
 console.log(a === "E");
 
