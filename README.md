@@ -58,7 +58,7 @@ Never stop coding!
 
 August is a very busy month. Not only did I finish so mush codes of html, css, js, but also I learn plenty of new knowledge points. To be honest, I didn't have one day rest. At night I always learn new grammar. And there are some details about August.
 
-#### 1. Do some unit test.
+##### 1. Do some unit test.
 
 It is significant to do unit test before using a new javascript API. When we finished writing an API, we must test it right away. The main test tool are Mocha or Jest. Using assertions to test if the API could return a right value. Unit test is basic test.
 
@@ -66,13 +66,13 @@ The basic method is test APIs one by one. The advanced method is test lots of AP
 
 For a fresh bird, I choose the first method now. In the future, I will use the advanced methods to release my work pressure and deal with other projects. Time is precious.
 
-#### 2. learn new OS（operating system）
+##### 2. learn new OS（operating system）
 
 I heard MAC OS and Linux OS before. But I didn't operate them before. Now I need to learn the basic knowledge. The Linux system is much different from Windows system. I use Ubuntu, a special linux OS. The base and vim command line need to remember. In the future, I will use them much. Bye-Bye windows.
 
 Till now I can't find adequate PS and other softwares in MAC. I didn't have an Apple ID so I can't down app from App Store. The NodeJS and NPM parts are useful in MAC. I still use sublime as my editor software. The webstorm and atom editor are useful too.
 
-#### 3. new knowledge of Jest
+##### 3. new knowledge of Jest
 
 What's more, there are many new knowledge points. I need to learn reactstrap(bootstrap in react framework). The ECMAscript6 is necessary. The differences between const and let (let use much memory than const, about 2% to 3% maybe). And array function is useful. It can bind this to using function automaticly.Others, learn button/DropDown/Modal compoennts of reactstrap.
 
@@ -92,8 +92,6 @@ translate
 
 learn English of CS
 
-
-
 ### 2018.09
 
 plan: learn slate.js (the main APIs) and react framework step by step. Hurry up!
@@ -101,7 +99,19 @@ plan: learn slate.js (the main APIs) and react framework step by step. Hurry up!
 And this is the first time to use vim to write readme.md And use it more.
 
 
-
 There are so many things to learn. And I found that it is important for us to learn not only code basic using but also inner logic of basic. For instance, learning slate-core codes is significant for understanding lower codes logic.
 
 And I learn code (JS) data structure of JS. The bacis data strcuture is Array. In JS, we can use Array to create other complex data structure. (queue/stack/linked chart). What's more, the basic network knowledge is also essential and basic.  
+### 2018.10
+
+Ops, The National Day's holiday is so quick that I spend only 3 days in coding. The roads are always crowded and I have to spend 2 days on way home. 
+
+1、**Javascript data structure learning**
+
+Last month I find the basic CS knowledge is necessary. If you can code by using basic grammar, your codes are still messes. And excellent data structures can help your codes run faster and release unnecessary memory.
+
+JS data structure has some different aspects from other programming language, such as C. We all know that an array has fixed length in C. However you can change the length of Array in JS. Now I am learning  array, stach, queue, linked charts, tree and so on. Using basic array to create other complex data structure is tired but instresting.
+
+2、**CS network basic knowledeg**
+
+Four years ago, I learn basic CS network.
