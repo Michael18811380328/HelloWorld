@@ -1,10 +1,22 @@
 import { Editor } from 'slate-react'
 import { Value } from 'slate'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import initialValue from './value.json'
 import styled from 'react-emotion'
 import { Button, Icon, Menu } from '../components'
+
+// 在react中，虚拟DOM节省性能，所以避免在react中直接操作DOM节点。
+
+// Virtual DOM is awesome. It allows us to express our application's viewas a function of its state. But existing solutions were way way too bloated, too slow, lacked features, had an API biased towards OOP and/or lacked features I needed.
+
+// 虚拟DOM不会进行排版与重绘操作；虚拟DOM进行频繁修改，然后一次性比较并修改真实DOM中需要改的部分（注意！），最后并在真实DOM中进行排版与重绘，减少过多DOM节点排版与重绘损耗
+
+// 真实DOM频繁排版与重绘的效率是相当低的
+
+// 虚拟DOM有效降低大面积（真实DOM节点）的重绘与排版，因为最终与真实DOM比较差异，可以只渲染局部（同2）
+// 总损耗 = 虚拟DOM增删改 + （与Diff算法效率有关）真实DOM差异增删改 + （较少的节点）排版与重绘
 
 const StyledMenu = styled(Menu)`
   padding: 8px 7px 6px;
@@ -18,11 +30,12 @@ const StyledMenu = styled(Menu)`
   border-radius: 4px;
   transition: opacity 0.75s;
 `
-/*********************************/
+// 设置预设样式：使用top-left负无穷，比display：none更节省性能 opacity相对于display也节省性能
+
 class HoverMenu extends React.Component {
 
   render() {
-    const { className, innerRef } = this.props // 需要传入className和内部的reference
+    const { className, innerRef } = this.props
     const root = window.document.getElementById('root')
 
     return ReactDOM.createPortal(
@@ -35,76 +48,20 @@ class HoverMenu extends React.Component {
       root
     )
   }
-
-  /**
-   * Render a mark-toggling toolbar button.
-   *
-   * @param {String} type
-   * @param {String} icon
-   * @return {Element}
-   */
-
-  ///
-
-  renderMarkButton(type, icon) {
-    const { value } = this.props
-    const isActive = value.activeMarks.some(mark => mark.type == type)
-    return (
-      <Button
-        reversed
-        active={isActive}
-        onMouseDown={event => this.onClickMark(event, type)}
-      >
-        <Icon>{icon}</Icon>
-      </Button>
-    )
-  }
-
-  /**
-   * When a mark button is clicked, toggle the current mark.
-   *
-   * @param {Event} event
-   * @param {String} type
-   */
-
-  onClickMark(event, type) {
-    const { value, onChange } = this.props
-    event.preventDefault()
-    const change = value.change().toggleMark(type)
-    onChange(change)
-  }
 }
+//
 
-/**
- * The hovering menu example.
- *
- * @type {Component}
- */
-
-
-
-/***************************************************/
 class HoveringMenu extends React.Component {
 
   state = {
     value: Value.fromJSON(initialValue),
   }
-
-  /**
-   * On update, update the menu.这部分代码可以借鉴
-   */
-
   componentDidMount = () => {
     this.updateMenu()
   }
-
   componentDidUpdate = () => {
     this.updateMenu()
   }
-
-  /**
-   * Update the menu's absolute position.
-   */
 
   updateMenu = () => {
     const menu = this.menu
@@ -118,12 +75,9 @@ class HoveringMenu extends React.Component {
       return
     }
 
-    // 鼠标经过的对象怎样触发事件？获取鼠标经过的对象（不是选中的对象），这里需要改动
-
     const native = window.getSelection()
     const range = native.getRangeAt(0)
     const rect = range.getBoundingClientRect()
-
     menu.style.opacity = 1
     menu.style.top = `${rect.top + window.pageYOffset - menu.offsetHeight}px`
 
@@ -133,6 +87,12 @@ class HoveringMenu extends React.Component {
       rect.width / 2}px`
   }
 
+  /**
+   * Render.
+   *
+   * @return {Element}
+   */
+
   render() {
     return (
       <div>
@@ -141,35 +101,8 @@ class HoveringMenu extends React.Component {
           value={this.state.value}
           onChange={this.onChange}
         />
-        <Editor
-          placeholder="Enter some text..."
-          value={this.state.value}
-          onChange={this.onChange}
-          renderMark={this.renderMark}
-        />
       </div>
     )
-  }
-
-////
-
-  renderMark = props => {
-    const { children, mark, attributes } = props
-
-    switch (mark.type) {
-      case 'bold':
-        return <strong {...attributes}>{children}</strong>
-      case 'code':
-        return <code {...attributes}>{children}</code>
-      case 'italic':
-        return <em {...attributes}>{children}</em>
-      case 'underlined':
-        return <u {...attributes}>{children}</u>
-    }
-  }
-
-  onChange = ({ value }) => {
-    this.setState({ value })
   }
 }
 

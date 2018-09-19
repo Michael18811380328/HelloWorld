@@ -1,7 +1,5 @@
 # JavaScript Cookie
 
-------
-
 Cookie 用于存储 web 页面的用户信息。
 
 ------

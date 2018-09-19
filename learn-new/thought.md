@@ -36,4 +36,4 @@ diff算法分三层：
 
 npm init -y 快速在文件夹中创建一个json包文件。（在终端中运行）。
 
-webpack是一个打包工具。是一个单独的组件。使用webpack进行打包，在package.json中输入“dev”:"webpack"。在webpack3.0版本中，打包直接进行就行。在webpack 4.x版本中，需要单独装webpack和webpack-cli进行构建和打包`
+webpack是一个打包工具。是一个单独的组件。使用webpack进行打包，在package.json中输入“dev”:"webpack"。在webpack3.0版本中，打包直接进行就行。在webpack 4.x版本中，需要单独装webpack和webpack-cli进行构建和打包

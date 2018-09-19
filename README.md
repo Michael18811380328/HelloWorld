@@ -86,11 +86,15 @@ write later because there are much things to deal now.
 
 reading blog from RuanYF
 
+
+
 translate
 
 learn English of CS
 
-2018.09 
+
+
+### 2018.09
 
 plan: learn slate.js (the main APIs) and react framework step by step. Hurry up!
 
