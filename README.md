@@ -99,3 +99,9 @@ learn English of CS
 plan: learn slate.js (the main APIs) and react framework step by step. Hurry up!
 
 And this is the first time to use vim to write readme.md And use it more.
+
+
+
+There are so many things to learn. And I found that it is important for us to learn not only code basic using but also inner logic of basic. For instance, learning slate-core codes is significant for understanding lower codes logic.
+
+And I learn code (JS) data structure of JS. The bacis data strcuture is Array. In JS, we can use Array to create other complex data structure. (queue/stack/linked chart). What's more, the basic network knowledge is also essential and basic.  

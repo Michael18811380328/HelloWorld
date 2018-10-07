@@ -13,14 +13,43 @@ function linkedList() {
     this.next = null;
   };
   // API
-  this.append = function(ele) {};
+  // 1.向列表尾部添加元素
+  this.append = function(ele) {
+    let node = new Node(ele);
+    let current;
+    if (head === null) {
+      // 如果列表是空，添加第一个元素
+      head = node;
+    }
+    else {
+      current = head;
+      // 循环列表找到最后一项
+      while (current.next) {
+        current = current.next;
+      }
+      // 将最后一项的next赋值为node，建立链接
+      current.next = node;
+    }
+    length ++;// 更新链表的长度
+  };
   this.insert = function(position, ele) {};
-  this.removeAt = function(position) {};
+  this.removeAt = function(position) {
+
+  };
   this.remove = function(ele) {};
   this.indexOf = function(ele) {};
   this.isEmpty = function() {};
   this.size = function() {};
   this.toString = function() {};
   // 列表使用了node类，所以需要重写继承于对象的toString方法，只输出元素的值。
-  this.print = function() {};
+  this.print = function() {
+    console.log(this);
+  };
 }
+
+
+// test
+let list = new linkedList();
+list.append(15);
+list.append(10);
+list.print();
