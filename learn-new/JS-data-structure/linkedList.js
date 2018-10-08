@@ -3,6 +3,8 @@
 // 好处：添加元素或者删除元素不需要改变已有元素在内存中的位置；弊端：访问列表需要从一个开始元素以此迭代列表。
 // 实例：一列火车：车厢是一个节点，连接处是一个指针。
 // 分类：链表和双向链表
+
+// 1.单向链表
 function linkedList() {
   let length = 0;
   // 第一个节点的引用存储（head）
@@ -32,24 +34,103 @@ function linkedList() {
     }
     length ++;// 更新链表的长度
   };
-  this.insert = function(position, ele) {};
-  this.removeAt = function(position) {
-
+  this.insert = function(position, ele) {
+    if (position >= 0 && position <= length) {
+      let node = new Node(element);
+      let current = head;
+      let previous;
+      let index = 0;
+      if (position === 0) {
+        node.next = current;
+        head = node;
+      }
+      else {
+        while (index++ < current) {
+          previous = current;
+          current = current.next;
+        }
+        node.next = current;
+        previous.next = node;
+      }
+      length ++;
+      return true;
+    }
+    else {
+      return false;
+    }
   };
-  this.remove = function(ele) {};
-  this.indexOf = function(ele) {};
-  this.isEmpty = function() {};
-  this.size = function() {};
-  this.toString = function() {};
+  this.removeAt = function(position) {
+    if (position > -1 && position < length) {
+      let current = head;
+      let previous;
+      let index = 0;
+      if (position === 0) {
+        head = current.next;
+      }
+      else {
+        while (index ++ < position) {
+          previous = current;
+          current = current.next;
+        }
+        previous.next = current.next;
+      }
+      length --;
+      return current.element;
+    }
+    else {
+      return null;
+    }
+  };
+  this.indexOf = function(ele) {
+    let current = head;
+    let index = -1;
+    while (current) {
+      if (ele === current.element) {
+        return index;
+      }
+      index ++;
+      current = current.next;
+    }
+    return -1;
+  };
+
+  this.remove = function(ele) {
+    let index = this.indexOf(ele);
+    return this.removeAt(index);
+  };
+
+  this.isEmpty = function() {
+    return length == 0;
+  };
+
+  this.size = function() {
+    return length;
+  };
+
+  this.toString = function() {
+    let current = head;
+    let string = '';
+    while (current) {
+      string = current.element;
+      current = current.next;
+    }
+    return string;
+  };
   // 列表使用了node类，所以需要重写继承于对象的toString方法，只输出元素的值。
   this.print = function() {
     console.log(this);
   };
+
+  this.getHead = function() {
+    return head;
+  }
 }
 
-
-// test
+// test append
 let list = new linkedList();
 list.append(15);
 list.append(10);
 list.print();
+
+
+// 2.双向链表
