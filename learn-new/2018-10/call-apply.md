@@ -13,9 +13,9 @@ call 和 apply
 
 #### 用法
 
-###### 调用函数，传递参数
+###### 1、调用函数，传递参数
 
-```
+```js
     //定义一个add 方法
     function add(x, y) {
         return x + y;
@@ -40,9 +40,9 @@ call 和 apply
 
 我们看到通过方法本身的`call` 和 `apply` 执行了该函数。
 
-###### 改变函数作用域
+###### 2、改变函数作用域（this）
 
-```
+```js
     var name = '小白';
 
     var obj = {name:'小红'};
@@ -58,9 +58,9 @@ call 和 apply
 
 我们改变了函数运行的作用域， 通过绑定不同的对象，函数内部 `this` 也不同。最终输入结果才会这样。
 
-#### 高级用法，实现 js 继承
+###### 3、高级用法——实现 js 类继承
 
-```
+```js
     //父类 Person
     function Person() {
         this.sayName = function() {
@@ -73,10 +73,6 @@ call 和 apply
         //借助 call 实现继承
         Person.call(this);
         this.name = name;
-
-        this.ch = function() {
-            alert('我是中国人');
-        }
     }
 
     //子类 America
@@ -84,10 +80,6 @@ call 和 apply
         //借助 call 实现继承
         Person.call(this);
         this.name = name;
-
-        this.am = function() {
-            alert('我是美国人');
-        }
     }
 
 
