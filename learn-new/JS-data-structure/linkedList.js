@@ -4,6 +4,8 @@
 // 实例：一列火车：车厢是一个节点，连接处是一个指针。
 // 分类：链表和双向链表
 
+// 与之前不同：指针的灵活使用
+
 // 1.单向链表
 function linkedList() {
   let length = 0;
@@ -15,7 +17,7 @@ function linkedList() {
     this.next = null;
   };
   // API
-  // 1.向列表尾部添加元素
+
   this.append = function(ele) {
     let node = new Node(ele);
     let current;
@@ -34,6 +36,8 @@ function linkedList() {
     }
     length ++;// 更新链表的长度
   };
+
+  // 链表相关API操作不熟练
   this.insert = function(position, ele) {
     if (position >= 0 && position <= length) {
       let node = new Node(element);
@@ -59,6 +63,7 @@ function linkedList() {
       return false;
     }
   };
+
   this.removeAt = function(position) {
     if (position > -1 && position < length) {
       let current = head;
@@ -81,6 +86,7 @@ function linkedList() {
       return null;
     }
   };
+
   this.indexOf = function(ele) {
     let current = head;
     let index = -1;
@@ -116,6 +122,7 @@ function linkedList() {
     }
     return string;
   };
+
   // 列表使用了node类，所以需要重写继承于对象的toString方法，只输出元素的值。
   this.print = function() {
     console.log(this);
@@ -124,9 +131,10 @@ function linkedList() {
   this.getHead = function() {
     return head;
   }
+
 }
 
-// test append
+// test append API
 let list = new linkedList();
 list.append(15);
 list.append(10);
@@ -134,3 +142,69 @@ list.print();
 
 
 // 2.双向链表
+// 单向链表只有向下一个节点的链接，双向链表是双向的，可以向上一个节点或者下一个节点进行链接。具有双向的指针。
+// 双向链表中可以从头到尾或者从尾到头迭代列表；在单向链表中，如果迭代链表过程中错过了要找的元素，需要从头迭代链表。
+// API的主要变动：创建新的元素节点是相同的，需要同时改变前后两个指针的指向。
+
+function DoubleLinkedList() {
+
+  let Node = function(ele) {
+    this.element = ele;
+    this.next = null;
+    this.prev = null;
+  };
+
+  let length = 0;
+  let head = null;
+  let tail = null;
+
+  // API
+  this.insert = (position, element) => {
+    let node = new Node(element);
+    let current = head;
+    let previous;
+    let index = 0;
+    if (position === 0) {
+      if (!head) {
+        head = node;
+        tail = node;
+      } else {
+        node.next = current;
+        current.prev = node;
+        head = node;
+      }
+    } else if (position === length) {
+      current = tail;
+      current.next = node;
+      node.prev = current;
+      tail = node;
+    } else {
+      while (index++ < position) {
+        previous = current;
+        current = current.next;
+      }
+      node.next = current;
+      previous.next = previous;
+    }
+    length ++;
+    return true;
+  } else {
+    return false;
+  }
+
+  this.removeAt = (position) => {
+    // 检查临界值
+    if (position > -1 && position < length) {
+      let current = head;
+      let previous;
+      let index = 0;
+    }
+    // 移除第一项
+    if (position === 0) {
+      head = current.next;
+      // ...
+    }
+  }
+};
+
+// 改进：如果position大于length/2，最好从尾部开始迭代，改进性能；

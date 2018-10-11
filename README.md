@@ -86,22 +86,20 @@ write later because there are much things to deal now.
 
 reading blog from RuanYF
 
-
-
-translate
-
-learn English of CS
-
-
-
 ### 2018.09
 
 plan: learn slate.js (the main APIs) and react framework step by step. Hurry up!
 
 And this is the first time to use vim to write readme.md And use it more.
 
-
-
 There are so many things to learn. And I found that it is important for us to learn not only code basic using but also inner logic of basic. For instance, learning slate-core codes is significant for understanding lower codes logic.
 
 And I learn code (JS) data structure of JS. The bacis data strcuture is Array. In JS, we can use Array to create other complex data structure. (queue/stack/linked chart). What's more, the basic network knowledge is also essential and basic.  
+
+### 2018.10
+
+For a front-end engineer, I should use front-end technique fluently. The main structure and basic logic and data structure. And I thought that I should not only know my aspects but also learn other aspects. The basic   network and back-end knowledge are also important. I needn't write back-end codes, I just know their methods and thoughts. And I should learn front-end parts firstly. 
+
+Recently work is not busy (compared with Sep). And there are other things I have to deal with, such as tax, insurance, family tree : ) I will spend at least 20 percentages of my time and monty into future development (books and other online lecture). Never give up! Just hurry up!
+
+There are so many things to learn. And I found that it is important for us to learn not only code basic using but also inner logic of basic. For instance, learning slate-core codes is significant for understanding lower codes logic. And I learn code (JS) data structure of JS. The bacis data strcuture is Array. In JS, we can use Array to create other complex data structure. (queue/stack/linked chart). What's more, the basic network knowledge is also essential and basic. 
