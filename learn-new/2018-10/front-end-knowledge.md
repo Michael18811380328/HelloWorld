@@ -1071,3 +1071,150 @@ exports.mem            = mem;
  9、HSL色彩模型是什么，在CSS中如何使用
  10、css居中正方形，flex居中，正方形用padding做
  11、请使用CSS3实现一个长宽等于100px的div，1000ms后变成一个有阴影原型，并横向向右移动了50px的效果。加分：用画布实现以上效果
+
+
+
+https://blog.csdn.net/liusheng95/article/details/51234089
+
+CSS部分
+常问问题： 
+
+1. 两种盒模型 
+2. 选择器优先级计算 
+3. 有哪些伪类 
+4. 纯css实现对话框带上小三角形 
+5. 轮播图 js css 
+6. 媒体查询 
+7. 清楚浮动方式 
+8. 完全置中
+
+JavaScript部分
+什么是闭包？ 
+闭包是指有权访问另一个函数作用域重点变量的函数。创建闭包的常见方式，就是在一个函数内部创建另外一 
+个函数。因为内部匿名函数的作用域链(一个栈结构)指向2：全局变量对象，1：包含函数变量对象，0:自己 
+的变量对象。所以虽然随着包含函数的执行结束，包含函数的作用域链销毁了，但是因为任然有函数的作用域 
+链指向包含函数的变量对象，所以不会触发回收机制。
+JS如何实现类，继承？ 
+通过prototype,Javascript 解析引擎在读取一个Object的属性的值时，会沿着prototype向上寻找， 
+如果最终没有找到，则该属性值为Undefined； 如果最终找到该属性的值，则返回结果。与这个过程不同的是， 
+当javascript解析引擎执行“给一个Object的某个属性赋值”的时候，如果当前Object存在该属性，则改写该属性的值， 
+如果当前的Object本身并不存在该属性，则赋值该属性的值。
+什么是冒泡和捕获？ 
+事件流描述的是从页面中接收事件的顺序。IE的事件流是事件冒泡流，Netscape的事件流是事件捕获流。 
+事件冒泡流：嵌套最深的结点最先接收事件。 
+事件捕获流：document对象最先接收事件。
+JS有哪些数据类型？ 
+boolean,null，Number,string,Undefined这5个基本数据类型，另外有一个复杂数据类型object（本质上由一组无序的名值对组成）
+Null和Undefined的区别？ 
+声明但未加初始化的则为Undefined,而null则表示一个空对象指针。但是两者用==返回为true
+isNaN（）的作用？ 
+isNaN() 函数通常用于检测 parseFloat() 和 parseInt() 的结果，以判断它们表示的是否是合法的数字。当然也可以用 isNaN() 函数来检测算数错误，比如用 0 作除数的情况。
+JS对象中的Array对象和String对象的各种方法
+
+this关键字在不同环境下的指向 
+5种情况下的this指向
+
+JS的作用域 
+作用域和命名空间
+setTimeout和setInterval 
+(setTimeout和setInterval的区别你真的了解吗?)[http://www.jb51.net/article/26679.htm]
+js有哪些基本对象 
+JavaScript对象：Array，Boolean，Date，Math，Number，String，RegExp，Functions，Events 
+browser对象：Window，Navigator，Screen，History，Location 
+html对象：Document，Element，Attribute，Event
+call、apply、callee 孰知应用 
+js apply详解 
+javascript中callee与caller的用法和应用场景
+跨域实现方法 
+详解js跨域问题
+事件监听、回调、发布订阅模式、promise实现 
+javascript实现异步的四种方法 
+设计模式之观察者模式
+AMD CMD 模块化JS 
+javascript模块化编程
+内存泄露的原因和场景。 
+深入浅出JavaScript内存泄露 
+javascript内存泄露的几种情况
+如何判断js类型 
+JavaScript中判断对象类型的种种方法
+按值传递和按引用传递 
+JavaScript中值的访问与参数传递问题
+重排和重绘 
+浏览器渲染页面的过程，以及重绘和重排
+严格模式 
+是时候使用JavaScript严谨模式(Strict Mode)提升团队开发效率
+简述document.write和 innerHTML的区别。 
+document.write只能重绘整个页面, 
+innerHTML可以重绘页面的一部分。
+extend 
+extend 方法在js框架中的设计
+相关知识
+IE与firefox，chrome等浏览器的差别
+事件： 
+ie：attachEvent, window.event,window.event.srcElement 
+chrome：addEventListener, event;event.target 
+其他： 
+- firefox不支持innerText，但是支持一个相似的textContent 
+- ie不支持getComputedStyle()这个方法，他支持currentStyle这个属性 
+- 盒模型不同 
+- 浏览器默认样式不同，利用*{margin：0，padding:0},统一
+
+性能优化的方法
+前端工程与性能优化 
+前端优化的手段都有哪些？ 
+毫秒必争，前端网页性能最佳实践
+
+服务器层面： 
+cdn，前后端不同域名（减少cookie），gzip压缩文件，合并文件，雪碧图，304缓存，压缩代码，移除重复脚本，图像优化； 
+通过Keep-alive机制减少TCP连接。 
+避免跳转 跳转是使用301和302代码实现的
+
+代码层面： 
+将样式表放在顶部，将脚本放在底部，尽早刷新文档的输出； 
+减少重排和重绘，利用DocumentFragments，同时更改样式时尽量通过更改className可减少reflow, 
+减少dom数量； 
+事件代理， 
+减少dom的访问次数，如果需要多次访问某个DOM节点，请使用局部变量存储对它的引用。 
+重构HTML，把重要内容的优先级提高（圣杯布局）。 
+利用预加载优化资源。 
+利用LocalStorage合理缓存资源。 
+利用媒体查询请求不同大小的图片
+
+http状态码
+1XX表示请求接受成功，待进一步处理 
+2XX表示访问成功 
+3XX 访问重定向 
+4XX 客户端请求错误，包括语法、文件路径 
+5XX 服务器出现错误
+
+200 OK //客户端请求成功 
+400 Bad Request //客户端请求有语法错误，不能被服务器所理解 
+401 Unauthorized //请求未经授权，这个状态代码必须和WWW-Authenticate报 //头域一起使用 
+403 Forbidden //服务器收到请求，但是拒绝提供服务 
+404 Not Found //请求资源不存在，eg：输入了错误的URL 
+500 Internal Server Error //服务器发生不可预期的错误 
+503 Server Unavailable //服务器当前不能处理客户端的请求，一段时间后,可能恢复正常
+
+资料链接
+综合面试题
+最全前端面试问题及答案总结
+常见前端面试题及答案
+javascript秘密花园
+前端面试
+初级Web前端工程师面试必看面试题
+前端工作面试问题
+史上最全 前端开发面试问题及答案整理
+CSS
+css权重
+史上最全Html和CSS布局技巧
+圣杯布局
+相关
+cache-control
+http状态码详解
+现代浏览器的工作原理
+当你输入一个网址，实际会发生什么?
+Web安全测试之XSS
+前端进阶-让你升级的网络知识
+前端优化不完全指南
+聊一聊cookie
+面经相关
