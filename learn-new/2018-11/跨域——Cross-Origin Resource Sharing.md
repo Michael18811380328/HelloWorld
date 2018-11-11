@@ -1,0 +1,73 @@
+跨域——Cross-Origin Resource Sharing
+
+跨域请求：简单说，不同域名之间可以请求到数据的行为；
+
+参考文献：https://www.w3.org/TR/cors/
+
+报错信息：
+
+Failed to load https://example.com/: No ‘Access-Control-Allow-Origin’ header is present on the requested resource. Origin ‘https://anfo.pl' is therefore not allowed access. If an opaque response serves your needs, set the request’s mode to ‘no-cors’ to fetch the resource with CORS disabled.
+
+CORS是一种可以让你实现跨站点请求并同时阻止恶意js的请求，它会在你发送下面几种HTTP请求时触发：
+
+\- 不同的域名 （比如在网站 example.com 请求 api.com)
+
+\- 不同的子域名 （比如在网站 example.com 请求 api.example.com)
+
+\- 不同的端口 （比如在网站 example.com 请求 example.com:3001)
+
+\- 不同协议 （比如在网站 https://example.com 请求 http://example.com)
+
+这个机制阻止攻击者在一些网站上放置js脚本（比如通过Googls Ads展示的广告）发起一个AJAX请求访问www.yourbank.com，假设你刚好登陆过这个网站，就可能使用你的验证信息发起一笔转账。
+
+ 如果你的浏览器发起一个“非简单”请求（比如这个请求里包含了*cookies*，或者*Content-type*是*application/x-ww-form-urlencoded*, *multipart/form-data* 或者 *text-plain*）一个叫做**预检查**的机制会发送一个*OPTIONS*请求到服务器。如果服务器没有返回带有特殊头部的数据，简单请求GET或者POST请求仍然会发送，服务器的数据也会返回，但是浏览器会阻止Javascript获取这次请求。
+
+如果明确的需要在一个请求里添加cookies，自定义头部信息或则其他特性，这将不在是一个简单请求，并且服务器没有适当的返回，这次请求讲不会发送。就是复杂请求时，如果OPTIONS的请求，服务器没有做出适当的返回，后面真实的请求将不会发送。
+
+# 如何修复CORS“错误”？
+
+你应该明白了CORS的行为并不是一个**错误**——它是一个机制，用来保护你的用户，你和你请求的服务器。
+
+有时，缺乏适当的头部信息是因为客户端实现错误（比如：丢失验证信息比如API key）。
+
+下面有几个适应不同情况，“修复这个错误”的方法：
+
+**A——我在开发前端并且可以控制或者认识开发后端的人员**
+
+这是一个最好的情况——你应该能让返回信息的头里包含适当的CORS字段。如果你请求的API使用node的experss，你可以使用cors包。如果你想让你的网站更加的安全，你应该使用白名单来返回Access-Control-Allow-Origin头。
+
+**B——我在开发前端，但是我不能控制后端，我需要一个临时方案**
+
+这是第二个最好的情况，特别是在有时间限制的情况里。临时的解决这个问题可以让你的浏览器忽略CORS机制——比如安装[ACAO](https://link.jianshu.com?t=https%3A%2F%2Fchrome.google.com%2Fwebstore%2Fdetail%2Fallow-control-allow-origi%2Fnlfbmbojpeacfghkpbjhddihlkkiljbi)Chrmoe插件或者启动Chrome时输入下面的指令:
+
+chrome --disable-web-security --user-data-dir
+
+**重要:**需要记住的是，这个方法会关闭整个浏览器的CORS机制，包含你浏览器正在访问的网站，要小心使用，非常不安全。（译者注：这个方法没有用过，个人觉得风险太大，临时测试也慎用，怕你开了插件忘记关掉）
+
+其他方法可以使用[devServer.proxy](https://link.jianshu.com?t=https%3A%2F%2Fwebpack.js.org%2Fconfiguration%2Fdev-server%2F%23devserver-proxy)(假设你使用webpack来启动你的app)或者使用CORS-as-a-service解决方案，比如[https://cors-anywhere.herokuapp.com/](https://link.jianshu.com?t=https%3A%2F%2Fcors-anywhere.herokuapp.com%2F)
+
+**C——我在开发前端，但是我控制不了后端，而且将来也控制不了**
+
+好的。事情越来越复杂了。首先，你应该思考，为什么服务器没有返回适当的头部。
+
+也许你请求的API不许允第三方应用请求它们？或者这些API仅仅给APP使用，而不是浏览器？或者你应该发送一个验证token在你请求的URL里？
+
+假如你坚持要通过浏览器获得它们的数据，你应该自己写一个代理，在浏览器和你要请求的API之间。就像我们在方法B里做的那样。
+
+ 这个代理没有运行在和你应用相同的域名下，但是这个代理为你的请求提供正确的CORS响应。这个代理去请求API时就不需要CORS支持，因为这个代理不是用浏览器去访问的API，而是通过程序直接发起的请求。
+
+你可以根据你的平台实现这个代理，或者使用已经做好的解决方案，比如：[https://www.npmjs.com/package/cors-anywhere](https://link.jianshu.com?t=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fcors-anywhere)
+
+请记住，如果你想支持用户验证，这些方法会引入安全风险。
+
+译者注：实战中，能控制服务器的情况下。最好是服务器上正确配置CORS，可以在服务器API层进行配置，也可以在nginx或者apache层进行配置（这样后端新加服务器不用再配置）。最好配置上白名单。真实项目中，CORS问题主要出现在开发阶段，本地启动的前端开发服务器域名是localhost。调试接口可能是一个其他域名，这个时候的解决方法。AC都可以，不过C方法会导致每个前端项目都需要自己的开发服务器支持一个proxy。个人偏向去测试环境的nginx服务层配置跨域，这样，开发环境统一支持前端本地开发跨域调试接口。
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
