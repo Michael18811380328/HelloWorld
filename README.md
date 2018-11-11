@@ -103,3 +103,37 @@ For a front-end engineer, I should use front-end technique fluently. The main st
 Recently work is not busy (compared with Sep). And there are other things I have to deal with, such as tax, insurance, family tree : ) I will spend at least 20 percentages of my time and monty into future development (books and other online lecture). Never give up! Just hurry up!
 
 There are so many things to learn. And I found that it is important for us to learn not only code basic using but also inner logic of basic. For instance, learning slate-core codes is significant for understanding lower codes logic. And I learn code (JS) data structure of JS. The bacis data strcuture is Array. In JS, we can use Array to create other complex data structure. (queue/stack/linked chart). What's more, the basic network knowledge is also essential and basic. 
+
+### 2018.11
+
+#### Basic knowledge
+
+1 Recently I read some books of traditional JS methods. Before ES6 ( class and other new points of OO, object-oriented ) come into our eyes, the constructor is important. 
+
+The curry function, which use less parameters in a single function, can gain more useful features. Eg: for a pure function, y = f(x). When we set a special x, this function can return a solid y for this special x. This function is called pure function. And if we enter a special parameters into another function, that function returns are not fixed. There are a lot of mess. So the main thoughts of curry function is that we should use only one parameters in a special function. If a function have too much codes and parameters, we should separate them into different parts. This method can decrease function coupling， and increase codes reusability. (PS: learn more CS words).
+
+The memory of function. In fibonacci method, we can use resursion to culculate. function return n < 2 ? n : fibonacci(n-1) + fibonacci(n-2). The basic method has a shortage. And we have to calculate fibonacci(3) for too many time for instance. A new method is we can use closure, and create an array to store some result. If function has calculated some results, read it from the result array directly, else calculate it and store the results into array. The result array is in a closure. Finally, we just return the last result rather than result array. If n equals 10, traditional methods need 400 times, however, new method just needs about 30 times.
+
+#### Learning methods
+
+learn more of data structure. If I just use some basic components in my daily work, I won't get more new information of CS development.
+
+It is necessary for me to learn new method and new grammar(ES7). The latest React structure has some useful utils. React-Routers and React-Native are some of them. I need to learn them. 
+
+We all know that if you didn't study every day, you would been last for a long distance. So just hurry up! Don't hesitate to learn new knowledge. We all know that it is totally diffcult for us to learn in such a short periods, but we need to learn for the future.
+
+Two years age, angular is hot in whole China, plenty of my friends use angular as their basic front-end structure. Now, if you use angular, it is not a wise choice.
+
+#### Singles' day thoughts
+
+Today is Nov 11th, the traditional shopping days. Ten years age, shopping day was created by Alibaba. Ten years later, there are 100 billion yuan trades during just ten hours. But I never buy any goods, because I must learn new CS knowledge. 
+
+During ten years development, the main trades have changed a lot. Much people use mobile Apps to buy goods thought internet. And basic desktop browsers are decrease. 
+
+And I need to learn some mobile front-end methods. 
+
+First, mobile app use lastest brower in Android or iphone, so we need't deal with old ie version. The new mobile screen and flex design are more important.
+
+Second, our mobile phone's hardwares are becoming more and more gaint. We can add some complex tecnology to increase clients thought.
+
+Third, 5G network will use in daily life. And we need to thought how to open web page sooner. And sending much data or async functions will use much. Using lazy-loading tec is also important.
