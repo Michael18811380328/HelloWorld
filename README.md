@@ -137,3 +137,9 @@ First, mobile app use lastest brower in Android or iphone, so we need't deal wit
 Second, our mobile phone's hardwares are becoming more and more gaint. We can add some complex tecnology to increase clients thought.
 
 Third, 5G network will use in daily life. And we need to thought how to open web page sooner. And sending much data or async functions will use much. Using lazy-loading tec is also important.
+
+
+
+### 2018.12
+
+The last month of 2018 is arriving. How time flies! This year I faced lots of differences in my life. It is a turning point for me. 
