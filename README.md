@@ -139,7 +139,15 @@ Second, our mobile phone's hardwares are becoming more and more gaint. We can ad
 Third, 5G network will use in daily life. And we need to thought how to open web page sooner. And sending much data or async functions will use much. Using lazy-loading tec is also important.
 
 
-
 ### 2018.12
 
 The last month of 2018 is arriving. How time flies! This year I faced lots of differences in my life. It is a turning point for me. 
+
+#### Basic knowledge
+
+There are lots of bugs in my codes which I wrote in last several months. In the beginning period, our product has a basic design, however, now design has some adjustments so that some codes are not good enough for new features. So fix them as soon as possible.
+
+I learn some design method in React. We all know that React use props and status. When some datas need to transfered from one component to another comonennt, we can use props. But when we want to transfer data from child component to parent component, props are not useful as before. So we can set a hoop-function in parent component. Transfer this function by props. When child component was rendered or some events happen, we can use this hoop function to listen event happened. The function name can use "on doing something". 
+
+#### thoughts
+I find it is so busy in my daily life. And it may be the real life. Just face the difficults and overcome my weaknesses. I have to balance life, job, health, family and so on. It may be a little tough in the early period. Step by step, just do it! 
