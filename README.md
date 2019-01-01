@@ -1,5 +1,7 @@
 # HelloWorld
 
+## 2018
+
 This repository is the first trial repository of Michael An.
 
 ### 2018.01
@@ -151,3 +153,9 @@ I learn some design method in React. We all know that React use props and status
 
 #### thoughts
 I find it is so busy in my daily life. And it may be the real life. Just face the difficults and overcome my weaknesses. I have to balance life, job, health, family and so on. It may be a little tough in the early period. Step by step, just do it! 
+
+## 2019
+
+### 2019.01
+
+Happy new year and just continue coding! In 2019, there are several things I need to learn. It is obvious that CS develep rapidly, so learning new knowledge is necessary to every code farmer(hahaha). Don't hesitate to code!
