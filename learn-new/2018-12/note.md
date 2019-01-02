@@ -346,7 +346,7 @@ npm包管理器 mysql数据库 安装
 	提示：Initialized empty Git repository in C:/Users/Administrator/Desktop/git/.git/
 ~~~
 	02 在项目文件夹中创建文件
-
+	
 	git statue 查看当前状态
 
 ~~~git
@@ -399,12 +399,12 @@ npm包管理器 mysql数据库 安装
 Date:   Thu Aug 2 19:28:34 2018 +0800
 ~~~
     初始化index.html文件
-
-	git log --oneline 一行内显示
+    
+    git log --oneline 一行内显示
 ​	
 
 	06 clear 清空界面
-
+	
 	git show 2348875 详细改动内容
 ​	
 

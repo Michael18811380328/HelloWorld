@@ -1,0 +1,45 @@
+{
+  "_from": "watermark-dom@^1.0.0",
+  "_id": "watermark-dom@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-q3lx6nCz5m8BxN/FiU6SFKvu3KA=",
+  "_location": "/watermark-dom",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "watermark-dom@^1.0.0",
+    "name": "watermark-dom",
+    "escapedName": "watermark-dom",
+    "rawSpec": "^1.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/watermark-dom/-/watermark-dom-1.0.0.tgz",
+  "_shasum": "ab7971ea70b3e66f01c4dfc5894e9214abeedca0",
+  "_spec": "watermark-dom@^1.0.0",
+  "_where": "/Users/seafile/Desktop/docker/dev/seafile-dev/data/dev/seahub/frontend",
+  "author": {
+    "name": "https://github.com/saucxs"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "watermark for DOM",
+  "devDependencies": {},
+  "keywords": [
+    "watermark"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "watermark-dom",
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
