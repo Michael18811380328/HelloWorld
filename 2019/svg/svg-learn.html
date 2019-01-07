@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css" media="screen">
+    /* svg 以css的形式插入界面中 */
+    .logo {
+       background: url(icon.svg);
+    }
+  </style>
+</head>
+<body>
+  <!-- svg 直接插入网页的形式 -->
+  <svg
+    id="mysvg"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 800 600"
+    preserveAspectRatio="xMidYMid meet"
+  >
+  <circle id="mycircle" cx="400" cy="300" r="50" />
+  
+  <!-- svg 以外部文件的形式插入 -->
+<!--   <img src="circle.svg">
+  <object id="object" data="circle.svg" type="image/svg+xml"></object>
+  <embed id="embed" src="icon.svg" type="image/svg+xml">
+  <iframe id="iframe" src="icon.svg"></iframe> -->
+</body>
+</html>
