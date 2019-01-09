@@ -161,3 +161,7 @@ I find it is so busy in my daily life. And it may be the real life. Just face th
 Happy new year and just continue coding! In 2019, there are several things I need to learn. It is obvious that CS develep rapidly, so learning new knowledge is necessary to every code farmer(hahaha). Don't hesitate to code!
 
 There are much things that are useful. I am sure that svg and canvas will replace traditional image ,such as png and icon. And I founs watermark-dom and echarts are amazing. Using python to create html is so convenient. These techs should be learned as soon as possible. 
+
+Canvas and csv image are also useful. 
+
+These days I found that old knowledge should be learned again so that we can get new treasure. And fix some weaknesses during this period. Learning some difficult things is needed. 
