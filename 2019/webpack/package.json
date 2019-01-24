@@ -1,0 +1,21 @@
+{
+  "name": "test-webpack",
+  "version": "1.0.0",
+  "description": "learn-webpack",
+  "main": "main.min.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "mode": "development",
+  "author": "Michael An",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "webpack": "^3.8.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1"
+  }
+}

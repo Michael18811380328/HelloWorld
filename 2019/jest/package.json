@@ -1,0 +1,15 @@
+{
+  "name": "test-jest",
+  "version": "1.0.0",
+  "description": "Jest test for unit test",
+  "main": "Sum.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "test": "jest --env=node --colors --coverage"
+  },
+  "author": "Michael An",
+  "license": "ISC"
+}
