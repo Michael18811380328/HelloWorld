@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css" media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      width: 1300px;
+      height: 500px;
+      background-color: #fff;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+    .inner {
+      width: 300px;
+      height: 100px;
+      background-color: yellow;
+      border: 1px dashed #222;
+    }
+
+    .main {
+      display: flex;
+    }
+    div #t1 {
+      flex: 0 1 auto;
+      background-color: teal;
+      /* flex-grow flex-shrink flex-basis */
+      /* 放大比例是0： 如果存在默认的空间，也不会放大 */
+      /* 缩小比例是1： 如果空间不足，该项目会缩小 */
+      /* 默认分配空间：默认分配空间是auto 自动分配 */
+    }
+    div #t2 {
+      flex: 0 1 100px;
+      background-color: yellowgreen;
+    }
+    div #t3 {
+      flex: 1 2 auto;
+      background-color: seagreen;
+    }
+    div #t4 {
+      flex: 2 2 auto;
+      background-color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="inner" id="t1">1</div>
+    <div class="inner" id="t2">2</div>
+    <div class="inner" id="t3">3</div>
+    <div class="inner" id="t4">4</div>
+  </div>
+</body>
+</html>

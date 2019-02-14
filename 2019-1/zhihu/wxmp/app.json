@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/discussion/discussion"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#2196f3",
+    "navigationBarTitleText": "知乎日报",
+    "navigationBarTextStyle":"white"
+  }
+}
