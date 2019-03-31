@@ -172,4 +172,12 @@ The code-mirror is a useful library when we show codes in different styles. Thes
 
 ### 2019.03
 
+At the last day in March, I need a review about this month. There are some thoughts. 
+
+1. How to deal with new knowledge and old tect knowledge? React-Router is much better than hash-transfer. And it may save more resoouces. When we use <Link> tag to jump to other page, the whole page don't reload, React just repaint for the added component. The inner tag is <a>, and react-router forbit the default function of <a> tag.
+
+2. You shouldn't create a circle, and you should use the circle. Make our dialogs and other component more useful.
+
+3. Everyone have same time in one day. God gives us same time. In a whole day, working hard and having a rest and having a date is not an easy thing. Now I should grasp more precious time in learning. And exeresicing is also important in the free time. Don't sit for a long time and don't sleep too late. If you did that, you would regret in one day.
+
 <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg"></a>
