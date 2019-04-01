@@ -836,14 +836,4 @@ map.countBy((value,index,list)=>{
 } //{false: 2, true: 2}
 ```
 
-- [![img](https://static.segmentfault.com/v-5c8b4d77/global/img/creativecommons-cc.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-- 
-
-- [新浪微博](javascript:void(0);)
-- [微信](javascript:void(0);)
-- [Twitter](javascript:void(0);)
-- [Facebook](javascript:void(0);)
-
-赞  |   57收藏  |  58
-
  
