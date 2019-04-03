@@ -4,7 +4,7 @@ React-router 解决问题：UI与URL解耦
 
 问题：原始同一个界面内部使用 a 进行跳转，不同界面中使用 # hash 跳转。如果在React框架下，对于SPA，需要获取界面的 hash 再判断界面中加载什么部分（setState），这样效率低下，UI 与 URL 不分离。
 
-解决：首先使用 <Link to={path}> 作为超链接，点击后界面URL改变。React-touter 根据URL变化，不需要判断，直接根据<Router><Component to={path}>渲染部分内容，整体界面不会重新加载。
+解决：首先使用 `<Link to={path}>` 作为超链接，点击后界面URL改变。React-touter 根据URL变化，不需要判断，直接根据 `<Router><Component to={path}>` 渲染部分内容，整体界面不会重新加载。
 
 ### Link
 
