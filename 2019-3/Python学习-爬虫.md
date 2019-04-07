@@ -48,7 +48,7 @@ FireFox浏览器，下载getodriver。**selenium库使用方法**：<https://blo
 
 源代码如下：
 
-```
+```python
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from bs4 import BeautifulSoup
