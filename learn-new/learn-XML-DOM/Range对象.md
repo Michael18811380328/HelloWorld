@@ -30,12 +30,11 @@ startContainer-endContainer 开始点处于的Document节点
 
 ~~~js
 cloneContents();
-// 复制 Document Fragment 对象
+// 复制 Document Fragment 对象(常用)
 deleteContents()；
 // 删除 Range 对象表示的 Document 区域
 extractContents();
 // 剪切 当前范围的文本区域；(界面介绍，方法返回 Document Fragment 对象)
-
 cloneRange();
 // 复制 range 
 
@@ -63,3 +62,5 @@ setStart(); setEnd();
 range 常用在复制、粘贴文本，配合鼠标事件的触发，获取当前选中的部分，并将选中的document fragment 复制粘贴创建新的 node 节点，并插入到指定位置。获取节点的偏移量从而获取选中的部分。
 
 注意：上面的属性方法基于 XML，slate 中的独有的方法不完全相同。
+
+原生的Range用于用户交互（编辑改变）不同页面侧重点不同，商业购物、个人博客网站基本不会使用原生的Range对象。

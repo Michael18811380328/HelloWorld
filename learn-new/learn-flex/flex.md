@@ -1,6 +1,8 @@
 ### flex 补充学习
 
-1、flex理解：弹性盒模型中，子元素如何分配空间。不考虑盒子的内容，按照比例自动分配盒子的长度。注意：必须是弹性盒模型对象的子元素（如果是固定尺寸的对象无效）。弹性盒子由弹性容器(Flex container)和弹性子元素(Flex item)组成。（使用display：flex 可以设置弹性盒子）
+##### 1、flex理解
+
+弹性盒模型中（宽度是可以变化的百分比，不是固定的像素），子元素如何分配空间。不考虑盒子的内容，按照比例自动分配盒子的长度。注意：必须是弹性盒模型对象的子元素（如果是固定尺寸的对象无效）。弹性盒子由弹性容器(Flex container)和弹性子元素(Flex item)组成。（使用display：flex 可以设置弹性盒子）
 
 基本使用
 
@@ -20,8 +22,6 @@ flex: flex-grow flex-shrink flex-basis
 http://www.runoob.com/cssref/css3-pr-flex.html
 
 http://www.runoob.com/w3cnote/flex-grammar.html
-
-
 
 ~~~css
 .main {
@@ -71,13 +71,11 @@ http://www.runoob.com/w3cnote/flex-grammar.html
 order:表示项目的排列顺序：取整数，越小越靠前；
 ~~~
 
-2、 flex设立的目的
+##### 2、 flex设立的目的
 
 问题一：解决垂直居中问题：传统的布局基于盒子模型，display-float-position 可以进行简单的布局；对于垂直居中，这个方式不是很好（margin-top 设置）此时使用 flex 更合适；
 
 问题二：对于移动端适配问题：可以使用em或者rem单位进行适配，不过这些单位不是很灵活，对于文本可以使用这个单位，对于不同盒子，不同变化的比率，需要使用flex去进行灵活调节。
-
-
 
 3、块级元素直接使用，行内块元素也可以使用
 
@@ -87,10 +85,74 @@ span {
 }
 ~~~
 
-
-
-4 注意
+##### 4 注意
 
 flex布局后，float、clear、verticle-align 会失效；
 
 所以，首先使用float解决，之后使用flex布局解决；特殊情况使用position：absolute解决；
+
+使用flex根据需求，看整体界面使用什么样式解决方案。
+
+
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css" media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .main {
+      width: 1300px;
+      height: 500px;
+      background-color: #fff;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+    .inner {
+      width: 300px;
+      height: 100px;
+      background-color: yellow;
+      border: 1px dashed #222;
+    }
+
+    .main {
+      display: flex;
+    }
+    div #t1 {
+      flex: 0 1 auto;
+      background-color: teal;
+      /* flex-grow flex-shrink flex-basis */
+      /* 放大比例是0： 如果存在默认的空间，也不会放大 */
+      /* 缩小比例是1： 如果空间不足，该项目会缩小 */
+      /* 默认分配空间：默认分配空间是auto 自动分配 */
+    }
+    div #t2 {
+      flex: 0 1 100px;
+      background-color: yellowgreen;
+    }
+    div #t3 {
+      flex: 1 2 auto;
+      background-color: seagreen;
+    }
+    div #t4 {
+      flex: 2 2 auto;
+      background-color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="inner" id="t1">1</div>
+    <div class="inner" id="t2">2</div>
+    <div class="inner" id="t3">3</div>
+    <div class="inner" id="t4">4</div>
+  </div>
+</body>
+</html>
+~~~
+
