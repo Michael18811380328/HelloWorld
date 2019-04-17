@@ -6,6 +6,8 @@
 
 这个库的官网：https://stuk.github.io/jszip/
 
+<https://stuk.github.io/jszip/documentation/examples.html> 简单说明
+
 ### 安装
 
 ##### 浏览器环境
