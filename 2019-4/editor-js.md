@@ -2,8 +2,6 @@
 
 Editor.js 是一个在线富文本编辑器 官网链接：https://editorjs.io/
 
-
-
 ## Editor.js 快速入门
 
 1. 导入编辑器库 Install Editor.js 
