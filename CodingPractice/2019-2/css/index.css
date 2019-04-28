@@ -1,0 +1,387 @@
+@charset "UTF-8";
+/*梅兰商城-Michael An 2018-04-08 通过校验*/
+/*top部分开始 */
+.top {
+	width:100%;
+	height:30px;
+	border-bottom: 1px solid #d8d8d8;
+	background-color: #f7f7f7;
+}
+.top_main {
+	height:30px;
+}
+div.top_main_l {
+	height: 28px;
+	width: 200px;
+	line-height: 28px;
+}
+div.top_main_r {
+	height: 28px;
+	line-height:28px;
+}
+.top_main_r ul li {
+	display: inline-block;
+}
+/*top部分结束*/
+
+/*logo部分开始*/
+.logo {
+	height:98px;
+}
+.logo_l {
+	width: 209px;
+	height: 98px;
+	background: url(../images/logo.jpg);
+}
+h1 {
+	text-indent: -9999px;/*SEO优化*/
+}
+.logo_r {
+	width: 520px;
+	height: 34px;
+	margin: 29px 0px 29px 0px;
+	border:1px solid #c9c9c9;
+	background-color: #f8f8f8;
+	padding:5px 4px;
+}
+.logo_r_text {
+  	outline:0;
+	height:32px;
+	width:419px;
+	border:1px solid #a6a6a6;
+	vertical-align: middle;
+}
+.logo_r_button {
+	height:32px;
+	width:97px;
+	border: 1px solid #3171d2;
+	background-color: #3b7ada;
+	vertical-align: middle;
+	font-size:18px;
+	color: #fff;
+}
+/*logo部分结束*/
+
+/*nav部分开始*/
+.nav {
+	height: 29px;
+	margin:0 auto;
+	margin-top: 21px;
+	border-bottom: 2px solid #0266A3;
+}
+.nav ul li {
+	float:left;
+	line-height: 29px;
+	font-size: 14px;
+	padding: 0px 23px 0px 22px;
+}
+.nav ul li a {
+	color: #0266A3;
+	font-weight: 700;
+}
+.nav ul li:hover {
+	background-color: #0266A3;
+}
+.nav ul li:hover a {
+	color: #fff;
+}
+/*nav部分结束*/
+
+/*banner部分开始*/
+.banner {
+	height: 210px;
+	margin-top: 10px;
+}
+
+/*banner_left 开始*/
+.banner_left {
+	width: 200px;
+	height: inherit;
+	float:left;
+}
+.banner_left h2 {
+	width: 180px;
+	height: 30px;
+	background-color: #0266A3;
+	color:white;
+	line-height:30px;
+	font-size: 16px;
+	padding-left: 20px;
+}
+.banner_left_ul {
+	height:180px;
+	background-color: #EBF0F6;
+}
+.banner_left_ul li {
+	padding-top:15px;
+}
+.banner_left_ul li s {
+	display:inline-block;
+	width:21px;
+	height: 16px;
+	margin-left:9px;
+}
+.banner_left_ul li a {
+	font-size:14px;
+	color: #606060;
+	font-weight: 700;
+	padding-left: 12px;
+}
+.banner_left_ul .fir {
+	background: url(../images/spirit.png) 0 0;
+}
+.banner_left_ul .sec {
+	background: url(../images/spirit.png) 0 -20px;
+}
+.banner_left_ul .thi {
+	background: url(../images/spirit.png) 0 -40px;
+}
+.banner_left_ul .for {
+	background: url(../images/spirit.png) 0 -60px;
+}
+/*banner_left 结束*/
+
+.banner_ad {
+	width: 450px;
+	height: inherit;
+	margin: 0 40px 0 50px;
+	background: url(../images/banner.png);
+}
+
+/*banner_right开始*/
+.banner_right {
+	width: 230px;
+	height: inherit;
+}
+.banner_r_top {
+	width:inherit;
+	height: 95px;
+	background-color: #F7FAFF;
+	border:1px solid #DFE6F0;
+	box-sizing: border-box;
+}
+.banner_r_top h2 {
+	font-size: 14px;
+	color: #666666;
+	padding: 12px 0 0 14px;
+}
+.banner_r_top div {
+	margin-top:13px;
+	width: 218px;
+	height:42px;
+}
+.banner_r_top div span {
+	height:40px;
+	width:40px;
+	background: url(../images/大众版.png);
+	margin-left: 10px;
+	display: inline-block;
+}
+.banner_r_top div p {
+	margin-left: 9px;
+	display: inline-block;
+}
+.banner_r_bottom {
+	width:inherit;
+	height: 105px;
+	margin-top:10px;
+	background-color: #F7FAFF;
+}
+.banner_r_bottom .message {
+	font-size:14px;
+	color: #999;
+	padding-top: 18px;
+	text-align: center;
+}
+.banner_r_bottom .tel {
+	font-size:12px;
+	color: #6AB2E6;
+	padding-top: 11px;
+	text-align: center;
+}
+.banner_r_bottom .btn {
+	display: inline-block;
+	width: 81px;
+	height: 23px;
+	background:url(../images/zixun.jpg);
+	margin: 8px 0 0 73px;
+}
+/*banner_right结束*//*banner部分结束*/
+
+/*食品生产贸易开始*/
+.subtitle {
+	height: 34px;
+	width: 970px;
+	border-top:2px solid #C3D6E4;
+	background-color: #ECF1F7;
+	font-size: 14px;
+	font-weight: 700;
+	color:#333;
+	line-height:34px;
+	margin:0 auto;
+	margin-top: 15px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+/*食品生产贸易细节开始*/
+.product {
+	height:368px;
+	width:970px;
+	margin:0 auto;
+	margin-top: 13px;
+	box-sizing: border-box;
+}
+
+.product_left {
+	height:inherit;
+	width:722px;
+	border:1px solid #ccc;
+	float:left;
+	padding-top: 25px;
+	padding-left:20px;
+	box-sizing: border-box;
+}
+/*左边四个产品开始*/
+.product_l_top {
+	width:700px;
+	height:110px;
+	margin-bottom: 55px;
+}
+.product_l_t_left {
+	width:350px;
+	height:110px;
+	float:left;
+	overflow: hidden;
+}
+.product_l_t_left img{
+	width: 100px;
+	height: 110px;
+	float:left;
+}
+.imgright {
+	padding: 5px 0 0 20px;
+	float:left;
+	font-weight:500;
+}
+.imgright p {
+	padding-top: 10px;
+}
+.imgright .btn {
+	display: inline-block;
+	width: 98px;
+	height: 26px;
+	background-color: #0984E2;
+	color:white;
+	font-size: 15px;
+	margin-top: 6px;
+}
+.product_l_t_right {
+	width:350px;
+	height:110px;
+	float:right;
+	/*background-color: blue;*/
+}
+.product_l_t_right img{
+	width: 100px;
+	height: 110px;
+	float:left;
+}
+/*左边四个产品结束*/
+
+/*右边行业咨询开始*/
+.product_right {
+	height: inherit;
+	width:230px;
+	border:1px solid #ccc;
+	float:right;
+}
+.product_r_h2 {
+	display: inline-block;
+	box-sizing: border-box;
+	padding-left: 9px;
+	height:36px;
+	width:230px;
+	line-height: 36px;
+	border-bottom: 1px solid #ccc;
+	font-size: 14px;
+}
+.product_r_ul {
+	padding-top: 6px;
+}
+.product_r_ul li s {
+	display: inline-block;
+	width:4px;
+	height:4px;
+	margin:2px 6px 0 10px;
+	background-color: purple;
+}
+.product_r_ul li a {
+	display: inline-block;
+	height:24px;
+	line-height: 24px;
+}
+/*右边行业咨询结束*/
+
+/*马来西亚移民细节开始*/
+.product_right .immigration {
+	height: inherit;
+	width: 230px;
+	background: url(../images/aa.gif);
+}
+.Malaysia .product_left {
+	padding-top: 10px;
+	padding-left: 0px;
+}
+.Malaysia .product_l_l, .product_l_r {
+	width:164px;
+	height:264px;
+	/*background-color: skyblue;*/
+	float:left;
+	margin-left: 13px;
+	text-align: center;
+	line-height:20px;
+	text-indent: 1px;
+}
+.Malaysia .product_left img {
+	width: 164px;
+	height: 170px;
+}
+.Malaysia .product_left h2 {
+	font-size: 14px;
+}
+.Malaysia .product_left p {
+	font-size:12px;
+	color:#666;
+}
+.Malaysia .product_left p span {
+	font-size: 16px;
+	color:red;
+}
+/*马来西亚移民细节结束*/
+
+/*友情链接部分开始*/
+.friend {
+	height:40px;
+	border-top:1px solid #ccc;
+	border-bottom: 3px solid #097EC3;
+	margin:0 auto;
+	margin-top:13px;
+	line-height: 40px;
+	text-indent: 2px;
+}
+.friend ul li {
+	display:inline-block;
+}
+.friend ul li a {
+	color: #999;
+}
+.aboutus {
+	margin:0 auto;
+	text-align: center;
+	padding-top:6px;
+}
+.aboutus p {
+	display:inline-block;
+	height:25px;
+}

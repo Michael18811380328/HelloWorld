@@ -8,8 +8,8 @@ Package-lock.json
 LICENSE
 
 ## Build generated
-# build/
-# DerivedData/
+build/
+DerivedData/
 
 ## Various settings
 *.pbxuser
@@ -28,10 +28,10 @@ xcuserdata/
 *.xcscmblueprint
 
 ## Obj-C/Swift specific
-# *.hmap
-# *.ipa
-# *.dSYM.zip
-# *.dSYM
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
 
 # CocoaPods
 #
@@ -49,7 +49,7 @@ xcuserdata/
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
-# Carthage/Build
+Carthage/Build
 
 # fastlane
 #
@@ -58,22 +58,18 @@ xcuserdata/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
 
-# fastlane/report.xml
-# fastlane/Preview.html
-# fastlane/screenshots/**/*.png
-# fastlane/test_output
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
 
 # Code Injection
 #
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
-# iOSInjectionProject/
+iOSInjectionProject/
 
 # screenshot
 
 screenshot
-
-# template
-
-.github/ISSUE_TEMPLATE/bug_report.md

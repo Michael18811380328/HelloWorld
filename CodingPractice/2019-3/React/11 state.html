@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>React模板</title>
+		<script src='lib/react.min.js'></script>
+		<script src='lib/react-dom.min.js'></script>
+		<script src="lib/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="container2"></div>
+		<div id="container3"></div>
+	</body>
+	<script type="text/babel">
+		
+		//01 事件处理：
+		//定义一个组件button 绑定onClick事件(驼峰)
+
+		var MyButton = React.createClass({
+			//自定义函数
+			handleClick:function(){
+				alert("触发事件");
+			},
+			render:function(){
+				return(
+					<button onClick={this.handleClick}>{this.props.buttonTitle}</button>
+				);
+			}
+		});
+		ReactDOM.render(
+			<MyButton buttonTitle="按钮"/>,
+			document.getElementById("container")
+		);
+
+		//02 state 
+		//state是组件自身的属性（类似于v-if，根据某个state状态，确定事件执行）当state属性发生变化时，render事件会重新触发。
+
+		var CheckButton = React.createClass({
+			//定义初始状态
+			getInitialState:function(){
+				return {
+					isCheck:false
+					//默认未选中。在这个对象中设置的属性，将会存储在state中。
+				}
+			},
+			//定义事件绑定的方法
+			handleChange:function(){
+				this.setState({
+					isCheck : !this.state.isCheck
+				});
+			},
+			render:function(){
+				//在JSX中不能直接使用if-else，最好用三目运算符。可以在外部JS中定义函数，render调用外部函数
+				
+				var text = this.state.isCheck ? "已选中":"未选中"; 
+				return (
+					<div><input type="checkbox" onChange={this.handleChange}/>
+						{text}
+					</div>
+				);
+			}
+		});
+		ReactDOM.render(
+			<CheckButton/>,
+			document.getElementById("container2")
+		);
+	</script>
+</html>

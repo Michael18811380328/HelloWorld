@@ -1,0 +1,37 @@
+/* Jan 2019 seahub codes */
+.review-state-closed:focus,
+.review-state-finished:focus {
+  box-shadow: 0 0 0 0;
+}
+/* fix origin bootstrap style */
+
+/* 根据属性设置样式 */
+img[src=""],
+img:not([src]) {
+  opacity: 0;
+}
+/* for first loading img */
+input[type='text'] {
+  width: 150px;
+}
+input[type='button'] {
+  width: 120px;
+}
+img[title~=person] {
+  opacity: 0.5;
+  transform: rotate(45deg);
+}
+a[href~="www.baidu.com"][title="baidu"] {
+  color: red;
+}
+div[class~='related-file'] {
+  border: 2px solid pink;
+}
+
+/* 2762 */
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
