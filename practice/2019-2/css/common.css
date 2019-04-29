@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/*梅兰商城公共格式-Michael An 2018-04-08 通过校验*/
+/*整体预设*/
+body {
+	width:1350px;
+}
+a {
+	text-decoration:none;
+	color:#000;
+}
+/*代码优化*/
+div .fl {
+	float: left;
+}
+div .flowright {
+	float: right;
+}
+div .bold {
+	font-weight: bold;
+}
+div .center {
+	text-align: center;
+}
+div .inblock {
+	display:inline-block;
+}
+div.w970 {
+	width: 970px;
+}
+.m0auto{
+	margin: 0px auto;
+}
+div .w970 {
+	width: 970px;
+}
+.ls {
+	letter-spacing: 1px;
+}

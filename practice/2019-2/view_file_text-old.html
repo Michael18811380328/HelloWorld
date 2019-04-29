@@ -1,0 +1,119 @@
+<!-- 2-13 view_file_text.html old -->
+{% extends 'view_file_text.html' %}
+{% load i18n %}
+
+<!-- 模块：额外的风格 -->
+{% block extra_style %}{{block.super}}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}codemirror/codemirror.css"/>
+<style type="text/css">
+  /* 如果文件是text || txt 显示下面的样式 */
+  {% if fileext == 'txt' or fileext == 'text' %}
+  .CodeMirror {
+    width: 816px;
+    padding: 40px 96px;
+  }
+  {% endif %}
+</style>
+{% endblock %}
+
+<!-- 模块：升级细节 -->
+{% block update_detail %}
+{% if last_commit_id %}
+<!-- 如果最后一次提交存在 -->
+  <span class="vam">{% trans "update this file" %}<a href="{% url 'text_diff' repo.id %}?p={{path|urlencode}}&commit={{last_commit_id}}&file_enc={{file_enc}}" class="file-diff">{% trans "Detail" %}</a>.</span>
+{% endif %}
+{% endblock %}
+
+<!-- 编辑文件模块 -->
+{% block edit_file %}
+<!-- 如果文件没有错误 -->
+{% if not err %}
+<a class="sf-btn-group-btn sf-btn-link op-icon sf2-icon-edit" href="{{ SITE_ROOT }}repo/{{ repo.id }}/file/edit/?p={{ path|urlencode }}&file_enc={{ file_enc }}" id="edit" title="{% trans 'Edit' %}"></a>
+{% endif %}
+{% endblock %}
+
+<!-- 文件编码模块 -->
+{% block file_view %}
+  {% if encoding != None %}
+  <div id="file-enc-con">
+    <label for="file-enc">{% trans "Encoding:" %}</label>
+    <select id="file-enc">
+      {% for enc in file_encoding_list %}
+      <option value="{{ enc }}" {% if encoding and encoding == enc %} selected="selected" {% endif %}>{% if enc == 'auto' %}{% trans "auto delete" %}{% else %}{{ enc }}{% endif %}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+
+  {% ifnotequal file_content None %}
+  <textarea id="docu-view" class="vh">{{ file_content|escape }}</textarea>
+  {% endifnotequal %}
+{% endblock %}
+
+{% block extra_script %}{{ block.super }}
+  {% if not err %}
+    {% ifnotequal file_content None %}
+    <script src="{{ MEDIA_URL }}codemirror/codemirror-2.36.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var editor = CodeMirror.fromTextArea($('#docu-view')[0], {
+        {% include 'snippets/editor_set_mode.html' %}
+        theme: 'default',
+        indentUnit: 4,
+          {% if fileext != 'txt' and fileext != 'text' %}
+          lineNumbers: true,
+          {% endif %}
+        lineWrapping: true,
+        readOnly: true
+      });
+    </script>
+    {% endifnotequal %}
+  {% endif %}
+
+  <script type="text/javascript">
+    /*  for 'goback' */
+    let $fileDiff = $('.file-diff');
+    $fileDiff.attr('href', $fileDiff.sttr('href') + '&referer' + encodeURIComponent(location.href));
+  </script>
+
+  {% if seafile_collab_server %}
+  <script src="{{ seafile_collab_server }}socker.io/socket.io.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  function check_file_update(cid) {
+    $.ajax({
+      url: "{% url 'FileMetaDataView' repo.id %}?p={{ path|urlencode }}",
+      type: "GET",
+      cache: false,
+      success: funciton(data) {
+        if (data.id !== cid) {
+          // laert(File update! Refresh.) 
+          // TODO
+        }
+      }
+    })
+  }
+
+  var socket = io('{{ seafile_collab_server }}');
+
+  socket.emit('repo_update', {
+    request: 'watch_update',
+    repo_id: '{{ repo.id }}',
+    user: {
+      name: '{{user.username}}',
+      username: '{{user.username}}',
+      constant_email: ''
+    }
+  });
+
+  socket.on('connect', function(){
+    //
+  });
+
+  socket.on('repo_update', function(data) {
+    console.log(data);
+    var cid = '{{ file_id }}';
+    check_file_update(cid);
+  })
+  </script>
+  {% endif %}
+
+{% endblock %}

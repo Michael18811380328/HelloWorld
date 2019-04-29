@@ -181,3 +181,8 @@ At the last day in March, I need a review about this month. There are some thoug
 3. Everyone have same time in one day. God gives us same time. In a whole day, working hard and having a rest and having a date is not an easy thing. Now I should grasp more precious time in learning. And exeresicing is also important in the free time. Don't sit for a long time and don't sleep too late. If you did that, you would regret in one day.
 
 <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg"></a>
+
+### 2019.04 
+
+1. I read a book called《Make you code cleaner》.This is the main opinions: a function should contain single function and codes as less as possible. Use clear parameter as name of variable. A funciton should do only one thing. A class or a component in React should show a single UI component. And modify your codes after you write down them. When you review your codes, you can change and delete   much useless codes.
+2. RYF said, we should learn inner knowledge of coding. We all know that structure can change in one day,  but the basic data structure and algie is still there. Write more and learn some inner thought in code. It is important. In the free time ,wu shouldn't do the basic things once and another times, but we can deal with tough problems for many hours. Because if you can resolve the tough problem, you are making progress.
