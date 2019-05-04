@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            position: relative;
+            left: 10px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="btn">动画</button>
+
+    <div id="box">
+
+    </div>
+
+
+    <script>
+        var btn = document.getElementById("btn");
+        var box = document.getElementById("box");
+
+        //闪现
+        btn.onclick = function () {
+            box.style.left = "500px";
+        }
+
+      
+    </script>
+</body>
+</html>

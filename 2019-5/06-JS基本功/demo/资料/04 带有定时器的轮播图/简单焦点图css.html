@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+
+/*#arr {display: none;}*/
+#arr span{ width:40px; height:40px; position:absolute; left:5px; top:50%; margin-top:-20px; background:#000; cursor:pointer; line-height:40px; text-align:center; font-weight:bold; font-family:'黑体'; font-size:30px; color:#fff; opacity:0.3; border:1px solid #fff;}
+#arr #right{right:5px; left:auto;}
+
+</style>
+
+
+</head>
+
+<body>
+<div class="all" id='all'>
+	<div class="screen" id="screen">
+        <ul id="ul">
+            <li><img src="images/1.jpg" width="500" height="200" /></li>
+            <li><img src="images/2.jpg" width="500" height="200" /></li>
+            <li><img src="images/3.jpg" width="500" height="200" /></li>
+            <li><img src="images/4.jpg" width="500" height="200" /></li>
+            <li><img src="images/5.jpg" width="500" height="200" /></li>
+        </ul>
+        <ol></ol>
+        <div id="arr"><span id="left"><</span><span id="right">></span></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    //需求：无缝轮播图
+    //步骤：
+    //1.老三步。获取相关元素。
+    //2.补齐相互盒子
+        //1.复制第一张图片所在的li，填入所在的ul中。
+        //2.生成相关的ol中的li。
+        //3.点亮第一个ol中的li。
+    //3.鼠标放到小方块儿上，轮播图片。
+    //4.添加定时器。
+    //5.左右切换的按钮。
+
+
+
+    //1.老三步。获取相关元素。
+    var box = document.getElementById("all");
+    var ul = box.children[0].children[0];
+    var ol = box.children[0].children[1];
+    var ulLiArr = ul.children;
+    //2.补齐相互盒子
+        //1.复制第一张图片所在的li，填入所在的ul中。
+    var newLi = ulLiArr[0].cloneNode(true);
+    ul.appendChild(newLi);
+        //2.生成相关的ol中的li。
+    for(var i=0;i<ulLiArr.length-1;i++){
+        var newOlLi = document.createElement("li");
+        newOlLi.innerHTML = i+1;
+        ol.appendChild(newOlLi);
+    }
+        //3.点亮第一个ol中的li。
+    var olLiArr = ol.children;
+    ol.children[0].className = "current";
+    //3.鼠标放到小方块儿上，轮播图片。
+    for(var i=0;i<olLiArr.length;i++){
+        olLiArr[i].index = i;
+        olLiArr[i].onmouseover = function () {
+            for(var j=0;j<olLiArr.length;j++){
+                olLiArr[j].className = "";
+            }
+            olLiArr[this.index].className = "current";
+            animate(ul,-this.index*ul.children[0].offsetWidth);
+            key = square = this.index;
+        }
+    }
+    //4.添加定时器。
+    var timer = null;
+    var key = 0;
+    var square = 0;
+    timer = setInterval(autoPlay,1000);
+
+    function autoPlay(){
+        key++;
+        square++;
+        if(key>olLiArr.length){
+            key=1;
+            ul.style.left = 0;
+        }
+        animate(ul,-key*ul.children[0].offsetWidth);
+
+        square = square>olLiArr.length-1?0:square;
+        for(var j=0;j<olLiArr.length;j++){
+            olLiArr[j].className = "";
+        }
+        olLiArr[square].className = "current";
+    }
+    //5.鼠标移开开启定时器，鼠标放上去开启定时器。
+    box.onmouseover = function () {
+        clearInterval(timer);
+    }
+    box.onmouseout = function () {
+        timer = setInterval(autoPlay,1000);
+    }
+    //6.左右切换的按钮。
+    var btnArr = box.children[0].children[2].children;
+    btnArr[0].onclick = function () {
+        key--;
+        square--;
+        if(key<0){
+            key=4;
+            ul.style.left = -5*ul.children[0].offsetWidth + "px";
+        }
+        animate(ul,-key*ul.children[0].offsetWidth);
+
+        square = square<0?olLiArr.length-1:square;
+        for(var j=0;j<olLiArr.length;j++){
+            olLiArr[j].className = "";
+        }
+        olLiArr[square].className = "current";
+    }
+    btnArr[1].onclick = function () {
+        autoPlay();
+    }
+
+
+
+
+    //  基本封装
+    function animate(obj,target) {
+        clearInterval(obj.timer);
+        var speed = obj.offsetLeft < target ? 15 : -15;
+        obj.timer = setInterval(function() {
+            var result = target - obj.offsetLeft;
+            obj.style.left = obj.offsetLeft + speed  + "px";
+            if(Math.abs(result) <= 15) {
+                obj.style.left = target + "px";
+                clearInterval(obj.timer);
+            }
+        },10);
+    }
+
+
+</script>

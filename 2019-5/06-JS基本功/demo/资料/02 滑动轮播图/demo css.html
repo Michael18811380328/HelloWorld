@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {margin:0; padding:0;}
+        ul {list-style: none;}
+        img {
+            vertical-align: top;  /*除去 图片底部有3像素空白缝隙的问题 */
+        }
+        .box {
+            width: 490px;
+            height: 170px;
+            margin:100px auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .inner {
+            width: 490px;
+            height: 170px;
+            background-color: pink;
+            position: relative;
+        }
+        .inner ul {
+            width: 1000%;
+        }
+        .inner ul li {
+            float: left;
+        }
+        .square {
+            position: absolute;
+           right: 10px;
+            bottom:10px;
+        }
+        .square span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border:1px solid #ccc;
+            background-color: #fff;
+            text-align: center;
+            line-height: 16px;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .square span.current {
+            background-color: darkorange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner">
+        <ul>
+            <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+            <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+        </ul>
+        <ol class="square">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </ol>
+    </div>
+</div>
+</body>
+</html>

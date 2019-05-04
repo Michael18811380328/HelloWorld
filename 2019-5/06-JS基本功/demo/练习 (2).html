@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+
+//demo for循环内部的变量属于全局变量
+	for(i=3; i < 10; i++){
+		var a = 666;
+	}
+	console.log(a);
+
+//访问对象封装的函数
+	//获取对象
+	function getEle(id){
+		return document.getElementById(id);
+	}
+	//获取第一个子节点
+	function getFirstNode(ele){
+		var node = ele.firstElementChild || ele.firstChild;
+		return node;
+	}
+	// 获取最后一个子节点
+	function getLastNode(ele){
+		var node =ele.lastElementChild || ele.lastChild;
+		return node;
+	}
+	function getNextNode(ele){
+		var node = ele.nextElementSibling || ele.nextSibling;
+	function getPreNode(ele){
+		var node = ele.previousElementSibling || ele.previousSibling;
+	}
+	//给定元素和索引值，返回这个元素的对应索引值的兄弟
+	function getEleOfIndex(ele,index){
+		return ele.parentNode.children[index];
+	}
+	//查询并返回所有的兄弟元素
+	function getAllAiblings(ele){
+		var nuwArr = [];
+		var arr = ele.parentNode.children;
+		for(i = 0 ; i <arr.lenth;i++){
+			if(arr[i] !== ele){
+				newArr.push(arr[i]);
+			}
+		}
+		return newArr;
+	}
+
+//1 访问对象的封装
+	var box=getEle('box');
+	box.style.backgroundColor = 'red';
+
+	var parent = box.parentNode;
+	getFirstNode(parent).style.backgroundColor = 'yellow';
+	getLastNode(parent).style.fontSize="16px";
+	getNextNode(box).style.backgroundColor="teal";
+	getPreNode(box).style.backgroundColor = 'pink';
+	getEleOfIndex(box,0).style.backgroundColor = 'greenyellow';
+	getEleOfIndex(box,1).style.backgroundColor = 'purple';
+	var arr = getAllAiblings(box);
+	for(var i = 0; i <arr.length;i++){
+		arr[i].style.backgroundColor= 'black';
+	}
+
+//2.菜单经过改变样式
+	//点击菜单样式改变，其他兄弟元素样式复原
+	window.onload = function(){
+		var ul =getEle('list');
+		var aArr = ul.getElementsByTagName('a');
+		for(var i = 0; i <aArr.length;i++){
+			aArr[i].onclick = function(){
+				this.parentNode.className = 'current';
+				var otherArr = getAllAiblings(this.parentNode);
+				for(var j = 0 ;j<otherArr.length;j++){
+					otherArr[j].className= '';
+				}
+			}
+		}
+	}
+
+//3. DOM改变属性
+var box = document.getElementsByTagName('div')[0];
+typeof box.style == Object
+//属性制度额命名通过驼峰原则，如果是连接符使用大写表示。
+console.log(box.style.cssText);
+box.style.cssText = 'width:200px; height:200px;background-color:red;line-height:200px; text-align:center;'
+
+//4.改变盒子大小和透明度
+var div = document.getElementsByTagName('div')[0];
+div.onmouseover = function(){
+	div.style.opacity = 0.8;
+	div.style.filter = "alpha(opacity=80)";
+}
+
+//5.文本跨获得焦点改变样式
+var inpArr = docuemnt.getElementsByTagName('input');
+var btn = inpArr[inpArr.length - 1].nextElementSibling || inpArr[inpArr.length - 1].nextSibling ;
+btn.onclick = function(){
+	for(var i = 0; i < inpArr.length; i++){
+		inpArr[i].onfocus = function(){
+			this.style.border = '1px solid red';
+			this.style.backgroundColor = "#fff";
+		}
+		inpArr[i].onblur = function(){
+			this.style.border = '2px dashed blue';
+			this.style.backgroundColor = '#222';
+		}
+	}
+}
+
+//08. 隐藏盒子
+var box = document.getElementById('box');
+box.style.cssText = 'width:200px; height:200px;background-color:red';
+box.onclick = function(){
+	this.style.dispaly = 'none';
+	this.style.opacity = '0';
+	this.style.visibility = 'hidden';
+	this.style.position = 'absolute';
+}
+
+//7 高级隔行变色
+var tbody = document.getElementById('target');
+var trArr = tbody.children;
+
+//循环判断 隔行变色
+for(var i = 0; i <trArr.length;i++){
+	if(i%2 == 0){
+		trArr[i].style.backgroundColor= 'red';
+	} else {
+		trArr[i].style.backgroundColor='pink';
+	}
+}
+//鼠标经过改变颜色
+var color = 'blue';
+trArr[i].onmouseenter = function(){
+	color = this.style.backgroundColor;
+	this.style.backgroundColor = '#fff';
+}
+trArr[i].onmouseout =function(){
+	this.style.backgroundColor = color;
+}
+
+//07 百变皮肤
+var box = document.getElementById('banner');
+var body = document.body;
+var imgArr = box.chileren;
+
+for(var i = 0 ; i <imgArr.length; i ++){
+	imgArr[i].index = i;
+	imgArr[i].onclick = function(){
+		body.style.backgroundImage = 'url('+this.src+")";
+	}
+}
+
+//10.创建元素节点
+document.write("<li>hi</li>");
+
+var btn = document.getElementsByTagName('button')[0];
+var ul = document.getElementsByTagName('ul')[0];
+ul.innerHTML += '<li>hi</li>';
+
+var newli = document.createElement('li');
+newli.innerHTML = 'hi';
+var lis = document.getElementById("lis");
+ul.insertBefore(newli,lis);
+
+//三种方法中，document.write不常用，会覆盖之前文档。innerHTML常用，createelement也较常用。绑定内容和属性。
+
+//11.元素的操作
+ul.removeChild(lis);
+ul.replaceChild(li2,li3);
+
+for(var i = 0 ; i <=3; i++){
+	var newLi = lis.cloneNode(true);
+	ul.appendChild(newLi);
+}
+
+</script>
+</body>
+</html>

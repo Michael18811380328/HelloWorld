@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+
+#arr {
+    display: none;}
+#arr span{ width:40px; height:40px; position:absolute; left:5px; top:50%; margin-top:-20px; background:#000; cursor:pointer; line-height:40px; text-align:center; font-weight:bold; font-family:'黑体'; font-size:30px; color:#fff; opacity:0.3; border:1px solid #fff;}
+#arr #right{right:5px; left:auto;}
+
+</style>
+<script type="text/javascript">
+
+    window.onload = function () {
+
+
+    //需求：我们鼠标放到li上，指定图片播放。加定时器，一秒钟动一次。
+    //步骤：
+    //1、克隆图片加入到ul中
+    //2、动态生成li。
+    //3、焦点悬停动画。
+    //4、加定时器
+        //1、
+        //2、
+
+
+
+    //1、克隆图片加入到ul中
+        //1、获取相关元素
+        var all = document.getElementById("all");
+        var screen = document.getElementById("screen");
+        var ul = screen.children[0];
+        var lis = ul.children;
+        var ol = screen.children[1];
+        var firstLi = ul.children[0];
+
+
+
+        var arr = document.getElementById("arr");
+        var arrLeft = arr.children[0];
+        var arrRight = arr.children[1];
+
+
+        //2、克隆
+        var newLi = firstLi.cloneNode(true);
+        //3、加入到图片最后   a.appendChild(b);
+        ul.appendChild(newLi);
+
+    //2、动态生成li。
+        for(var i=0;i<lis.length-1;i++){
+            var lilili = document.createElement("li");
+            lilili.innerHTML = i+1;
+            ol.appendChild(lilili);
+        }
+
+    //3、焦点悬停动画。
+        //1、小方块的颜色切换(排他思想)
+        var olLis = ol.children;
+        olLis[0].className = "current";
+        for(var i=0;i<olLis.length;i++){
+            olLis[i].index = i;
+            olLis[i].onmouseover = function () {
+                for(var j=0;j<olLis.length;j++){
+                    olLis[j].className = "";
+                }
+                this.className = "current";
+
+                key = square = this.index;
+                //2、图片的切换
+                animate(ul,-this.index*lis[0].offsetWidth)
+            }
+        }
+
+    //4、加定时器
+        var timer = null;
+        //图片
+        var key = 0;
+        //小方块
+        var square = 0;
+
+        timer = setInterval(autoPlay,1000);
+
+        function autoPlay(){
+            key++;
+            square++;
+            if(key>5){
+                key=1;
+                ul.style.left = 0+ 'px';
+            }
+            animate(ul,-key*lis[0].offsetWidth);
+
+            square = square > olLis.length-1? 0:square;
+            for(var i=0;i<olLis.length;i++){
+                olLis[i].className = "";
+            }
+            olLis[square].className = "current";
+
+        }
+
+
+    //1、清除定时器
+        all.onmouseover = function () {
+            arr.style.display = "block";
+            clearInterval(timer);
+        }
+        all.onmouseout = function () {
+            arr.style.display = "none";
+            timer = setInterval(autoPlay,1000);
+        }
+    //2、
+
+        arrRight.onclick = function () {
+            autoPlay();
+        }
+
+        arrLeft.onclick = function () {
+            key--;
+            square--;
+            if(key<0){
+                key=4;
+                ul.style.left = -5*lis[0].offsetWidth+ 'px';
+            }
+            animate(ul,-key*lis[0].offsetWidth);
+
+            square = square <0 ? 4:square;
+            for(var i=0;i<olLis.length;i++){
+                olLis[i].className = "";
+            }
+            olLis[square].className = "current";
+            console.log(key+"  " + square);
+        }
+
+    }
+    function animate(obj,target) {
+        clearInterval(obj.timer)
+
+        var speed = obj.offsetLeft < target ? 15 : -15;
+
+        obj.timer = setInterval(function () {
+            var result = target - obj.offsetLeft;
+
+            obj.style.left = obj.offsetLeft + speed + "px";
+            console.log(speed);
+            if(Math.abs(result) <= 10 ){
+                clearInterval(obj.timer);
+                obj.style.left = target + "px";
+            }
+
+        },10);
+    }
+</script>
+
+</head>
+
+<body>
+<div class="all" id='all'>
+	<div class="screen" id="screen">
+        <ul id="ul">
+            <li><img src="images/1.jpg" width="500" height="200" /></li>
+            <li><img src="images/2.jpg" width="500" height="200" /></li>
+            <li><img src="images/3.jpg" width="500" height="200" /></li>
+            <li><img src="images/4.jpg" width="500" height="200" /></li>
+            <li><img src="images/5.jpg" width="500" height="200" /></li>
+        </ul>
+        <ol></ol>
+        <div id="arr"><span id="left"><</span><span id="right">></span></div>
+    </div>
+</div>
+</body>
+</html>

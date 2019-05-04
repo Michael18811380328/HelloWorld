@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题文档</title>
+	<style type="text/css">
+		body,ul,ol,li,img{margin:0;padding:0;list-style:none;}
+		#box{width:490px;height:170px;padding:5px;
+			position: relative;border:1px solid #ccc;margin:100px auto 0;overflow:hidden;}
+		.ad{width:490px;height:170px;overflow:hidden;position:relative;}
+		#box img{width:490px;}
+		.ad ol{position:absolute;right:10px;bottom:10px;}
+		.ad ol li{width:20px;height:20px;line-height:20px;border:1px solid #ccc;text-align:center;background:#fff;float:left;margin-right:10px;cursor:pointer;_display:inline;}
+		.ad ol li.current{background:yellow;}
+		.ad ul li{float:left;}
+		.ad ul{ position:absolute; top:0; width:2940px;}
+		.ad ul li.current{display:block;}
+		#arr {
+			display: none;}
+		#arr span{ width:40px; height:40px; position:absolute; left:5px; top:50%; margin-top:-20px; background:#000; cursor:pointer; line-height:40px; text-align:center; font-weight:bold; font-family:'黑体'; font-size:30px; color:#fff; opacity:0.3; border:1px solid #fff;}
+		#arr #right{right:5px; left:auto;}
+	</style>
+</head>
+<body>
+<div id="box" class="all">
+	<div class="ad">
+		<ul id="imgs">
+			<li><img src="images/1.jpg" /></li>
+			<li><img src="images/2.jpg" /></li>
+			<li><img src="images/3.jpg" /></li>
+			<li><img src="images/4.jpg" /></li>
+			<li><img src="images/5.jpg" /></li>
+		</ul>
+	</div>
+	<div id="arr"><span id="left"><</span><span id="right">></span></div>
+</div>
+</body>
+</html>
+
+<script>
+
+//	获取相关元素
+	var box = document.getElementById("box");
+	var ad = box.children[0].children[0];
+	var lis = ad.children;
+	var arr = box.children[1];
+ 	var arrLeft = arr.children[0];
+ 	var arrRight = arr.children[1];
+
+
+	//需求：1.鼠标放到图片上显示切换按钮，移开图片，隐藏按钮
+	box.onmouseover = function () {
+		arr.style.display = "block";
+	}
+	box.onmouseout = function () {
+		arr.style.display = "none";
+	}
+
+	var target = 0;
+	//需求1：点击按钮，让图片显示下一张。
+	arrLeft.onclick = function () {
+		target += 490;
+		if(target>=0){
+			target =0;
+		}
+		animate(ad,target);
+	}
+	arrRight.onclick = function () {
+		target -= 490;
+		if(target<= - (lis.length-1)*490){
+			target = -(lis.length-1)*490;
+		}
+		animate(ad,target);
+	}
+
+
+
+
+
+
+function animate(obj,target) {
+	clearInterval(obj.timer)
+
+	var speed = obj.offsetLeft < target ? 15 : -15;
+
+	obj.timer = setInterval(function () {
+		var result = target - obj.offsetLeft;
+
+		obj.style.left = obj.offsetLeft + speed + "px";
+		console.log(speed);
+		if(Math.abs(result) <= 10 ){
+			clearInterval(obj.timer);
+			obj.style.left = target + "px";
+		}
+
+	},30);
+}
+</script>

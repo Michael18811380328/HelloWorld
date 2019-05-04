@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//14 节点关系
+var box3 = document.getElementById('box3');
+box3.parentNode.style.backgroundColor="blue";
+
+var pre = box3.previousElementSibing || box3.previousSibling;
+var next = box3.nextElementSibling || box3.nextSibling;
+pre.style.backgroundColor = 'red';
+next.style.backgroundColor = 'yellow';
+
+//子元素
+var first = box3.parentNode.firstElementChild || box3.parentNode.firstChild;
+var last = box3.parentNode.lastElementChild || box3.parentNode.lastChild;
+first.style.backgroundColor = 'red';
+last.style.backgroundColor = 'green';
+
+var arr = box3.parentNode.children;
+for(var i = 0;i <arr.length;i++){
+	arr[i].style.backgroundColor = 'red';
+}
+console.log(box3.parentNode.childNodes);
+var arr2 = box3.parentNode.childNodes;
+for(var i = 0;i <arr2.length;i++){
+	if(arr2[i].nodeType === 1){
+		console.log(arr2[i]);
+	}
+}
+
+var index = 0;
+var node = box3.parentNode.children[index];
+
+//获得所有兄弟节点
+function sibling(ele){
+	var a = [];
+	var p = ele.parentNode.children;
+	for(var i = 0;i<p.length;i++){
+		if(p[i] !== ele){
+			a.push(p[i]);
+		}
+	}
+	return a;
+}
+
+//15 节点属性
+var ele = document.getElementById('box');
+var att = ele.getAttributeNode('id');
+var txt = ele.firstChild;
+
+nodeType 1-2-3
+nodeName DIV-id-#text
+nodeValue null-box-hello world
+
+</script>
+<script>
+	//16 隔行变色
+	//简单版本
+	var arr = document.getElementsByTagName('li');
+	for(var i = 0; i<arr.length; i++){
+		if(i%2 === 0){
+			arr[i].style.backgroundColor ='red';
+		}
+	}
+	//复杂版本
+	var ul = document.getElementsByTagName('ul');
+	var arr = ul.childNodes;
+
+	var newArr = [];
+	for(var i = 0;i <arr.length ; i++){
+		if(arr[i].nodeType === 1){
+			newArr.push(arr[i]);
+		}
+	}
+	for(var i = 0; i < newArr.length;i++){
+		if(i % 2 === 0){
+			newArr[i].style.backgroundColor = 'red';
+		}
+	}
+</script>
+</body>
+</html>

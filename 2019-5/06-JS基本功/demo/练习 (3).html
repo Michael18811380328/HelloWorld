@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- demo 网页回退 -->
+<script>
+	setTimeout(function(){
+		location.href = 'http://www.sina.com.cn';
+	},5000);
+	var btn = document.getElementsByTagName('button')[0];
+	btn.onclicl = function(){
+		history.back();
+	}
+</script>
+
+<!-- 01 选择水果 多选框选中 简单-->
+<script>
+	var sell1 = document.getElementById('sell1');
+	var sell2 = document.getElementById('sell2');
+	var inputArr = document.getElementsByTagName('input');
+	//全选按钮
+	inputArr[0].onclick = function(){
+		var arr = sell1.children;
+		for(var i = arr.length-1 ; i >= 0; i--){
+			sell2.appendChild(arr[0]);
+		}
+	}
+	inputArr[1].onclick = function(){
+		var arr = sell2.children;
+		for(var i = arr.length-1 ; i >= 0; i--){
+			sell1.appendChild(arr[0]);
+		}
+	}
+	//选中的添加到另一个表格中
+	inputArr[2].onclick = function(){
+		var arr = sell1.children;
+		for(var i = arr.length-1 ; i >=0; i--){
+			if(arr[i].selected === true){
+				sell2.appendChild(arr[i])
+			}
+		}
+	}
+	inputArr[3].onclick = function(){
+		var arr = sell2.children;
+		for(var i = arr.length-1 ; i>=0; i--){
+			if(arr[i].selected === true){
+				sell1.appendChild(arr[i]);
+			}
+		}
+	}
+</script>
+
+
+<!-- 02 选择水果 多选框选中 封装函数-->
+<script>
+	var sell1 = document.getElementById('sell1');
+	var sell2 = document.getElementById('sell2');
+	var inputArr = document.getElementsByTagName('input');
+	// 执行函数
+	inputArr[0].onclick = function(){
+		fn1(sell1,sell2);
+	}
+	inputArr[2].onclick = function(){
+		fn1(sell2,sell1);
+	}
+	inputArr[2].onclick = function(){
+		fn1(sell1,sell2);
+	}
+	inputArr[3].onclick = function(){
+		fn1(sell2,sell1);
+	}
+	// 封装函数
+	function fn1(ele1,ele2){
+		var arr = ele1.children;
+		for(var i=arr.length-1;i>=0;i--){
+			ele2.appendChild(arr[0]);
+		}
+	}
+	function fn2(ele1,ele2){
+		var arr = ele1.children;
+		for(var i=arr.length-1;i>=0;i--){
+			if(arr[i].selected === true){
+				arr[i].selected = false;
+				ele2.appendChild(arr[i]);
+			}
+		}
+	}
+</script>
+
+ <!-- 3. fruit sorting -->
+<script>
+	// 1. gain objects
+	var sell1 =  document.getElementById('sell1');
+	var sell2 = document.getElementById('sell2');
+	var inputArr = document.getElementsByTagName('input');
+
+	// 2. band events
+	inputArr[0].onclick = function(){
+		var optArr = sell2.children;
+		for(var i = 0; i<optArr.length ; i++){
+			sell.appenfChild(optArr[i]);
+		}
+	}
+	inputArr[1].onclick = function(){
+		var optArr = sell2.children;
+		for(var i = 0; i<optArr.length ; i++){
+			sell.appenfChild(optArr[i]);
+		}
+	}
+
+	inputArr[2].onclick = function(){
+		var optArr = sell1.children;
+		for(var i = optArr.length-1; i>=0 ;i--){
+			if(optArr[i]selected == true){
+				optArr[i].selected = false;
+				sell2.appenfChild(optArr[i]);
+			}
+		}
+		var aaa = Array.from(sell2.children).sort(function(a,b){
+			return a.value - b.value;
+		});
+		for(var i = 0 ; i < sell2.children.length;i++){
+			sell2.removeChild(sell2.children[i]);
+		}
+		for(var i = 0; i<aaa.length ; i++){
+			sell2.appendChild(aaa[i]);
+		}
+	}
+
+	inputArr[3].onclick = function(){
+		var optArr = sell2.children;
+		for(var i = optArr.length-1 ; i>=0;i--){
+			if(optArr[i].selected == true){
+				optArr[i].selected == false;
+				sell1.appendChild(optArr[i]);
+			}
+		}
+
+		var aaa = Array.from(sell1.children).sort(function(a,b){
+			return a.value - b.value;
+		});
+		for(var i = 0; i<sell.children.length;i++){
+			sell1.removeChild(sell.children[i]);
+		}
+		for(var i = 0; i<aaa.length;i++){
+			sell1.appendChild(aaa[i]);
+		}
+	}
+</script>
+
+<!-- 05 许愿墙 -->
+<script>
+var messages = [
+ {"id":1,"name":"mahu","content":"今天你拿苹果支付了么","time":"2016-02-17 00:00:00"},
+            {"id":2,"name":"haha","content":"今天天气不错，风和日丽的","time":"2016-02-18 12:40:00"},
+            {"id":3,"name":"jjjj","content":"常要说的事儿是乐生于苦","time":"2016-03-18 12:40:00"},
+            {"id":4,"name":"9.8的妹纸","content":"把朋友家厕所拉堵了 不敢出去 掏了半小时了都","time":"2016-03-18 12:40:00"},
+            {"id":5,"name":"雷锋ii.","content":"元宵节快乐","time":"2016-02-22 12:40:00"},
+            {"id":6,"name":"哎呦哥哥.","content":"据说今晚央视的元宵晚会导演和春晚导演是同一个人，真是躲得过初一，躲不过十五。","time":"2016-02-22 01:30:00"},
+            {"id":7,"name":"没猴哥，不春晚","content":"班主任:“小明，你都十二岁了，还是三年级，不觉得羞愧吗”？。小明:“一点也不觉得，老师你都四十多岁了，不也是年年在三年级混日子吗？羞愧的应该是你”。老师:……","time":"2016-02-22 01:30:00"},
+            {"id":8,"name":"哎呦杰杰.","content":"真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，","time":"2016-02-22 01:30:00"},
+            {"id":9,"name":"哎呦哎呦","content":"今天哪里的烟花最好看！！？答：朋友圈。。。","time":"2016-02-22 02:30:00"}
+            ];
+
+// 需求1：模拟数据库获取信息，然后在页面上生成数组的长度个tip，然后分别对内容进行修改。
+// 需求2：点击tip，提高层级信息，点击关闭按钮，删除标签，双击顶部，删除标签。
+var content = document.getElementById('content');
+for(var i = 0; i<message.length;i++){
+	var newDiv = document.createElement('div');
+	newDiv.className = 'tip1';
+	newDiv.id = 'tip'+messages[i].id;
+	var topValue = parseInt(Math.random()*400);
+	var leftValue = parseInt(Math.random()*700);
+	newDiv.style.top = topValue+'px';
+	newDiv.style.left = leftValue+'px';
+
+	newDiv.innerHTML = '<div class="tip_h" title="双击关闭纸条">'+'<div class="num">第[49568]条 '+messages[i].time+'</div>'+'<div class="close" title="关闭纸条" >×</div>'+'<div class="clr"></div>'+'</div>'+'<div class="tip_c">'+messages[i].content+'</div>'+'<div class="tip_f">'+'<div class="icon">'+'<img src="images/bpic_1.gif" alt="" title="">'+'</div>'+'<div class="name">'+messages[i].name+'</div>'+'<div class="clr"></div>'+'</div>';
+
+	content.appendChild(newDiv);
+	newDiv.onclick = fn;
+
+	//点击关闭按钮关闭父盒子
+	var closeDiv = newDiv.getElementByClassName('close')[0];
+	closeDiv.onclick = function(){
+		content.removeCHild(this.parentNode.parentNode);
+	}
+
+	//双击关闭按钮 类名
+	var dbDiv = newDiv.getElementByClassName('tip_h')[0];
+	dbDiv.ondbclick = function(){
+		content.removeChild(this.parentNode);
+	}
+}
+	var index = 1;
+	function fn(){
+		this.style.zIndex = index;
+		index ++ ;
+	}
+</script>
+</body>
+</html>
