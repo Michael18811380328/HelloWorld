@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LESS浏览器使用</title>
+	<!-- 1、修改link标签的rel属性 -->
+	<!-- <link rel="stylesheet" href="demo.css"> -->
+	<link rel="stylesheet/less" href="./demo.less">
+	<!-- js不能直接读取本文件的 -->
+	<script src="js/less.js"></script>
+	
+	<script>
+		
+		// less.js 内部可以发送ajax请求
+
+		// 通过一系列正则表达式进行替换操作
+
+		// 然后将替换的结果，生成一个<style>
+
+		// style = document.createElement('style');
+
+		// style.innerHTML = 替换的结果;
+
+		// document.querySelector('head').appendChild(style);
+
+		// 此种方式适用于开发阶段
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

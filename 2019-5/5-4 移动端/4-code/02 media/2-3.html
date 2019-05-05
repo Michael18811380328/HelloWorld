@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height">
+	<title>媒体查询</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		/* 演示width / height */
+		/*@media only screen and (width: 320px) {
+			body {
+				background-color: blue;
+			}
+		}*/
+
+		/*@media only screen and (height: 568px) {
+			body {
+				background-color: blue;
+			}
+		}*/
+
+		@media only screen and (width: 320px) and (height: 568px) {
+			body {
+				background-color: blue;
+			}
+		}
+	</style>
+</head>
+<body>
+	<p>完全等于宽/高度时，才会变成蓝色</p>
+
+	<script>
+		// if(a && b && c)
+	</script>
+</body>
+</html>

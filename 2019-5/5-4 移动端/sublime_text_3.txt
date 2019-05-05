@@ -1,0 +1,32 @@
+﻿
+1、	下载安装程序 http://www.sublimetext.com/3
+
+2、	安装package control https://packagecontrol.io/installation
+
+3、	安装完成后打开，按快捷键 ctrl+`(数字1键旁边)
+
+4、	将步聚2中代码粘到，通过ctrl+`打开的输出框中，回车等待
+
+5、	完成上述步骤后即可自由安装插件
+
+6、	汉化，ctrl+shif+p  输入 install package 等待 输入 chinese 查询汉化插件
+
+7、	智能提示，重复步聚6 输入 emmet 查询并安装
+
+8、	安装less一系列插件，步聚同上
+
+9、	激活码
+
+—– BEGIN LICENSE —–
+Ryan Clark
+Single User License
+EA7E-812479
+2158A7DE B690A7A3 8EC04710 006A5EEB
+34E77CA3 9C82C81F 0DB6371B 79704E6F
+93F36655 B031503A 03257CCC 01B20F60
+D304FA8D B1B4F0AF 8A76C7BA 0FA94D55
+56D46BCE 5237A341 CD837F30 4D60772D
+349B1179 A996F826 90CDB73C 24D41245
+FD032C30 AD5E7241 4EAA66ED 167D91FB
+55896B16 EA125C81 F550AF6B A6820916
+—— END LICENSE ——

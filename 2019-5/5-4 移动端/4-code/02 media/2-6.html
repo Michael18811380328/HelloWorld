@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=360">
+	<title>媒体查询</title>
+	<style>
+	
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		/* 演示 device-width / device-height */
+		
+		/*@media only screen and (device-width: 320px) {
+			body {
+				background-color: blue;
+			}
+		}*/
+
+		@media only screen and (device-height: 568px) {
+			body {
+				background-color: blue;
+			}
+		}
+	</style>
+</head>
+<body>
+	<p>完全等于宽/高度（物理像素）时，才会变成蓝色</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width"> -->
+	<title>媒体查询</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		/* 演示max-width / max-height */
+		
+		/*@media only screen and (max-width: 640px) {
+			body {
+				background-color: blue;
+			}
+		}*/
+
+		@media only screen and (max-height: 400px) {
+			body {
+				background-color: blue;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<p>小于等于宽/高度时，才会变成蓝色</p>
+</body>
+</html>

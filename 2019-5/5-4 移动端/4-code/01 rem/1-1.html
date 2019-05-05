@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>长度单位</title>
+	<style>
+		html {
+			font-size: 16px;
+		}
+
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+			font-size: 62.5%;
+			/*10 / 16 = 0.625*/
+		}
+
+		/*em 是一个相对长度单位，参照的是当前元素的字号的px长度*/
+		
+		.box {
+			font-size: 16px;
+		}
+
+		span {
+			display: block;
+			width: 20em;
+			height: 20em;
+			background: pink;
+			font-size: 12px;
+		}
+		
+		/**/
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span>有一些文字</span>
+	</div>
+</body>
+</html>
