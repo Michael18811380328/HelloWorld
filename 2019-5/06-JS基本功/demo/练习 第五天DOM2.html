@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!-- 11 字符串案例 -->
+<script>
+	var str1 ="hello world ";
+	var index1 = str1.indexOf('h');
+	var index2 = str.indexOd('o');
+	console.log(str1.slice(index1,index2+1));
+	//截取链各个字母之间的内容
+	
+	for(var i = 0;i <str1.length;i++){
+		if(str1.charAt(i) === 'o'){
+			console.log(i);
+		}
+	}
+
+	//replace
+	console.log(str1);
+	console/log(str1.replace(/o/g,'!'));
+
+	//判断一个字符出现的个数
+	var json ={};
+	for(var i = 0; i<str1.length; i++){
+		var key = str1.charAt(i);
+		if(json[key] === undefined){
+			josn[key] = 1;
+		} else {
+			json[key] ++;
+		}
+	}
+	console.log(json);
+
+	var maxKey = '';
+	var maxValue = 0;
+	for(var k in json){
+		if(maxKey == ''){
+			maxKey = k;
+			maxValue = jons[k];
+		}else if(json[k] > maxValue){
+			maxKey = k;
+			maxValue = jons[k];
+		}
+	}
+	console.log(maxKey);
+	console.log(maxValue);
+</script>
+
+
+<!-- 12-13 获取节点元素的封装 -->
+<script>
+	$('#box').style.backgroundColor ='red';
+
+	var claArr =$('.box');
+	for(var i = 0; i<claArr.length;i++){
+		claArr[i].style.backgroundColor = 'yellow';
+	}
+
+	var divArr = $('div');
+	for(var i = 0; i <divArr.length;i++){
+		divArr[i].style.backgroundColor = "yellow";
+	}
+
+	var divArr = $("div");
+	for(var i = 0;i<divArr.length;i++){
+		divArr[i].style.border = '2px solid #ccc';
+	}
+
+	function $(str){
+		var str1 = str.charAt(0);
+		if(str1 === "#"){
+			return document.getElementById(str.slice(1));
+		} else if(str1 === "."){
+			return document.getElementsByClassName(str.slice(1));
+		} else {
+			return document.getElementsByTagName(str);
+		}
+	}
+</script>
+
+<!-- 14 Math对象 -->
+<script>
+	Math.abs()
+	Math.floor()
+	Math.ceil()
+	Math.round()
+	Math.random()
+</script>
+
+<!-- 15 事件 -->
+<!-- 绑定事件有两种方法：on方法可能被后面其他事件层叠，add方法执行的时候不影响后面其他的方法，更适合团队开发和大型项目 -->
+<script>
+	var btn = document.getElementsByTagName('button')[0];
+	btn.onclick = function(){
+		console.log("hello");
+	}
+
+	btn.addEventListener('click',fn1);
+	btn.addEventListener('click',fn2);
+	function fn1(){
+		console.log('hi');
+	}
+	function fn2(){
+		console.log('bye');
+	}
+</script>
+<script>
+	//事件添加兼容写法
+	EventListen = {
+		addEvent : function(ele,fn,str){
+			if(ele.addEventListener){
+				ele.addEventListener(str,fn);
+			}else if(ele.attachEvent){
+				ele.attachEvent('on'+str,fn);
+			}else {
+				ele['on'+str] = fn;
+			}
+		}，
+		removeEvent: function(ele,fn,str){
+			if(ele.removeEventListener){
+				ele.removeEventListener(str,fn);
+			}else if(ele.detachEvent){
+				ele.detachEvent('on'+str,fn);
+			}else{
+				ele['on'+str] = null;
+			}
+		}
+	}
+
+	EventListen.addEvent(btn,fn1,'click');
+	EventListen.addEvent(btn,fn2,'click');
+	EventListen.removeEvent(btn,fn1,'click');
+	EventListen.removeEvent(btn,fn2,'click');
+
+
+	function fn1(){
+		console.log("hi");
+	}
+	function fn2(){
+		console.log('hello');
+	}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			margin-left: -40px;
+		}
+		.box {
+			width: 800px;
+			height: 400px;
+			margin: 100px auto;
+			border: 1px solid #000;
+			position: relative;
+		}
+		span {
+			position: absolute;
+			top: 50%;
+			margin-top: -50px;
+			width: 40px;
+			height: 100px;
+			background: rgba(0,0,0,.3);
+			text-align: center;
+			line-height: 100px;
+			cursor: default;
+		}
+		.aaa {
+			right: 0;
+		}
+		li {
+			width: 16px;
+			height: 16px;
+			background-color: #000;
+			border-radius: 9px;
+			margin: 2px;
+			float: left;
+			color: #fff;
+			text-align: center;
+			line-height: 16px;
+			cursor: move;
+		}
+		.show {
+			display: block;
+		}
+		.current {
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<a class="show" href="#" style="width: 800px;height: 400px;background:red"></a>
+		<a href="#" style="width: 800px;height: 400px;background:blue"></a>
+		<a href="#" style="width: 800px;height: 400px;background:yellow"></a>
+		<a href="#" style="width: 800px;height: 400px;background:pink"></a>
+		<ul>
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<span onselectstart="return false"><</span>
+		<span class="aaa" onselectstart="return false">></span>
+	</div>
+
+	<script>
+
+	var num=0;
+	var timer=null;
+	var box = document.getElementsByTagName("div")[0];
+	var aArr = document.getElementsByTagName("a");
+	var liArr = document.getElementsByTagName("li");
+	var spanArr = document.getElementsByTagName("span");
+
+	timer = setInterval(fn,1000);
+	box.onmouseover = function(){
+		clearInterval(timer);
+	}
+	box.onmouseout = function(){
+		timer = setInterval(fn,1000);
+	}
+	spanArr[0].onclick = function(){
+		fn1()
+	}
+	spanArr[1].onclick = function(){
+		fn();
+	}
+	for(var i=0;i<liArr.length;i++){
+		liArr[i].onclick = fn2;
+	}
+
+
+	function fn(){
+		for(var i=0;i<aArr.length;i++){
+			aArr[i].className="";
+			liArr[i].className="";
+		}
+		aArr[num].className="show";
+		liArr[num].className="current";
+		num++;
+		if(num>aArr.length-1){
+			num=0;
+		}
+	}
+
+	function fn1(){
+		num--;
+		if(num<0){
+			num=aArr.length-1;
+		}
+		for(var i=0;i<aArr.length;i++){
+			aArr[i].className="";
+			liArr[i].className="";
+		}
+		aArr[num].className="show";
+		liArr[num].className="current";
+	}
+
+	function fn2(){
+		num=this.innerHTML-1;
+		for(var i=0;i<aArr.length;i++){	
+			aArr[i].className="";
+			liArr[i].className="";
+		}
+		aArr[num].className="show";
+		liArr[num].className="current";
+	}
+
+
+
+
+
+	</script>
+
+</body>
+</html>

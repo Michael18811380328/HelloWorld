@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<button>开始</button>
+<div></div>
+</body>
+</html>
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    var div = document.getElementsByTagName("div")[0];
+    var timer = null;
+    var target = 400;
+    btn.onclick = function() {
+        timer = setInterval(function() {
+           /* 动画原理： 盒子本身的位置 + 步长
+            div.style.left = div.offsetLeft + 10 + "px";*/
+            div.style.left = div.offsetLeft + (target - div.offsetLeft)/10 + "px";
+        } ,30)
+    }
+
+</script>

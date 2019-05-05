@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建列表高亮显示美女</title>
+	<style>
+	li {cursor:pointer;}
+	</style>
+</head>
+<body>
+	<button>创建列表</button>
+	<ul></ul>
+
+	<script>
+	//使用for循环创建元素，点击按钮图片自动切换（高亮显示）
+	var btn = document.getElementsByTagName('button')[0];
+	var arr = ['1','2','3','4'];
+	var ul = document.getElementsByTagName('ul')[0];
+	btn.onclick = function(){
+		for(i = 0 ; i <arr.length; i++){
+			var newLi = document.createElement('li');
+			newLi.innerHTML = "hello!"+ul;
+			ul.appendChild(newLi);
+		}
+		var liArr = ul.children;
+		for(var i = 0 ; i<liArr.length;i++){
+			liArr[i].onmouseover = function(){
+				for(var j = 0 ; j < liArr.length;j++){
+					liArr[j].style.backgroundColor = '';
+				}
+				this.style.backgroundColor='red';
+			}
+		}
+	}
+	</script>
+
+
+	<!--练习2： 选择水果 -->
+	<select name="" id="sell" size="10" multilpe>
+		<option value="">水果1</option>
+		<option value="">水果2</option>
+		<option value="">水果3</option>
+		<option value="">水果4</option>
+	</select>
+	<button></button>
+	<button></button>
+	<button></button>
+	<button></button>
+	<select name="" id="sell2" multiple size='10'></select>
+	
+	<script>
+	window.onload = function(){
+		var sell = document.getElementById('sell');
+		var sell2 = document.getElementById('sell2');
+		var btnArr = document.getElementsByTagName('button');
+		btnArr[0].onclick = function(){
+			var arr = sell1.children;
+			for(i = arr.length-1; i >=0 ; i--){
+				sell2.appendChild(arr[arr.length-i-1]);
+			}
+		}
+	}
+	</script>
+
+	<!-- 练习三 动态许愿小纸条-->
+	<!-- 需求：克隆盒子，然后随机放置在屏幕上，点击当前纸条位置最高显示
+	1.获取纸条
+	2.随机数值绑定在纸条上
+	3.添加到父盒子上
+	4.绑定事件的盒子层级最高 -->
+<script>
+	// 创建随机纸条
+	for(var i = 0 ; i <10 ; i++){
+		// 1.获取纸条 克隆纸条
+		var tip = document.getElementById('tip');
+		var current = document.getElementById('content');
+		var newTip = tip.cloneNode(true);
+		newTip.id = newTip.id + i;
+
+		// 2.随机数据绑定到纸条上
+		var topValue = parseInt(Math.random()*400);
+		var leftValue = parseInt(Math.random()*700);
+		newTip.style.top = topValue+'px';
+		newTip.style.left = leftValue+'px';
+		//3 添加到父盒子中
+		content.appendChild(newTip);
+
+		// 4.然后绑定事件层级最高
+		newTip.onclick = fn;
+	}
+
+	tip.onclick = fn;
+	var index = 1;
+	function fn(){
+		this.style.zIndex = index;
+		index ++;
+	}
+</script>
+</body>
+</html>
+

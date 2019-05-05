@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var obj1 = new Object();
+	console.log(obj1);
+
+	var obj2 = {
+		aaa:obj1,
+		name:"zhang",
+		'age':19,
+		sayHi:function(){
+			console.warn(1);
+		}
+	};
+	console.log(obj2);
+	obj2.sayHi();
+	</script>
+	<script>
+	var json = {
+		'name':'Mike',
+		'age':19,
+		'arr':[123]
+	};
+	console.log(json.length);
+	for(var key in json){
+		console.log(key+'值'+json[key])
+	}
+	</script>
+
+</body>
+</html>
