@@ -60,7 +60,7 @@ Never stop coding!
 
 August is a very busy month. Not only did I finish so mush codes of html, css, js, but also I learn plenty of new knowledge points. To be honest, I didn't have one day rest. At night I always learn new grammar. And there are some details about August.
 
-#### 1. Do some unit test.
+1. Do some unit test.
 
 It is significant to do unit test before using a new javascript API. When we finished writing an API, we must test it right away. The main test tool are Mocha or Jest. Using assertions to test if the API could return a right value. Unit test is basic test.
 
@@ -68,13 +68,13 @@ The basic method is test APIs one by one. The advanced method is test lots of AP
 
 For a fresh bird, I choose the first method now. In the future, I will use the advanced methods to release my work pressure and deal with other projects. Time is precious.
 
-#### 2. learn new OS（operating system）
+2. learn new OS（operating system）
 
 I heard MAC OS and Linux OS before. But I didn't operate them before. Now I need to learn the basic knowledge. The Linux system is much different from Windows system. I use Ubuntu, a special linux OS. The base and vim command line need to remember. In the future, I will use them much. Bye-Bye windows.
 
 Till now I can't find adequate PS and other softwares in MAC. I didn't have an Apple ID so I can't down app from App Store. The NodeJS and NPM parts are useful in MAC. I still use sublime as my editor software. The webstorm and atom editor are useful too.
 
-#### 3. new knowledge of Jest
+3. new knowledge of Jest
 
 What's more, there are many new knowledge points. I need to learn reactstrap(bootstrap in react framework). The ECMAscript6 is necessary. The differences between const and let (let use much memory than const, about 2% to 3% maybe). And array function is useful. It can bind this to using function automaticly.Others, learn button/DropDown/Modal compoennts of reactstrap.
 
@@ -108,15 +108,15 @@ There are so many things to learn. And I found that it is important for us to le
 
 ### 2018.11
 
-#### Basic knowledge
+1.Basic knowledge
 
-1 Recently I read some books of traditional JS methods. Before ES6 ( class and other new points of OO, object-oriented ) come into our eyes, the constructor is important. 
+Recently I read some books of traditional JS methods. Before ES6 ( class and other new points of OO, object-oriented ) come into our eyes, the constructor is important. 
 
 The curry function, which use less parameters in a single function, can gain more useful features. Eg: for a pure function, y = f(x). When we set a special x, this function can return a solid y for this special x. This function is called pure function. And if we enter a special parameters into another function, that function returns are not fixed. There are a lot of mess. So the main thoughts of curry function is that we should use only one parameters in a special function. If a function have too much codes and parameters, we should separate them into different parts. This method can decrease function coupling， and increase codes reusability. (PS: learn more CS words).
 
 The memory of function. In fibonacci method, we can use resursion to culculate. function return n < 2 ? n : fibonacci(n-1) + fibonacci(n-2). The basic method has a shortage. And we have to calculate fibonacci(3) for too many time for instance. A new method is we can use closure, and create an array to store some result. If function has calculated some results, read it from the result array directly, else calculate it and store the results into array. The result array is in a closure. Finally, we just return the last result rather than result array. If n equals 10, traditional methods need 400 times, however, new method just needs about 30 times.
 
-#### Learning methods
+2.Learning methods
 
 learn more of data structure. If I just use some basic components in my daily work, I won't get more new information of CS development.
 
@@ -126,7 +126,7 @@ We all know that if you didn't study every day, you would been last for a long d
 
 Two years age, angular is hot in whole China, plenty of my friends use angular as their basic front-end structure. Now, if you use angular, it is not a wise choice.
 
-#### Singles' day thoughts
+3.Singles' day thoughts
 
 Today is Nov 11th, the traditional shopping days. Ten years age, shopping day was created by Alibaba. Ten years later, there are 100 billion yuan trades during just ten hours. But I never buy any goods, because I must learn new CS knowledge. 
 
@@ -145,13 +145,10 @@ Third, 5G network will use in daily life. And we need to thought how to open web
 
 The last month of 2018 is arriving. How time flies! This year I faced lots of differences in my life. It is a turning point for me. 
 
-#### Basic knowledge
-
 There are lots of bugs in my codes which I wrote in last several months. In the beginning period, our product has a basic design, however, now design has some adjustments so that some codes are not good enough for new features. So fix them as soon as possible.
 
 I learn some design method in React. We all know that React use props and status. When some datas need to transfered from one component to another comonennt, we can use props. But when we want to transfer data from child component to parent component, props are not useful as before. So we can set a hoop-function in parent component. Transfer this function by props. When child component was rendered or some events happen, we can use this hoop function to listen event happened. The function name can use "on doing something". 
 
-#### thoughts
 I find it is so busy in my daily life. And it may be the real life. Just face the difficults and overcome my weaknesses. I have to balance life, job, health, family and so on. It may be a little tough in the early period. Step by step, just do it! 
 
 ## 2019
@@ -186,3 +183,7 @@ At the last day in March, I need a review about this month. There are some thoug
 
 1. I read a book called《Make you code cleaner》.This is the main opinions: a function should contain single function and codes as less as possible. Use clear parameter as name of variable. A funciton should do only one thing. A class or a component in React should show a single UI component. And modify your codes after you write down them. When you review your codes, you can change and delete   much useless codes.
 2. RYF said, we should learn inner knowledge of coding. We all know that structure can change in one day,  but the basic data structure and algie is still there. Write more and learn some inner thought in code. It is important. In the free time ,wu shouldn't do the basic things once and another times, but we can deal with tough problems for many hours. Because if you can resolve the tough problem, you are making progress.
+
+### 2019.05
+
+What is the difference between code farmer and code designer? The farmer can only fix some bugs, can build a wall which is not good, however, thr designer can create some codes and build a beautiful house. So   basic logic is more important than fix some easy bugs. And important methods are also important.
