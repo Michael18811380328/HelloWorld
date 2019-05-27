@@ -1,5 +1,7 @@
 ## JS 语言精粹 蝴蝶书
 
+作者电子书网址：https://www.crockford.com/books.html
+
 ### 第一张 精华
 
 JS 语言的特殊性造成了精华和糟粕并存
