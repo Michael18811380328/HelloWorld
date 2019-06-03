@@ -1,4 +1,4 @@
-## Axios
+## Axios中文文档
 
 
 Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
@@ -13,14 +13,6 @@ Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js �
 - 取消请求
 - 自动转换 JSON 数据
 - 客户端支持防御 [XSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery)
-
-## 浏览器支持
-
-|          |          |          |          |          |      |
-| :------- | :------- | :------- | :------- | :------- | :--- |
-| Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 8+ ✔ |
-
-[![Browser Matrix](https://saucelabs.com/open_sauce/build_matrix/axios.svg)](https://saucelabs.com/u/axios)
 
 ## 安装
 
@@ -46,7 +38,7 @@ $ bower install axios
 
 执行 `GET` 请求
 
-```
+```js
 // 为给定 ID 的 user 创建请求
 axios.get('/user?ID=12345')
   .then(function (response) {
@@ -72,7 +64,7 @@ axios.get('/user', {
 
 执行 `POST` 请求
 
-```
+```js
 axios.post('/user', {
     firstName: 'Fred',
     lastName: 'Flintstone'
@@ -87,11 +79,10 @@ axios.post('/user', {
 
 执行多个并发请求
 
-```
+```js
 function getUserAccount() {
   return axios.get('/user/12345');
 }
-
 function getUserPermissions() {
   return axios.get('/user/12345/permissions');
 }
@@ -108,7 +99,7 @@ axios.all([getUserAccount(), getUserPermissions()])
 
 ##### axios(config)
 
-```
+```js
 // 发送 POST 请求
 axios({
   method: 'post',
@@ -122,7 +113,7 @@ axios({
 
 ##### axios(url[, config])
 
-```
+```js
 // 发送 GET 请求（默认的方法）
 axios('/user/12345');
 ```
@@ -163,7 +154,7 @@ axios('/user/12345');
 
 ##### axios.create([config])
 
-```
+```js
 var instance = axios.create({
   baseURL: 'https://some-domain.com/api/',
   timeout: 1000,
@@ -193,7 +184,7 @@ var instance = axios.create({
 
 这些是创建请求时可以用的配置选项。只有 `url` 是必需的。如果没有指定 `method`，请求将默认使用 `get` 方法。
 
-```
+```js
 {
   // `url` 是用于请求的服务器 URL
   url: '/user',
@@ -210,14 +201,12 @@ var instance = axios.create({
   // 后面数组中的函数必须返回一个字符串，或 ArrayBuffer，或 Stream
   transformRequest: [function (data) {
     // 对 data 进行任意转换处理
-
     return data;
   }],
 
   // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
   transformResponse: [function (data) {
     // 对 data 进行任意转换处理
-
     return data;
   }],
 
@@ -325,7 +314,7 @@ var instance = axios.create({
 
 某个请求的响应包含以下信息
 
-```
+```js
 {
   // `data` 由服务器提供的响应
   data: {},
@@ -346,7 +335,7 @@ var instance = axios.create({
 
 使用 `then` 时，你将接收下面这样的响应：
 
-```
+```js
 axios.get('/user/12345')
   .then(function(response) {
     console.log(response.data);
@@ -365,7 +354,7 @@ axios.get('/user/12345')
 
 ### 全局的 axios 默认值
 
-```
+```js
 axios.defaults.baseURL = 'https://api.example.com';
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -373,7 +362,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 ### 自定义实例默认值
 
-```
+```js
 // 创建实例时设置配置的默认值
 var instance = axios.create({
   baseURL: 'https://api.example.com'
@@ -387,7 +376,7 @@ instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
 配置会以一个优先顺序进行合并。这个顺序是：在 `lib/defaults.js` 找到的库的默认值，然后是实例的 `defaults` 属性，最后是请求的 `config` 参数。后者将优先于前者。这里是一个例子：
 
-```
+```js
 // 使用由库提供的配置的默认值来创建实例
 // 此时超时配置的默认值是 `0`
 var instance = axios.create();
@@ -406,7 +395,7 @@ instance.get('/longRequest', {
 
 在请求或响应被 `then` 或 `catch` 处理前拦截它们。
 
-```
+```js
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
@@ -442,7 +431,7 @@ instance.interceptors.request.use(function () {/*...*/});
 
 ## 错误处理
 
-```
+```js
 axios.get('/user/12345')
   .catch(function (error) {
     if (error.response) {
@@ -460,7 +449,7 @@ axios.get('/user/12345')
 
 可以使用 `validateStatus` 配置选项定义一个自定义 HTTP 状态码的错误范围。
 
-```
+```js
 axios.get('/user/12345', {
   validateStatus: function (status) {
     return status < 500; // 状态码在大于或等于500时才会 reject
@@ -476,7 +465,7 @@ axios.get('/user/12345', {
 
 可以使用 `CancelToken.source` 工厂方法创建 cancel token，像这样：
 
-```
+```js
 var CancelToken = axios.CancelToken;
 var source = CancelToken.source();
 
@@ -496,7 +485,7 @@ source.cancel('Operation canceled by the user.');
 
 还可以通过传递一个 executor 函数到 `CancelToken` 的构造函数来创建 cancel token：
 
-```
+```js
 var CancelToken = axios.CancelToken;
 var cancel;
 
@@ -530,19 +519,3 @@ axios includes [TypeScript](http://typescriptlang.org/) definitions.
 import axios from 'axios';
 axios.get('/user?ID=12345');
 ```
-
-## Resources
-
-- [Changelog](https://github.com/mzabriskie/axios/blob/master/CHANGELOG.md)
-- [Upgrade Guide](https://github.com/mzabriskie/axios/blob/master/UPGRADE_GUIDE.md)
-- [Ecosystem](https://github.com/mzabriskie/axios/blob/master/ECOSYSTEM.md)
-- [Contributing Guide](https://github.com/mzabriskie/axios/blob/master/CONTRIBUTING.md)
-- [Code of Conduct](https://github.com/mzabriskie/axios/blob/master/CODE_OF_CONDUCT.md)
-
-## Credits
-
-axios is heavily inspired by the [$http service](https://docs.angularjs.org/api/ng/service/$http) provided in [Angular](https://angularjs.org/). Ultimately axios is an effort to provide a standalone `$http`-like service for use outside of Angular.
-
-## License
-
-MIT
