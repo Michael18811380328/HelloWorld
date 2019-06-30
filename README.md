@@ -187,3 +187,7 @@ At the last day in March, I need a review about this month. There are some thoug
 ### 2019.05
 
 What is the difference between code farmer and code designer? The farmer can only fix some bugs, can build a wall which is not good, however, thr designer can create some codes and build a beautiful house. So   basic logic is more important than fix some easy bugs. And important methods are also important.
+
+### 2019.06
+
+After about one year coding, I found that I have wrote down more than 40 thousands lines of code in public repo in github(seahub/editor/dtable/api). I need to learn more knowledge about network/algie/data-structure in my free time. There are many coding language in different area, but the above basic points is similar. Seven years age, I started to learn basic computer programming(C), then I learned basic C++ by myself(just a little C++). Five years age, python was hot and I know it is a glue and can generate codes from C and C++, however, I didn't learn pyhton at that time. Two years ago, I learn a little visual basic(VB) when I use excel software, it is boring. And I learn HTML/CSS/JS in the whole year. Last year, I learn a little php/ruby/java because my co-worker use them as network backend. Now I learn python in my free time, python can do much thing, such as network programming(django/flask), Artificial Intelligence, Machine learning, scaning webpage, it is amazing. During these years, my data-structure and database was still weak. Hurry up and make great progress!

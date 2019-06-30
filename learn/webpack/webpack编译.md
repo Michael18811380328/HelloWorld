@@ -219,4 +219,3 @@ Html-webpack-plugin 插件：在 webpack构建中，在对应的目录下生成 
 #### 外部扩展 externals 
 
 React  react-dom 这部分内容不需要包含在项目中。
-

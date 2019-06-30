@@ -48,3 +48,82 @@ require('moment/locale/zh-cn');
 | mode                 | enum('time', 'date', 'month', 'year', 'decade') | 'date'                                                | control which kind of panel should be shown                  |
 | onPanelChange        | Function(date: moment, mode)                    |                                                       | called when panel changed                                    |
 | clearIcon            | ReactNode                                       |                                                       | specific the clear icon.                                     |
+
+实际案例中设置多语言和时区
+
+~~~js
+import moment from 'moment';
+import Calendar from 'rc-calendar';
+import DatePicker from 'rc-calendar/lib/Picker';
+import TimePickerPanel from 'rc-time-picker/lib/Panel';
+import 'moment/locale/zh-cn';
+import 'moment/locale/en-gb';
+import 'rc-calendar/assets/index.css';
+import 'rc-time-picker/assets/index.css';
+
+const zhCN = require('rc-calendar/lib/locale/zh_CN');
+const zhTW = require('rc-calendar/lib/locale/zh_TW');
+const enUS = require('rc-calendar/lib/locale/en_US');
+const frFR = require('rc-calendar/lib/locale/fr_FR');
+const deDE = require('rc-calendar/lib/locale/de_DE');
+const esES = require('rc-calendar/lib/locale/es_ES');
+const plPL = require('rc-calendar/lib/locale/pl_PL');
+const csCZ = require('rc-calendar/lib/locale/cs_CZ');
+
+const format = 'YYYY-MM-DD HH:mm:ss';
+const now = moment();
+const defaultCalendarValue = now.clone();
+
+
+class {
+  translateCalendar = (locale) => {
+    let language = enUS;
+    if (locale) {
+      switch (locale) {
+        case 'zh-ch':
+          language = zhCN;
+          break;
+        case 'zh-tw':
+          language = zhTW;
+          break;
+        case 'en':
+          language = enUS;
+          break;
+        case 'fr':
+          language = frFR;
+          break;
+        case 'de':
+          language = deDE;
+          break;
+        case 'es':
+          language = esES;
+          break;
+        case 'es-ar':
+          language = esES;
+          break;
+        case 'es-mx':
+          language = esES;
+          break;
+        case 'pl':
+          language = plPL;
+          break;
+        case 'cs':
+          language = csCZ;
+          break;
+      }
+    }
+    return language;
+  }
+  
+  render() {
+    const locale = this.translateCalendar(this.props.locale);
+    const calendar = (
+      <Calendar
+      	...
+        locale={locale}
+      />
+    );
+  }
+}
+~~~
+
