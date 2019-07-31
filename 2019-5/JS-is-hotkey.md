@@ -31,3 +31,4 @@ function onKeyDown(e) {
 现在更新到 0.1.4 版本
 
 链接：[http://npm.taobao.org/package/is-hotkey](http://npm.taobao.org/package/is-hotkey)
+

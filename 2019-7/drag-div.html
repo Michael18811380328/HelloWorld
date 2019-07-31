@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
+          <title>Document</title>
+        </meta>
+      </meta>
+    </meta>
+    <style>
+      .wrapper {display: flex;border: 1px solid orangered;padding: 10px;}
+　　   .col {border: 1px solid #808080;height: 500px;width: 200px;margin: 0 10px;padding: 10px;}
+　　   .item {border: 1px solid #808080;margin: 5px 0;background-color:skyblue;}
+      .item:first-child {background-color: pink;}
+      .item:last-child {background-color: yellow;}
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="col1 col">
+        <div class="item" draggable="true" id="item1">item1</div>
+        <div class="item" draggable="true" id="item2">item2</div>
+        <div class="item" draggable="true" id="item3">item3</div>
+      </div>
+      <div class="col2 col"></div>
+      <div class="col3 col"></div>
+      <div class="col4 col"></div>
+    </div>
+    <script>
+      let cols = document.getElementsByClassName('col');　　　
+      //这里演示的是三个div内部拖拽改变位置，并不是把桌面的文件拖拽上传
+      for (let col of cols) {　　　　
+          col.ondragenter = e => {　　　　
+              console.log('放置元素 ondragenter', '<' + e.dataTransfer.getData('item') + '>');　　　　
+          }　　　　
+          col.ondragover = e => {　　　　
+              e.preventDefault();　　　　
+              console.log('放置元素 ondragover', '<' + e.dataTransfer.getData('item') + '>');　　　　
+          }　　　　
+          col.ondragleave = e => {　　　　
+              console.log('放置元素 ondragleave', '<' + e.dataTransfer.getData('item') + '>');　　　　
+          }　　　　
+          col.ondrop = function(e) {　　　　
+              console.log('放置元素 ondrop', '<' + e.dataTransfer.getData('item') + '>');　　　　
+              this.append(document.getElementById(e.dataTransfer.getData('item')));　　　　
+          }
+      }　　　　
+      let items = document.getElementsByClassName('item');　　　　
+      for (let item of items) {　　　　
+          item.ondragstart = e => {　　　　
+              console.log('拖拽元素 ondragstart');　　　　
+              e.dataTransfer.setData('item', e.target.id);　　　　
+          }　　　　
+          item.ondragend = e => {　　　　
+              console.log('拖拽元素 ondragend');　　　　
+          }　　　　
+      }
+    </script>
+  </body>
+</html>

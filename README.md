@@ -163,9 +163,7 @@ These days I found that old knowledge should be learned again so that we can get
 
 ### 2019.02
 
-Happy Spring Festicval! 
-
-The code-mirror is a useful library when we show codes in different styles. These days I think that we should learn new knowledge forever.
+Happy Spring Festicval! The code-mirror is a useful library when we show codes in different styles. These days I think that we should learn new knowledge forever.
 
 ### 2019.03
 
