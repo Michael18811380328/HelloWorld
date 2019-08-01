@@ -17,7 +17,7 @@ class RelatedFilesList extends React.Component {
   // 函数作用：对路径进行encode。首先对路径按照/进行处理，放置在一个数组中。对数组的每一项进行encode,之后再拼接起来。
   // len = path_arr.length 放出来很好，避免每次计算数组的长度
   // 使用 path_arr 和 path_arr_ 表示新旧数组也很好
-  encodePath = (path) => {
+  encodePath(path) {
     if (!path) {
       return '';
     }
