@@ -1,0 +1,23 @@
+
+# babel 转码
+npm install --save-dev @babel/core
+npm install --save-dev @babel/preset-env
+npm install --save-dev @babel/preset-react
+
+# .babelrc
+# {
+#   "preset": [
+#     "babel/env",
+#     "babel/preset-react"
+#   ],
+#   "plugins": []
+# }
+
+# 本地编译
+npm install --save-dev @babel/cli
+npx babel index.js --out-file bundle.js
+npx babel index.js -o bundle.jss
+npx babel src -out-dir dist
+npx babel src -d dist
+
+# node 环境开发

@@ -8,7 +8,7 @@ DOM 树最小的单位是 node 节点。浏览器提供了原生的对象 Node�
 
 全部节点按照树状结构排列就是 Document DOM 树。可以使用 parentNode, firstChild, lastChild, nextSibling, previousSibling 获取任意节点。
 
-对于原生 JS 操作node是很重要的，对于React不需要直接操作node，直接使用状态驱动UI界面即可
+对于原生 JS 操作node是很重要的，对于React不需要直接操作node，直接使用状态驱动UI界面即可（操作界面，界面滚动动画等也需要DOM）。
 
 ### 8.2 Node API
 
@@ -22,7 +22,7 @@ Node.prototuype.nodeName // 返回字符串，表示节点的名称(div #text)
 Node.prototype.nodeValue // 返回一个字符串，表示节点的值(文本节点、属性节点、注释节点具有这个属性)，如果内部是空，返回null,这个值可以改变
 textContent // 返回当前节点和所有子节点的文本内容
 document.textContent === null 
-document.documentElement.textContent //可以获取整个文档的内容
+document.documentElement.textContent //可以获取整个文档的内容（实际上获取不全）
 
 baseURL // 返回一个绝对路径(由window.location决定),属性只读，浏览器根据这个属性计算相对路径
 ownerDocument // 返回当前节点的根节点document，document.ownerDocument === null
@@ -55,7 +55,7 @@ node.cloneNode() 克隆一个节点(参数是true、false，表示克隆自身�
 parentNode.insertBefore(newNode, referNode); 新节点会插入到父节点中，插入到referNode之前。返回值是插入的节点。如果第二个参数是null，就插入到最后的位置。
 
 5、
-parentNode.remodeChild(childNode)
+parentNode.removeChild(childNode)
 while(element.firstChild) {
   element.removeChild(element.firstChild)
 }
@@ -143,7 +143,7 @@ document 表示整个文档，可以使用 window.document 或者 document 获�
 
 #### 属性
 
-快捷方式属性
+常见属性
 
 ~~~js
 document.default === window //返回window对象(如果不是window的document就返回null，例如 Ajax 或者 iframe 创建的document，很少用到)
@@ -701,6 +701,3 @@ ready('.foo', function(element){
   // ...
 });
 ~~~
-
-
-
