@@ -1,7 +1,8 @@
-###### CDN
+## CDN
 
-```
-CDN 内容分发网络：content delivery network
+#### CDN 定义
+
+内容分发网络 content delivery network
 
 概况：设置多个节点服务器，分布在不同区域中，便于用户进行数据传递和访问。当某一个节点出现问题时，通过其他节点仍然可以完成数据传输工作，可以提高用户访问网站的响应速度。
 
@@ -11,15 +12,7 @@ CDN 内容分发网络：content delivery network
 
 “内容管理”：负责对存储内容的监管、数据分析等。
 
-参考资料：
-https://baike.baidu.com/item/CDN/420951?fr=aladdin
-https://cloud.tencent.com/document/product/228/3149
-https://en.wikipedia.org/wiki/Content_delivery_network
-https://segmentfault.com/a/1190000007962943
-https://blog.csdn.net/u010400084/article/details/52925597
-```
-
-为什么要用CDN?
+#### CDN优点
 
 - 浏览器从服务器上下载CSS、js和图片等文件时都要和服务器连接，而大部分服务器的带宽有限，如果超过限制，网页就半天反应不过来。而CDN可以通过不同的域名来加载文件，从而使下载文件的并发连接数大大增加。
 - jquery一类的库文件被广泛使用，如果访问你网站的用户的浏览器之前在访问别的网站时通过和你相同的CDN已经加载了jquery，由于该文件已经被缓存了，就不用重新下载了。
@@ -28,7 +21,7 @@ https://blog.csdn.net/u010400084/article/details/52925597
 - 很多商业付费的CDN能提供使用报告，这可以作为你自己网站分析报告的补充。
 - CDN能够分配负载，节省带宽，提高你网站的性能，降低网站托管的成本，通常是免费的。
 
-CDN的不足
+#### CDN不足
 
 - 在开发阶段如果处在断网环境下，CDN文件是无法加载的。
 
@@ -44,7 +37,7 @@ CDN的不足
 
 
 
-  传统网站的访问过程：
+####   传统网站的访问过程
 
   - 用户在自己的浏览器中输入要访问的网站域名。
 
@@ -62,7 +55,7 @@ CDN的不足
 
 
 
-  加入CDN后的访问过程
+####   加入CDN后的访问过程
 
   - 当用户点击网站页面上的内容URL，经过**本地DNS系统**解析，DNS系统会最终将域名的解析权交给CNAME指向的**CDN专用DNS服务器**。
   - CDN的DNS服务器将**CDN的全局负载均衡设备IP地址**返回用户。
@@ -72,7 +65,9 @@ CDN的不足
   - **全局负载均衡设备**把服务器的IP地址返回给用户。
   - 用户向缓存服务器发起请求，缓存服务器响应用户请求，将用户所需内容传送到用户终端。
 
-前端工作中怎样根据CDN优化网站性能？
+
+
+#### 前端CDN优化网站性能
 
 1.前端的文件分为静态文件和动态文件：对于静态文件（img-css-video）占用资源较大，这部分文件基本保持不变，可以使用CDN进行加速；对于JS文件（jquery）不同网站使用多，可以使用CDN进行加速。对于静态html界面，如果纯静态界面可以使用CDN加速。如果涉及jsp动态界面直接从源服务器获取文件比较好。
 
@@ -85,3 +80,11 @@ CDN的不足
 2.浏览器对同一ip进行请求的最大并发连接数。不同浏览器的并发数量不一样：IE11 、IE10 、chrome、Firefox 的并发连接数是 6个，IE9是10个。
 
 如果页面静态资源（图片等）过多（大于6个）会存在资源请求等待的情况。目前现实状况是大多用户带宽越来越大，但是咱们的静态资源并非那么大，很多文件都是几k或者几十k，6个文件加起来都小于带宽。这样就导致了资源的浪费。解决方案是：用多个不同IP的服务器来存储这些文件，并在页面中通过绝对路径的方式引用（要求同一IP的文件不超过6个）。这样就可以尽可能的减少资源请求等待的情况。
+
+#### 参考资料
+
+https://baike.baidu.com/item/CDN/420951?fr=aladdin
+https://cloud.tencent.com/document/product/228/3149
+https://en.wikipedia.org/wiki/Content_delivery_network
+https://segmentfault.com/a/1190000007962943
+https://blog.csdn.net/u010400084/article/details/52925597

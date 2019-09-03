@@ -1,5 +1,8 @@
-// Cookie，复数形式 Cookies，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。因为 Cookie 是由 Web 服务器保存在用户浏览器上的小文本文件，它包含有关用户的信息。
+## Cookies
 
+复数形式 Cookies，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。因为 Cookie 是由 Web 服务器保存在用户浏览器上的小文本文件，它包含有关用户的信息。
+
+~~~js
 // 获取当前的cookies
 function getCookie(key) {
   if (document.cookie.length > 0) {
@@ -48,3 +51,5 @@ function checkCookie() {
     }
   }
 }
+~~~
+

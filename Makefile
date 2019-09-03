@@ -4,7 +4,7 @@ dist: clean transpile postdist
 
 transpile:
 	@echo "--> Compile dist"
-	export NODE_ENV=production && node_modules/@babel/cli/bin/babel.js src --out-dir dist
+	# export NODE_ENV=production && node_modules/@babel/cli/bin/babel.js src --out-dir dist
 	@echo ""
 
 postdist:
