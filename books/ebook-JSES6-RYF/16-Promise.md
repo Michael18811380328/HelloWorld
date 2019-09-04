@@ -48,10 +48,6 @@ timeout(500).then((result) => {
 });
 ~~~
 
-
-
-
-
 例子2：异步加载图片
 
 ```javascript
@@ -208,7 +204,7 @@ getJSON("/post/1.json").then(post => {
 
 ## Promise.prototype.catch()
 
-`Promise.prototype.catch`方法是`.then(null, rejection)`或`.then(undefined, rejection)`的别名，用于指定发生错误时的回调函数。
+`Promise.prototype.catch`方法是`.then(null, rejection)`或`.then(undefined, rejection)`的别名，==用于指定发生错误时的回调函数==。
 
 ```javascript
 getJSON('/posts.json').then(function(posts) {
@@ -613,13 +609,13 @@ Promise.all([p1, p2])
 
 ## Promise.race()
 
-`Promise.race`方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。
+`Promise.race`方法同样是==将多个 Promise 实例，包装成一个新的 Promise 实例。==
 
 ```javascript
 const p = Promise.race([p1, p2, p3]);
 ```
 
-上面代码中，只要`p1`、`p2`、`p3`之中有一个实例率先改变状态，`p`的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给`p`的回调函数。
+上面代码中，==只要`p1`、`p2`、`p3`之中有一个实例率先改变状态，`p`的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给`p`的回调函数==。
 
 `Promise.race`方法的参数与`Promise.all`方法一样，如果不是 Promise 实例，就会先调用下面讲到的`Promise.resolve`方法，将参数转为 Promise 实例，再进一步处理。
 
@@ -642,7 +638,7 @@ p
 
 ## Promise.resolve()
 
-有时需要将现有对象转为 Promise 对象，`Promise.resolve`方法就起到这个作用。
+有时需要==将现有对象转为 Promise 对象==，`Promise.resolve`方法就起到这个作用。
 
 ```javascript
 const jsPromise = Promise.resolve($.ajax('/whatever.json'));

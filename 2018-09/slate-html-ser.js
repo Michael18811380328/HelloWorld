@@ -436,10 +436,5 @@ function addKey(element) {
   return React.cloneElement(element, { key: key++ })
 }
 
-/**
- * Export.
- *
- * @type {Html}
- */
 
 export default Html

@@ -142,9 +142,11 @@ fproxy.foo === "Hello, foo" // true
 - **apply(target, object, args)**：拦截 Proxy 实例作为函数调用的操作，比如`proxy(...args)`、`proxy.call(object, ...args)`、`proxy.apply(...)`。
 - **construct(target, args)**：拦截 Proxy 实例作为构造函数调用的操作，比如`new proxy(...args)`。
 
+
+
 ## Proxy 实例的方法
 
-下面是上面这些拦截方法的详细介绍。
+下面是上面这些拦截方法的详细介绍（了解）。
 
 ### get()
 
