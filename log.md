@@ -197,3 +197,7 @@ July is a little busy. During daily work time, I spent much time on dtable. This
 In my free time, I learn basic ES5 again.(including DOM Event, except BOM, because I waste much time on other thing). The e-book was written by RYF. Lucky, I pull two requests into this book after I find some mistakes. I thought I could learn it before July 15th, but I didn't. On weekends(only six days), I climbed mountains and enjoy with friends. So DDL is not valid. Otherwise, it was really hot in my house without a fan or air conditioner. I bought it last week thought Taobao but I can't receive fan till now! It is hot now! So I have to stay at KFC at evening. Sometimes there were some mosquitos in my house. It was terrible.
 
 And I have worked in Seafile for a whole year, I learn much things during the whole year. Everyone have same time in his lives, I am trying to save my time and learn efficiently.
+
+### 2019.08
+
+Things are still complex. A pile of papers and blogs should be reviewed.I have studied ECMA5 from RuanYF and basic ES6. The mind map is doing.
