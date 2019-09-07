@@ -12,6 +12,7 @@ async function fun(url) {
   // this is async function, when get result, run then part. result will become res.
   return result;
 }
+
 fun('baidu.com').then((res) => {
   console.log(res);
 },(err) => {
@@ -50,7 +51,7 @@ const asyncReadFile = async function () {
 };
 ```
 
-
+## 好处
 
 `async`函数对 Generator 函数的改进，体现在以下四点。
 

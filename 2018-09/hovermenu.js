@@ -6,7 +6,8 @@ import initialValue from './value.json'
 import styled from 'react-emotion'
 import { Button, Icon, Menu } from '../components'
 
-const StyledMenu = styled(Menu)`
+const StyledMenu = styled(Menu)
+`
   padding: 8px 7px 6px;
   position: absolute;
   z-index: 1;
@@ -18,7 +19,7 @@ const StyledMenu = styled(Menu)`
   border-radius: 4px;
   transition: opacity 0.75s;
 `
-/*********************************/
+
 class HoverMenu extends React.Component {
 
   render() {
@@ -151,7 +152,7 @@ class HoveringMenu extends React.Component {
     )
   }
 
-////
+  ////
 
   renderMark = props => {
     const { children, mark, attributes } = props
@@ -173,4 +174,4 @@ class HoveringMenu extends React.Component {
   }
 }
 
-export default HoveringMenu
+export default HoveringMenu;

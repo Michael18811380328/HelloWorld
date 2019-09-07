@@ -624,7 +624,7 @@ console.log(modA.a+modA.b);   //  17
 
 Require是CommonJS的语法，CommonJS的模块是对象，输入时必须查找对象属性。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```js
 // CommonJS模块
@@ -691,7 +691,7 @@ export function multiply(x, y) {
 
 还可以批量输出，同样是要包含在大括号里，也可以用as重命名：
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function v1() { ... }
@@ -729,13 +729,13 @@ var m = 1;
 export m;
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 报错的写法原因是：没有提供对外的接口，第一种直接输出1，第二种虽然有变量m，但还是直接输出1，导致无法解构。
 
 同样的，`function`和`class`的输出，也必须遵守这样的写法。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 // 报错
@@ -750,7 +750,7 @@ function f() {}
 export {f};
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
  
 
@@ -796,7 +796,7 @@ import后的from 可以指定需要导入模块的路径名，可以是绝对路
 
 除了指定加载某个输出值，还可以用（*）指定一个对象，所有的变量都会加载在这个对象上。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 // circle.js。输出两个函数
@@ -824,7 +824,7 @@ console.log('圆面积：' + circle.area(4));
 console.log('圆周长：' + circle.circumference(14));
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 注意，模块整体加载所在的那个对象（上例是`circle`），应该是可以**静态分析的**，所以不允许运行时改变。
 
@@ -859,7 +859,7 @@ export default也可以用于非匿名函数前。
 
 下面比较一下默认输出和正常输出。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 // 第一组
@@ -877,7 +877,7 @@ export function crc32() { // 输出
 import {crc32} from 'crc32'; // 输入
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 可以看出，使用export default时，import语句不用使用大括号。
 
@@ -899,7 +899,7 @@ specifier用来指定所要加载的模块的位置。import能接受什么参�
 
 import()返回一个Promise对象。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 const main = document.querySelector('main');
@@ -913,7 +913,7 @@ import(`./section-modules/${someVariable}.js`)
   });
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 **7.import()函数适用场合**
 
@@ -921,7 +921,7 @@ import(`./section-modules/${someVariable}.js`)
 
  
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 button.addEventListener('click', event => {
@@ -935,7 +935,7 @@ button.addEventListener('click', event => {
 });
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 above： import模块在事件监听函数中，只有用户点击了按钮，才会加载这个模块。
 
@@ -951,6 +951,6 @@ if (condition) {
 }
 ```
 
- 
+
 
 ---摘自阮大神的 ES6， 仅供自己记录参考。

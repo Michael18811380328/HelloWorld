@@ -22,6 +22,7 @@ to learn list
 
 - [ ] 深入学习数据结构(sig and eme)
 - [ ] 深入学习算法（Leecode）
+- [ ] Swiper.js 
 
 
 

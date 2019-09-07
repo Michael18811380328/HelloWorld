@@ -1,7 +1,5 @@
 **NOTE:** This is Simplelified Chinese Edition Document of Markdown Syntax. If you are seeking for English Edition Document. Please refer to [Markdown: Syntax](http://daringfireball.net/projects/markdown/syntax).
 
-**声明：** 这份文档派生(fork)于[繁体中文版](http://markdown.tw/)，在此基础上进行了繁体转简体工作，并进行了适当的润色。此文档用 Markdown 语法编写，你可以到这里[查看它的源文件](http://gitcafe.com/riku/Markdown-Syntax-CN/blob/master/syntax.md)。「繁体中文版的原始文件可以[查看这里](https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md) 。」--By @[riku](http://twitter.com/riku) / 本项目托管于 [GitCafe](http://gitcafe.com/riku/Markdown-Syntax-CN)
-
 **注：** 本项目同时也托管于 [Github](https://github.com/riku/Markdown-Syntax-CN) 上，请通过 fork＋pull request 方式来帮忙改进本项目。
 
 # Markdown 语法说明 (简体中文版) / ([点击查看快速入门](https://www.appinn.com/markdown/basic.html))
@@ -840,9 +838,3 @@ _   底线
 .   英文句点
 !   惊叹号
 ```
-
-## 感谢
-
-感谢 [leafy7382](https://twitter.com/#!/leafy7382) 协助翻译，[hlb](http://iamhlb.com/)、[Randylien](http://twitter.com/randylien) 帮忙润稿，[ethantw](https://twitter.com/#!/ethantw) 的[汉字标准格式・CSS Reset](http://ethantw.net/projects/han/)， [WM](http://kidwm.net/) 回报文字错误。
-
-感谢 [fenprace](https://github.com/fenprace)，[addv](https://github.com/addv)。

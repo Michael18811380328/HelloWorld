@@ -22,7 +22,7 @@ componentDidMount() {
       });
     },
     (error) => {
-      this.setState ({
+      this.setState({
         isLoaded: true,
         error
       });
@@ -32,7 +32,7 @@ componentDidMount() {
 // it is significant to handle errors here. Instance of a catch() block so that we don't swallow exceptions from actual bugs in components.
 
 render() {
-  const {error, isLoaded, items} = this.state;
+  const { error, isLoaded, items } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -40,11 +40,7 @@ render() {
   } else {
     return (
       <ul>
-        {items.map(item => (
-            <li key={item.name}>
-              {item.name} {item.price}
-            </li>
-          ))}
+        {items.map(item => {<li key={item.name}>{item.name} {item.price}</li>})}
       </ul>
     );
   }
