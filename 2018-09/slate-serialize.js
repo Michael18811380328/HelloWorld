@@ -1,3 +1,5 @@
+
+// serialize 序列化，将slate转化成DOM树结构
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import typeOf from 'type-of'
@@ -7,46 +9,33 @@ import { Record } from 'immutable'
 const String = new Record({
   object: 'string',
   text: '',
-})
-
-// serialize 串行化；序列化（slate对象=>html）
-// deserialize 反序列化（html => slate 对象）
-
+});
 /**
  * A rule to (de)serialize text nodes. This is automatically added to the HTML
  * serializer so that users don't have to worry about text-level serialization.
  */
- // 文本节点的序列化和反序列化，自动增加到html转化过程中；用户不需要担心文本节点的转化
 
 const TEXT_RULE = {
   deserialize(el) {
-    // br 标签，转化为text对象，内容是/n
     if (el.tagName && el.tagName.toLowerCase() === 'br') {
       return {
         object: 'text',
-        leaves: [
-          {
-            object: 'leaf',
-            text: '\n',
-          },
-        ],
+        leaves: [{
+          object: 'leaf',
+          text: '\n',
+        }, ],
       }
     }
-
     if (el.nodeName == '#text') {
-      // html注释部分不转化
       if (el.nodeValue && el.nodeValue.match(/<!--.*?-->/)) {
-        return
+        return;
       }
-      // 文本节点转化成为text对象
       return {
         object: 'text',
-        leaves: [
-          {
-            object: 'leaf',
-            text: el.nodeValue,
-          },
-        ],
+        leaves: [{
+          object: 'leaf',
+          text: el.nodeValue,
+        }, ],
       }
     }
   },
@@ -75,7 +64,7 @@ const TEXT_RULE = {
  * @param {String} html
  * @return {Object}
  */
- // 默认：使用DOMParser返回<body></body>标签——把html传入，转换成DOM对象，获取其中的body对象并返回。如果没有dom对象，直接创建一个dom对象返回。
+// 默认：使用DOMParser返回<body></body>标签——把html传入，转换成DOM对象，获取其中的body对象并返回。如果没有dom对象，直接创建一个dom对象返回。
 
 function defaultParseHtml(html) {
   if (typeof DOMParser === 'undefined') {
@@ -90,7 +79,7 @@ function defaultParseHtml(html) {
   return body || window.document.createElement('body')
 }
 
-// HTML序列化
+
 /**
  * HTML serializer.
  */
@@ -108,8 +97,8 @@ class Html {
   constructor(options = {}) {
     let {
       defaultBlock = 'paragraph',
-      parseHtml = defaultParseHtml,
-      rules = [],
+        parseHtml = defaultParseHtml,
+        rules = [],
     } = options
 
     defaultBlock = Node.createProperties(defaultBlock)
@@ -123,8 +112,8 @@ class Html {
 
 
 
-// html => slate Obj
-/*******************************************************************************/
+  // html => slate Obj
+  /*******************************************************************************/
   /**
    * Deserialize pasted HTML.
    *
@@ -169,25 +158,19 @@ class Html {
 
     // TODO: pretty sure this is no longer needed.
     if (nodes.length == 0) {
-      nodes = [
-        {
-          object: 'block',
-          data: {},
-          ...defaultBlock,
-          nodes: [
-            {
-              object: 'text',
-              leaves: [
-                {
-                  object: 'leaf',
-                  text: '',
-                  marks: [],
-                },
-              ],
-            },
-          ],
-        },
-      ]
+      nodes = [{
+        object: 'block',
+        data: {},
+        ...defaultBlock,
+        nodes: [{
+          object: 'text',
+          leaves: [{
+            object: 'leaf',
+            text: '',
+            marks: [],
+          }, ],
+        }, ],
+      }, ]
     }
 
     const json = {
@@ -330,9 +313,6 @@ class Html {
     }, [])
   }
 
-
-/***********************************************************************/
-
   /**
    * Serialize a `value` object into an HTML string.
    * 序列化：将slate对象转化为html
@@ -423,18 +403,18 @@ class Html {
    */
 
   cruftNewline = element => {
-    return !(element.nodeName === '#text' && element.nodeValue == '\n')
+      return !(element.nodeName === '#text' && element.nodeValue == '\n')
 
+    }
+    * @param { Element } element *
+    @return { Element }
+    */
+
+  let key = 0
+
+  function addKey(element) {
+    return React.cloneElement(element, { key: key++ })
   }
- * @param {Element} element
- * @return {Element}
- */
-
-let key = 0
-
-function addKey(element) {
-  return React.cloneElement(element, { key: key++ })
-}
 
 
-export default Html
+  export default Html

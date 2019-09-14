@@ -4,9 +4,13 @@ $.ajax({
   url: url,
   data: data,
   dataType: dataType,
-  success: function() {},
-  error: function() {}
-});
+  success: function(response) {
+    console.log(response);
+  },
+  error: function(err) {
+    console.log(err);
+  }
+})
 // 本身是针对MVC的编程,不符合现在前端MVVM的浪潮
 // 基于原生的XHR开发，XHR本身的架构不清晰，已经有了fetch的替代方案
 // JQ项目太大，单纯使用ajax却要引入整个JQ非常的不合理（采取个性化打包的方案又不能享受CDN服务）
@@ -19,13 +23,25 @@ axios({
     firstName: 'Fred',
     lastName: 'Flintstone'
   }
-})
-.then(function(response) {
+}).then(function(response) {
   console.log(response);
-})
-.catch(function(error) {
+}).catch(function(error) {
   console.log(error);
 });
+
+axios({
+  method: 'post',
+  url: 'user/123',
+  data: {
+    firstName: 'Michale',
+    lastName: 'An'
+  }
+}).then((res) => {
+  console.log(res);
+}).catch((err) => {
+  console.log(err);
+});
+
 // axios 是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端，它本身具有以下特征：
 
 // 从浏览器中创建 XMLHttpRequest
@@ -45,6 +61,14 @@ try {
   console.log(data);
 } catch (e) {
   console.log("Oops, error", e);
+}
+
+try {
+  let res = await fetch(url);
+  let data = res.json();
+  console.log(data);
+} catch (e) {
+  console.log(e);
 }
 // 符合关注分离，没有将输入、输出和用事件来跟踪的状态混杂在一个对象里
 // 更好更方便的写法

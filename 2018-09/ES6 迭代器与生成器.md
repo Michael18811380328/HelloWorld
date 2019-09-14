@@ -1,6 +1,4 @@
-### ES6中的迭代器(Iterator)和生成器(Generator)-暂时备份
-
-​	(https://www.cnblogs.com/xiaohuochai/p/7253466.html)
+### 迭代器(Iterator)和生成器(Generator)
 
 ​	用循环语句迭代数据时，必须要初始化一个变量来记录每一次迭代在数据集合中的位置，而在许多编程语言中，已经开始通过程序化的方式用迭代器对象返回迭代过程中集合的每一个元素
 
@@ -8,20 +6,18 @@
 
 　　本文将详细介绍ES6中的迭代器(Iterator)和生成器(Generator)
 
- 
-
 ### 引入
 
 　　下面是一段标准的for循环代码，通过变量i来跟踪colors数组的索引，循环每次执行时，如果i小于数组长度len则加1，并执行下一次循环
 
-```
+```js
 var colors = ["red", "green", "blue"];
 for (var i = 0, len = colors.length; i < len; i++) {
     console.log(colors[i]);
 }
 ```
 
-　　虽然循环语句语法简单，但如果将多个循环嵌套则需要追踪多个变量，代码复杂度会大大增加，一不小心就错误使用了其他for循环的跟踪变量，从而导致程序出错。迭代器的出现旨在消除这种复杂性并减少循环中的错误
+虽然循环语句语法简单，但如果将==多个循环嵌套则需要追踪多个变量==，代码复杂度会大大增加，一不小心就错误使用了其他for循环的跟踪变量，从而导致程序出错。迭代器的出现旨在消除这种复杂性并减少循环中的错误
 
  
 
@@ -31,23 +27,21 @@ for (var i = 0, len = colors.length; i < len; i++) {
 
 　　如果在最后一个值返回后再调用next()方法，那么返回的对象中属性done的值为true，属性value则包含迭代器最终返回的值，这个返回值不是数据集的一部分，它与函数的返回值类似，是函数调用过程中最后一次给调用者传递信息的方法，如果没有相关数据则返回undefined
 
-　　下面用ES5的语法创建一个迭代器
+下面用ES5的语法创建一个迭代器
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```
+```js
 function createIterator(items) {
-    var i = 0;
-    return {
-        next: function() {
-            var done = (i >= items.length);
-            var value = !done ? items[i++] : undefined;
-            return {
-                done: done,
-                value: value
-            };
-        }
-    };
+  var i = 0;
+  return {
+    next: function() {
+      var done = (i >= items.length);
+      var value = !done ? items[i++] : undefined;
+      return {
+        done: done,
+        value: value
+      };
+    }
+  };
 }
 var iterator = createIterator([1, 2, 3]);
 console.log(iterator.next()); // "{ value: 1, done: false }"
@@ -57,8 +51,6 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 // 之后的所有调用
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
 
 　　在上面这段代码中，createIterator()方法返回的对象有一个next()方法，每次调用时，items数组的下一个值会作为value返回。当i为3时，done变为true；此时三元表达式会将value的值设置为undefined。最后两次调用的结果与ES6迭代器的最终返回机制类似，当数据集被用尽后会返回最终的内容
 
@@ -70,14 +62,12 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 
 　　生成器是一种返回迭代器的函数，通过function关键字后的星号(*)来表示，函数中会用到新的关键字yield。星号可以紧挨着function关键字，也可以在中间添加一个空格
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```
+```js
 // 生成器
 function *createIterator() {
-    yield 1;
-    yield 2;
-    yield 3;
+  yield 1;
+  yield 2;
+  yield 3;
 }
 // 生成器能像正规函数那样被调用，但会返回一个迭代器
 let iterator = createIterator();
@@ -86,21 +76,17 @@ console.log(iterator.next().value); // 2
 console.log(iterator.next().value); // 3
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 　　在这个示例中，createlterator()前的星号表明它是一个生成器；yield关键字也是ES6的新特性，可以通过它来指定调用迭代器的next()方法时的返回值及返回顺序。生成迭代器后，连续3次调用它的next()方法返回3个不同的值，分别是1、2和3。生成器的调用过程与其他函数一样，最终返回的是创建好的迭代器
 
 　　生成器函数最有趣的部分是，每当执行完一条yield语句后函数就会自动停止执行。举个例子，在上面这段代码中，执行完语句yield 1之后，函数便不再执行其他任何语句，直到再次调用迭代器的next()方法才会继续执行yield 2语句。生成器函数的这种中止函数执行的能力有很多有趣的应用
 
 　　使用yield关键字可以返回任何值或表达式，所以可以通过生成器函数批量地给迭代器添加元素。例如，可以在循环中使用yield关键字
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```
+```js
 function *createIterator(items) {
-    for (let i = 0; i < items.length; i++) {
-        yield items[i];
-    }
+  for (let i = 0; i < items.length; i++) {
+    yield items[i];
+  }
 }
 let iterator = createIterator([1, 2, 3]);
 console.log(iterator.next()); // "{ value: 1, done: false }"
@@ -111,8 +97,6 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 　　在此示例中，给生成器函数createlterator()传入一个items数组，而在函数内部，for循环不断从数组中生成新的元素放入迭代器中，每遇到一个yield语句循环都会停止；每次调用迭代器的next()方法，循环会继续运行并执行下一条yield语句
 
 　　生成器函数是ES6中的一个重要特性，可以将其用于所有支持函数使用的地方
@@ -121,9 +105,7 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 
 　　yield关键字只可在生成器内部使用，在其他地方使用会导致程序抛出错误
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```
+```js
 function *createIterator(items) {
     items.forEach(function(item) {
         // 语法错误
@@ -132,17 +114,13 @@ function *createIterator(items) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 　　从字面上看，yield关键字确实在createlterator()函数内部，但是它与return关键字一样，二者都不能穿透函数边界。嵌套函数中的return语句不能用作外部函数的返回语句，而此处嵌套函数中的yield语句会导致程序抛出语法错误
 
 【生成器函数表达式】
 
 　　也可以通过函数表达式来创建生成器，只需在function关键字和小括号中间添加一个星号(*)即可
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```
+```js
 let createIterator = function *(items) {
     for (let i = 0; i < items.length; i++) {
         yield items[i];
@@ -157,17 +135,19 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
 　　在这段代码中，createlterator()是一个生成器函数表达式，而不是一个函数声明。由于函数表达式是匿名的，因此星号直接放在function关键字和小括号之间。此外，这个示例基本与前例相同，使用的也是for循环
 
-　　[注意]不能用箭头函数来创建生成器
+　　==不能用箭头函数来创建生成器==
+
+
+
+
+
+==————————————==
 
 【生成器对象的方法】
 
 　　由于生成器本身就是函数，因而可以将它们添加到对象中。例如，在ES5风格的对象字面量中，可以通过函数表达式来创建生成器
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
 
 ```
 var o = {
@@ -180,11 +160,11 @@ var o = {
 let iterator = o.createIterator([1, 2, 3]);
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　也可以用ES6的函数方法的简写方式来创建生成器，只需在函数名前添加一个星号(*)
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 var o = {
@@ -197,7 +177,7 @@ var o = {
 let iterator = o.createIterator([1, 2, 3]);
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　这些示例使用了不同于之前的语法，但它们的功能实际上是等价的。在简写版本中，由于不使用function关键字来定义createlterator()方法，因此尽管可以在星号和方法名之间留白，但还是将星号紧贴在方法名之前
 
@@ -205,7 +185,7 @@ let iterator = o.createIterator([1, 2, 3]);
 
 　　生成器的一个常用功能是生成状态机
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let state = function*(){
@@ -224,7 +204,7 @@ console.log(status.next().value);//'A'
 console.log(status.next().value);//'B'
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
  
 
@@ -238,7 +218,7 @@ console.log(status.next().value);//'B'
 
 　　for-of循环每执行一次都会调用可迭代对象的next()方法，并将迭代器返回的结果对象的value属性存储在一个变量中，循环将持续执行这一过程直到返回对象的done属性的值为true。这里有个示例
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let values = [1, 2, 3];
@@ -250,7 +230,7 @@ for (let num of values) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　这段for-of循环的代码通过调用values数组的Symbol.iterator方法来获取迭代器，这一过程是在JS引擎背后完成的。随后迭代器的next()方法被多次调用，从其返回对象的value属性读取值并存储在变量num中，依次为1、2和3，当结果对象的done属性值为true时循环退出，所以num不会被赋值为undefined
 
@@ -262,7 +242,7 @@ for (let num of values) {
 
 　　可以通过Symbol.iterator来访问对象默认的迭代器
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let values = [1, 2, 3];
@@ -273,13 +253,13 @@ console.log(iterator.next()); // "{ value: 3, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在这段代码中，通过Symbol.iterator获取了数组values的默认迭代器，并用它遍历数组中的元素。在JS引擎中执行for-of循环语句时也会有类似的处理过程
 
 　　由于具有Symbol.iterator属性的对象都有默认的迭代器，因此可以用它来检测对象是否为可迭代对象
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function isIterable(object) {
@@ -293,7 +273,7 @@ console.log(isIterable(new WeakMap())); // false
 console.log(isIterable(new WeakSet())); // false
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　这里的islterable()函数可以检查指定对象中是否存在默认的函数类型迭代器，而for-of循环在执行前也会做相似的检查
 
@@ -303,7 +283,7 @@ console.log(isIterable(new WeakSet())); // false
 
 　　默认情况下，开发者定义的对象都是不可迭代对象，但如果给Symbol.iterator属性添加一个生成器，则可以将其变为可迭代对象
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let collection = {
@@ -325,7 +305,7 @@ for (let x of collection) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在这个示例中，先创建一个生成器(注意，星号仍然在属性名前)并将其赋值给对象的Symbol.iterator属性来创建默认的迭代器；而在生成器中，通过for-of循环迭代this.items并用yield返回每一个值。collection对象默认迭代器的返回值由迭代器this.items自动生成，而非手动遍历来定义返回值
 
@@ -387,7 +367,7 @@ keys() 返回一个迭代器，其值为集合中的所有键名
 
 　　每次调用next()方法时，entries()迭代器都会返回一个数组，数组中的两个元素分别表示集合中每个元素的键与值。如果被遍历的对象是数组，则第一个元素是数字类型的索引；如果是Set集合，则第一个元素与第二个元素都是值(Set集合中的值被同时作为键与值使用)；如果是Map集合，则第一个元素为键名
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let colors = [ "red", "green", "blue" ];
@@ -406,11 +386,11 @@ for (let entry of data.entries()) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　调用console.log()方法后输出以下内容
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 [0, "red"]
@@ -423,7 +403,7 @@ for (let entry of data.entries()) {
 ["format", "ebook"]
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在这段代码中，调用每个集合的entries()方法获取一个迭代器，并使用for-of循环来遍历元素，且通过console将每一个对象的键值对输出出来
 
@@ -431,7 +411,7 @@ for (let entry of data.entries()) {
 
 　　调用values()迭代器时会返回集合中所存的所有值
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let colors = [ "red", "green", "blue" ];
@@ -450,11 +430,11 @@ for (let value of data.values()) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　调用console.log()方法后输出以下内容
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 "red"
@@ -467,7 +447,7 @@ for (let value of data.values()) {
 "ebook"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　如上所示，调用values()迭代器后，返回的是每个集合中包含的真正数据，而不包含数据在集合中的位置信息
 
@@ -475,7 +455,7 @@ for (let value of data.values()) {
 
 　　keys()迭代器会返回集合中存在的每一个键。如果遍历的是数组，则会返回数字类型的键，数组本身的其他属性不会被返回；如果是Set集合，由于键与值是相同的，因此keys()和values()返回的也是相同的迭代器；如果是Map集合，则keys()迭代器会返回每个独立的键
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let colors = [ "red", "green", "blue" ];
@@ -494,11 +474,11 @@ for (let key of data.keys()) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　调用console.log()方法后输出以下内容
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 0
@@ -511,7 +491,7 @@ for (let key of data.keys()) {
 "format"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　keys()迭代器会获取colors、tracking和data这3个集合中的每一个键，而且分别在3个for-of循环内部将这些键名打印出来。对于数组对象来说，无论是否为数组添加命名属性，打印出来的都是数字类型的索引；而for-in循环迭代的是数组属性而不是数字类型的索引
 
@@ -519,7 +499,7 @@ for (let key of data.keys()) {
 
 　　每个集合类型都有一个默认的迭代器，在for-of循环中，如果没有显式指定则使用默认的迭代器。数组和Set集合的默认迭代器是values()方法，Map集合的默认迭代器是entries()方法。有了这些默认的迭代器，可以更轻松地在for-of循环中使用集合对象
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let colors = [ "red", "green", "blue" ];
@@ -541,11 +521,11 @@ for (let entry of data) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　上述代码未指定迭代器，所以将使用默认的迭代器。数组、Set集合及Map集合的默认迭代器也会反应出这些对象的初始化过程，所以这段代码会输出以下内容
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 "red"
@@ -558,7 +538,7 @@ for (let entry of data) {
 ["format", "print"]
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　默认情况下，如果是数组和Set集合，会逐一返回集合中所有的值。如果是Map集合，则按照Map构造函数参数的格式返回相同的数组内容。而WeakSet集合与WeakMap集合就没有内建的迭代器，由于要管理弱引用，因而无法确切地知道集合中存在的值，也就无法迭代这些集合了
 
@@ -575,7 +555,7 @@ for (let i=0; i < message.length; i++) {
 
 　　在这段代码中，访问message的length属性获取索引值，并通过方括号访问来迭代并打印一个单字符字符串，但是输出的结果却与预期不符
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 A
@@ -586,7 +566,7 @@ A
 B
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　由于双字节字符被视作两个独立的编码单元，从而最终在A与B之间打印出4个空行
 
@@ -636,7 +616,7 @@ for (let div of divs) {
 
 　　迭代器既可以用迭代器的next()方法返回值，也可以在生成器内部使用yield关键字来生成值。如果给迭代器的next()方法传递参数，则这个参数的值就会替代生成器内部上条yield语句的返回值。而如果要实现更多像异步编程这样的高级功能，那么这种给迭代器传值的能力就变得至关重要
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createIterator() {
@@ -651,7 +631,7 @@ console.log(iterator.next(5)); // "{ value: 8, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　第一次调用next()方法时无论传入什么参数都会被丢弃。由于传给next()方法的参数会替代上一次yield的返回值，而在第一次调用next()方法前不会执行任何yield语句，因此在第一次调用next()方法时传递参数是毫无意义的
 
@@ -663,7 +643,7 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 
 　　除了给迭代器传递数据外，还可以给它传递错误条件。通过throw()方法，当迭代器恢复执行时可令其抛出一个错误。这种主动抛出错误的能力对于异步编程而言至关重要，也能提供模拟结束函数执行的两种方法(返回值或抛出错误)，从而增强生成器内部的编程弹性。将错误对象传给throw()方法后，在迭代器继续执行时其会被抛出
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createIterator() {
@@ -677,13 +657,13 @@ console.log(iterator.next(4)); // "{ value: 6, done: false }"
 console.log(iterator.throw(new Error("Boom"))); // 从生成器中抛出了错误
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在这个示例中，前两个表达式正常求值，而调用throw()方法后，在继续执行let second求值前，错误就会被抛出并阻止了代码继续执行。这个过程与直接抛出错误很相似，二者唯一的区别是抛出的时机不同
 
 　　可以在生成器内部通过try-catch代码块来捕获这些错误
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createIterator() {
@@ -703,7 +683,7 @@ console.log(iterator.throw(new Error("Boom"))); // "{ value: 9, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在此示例中，try-catch代码块包裹着第二条yield语句。尽管这条语句本身没有错误，但在给变量second赋值前还是会主动抛出错误，catch代码块捕获错误后将second变量赋值为6，下一条yield语句继续执行后返回9
 
@@ -717,7 +697,7 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 
 　　由于生成器也是函数，因此可以通过return语句提前退出函数执行，对于最后一次next()方法调用，可以主动为其指定一个返回值。正如在其他函数中那样，可以通过return语句指定一个返回值。而在生成器中，return表示所有操作已经完成，属性done被设置为true；如果同时提供了相应的值，则属性value会被设置为这个值
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createIterator() {
@@ -731,13 +711,13 @@ console.log(iterator.next()); // "{ value: 1, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　这段代码中的生成器包含多条yield语句和一条return语句，其中return语句紧随第一条yield语句，其后的yield语句将不会被执行
 
 　　在return语句中也可以指定一个返回值，该值将被赋值给返回对象的value属性
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createIterator() {
@@ -750,7 +730,7 @@ console.log(iterator.next()); // "{ value: 42, done: true }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在此示例中，第二次调用next()方法时返回对象的value属性值为42，done属性首次设为true；第三次调用next()方法依然返回一个对象，只是value属性的值会变为undefined。因此，通过return语句指定的返回值，只会在返回对象中出现一次，在后续调用返回的对象中，value属性会被重置为undefined
 
@@ -760,7 +740,7 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 
 　　在某些情况下，我们需要将两个迭代器合二为一，这时可以创建一个生成器，再给yield语句添加一个星号，就可以将生成数据的过程委托给其他生成器。当定义这些生成器时，只需将星号放置在关键字yield和生成器的函数名之间即可
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createNumberIterator() {
@@ -785,13 +765,13 @@ console.log(iterator.next()); // "{ value: true, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　这里的生成器createCombinedIterator()先后委托了另外两个生成器createNumberlterator()和createColorlterator()。仅根据迭代器的返回值来看，它就像是一个完整的迭代器，可以生成所有的值。每一次调用next()方法就会委托相应的迭代器生成相应的值，直到最后由createNumberlterator()和cpeateColorlterator()创建的迭代器无法返回更多的值，此时执行最后一条yield语句并返回true
 
 　　有了生成器委托这个新功能，可以进一步利用生成器的返回值来处理复杂任务
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createNumberIterator() {
@@ -817,13 +797,13 @@ console.log(iterator.next()); // "{ value: "repeat", done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在生成器createCombinedlterator()中，执行过程先被委托给了生成器createNumberlterator()，返回值会被赋值给变量result，执行到return 3时会返回数值3。这个值随后被传入createRepeatinglterator()作为它的参数，因而生成字符串"repeat"的yield语句会被执行三次
 
 　　无论通过何种方式调用迭代器next()方法，数值3都不会被返回，它只存在于生成器createCombinedlterator()的内部。但如果想输出这个值，则可以额外添加一条yield语句
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function *createNumberIterator() {
@@ -851,7 +831,7 @@ console.log(iterator.next()); // "{ value: "repeat", done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　此处新添加的yield语句显式地输出了生成器createNumberlterator()的返回值。
 
@@ -865,7 +845,7 @@ console.log(iterator.next()); // "{ value: undefined, done: true }"
 
 　　执行异步操作的传统方式一般是调用一个函数并执行相应回调函数
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let fs = require("fs");
@@ -878,7 +858,7 @@ fs.readFile("config.json", function(err, contents) {
 });
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　调用fs.readFile()方法时要求传入要读取的文件名和一个回调函数，操作结束后会调用该回调函数并检查是否存在错误，如果没有就可以处理返回的内容。如果要执行的任务很少，那么这样的方式可以很好地完成任务；如若需要嵌套回调或序列化一系列的异步操作，事情会变得非常复杂。此时，生成器和yield语句就派上用场了
 
@@ -886,7 +866,7 @@ fs.readFile("config.json", function(err, contents) {
 
 　　由于执行yield语句会暂停当前函数的执行过程并等待下一次调用next()方法，因此可以创建一个函数，在函数中调用生成器生成相应的迭代器，从而在不用回调函数的基础上实现异步调用next()方法
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function run(taskDef) {
@@ -907,13 +887,13 @@ function run(taskDef) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　函数run()接受一个生成器函数作为参数，这个函数定义了后续要执行的任务，生成一个迭代器并将它储存在变量task中。首次调用迭代器的next()方法时，返回的结果被储存起来稍后继续使用。step()函数会检查result.done的值，如果为false则执行迭代器的next()方法，并再次执行step()操作。每次调用next()方法时，返回的最新信息总会覆写变量result。在代码的最后，初始化执行step()函数并开始整个的迭代过程，每次通过检查result.done来确定是否有更多任务需要执行
 
 　　借助这个run()函数，可以像这样执行一个包含多条yield语句的生成器
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 run(function*() {
@@ -925,7 +905,7 @@ run(function*() {
 });
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　这个示例最终会向控制台输出多次调用next()方法的结果，分别为数值1、2和3。当然，简单输出迭代次数不足以展示迭代器高级功能的实用之处，下一步将在迭代器与调用者之间互相传值
 
@@ -933,7 +913,7 @@ run(function*() {
 
 　　给任务执行器传递数据的最简单办法是，将值通过迭代器的next()方法传入作为yield的生成值供下次调用。在这段代码中，只需将result.value传入next()方法即可
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function run(taskDef) {
@@ -954,11 +934,11 @@ function run(taskDef) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　现在result.value作为next()方法的参数被传入，这样就可以在yield调用之间传递数据了
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 run(function*() {
@@ -969,7 +949,7 @@ run(function*() {
 });
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　此示例会向控制台输出两个数值1和4。其中，数值1取自yield 1语句中回传给变量value的值；而4取自给变量value加3后回传给value的值。现在数据已经能够在yield调用间互相传递了，只需一个小小改变便能支持异步调用
 
@@ -989,7 +969,7 @@ function fetchData() {
 
 　　本示例的原意是让任务执行器调用的所有函数都返回一个可以执行回调过程的函数，此处fetchData()函数的返回值是一个可接受回调函数作为参数的函数，当调用它时会传入一个字符串"Hi!"作为回调函数的参数并执行。参数callback需要通过任务执行器指定，以确保回调函数执行时可以与底层迭代器正确交互。尽管fetchData()是同步函数，但简单添加一个延迟方法即可将其变为异步函数
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function fetchData() {
@@ -1001,13 +981,13 @@ function fetchData() {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　在这个版本的fetchData()函数中，让回调函数延迟了50ms再被调用，所以这种模式在同步和异步状态下都运行良好。只需保证每个要通过yield关键字调用的函数都按照与之相同的模式编写
 
 　　理解了函数中异步过程的运作方式，可以将任务执行器稍作修改。当result.value是一个函数时，任务执行器会先执行这个函数再将结果传入next()方法
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 function run(taskDef) {
@@ -1039,13 +1019,13 @@ function run(taskDef) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　通过===操作符检査后，如果result.value是一个函数，会传入一个回调函数作为参数调用它，回调函数遵循Node.js有关执行错误的约定：所有可能的错误放在第一个参数(err)中，结果放在第二个参数中。如果传入了err，意味着执行过程中产生了错误，这时通过task.throw()正确输出错误对象；如果没有错误产生，data被传入task.next()作为结果储存起来，并继续执行step()。如果result.value不是一个函数，则直接将其传入next()方法
 
 　　现在，这个新版的任务执行器已经可以用于所有的异步任务了。在Node.js环境中，如果要从文件中读取一些数据，需要在fs.readFile()外围创建一个包装器(wrapper)，并返回一个与fetchData()类似的函数
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 ```
 let fs = require("fs");
@@ -1056,7 +1036,7 @@ let fs = require("fs");
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
 
 　　readFile()接受一个文件名作为参数，返回一个可以执行回调函数的函数。回调函数被直接传入fs.readFile()方法，读取完成后会执行它
 

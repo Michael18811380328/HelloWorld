@@ -1,6 +1,6 @@
 ### curl
 
-~~~curl
+~~~bash
 
 curl命令在linux系统中常用，支持文件上传下载等多种命令(在window的bash中能否执行？)
 # curl [options] [url]
@@ -42,3 +42,4 @@ curl -v 显示请求详细信息
 
 curl -f 向服务器post表单 curl -F "web=@index.html;type=text/html" url
 ~~~
+

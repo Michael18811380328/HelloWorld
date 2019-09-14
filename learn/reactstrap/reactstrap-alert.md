@@ -1,6 +1,6 @@
-###### ReactStrap
+## ReactStrap
 
-1.alert
+### 1.alert
 
 ```html
 <Alert color="primary">
@@ -23,7 +23,7 @@ Alert.propTypes = {
 }
 ```
 
-```js
+```jsx
 import React from 'react';
 import { Alert } from 'reactstrap';
 
@@ -53,12 +53,3 @@ class AlertExample extends React.Component {
 
 export default AlertExample;
 ```
-
-2.badge 徽章：类似于小图标，小按钮（QQ空间分享按钮）
-
-3.breadcrumbs 面包屑：层级菜单：网站不同层级设置菜单
-
-4.button：基本六个颜色：primary secondary success info warning danger link
-
-这个使用很多！
-

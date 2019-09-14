@@ -1,7 +1,5 @@
 // ajax in react
-
 // In the componentDidMount lifestyle, We can populate data with AJAX. Then we can use setState to update component when data is retrived.
-
 class MyComponent extends React.Compoenent {
   constructor(props) {
     super(props);
@@ -29,6 +27,7 @@ componentDidMount() {
     }
   )
 }
+
 // it is significant to handle errors here. Instance of a catch() block so that we don't swallow exceptions from actual bugs in components.
 
 render() {

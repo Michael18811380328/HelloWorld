@@ -2,7 +2,7 @@
 
 Cookie 用于存储 web 页面的用户信息。
 
-------
+
 
 ## 什么是 Cookie？
 
@@ -21,7 +21,7 @@ username=John Doe
 
 当浏览器从服务器上请求 web 页面时， 属于该页面的 cookie 会被添加到该请求中。服务端通过这种方式来获取用户的信息。
 
-------
+
 
 ## 使用 JavaScript 创建Cookie
 
@@ -39,7 +39,7 @@ document.cookie="username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT";
 
 document.cookie="username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=/";
 
-------
+
 
 ## 使用 JavaScript 读取 Cookie
 
@@ -47,15 +47,9 @@ document.cookie="username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 GMT; path=
 
 var x = document.cookie;
 
- 
-
-| ![Note](http://www.runoob.com/images/lamp.jpg) | document.cookie 将以字符串的方式返回所有的 cookie，类型格式： cookie1=value; cookie2=value; cookie3=value; |
-| ---------------------------------------------- | ------------------------------------------------------------ |
-|                                                |                                                              |
+document.cookie 将以字符串的方式返回所有的 cookie，类型格式： cookie1=value; cookie2=value; cookie3=value;
 
  
-
-------
 
 ## 使用 JavaScript 修改 Cookie
 
@@ -87,11 +81,9 @@ document.cookie 属性看起来像一个普通的文本字符串，其实它不�
 
 cookie1=value; cookie2=value;
 
-显示所有 Cookie  创建 Cookie 1  创建 Cookie 2 删除 Cookie 1  删除 Cookie 2
-
 如果您需要查找一个指定 cookie 值，您必须创建一个JavaScript 函数在 cookie 字符串中查找 cookie 值。
 
-------
+
 
 ## JavaScript Cookie 实例
 
@@ -107,15 +99,8 @@ cookie1=value; cookie2=value;
 2. 获取 cookie 值的函数
 3. 检测 cookie 值的函数
 
-------
-
-## 设置 cookie 值的函数
-
-首先，我们创建一个函数用于存储访问者的名字：
-
-```
-function setCookie(cname,cvalue,exdays)
-{
+```js
+function setCookie(cname,cvalue,exdays) {
   var d = new Date();
   d.setTime(d.getTime()+(exdays*24*60*60*1000));
   var expires = "expires="+d.toGMTString();
@@ -123,25 +108,11 @@ function setCookie(cname,cvalue,exdays)
 }
 ```
 
-**函数解析：**
-
-以上的函数参数中，cookie 的名称为 cname，cookie 的值为 cvalue，并设置了 cookie 的过期时间 expires。
-
-该函数设置了 cookie 名、cookie 值、cookie过期时间。
-
-------
-
-## 获取 cookie 值的函数
-
-然后，我们创建一个函数用户返回指定 cookie 的值：
-
-```
-function getCookie(cname)
-{
+```js
+function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');
-  for(var i=0; i<ca.length; i++) 
-  {
+  for(var i=0; i<ca.length; i++) {
     var c = ca[i].trim();
     if (c.indexOf(name)==0) return c.substring(name.length,c.length);
   }
@@ -149,40 +120,12 @@ function getCookie(cname)
 }
 ```
 
-**函数解析：**
-
-cookie 名的参数为 cname。
-
-创建一个文本变量用于检索指定 cookie :cname + "="。
-
-使用分号来分割 document.cookie 字符串，并将分割后的字符串数组赋值给 ca (ca = document.cookie.split(';'))。
-
-循环 ca 数组 (i=0;i<ca.length;i++)，然后读取数组中的每个值，并去除前后空格 (c=ca[i].trim())。
-
-如果找到 cookie(c.indexOf(name) == 0)，返回 cookie 的值 (c.substring(name.length,c.length)。
-
-如果没有找到 cookie, 返回 ""。
-
-------
-
-## 检测 cookie 值的函数
-
-最后，我们可以创建一个检测 cookie 是否创建的函数。
-
-如果设置了 cookie，将显示一个问候信息。
-
-如果没有设置 cookie，将会显示一个弹窗用于询问访问者的名字，并调用 setCookie 函数将访问者的名字存储 365 天：
-
-```
-function checkCookie()
-{
+```js
+function checkCookie() {
   var username=getCookie("username");
-  if (username!="")
-  {
+  if (username!="") {
     alert("Welcome again " + username);
-  }
-  else 
-  {
+  } else {
     username = prompt("Please enter your name:","");
     if (username!="" && username!=null)
     {
@@ -194,9 +137,7 @@ function checkCookie()
 
  
 
-------
-
-## 完整实例
+## 实例
 
 ~~~js
 function setCookie(cname, cvalue, exdays) {
@@ -230,3 +171,59 @@ function checkCookie() {
 }
 ~~~
 
+
+
+## 案例2
+
+复数形式 Cookies，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。因为 Cookie 是由 Web 服务器保存在用户浏览器上的小文本文件，它包含有关用户的信息。
+
+~~~js
+// 获取当前的cookies
+function getCookie(key) {
+  if (document.cookie.length > 0) {
+    // 如果cookie的长度大于0
+    c_start = document.cookie.indexOf(key + "=")
+    if (c_start != -1) {
+      // 如果username=首次出现的位置大于-1
+      c_start = c_start + key.length + 1
+      // 开始的位置就是当前位置+key的长度+1（等号长度是1）
+      c_end = document.cookie.indexOf(";", c_start)
+      // indexOf(searchValue, [fromIndex]) 从fromIndex位置开始检索searchValue。fromIndex参数可选，默认从字符串开始位置开始检索。
+      if (c_end == -1) {
+        c_end = document.cookie.length
+        // 如果结尾的位置是-1（没有找到;那么设置结尾的位置就是cookie的长度-最后的;省略）
+      }
+      return unescape(document.cookie.substring(c_start, c_end));
+      // unescape() 函数可对通过 escape() 编码的字符串进行解码
+      // substring(start,[end]) 提取介于两个下标之间的字符
+    }
+  }
+  return ""
+  // 如果cookie的长度小于零，那么直接返回空字符串
+}
+
+function setCookie(key, value, expiredays) {
+  var exdate = new Date()
+  exdate.setDate(exdate.getDate() + expiredays)
+  // setDate(day) 设置一个月的某一天 getDate() 返回月份的某一天（1-31的整数）
+  document.cookie = key + "=" + escape(value) +
+    ((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
+    // escape() 函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。（符号空格转化）
+    // Visit W3School! 编码后 Visit%20W3School%21
+}
+
+// 页面加载后首先判断是否存在cookies
+function checkCookie() {
+  username = getCookie('username')
+  if (username != null && username != "") {
+    alert('Welcome again ' + username + '!');
+    // 如果不是null或者空数组，返回用户名
+  } else {
+      username = prompt('Please enter your name:', "")
+      if (username != null && username != "") {
+        // 否则设置用户名（传入三个参数，有效期365天）
+        setCookie('username', username, 365);
+    }
+  }
+}
+~~~
