@@ -347,9 +347,9 @@ ReactDOM.render(<Dada />,document.body)
 
 
 
-#### react对于每个html元素都添加了很多事件处理函数，这些事件网上一搜就都出来了，这里简单说下在react中利用js进行操作类似于css里的hover所使用的事件。
+react对于每个html元素都添加了很多事件处理函数，这些事件网上一搜就都出来了，这里简单说下在react中利用js进行操作类似于css里的hover所使用的事件。
 
-#### 比如这样一个需求，有以下3个div：
+比如这样一个需求，有以下3个div：
 
 ```
 <div class="a abc">a</div>
@@ -361,7 +361,7 @@ ReactDOM.render(<Dada />,document.body)
 \1. 鼠标不在这三个div上的时候，这个三个div里的字体显示红色 
 \2. 鼠标放在class为a的组件上的时候，它里面的字体颜色不变，其他的div变成绿色
 
-#### 也许是我以前写前端的时候用习惯了JQuery，处处都是dom操作，现在使用react的时候，一时之间转不过来弯，就好像从面向过程编程过度到面向对象编程一样，我想了一下，想想react改变页面的内容是根据状态，于是我利用onMouseEnter和onMouseLeave事件来动态改变状态hover，然后根据hover的状态值去给这三个div分别添加一个class，这里的class样式在css文本中要写在其他class的下面，因为css是自上而下的。
+也许是我以前写前端的时候用习惯了JQuery，处处都是dom操作，现在使用react的时候，一时之间转不过来弯，就好像从面向过程编程过度到面向对象编程一样，我想了一下，想想react改变页面的内容是根据状态，于是我利用onMouseEnter和onMouseLeave事件来动态改变状态hover，然后根据hover的状态值去给这三个div分别添加一个class，这里的class样式在css文本中要写在其他class的下面，因为css是自上而下的。
 
 我的代码如下： 
 reactjs中的部分代码

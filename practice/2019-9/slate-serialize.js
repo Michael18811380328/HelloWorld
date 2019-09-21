@@ -28,6 +28,8 @@ const TEXT_RULE = {
     }
     if (el.nodeName == '#text') {
       if (el.nodeValue && el.nodeValue.match(/<!--.*?-->/)) {
+      // 排除注释节点：* 匹配除换行外的全部字符，.表示0-无穷，？表示贪婪模式。满足条件的情况只匹配一次
+      // .* 表示一个字符循环0次或者很多次 加上 ？直接贪婪模式，如果中间发现了一个字符，就完成了匹配
         return;
       }
       return {
@@ -47,7 +49,7 @@ const TEXT_RULE = {
       return children.split('\n').reduce((array, text, i) => {
         // 如果不是0项，每一项和下一项之间放一个br标签
         if (i != 0) {
-          array.push(<br key={i} />)；
+          array.push(<br key={i} />);
         }
         array.push(text)
         // 将所有数组中的元素叠加起来，使用br作为间隔，返回array。
@@ -110,10 +112,7 @@ class Html {
 
   // Html对象默认的block是段落，使用默认的规则（text节点直接转换）
 
-
-
   // html => slate Obj
-  /*******************************************************************************/
   /**
    * Deserialize pasted HTML.
    *
@@ -404,17 +403,13 @@ class Html {
 
   cruftNewline = element => {
       return !(element.nodeName === '#text' && element.nodeValue == '\n')
-
-    }
-    * @param { Element } element *
-    @return { Element }
-    */
+  }
 
   let key = 0
 
   function addKey(element) {
     return React.cloneElement(element, { key: key++ })
   }
+}
 
-
-  export default Html
+export default Html;

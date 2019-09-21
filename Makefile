@@ -1,5 +1,3 @@
-PROJECT=seafile-editor
-
 dist: clean transpile postdist
 
 transpile:

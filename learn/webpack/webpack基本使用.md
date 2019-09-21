@@ -1,4 +1,4 @@
-# [webpack2.0 基本使用](https://www.cnblogs.com/SamWeb/p/6520352.html)
+# webpack 基本使用
 
 　　webpack是一款前端模块打包工具, 它的出现是由于现代web开发越来越复杂，如果还是像原来那样把所有的js代码都写到一个文件中，维护非常困难。而解决复杂化的方法通常是分而治之，就是把复杂化的东西进行拆分，形成一个个小的模块，这也是现代web 开发提出的模块化的概念，代码进行拆分，写成一个个小的模块，模块化方案又先后出现了commanjs ,amd, ES6 module方案， 但浏览器并不能直接支持这些方案，所以要把模块化的代码进行转换，转换成浏览器能识别的内容。webpack 就是做这个工作的，把多个小的模块化的文件打包成一个浏览器支持的文件，这应该是打包的由来吧。
 
@@ -71,7 +71,7 @@ module.exports = {
 
 　　现在用配置文件来完成上面的打包工作. 在webpack-learning文件夹下，新建一个js文件，命名为webpack.config.js， 这是wepback配置文件默认命名规则，也就是webpack进行打包的时候，它会自动寻找项目根目录中的webpack.config.js 文件，利用里面的规则进行打包。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　var path = require('path');    // 引入path模块
 
@@ -91,7 +91,7 @@ module.exports = {
 
 　　}
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　![img](https://images2015.cnblogs.com/blog/1013082/201707/1013082-20170723212721424-1856585836.png)
 
@@ -149,7 +149,7 @@ module.exports = {
 
 　　首先，它利用webpack-dev-server和 webpack.config.js 配置文件生成一个服务器，在webpack-learning文件夹下， 就是项目根目录下新建一个dev-server.js 文件，代码如下：
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 var webpack = require('webpack');
@@ -177,7 +177,7 @@ server.listen(8080, 'localhost', () => {
 });
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　其次， 修改webpack.config.js 配置文件，
 
@@ -193,7 +193,7 @@ entry: [
 
 　　　一个是要添加一个webpack自带的插件 HotModuleReplacementPlugin， 所以整个配置文件修改如下：
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 var path = require('path');   
@@ -216,11 +216,11 @@ module.exports = {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　最后修改index.js ，就是我们整个项目的入口文件，它接受热替换
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 var mes = require('./mes')
@@ -231,7 +231,7 @@ document.body.innerHTML = mes.hi;
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　这时还要把npm scripts 的build 命令修改成node dev-server.js
 
@@ -253,7 +253,7 @@ document.body.innerHTML = mes.hi;
 
  　　这时我们获取到环境变量，就可以对wepack.config.js 进行修改，不同的环境下，用不同的配置内容。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 var path = require('path');   
@@ -289,7 +289,7 @@ module.exports = {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　现在再执行npm run build， 打包后的js代码只有2kb. 执行npm run dev, 热替换依然在起作用，完美了。
 
@@ -299,7 +299,7 @@ module.exports = {
 
 　　使用任何loader之前，都要先安装它。npm install babel-loader babel-core babel-preset-es2015 --save-dev 安装babel-loader, 更新 webpack.config.js 文件
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 module.exports = {
@@ -323,7 +323,7 @@ module.exports = {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　module: 定义打包规则，webpack2 用的是rules 来指定规则，它是一个数组，里面是每一个对象，对不同的文件指定不同的规则。
 
@@ -347,7 +347,7 @@ module.exports = {
 
 　　好了，配置完成后，我们在index.js 中写一点ES6的代码(箭头函数)，体验一下
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 var mes = require('./mes')
@@ -360,7 +360,7 @@ document.body.innerHTML = newMessage();
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　npm run build, 打包完成后，我们可以看到 生成的build.js文件中箭头函数转化为普通函数
 
@@ -372,7 +372,7 @@ var newMessage = function newMessage() {
 
 　　 在开发过程还有一个问题要解决，代码的错误查找。如果代码有错误，我们要知道代码在什么地方出错的。现在webpack-dev-server启动服务器，我们把所有的js代码都打包到一个build.js文件中，我们根本不知道，报错在源代码中的什么位置。这就要用到source-map了，压缩后的代码对应到源代码中。这个只要在配置文件中添加devtools 配置项就可以了。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 module.exports = {
@@ -386,7 +386,7 @@ module.exports = {
 .........
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　这时npm run dev 重新启动服务器，打开浏览器控制台的source面板，你会发现，它多了一个wepback// 
 
@@ -424,7 +424,7 @@ module.exports = {
 
 　　当然 还有一个常用的 loader 叫url-loader, 处理图片，文字等等， 比如把图片变成转成base64编码的, 这样就可以减少http请求数量。当然也不是所有图片都要转化成base 64 一般都是小于10kb 的图片进行转换，否则，会增大css 文件的大小。这需要options 对这个loader 进行配置。
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
  {
@@ -444,13 +444,13 @@ module.exports = {
       }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
  　　webpack的基本配置差不多了，我们再使用几个有用的插件。
 
 　　1，UglifyJsPlugin 插件，webpack 中的Tree Shaking 用到它。webpack2中最大的变化就是它原生支持ES6模块化方案，并且由此带来了Tree Shaking 功能。 我们重写一下mes.js
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 export function add(a, b) {
@@ -465,11 +465,11 @@ export function multiply(a, b) {
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　再重新写一下index.js文件
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 import {multiply} from './mes'
@@ -482,7 +482,7 @@ if (module.hot) {  // 接受热替换
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　可以看到程序正常运行，但是在index.js中，我们只用到了multiply函数，所以打包后的文件中， 我们只想包含multiply 函数，而不用包含其它两个add, substract 函数，这就是tree shaking. Tree shaking 的前提是ES6 的模块化方案。而在webpack1 时，  由于它不支持ES6, 所以webpack 会利用babel 把ES6 转换成commonJs，但现在webpack2中原生支持ES6 的import 和export， 也正是由于ES6 module, 它支持Tree Shaking, 所以我们不想让babel 把ES6 的import 和export  转换成commonJs， 这时需要配置 .babelrc 文件，给es2015 设置为modules: false. 
 
@@ -516,7 +516,7 @@ plugins.push(new webpack.DefinePlugin({
 
 　　当执行npm run 命令时，它就会暴露一个全局变量 ’env‘, 供我们的代码使用，而它的值就是 我们定义的JSON.stringify(process.env.NODE_ENV)。 在index.js中直接使用env
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 import {multiply} from './mes'
@@ -531,13 +531,13 @@ if (module.hot) {  // 接受热替换
 }
 ```
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 　　当执行npm run dev，重新启动服务器的时候，你可看到页面上显示是developement, 和我们预想的一样，那么我们就可以利用env 进行判断，如果它是生产环境，如果它是测试。
 
 你可能使用过axios库发送ajax请求，当在不同的环境时请求的地址不一致，这时就可以使用环境变量进行基本url配置
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+ 
 
 ```
 // 如果是开发环境，则向103.168.2.17 发送请求，如果生产环境，则使用''
@@ -547,11 +547,3 @@ if (env === 'development') {
     axios.defaults.baseURL = ''
 }
 ```
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-　　
-
-　　
-
- 

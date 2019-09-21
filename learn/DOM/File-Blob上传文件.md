@@ -1,23 +1,29 @@
-### Blob对象
+## Blob对象
 
-上一次我们通过File API 里面的 FileReader类型里的readAsText,readAsDataURL等方法来读取文件File。但是如果一个文件十分大的时候,或者只需要读取部分内容，如(文本文件)，那么我们就可以通过这次介绍的slice方法对文件进行分割成二进制Blob对象。这次我们还是根据上次说的图片上传为例，讲解一下如何分割读取图片的。
+上一次我们通过File API 里面的 FileReader 类型里的 ==readAsText,readAsDataURL== 等方法来读取文件File。
 
-一 : 介绍Blob对象 
-Blob对象自带属性 
+但是如果一个文件十分大的时候,或者只需要读取部分内容，如(文本文件)，那么我们就可以通过这次介绍的==slice方法对大型文本文件进行分割成二进制Blob对象==。这次我们还是根据上次说的图片上传为例，讲解一下如何分割读取图片的。
+
+#### 一 : Blob对象属性
+
+~~~txt
 1.size 表示二进制对象的大小 
 2.type 表示二进制对象的类型 (如果是File对象分割的,会继承type属性) 
 3.slice 方法 分割文件
+~~~
 
-二：介绍blob.slice方法 
+#### 二：blob.slice方法
+
 1. 方法介绍 : blob.slice(); 属于Blob对象的一个方法,而File对象是继承Blob对象的,因此File对象也含有slice方法 
 2. 参数介绍 : blob.slice(startByte,endByte); 这里需要注意它的参数,第一个参数startByte表示文件起始读取Byte字节,第二个参数则是结束读取字节。这里重点注意一下第二个参数,一开始我以为它是读取的长度。结果我在进行文件分割上传的时候,一直获取不到第二次请求后的数据。 
-    3.返回值 ： newBlob = blob.slice(startByte,endByte); 它返回的仍然是一个Blob类型。
+3. 返回值 ： newBlob = blob.slice(startByte,endByte); 它返回的仍然是一个Blob类型。
 
 AB备注：对于slice的参数的问题，通常情况直接全部上传，不需要断点续传。最后一个结束字节对于不同文件的重要性不同。对于png和gif，损失一部分字节不会影响图像的全部显示。但是对于jpg和bpm等格式的图片，缺失一部分字节（尤其是在最后一个字节）就不能显示图片。那么，如果涉及到文件上传，文件大小在合理的范围内，最好直接全部上传。
 
 当前端通过input的type-file表单上传文件后，使用onchange事件可以获得上传的文件: e.target.files[0]如果是多文件上传获得一个数组，
 
-三 : 兼容slice方法
+#### 三 : slice方法兼容性
+
 ~~~js
 function blobSlice(blob,startByte,endByte){
   if(blob.slice){
@@ -29,16 +35,33 @@ function blobSlice(blob,startByte,endByte){
   if(blob.webkitSlice){
     return  blob.webkitSlice(startByte,endByte);
   }
-    return null;
+  return null;
 }
 ~~~
-四 : 分割文件上传 
+#### 四 : 分割文件上传 
+
 曾经我有介绍过如何将File对象指定的文件上传到服务器中，其中就是通过了FormData对象封装表单数据,通过Ajax请求进行传输。在这里我也要强调一下,一般的 jQuery库和zepto库是不支持FormData对象.因此我们想要调用它们的方法进行发送是不行的,除非你使用了某某插件。既然这样我们就自己用原生的方法把文件上传至服务器吧。
 
-我们还是借用上次写好的一个生产XMLHttpRequest对象的方法。 */
+我们还是借用上次写好的一个生产XMLHttpRequest对象的方法。
+
+~~~html
+<body>
+  <article>
+    <header id="header"><h1>读取部分内容</h1></header>
+    <section class="box">
+    <form id="form" enctype='multipart/form-data' method='post'   action='#'>
+      <div class="upload-label"><h2>请选择文件</h2></div>
+      <div class="upload-box add-button"></div>
+      <button class="upload-button" type="submit">上传</button>
+      <input type="file" name="files"  id="files" >
+    </form>
+    </section>
+  </article>
+</body>
+~~~
+
 ~~~js
 function  createXHR(){
-
   if( typeof XMLHttpRequest != "undefined"){
     return  new XMLHttpRequest();
   }
@@ -49,7 +72,6 @@ function  createXHR(){
   if(typeof arguments.callee.activeString != "string"){
     var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp3.0","MSXML2.XMLHttp"],
       i,len;
-
     for (var i = 0;i<versions.length;i++) {
       try{
           new ActiveXobject(versions[i]);
@@ -62,23 +84,6 @@ function  createXHR(){
   }
   return  new ActiveXobject(arguments.callee.activeString);
 }
-
-/* 
-<body>
-  <article>
-    <header id="header"><h1>读取部分内容</h1></header>
-
-    <section class="box">
-    <form id="form" enctype='multipart/form-data' method='post'   action='#'>
-      <div class="upload-label"><h2>请选择文件</h2></div>
-      <div class="upload-box add-button"></div>
-      <button class="upload-button" type="submit">上传</button>
-      <input type="file" name="files"  id="files" >
-    </form>
-    </section>
-  </article>
-</body>
- */ 
 
 $（function(){
   var maxlen = 1,
@@ -203,7 +208,10 @@ function uploadImage(target,file){
 ~~~
 
 如果大家想要加点什么duangduang的效果也是可以的，不过我写的效果一般,就不拿出来说了。这里比较重要的就是那个data数据里面的内容. 
+
 2.data数据介绍 
+
+~~~js
 { 
 fileid : 上传后保存的文件id 
 startbyte : 起始的文件位置 针对 file对象 
@@ -215,10 +223,18 @@ suffix : 文件后缀名
 key ：上传至服务器的file文件键名 
 targetId : 文件二进制对象 
 } 
+~~~
+
+
+
 其实有很多数据可以不必要传送的,测试的时候就把相关的数据都放上去了。
+
+
 
 3.回送的json数据介绍 
 回送的时候有两种情况,一种是未全部上传完,另外一种就是以及全部上传完毕。 
+
+~~~js
 未上传 
 { 
 complete : false, 
@@ -230,37 +246,38 @@ loadsize : 下一次需要读取的大小
 complete : true 
 imageURL : 文件上传后服务器的地址 
 } 
+~~~
+
 介绍到这里,我们就需要去看看服务器端的代码了,由于没有用任何框架,也没有太多判断变量类型和请求源,因此肯定不是安全的，但还是比较可用的.
 
 ~~~php
 <?php
+  $filename = $_POST['fileid'].$_POST['suffix'];
+	$uploadDir = "/upload/img/";
+	//验证上传类型是否合法
+  if(($_POST['totalsize'] - $_POST['startbyte']) > 0 || intval($_POST['loadsize']) != 0){
+    //上传文件的键名
+    $key = $_POST['key'];
 
-$filename = $_POST['fileid'].$_POST['suffix'];
-$uploadDir = "/upload/img/";
-//验证上传类型是否合法
-if(($_POST['totalsize'] - $_POST['startbyte']) > 0 || intval($_POST['loadsize']) != 0){
-//上传文件的键名
-$key = $_POST['key'];
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'].$uploadDir;
+    $filename = $uploadDir.$filename;
+    //以追加的形式写入文件 所以fileId 十分关键,如果服务端已经存在的话,会导致文件再次填写,源文件破坏
+    file_put_contents($filename,file_get_contents($_FILES[$key]['tmp_name']), FILE_APPEND);
 
-$uploadDir = $_SERVER['DOCUMENT_ROOT'].$uploadDir;
-$filename = $uploadDir.$filename;
-//以追加的形式写入文件 所以fileId 十分关键,如果服务端已经存在的话,会导致文件再次填写,源文件破坏
-file_put_contents($filename,file_get_contents($_FILES[$key]['tmp_name']), FILE_APPEND);
-
-$nextbyte =  $_POST['loadsize']  + $_POST['startbyte'];
-$lesssize =  $_POST['totalsize'] - $nextbyte;
-// 检测是否需要更改 loadsize大小
-$loadsize =  ($_POST['loadsize']  - $lesssize) > 0 ? $lesssize : $_POST['loadsize'];
-echo json_encode(
-        array( 'complete'=>false,
-             'nextsize'=> $nextbyte,
-             'loadsize'=> $loadsize
-        ));
-}else{
-  $imageURL = $uploadDir.$filename;
-  echo json_encode(array('complete'=>true,'imageURL'=>$imageURL));
-}
-exit;
+    $nextbyte =  $_POST['loadsize']  + $_POST['startbyte'];
+    $lesssize =  $_POST['totalsize'] - $nextbyte;
+    // 检测是否需要更改 loadsize大小
+    $loadsize =  ($_POST['loadsize']  - $lesssize) > 0 ? $lesssize : $_POST['loadsize'];
+    echo json_encode(
+      array( 'complete'=>false,
+            'nextsize'=> $nextbyte,
+            'loadsize'=> $loadsize
+           ));
+  } else {
+    $imageURL = $uploadDir.$filename;
+    echo json_encode(array('complete'=>true,'imageURL'=>$imageURL));
+  }
+	exit;
 ?>
 ~~~
 
@@ -268,48 +285,47 @@ exit;
 ### 图片预览
 
 ~~~html
-//filereader 的方法
 <form action="" enctype="multipart/form-data">
-    <input id="file" class="filepath" onchange="changepic(this)" type="file"><br>
-    <img src="" id="show" width="200">
+  <input id="file" class="filepath" onchange="changepic(this)" type="file"><br>
+  <img src="" id="show" width="200">
 </form>
 <script>
-    function changepic() {
-        var reads= new FileReader();
-        f=document.getElementById('file').files[0];
-        reads.readAsDataURL(f);
-        reads.onload=function (e) {
-            document.getElementById('show').src=this.result;
-        };
-    }
+  function changepic() {
+    var reads= new FileReader();
+    f=document.getElementById('file').files[0];
+    reads.readAsDataURL(f);
+    reads.onload=function (e) {
+      document.getElementById('show').src=this.result;
+    };
+  }
 </script>
 
-//createObjectURL的方法
 <form action="" enctype="multipart/form-data">
-    <input id="file" class="filepath" onchange="changepic(this)" type="file"><br>
-    <img src="" id="show" width="200">
+  <input id="file" class="filepath" onchange="changepic(this)" type="file"><br>
+  <img src="" id="show" width="200">
 </form>
 <script>
-    function changepic(obj) {
-        //console.log(obj.files[0]);//这里可以获取上传文件的name
-        var newsrc=getObjectURL(obj.files[0]);
-        document.getElementById('show').src=newsrc;
+  function changepic(obj) {
+    //console.log(obj.files[0]);//这里可以获取上传文件的name
+    var newsrc=getObjectURL(obj.files[0]);
+    document.getElementById('show').src=newsrc;
+  }
+  //建立一個可存取到該file的url
+  function getObjectURL(file) {
+    var url = null ;
+    // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
+    if (window.createObjectURL!=undefined) { // basic
+      url = window.createObjectURL(file) ;
+    } else if (window.URL!=undefined) { // mozilla(firefox)
+      url = window.URL.createObjectURL(file) ;
+    } else if (window.webkitURL!=undefined) { // webkit or chrome
+      url = window.webkitURL.createObjectURL(file) ;
     }
-    //建立一個可存取到該file的url
-    function getObjectURL(file) {
-        var url = null ;
-        // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
-        if (window.createObjectURL!=undefined) { // basic
-            url = window.createObjectURL(file) ;
-        } else if (window.URL!=undefined) { // mozilla(firefox)
-            url = window.URL.createObjectURL(file) ;
-        } else if (window.webkitURL!=undefined) { // webkit or chrome
-            url = window.webkitURL.createObjectURL(file) ;
-        }
-        return url ;
-    }
+    return url ;
+  }
 </script>
 ~~~
+
 
 
 ### FileReader 和 FormData
@@ -318,17 +334,16 @@ exit;
 
 ~~~js
 if(window.FileReader) {  
-    var fr = new FileReader();  
-    // add your code here  
-}  
-else {  
-    alert("Not supported by your browser!");  
-} 
+  var fr = new FileReader();  
+  // add your code here  
+} else {  
+  alert("Not supported by your browser!");
+}
 /*方法二：检测FileReader类型*/
 if(typeof FileReader==='undefined'){
-    alert('您的浏览器不支持图片上传，请升级您的浏览器');
-      return false;
- }
+  alert('您的浏览器不支持图片上传，请升级您的浏览器');
+  return false;
+}
 ~~~
 
 2.调用fileReader对象的方法 
@@ -347,8 +362,6 @@ FileReader实例拥有四个方法，其中三个是用来读取文件，另一�
 
 3.处理事件 
 FileReader 包含了一整套完成的事件模型，用于捕获读取文件时的状态,下面这个表格归纳了这些事件。
-
- 
 
 | 事件        | 描述                               |
 | ----------- | ---------------------------------- |
@@ -400,131 +413,124 @@ oReq.open("POST", "submitform.php");
 oReq.send(new FormData(formElement));
 ~~~
 
-#### 浏览器兼容性
-
-| Feature          | Chrome | Firefox(Gecko) | IE   | Opera | Safari |
-| ---------------- | ------ | -------------- | ---- | ----- | ------ |
-| Basic support    | 7+     | 4.0(2.0)       | 10+  | 12+   | 5+     |
-| 支持filename参数 | (yes)  | 22.0(22.0)     | ?    | ?     | ?      |
-
-------
-
-**下面是我的项目代码：**
+项目代码
 
 ~~~html
 <div class="issue-project-main clearfix" id='issue_project_main'>
-<form  v-on:submit.prevent="submit_issue_project()" id="project_form">
-       <div class="issue-project-left">
-        <div v-if="images.length >0">
-            <ul>
-                <li v-for="(image,key) in images" style="position:relative;">
-                    <img :src="image" @click='delImage(key)' class="image-upload"/>
-                    <a href="#" class="remove-box" @click='delImage(key)'>
-                        <span class="image-remove"></span>
-                    </a>
-                </li>
-            </ul>
-            <!-- <button @click="removeImage">移除全部图片</button> -->
-            <!-- <button @click='uploadImage' >上传</button> -->
-        </div> 
-        <div v-show="showbutton">
-            <a id='addPic' href="" v-on:click="addPic">上传项目图片 </a>
-            <input type="file" id="imagebox" v-on:change="getImage()"     @change="onFileChange" name="image" style="display: none;">
-        </div>
+  <form  v-on:submit.prevent="submit_issue_project()" id="project_form">
+    <div class="issue-project-left">
+      <div v-if="images.length >0">
+        <ul>
+          <li v-for="(image,key) in images" style="position:relative;">
+            <img :src="image" @click='delImage(key)' class="image-upload"/>
+            <a href="#" class="remove-box" @click='delImage(key)'>
+              <span class="image-remove"></span>
+            </a>
+          </li>
+        </ul>
+        <!-- <button @click="removeImage">移除全部图片</button> -->
+        <!-- <button @click='uploadImage' >上传</button> -->
+      </div> 
+      <div v-show="showbutton">
+        <a id='addPic' href="" v-on:click="addPic">上传项目图片 </a>
+        <input type="file" id="imagebox" v-on:change="getImage()"     @change="onFileChange" name="image" style="display: none;">
+      </div>
     </div>
-   <div class="issue-project-form-list issue-project-form-btn">
-                  <p class='errormsg' v-text='errormsg'></p>
-                  <div class="mask-submit" v-if='disabled'></div>
-                  <input type="submit" class="issue-project-btn" value="完成"/>
-                  <input type="button" class="cancel-project-btn" value="取消" @click='back' />
-              </div>
-          </div>
-      </form>
- </div>
+    <div class="issue-project-form-list issue-project-form-btn">
+      <p class='errormsg' v-text='errormsg'></p>
+      <div class="mask-submit" v-if='disabled'></div>
+      <input type="submit" class="issue-project-btn" value="完成"/>
+      <input type="button" class="cancel-project-btn" value="取消" @click='back' />
+    </div>
+    </div>
+  </form>
+</div>
 ~~~
 
 ~~~js
 var issue_project = new Vue({
-        el:'#issue_project_main',
-        data:{
-            showbutton:true,
-            disabled:false,
-            url_ajax:'',
-            images: []//显示的图片
+  el:'#issue_project_main',
+  data:{
+    showbutton:true,
+    disabled:false,
+    url_ajax:'',
+    images: []//显示的图片
+  },
+  watch:{
+    images:function(){
+      if(this.images.length >0){
+        this.showbutton = false
+      }else{
+        this.showbutton = true
+      }
+    }
+  },
+  methods: {
+    /*以下是上传图片的js*/
+    getImage:function(){
+      file = $("#imagebox")[0].value
+    },
+    addPic:function(e){
+      e.preventDefault();
+      $('input[type=file]').trigger('click');
+      return false;
+    },
+    onFileChange:function(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length)return; 
+      this.createImage(files);
+    },
+    createImage:function(file) {
+      if(typeof FileReader==='undefined'){
+        alert('您的浏览器不支持图片上传，请升级您的浏览器');
+        return false;
+      }
+      var image = new Image();         
+      var vm = this;
+      var leng=file.length;
+      for(var i=0;i<leng;i++){
+        var reader = new FileReader();
+        reader.readAsDataURL(file[i]); 
+        reader.onload =function(e){
+          vm.images.push(e.target.result);                                    
+        };                 
+      }                        
+    },
+    delImage:function(index){
+      this.images.shift(index);
+    },
+    removeImage: function(e) {
+      this.images = [];
+    },
+    /*以上是上传图片的js*/
+    submit_issue_project:function(){
+      var _this = this;
+      _this.url_ajax = '/vdg/api/project/create'
+      if(edit){
+        _this.url_ajax = '/vdg/api/project/update'
+      }
+      var formElement = document.getElementById("project_form");
+      var formData = new FormData(formElement);
+      axios({
+        method: 'post',
+        url: _this.url_ajax,
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data'
         },
-        watch:{
-            images:function(){
-                if(this.images.length >0){
-                    this.showbutton = false
-                }else{
-                    this.showbutton = true
-                }
-            }
-        },
-        methods: {
-            /*以下是上传图片的js*/
-            getImage:function(){
-                file = $("#imagebox")[0].value
-            },
-            addPic:function(e){
-                e.preventDefault();
-                $('input[type=file]').trigger('click');
-                return false;
-            },
-            onFileChange:function(e) {
-                var files = e.target.files || e.dataTransfer.files;
-                if (!files.length)return; 
-                this.createImage(files);
-            },
-            createImage:function(file) {
-                if(typeof FileReader==='undefined'){
-                    alert('您的浏览器不支持图片上传，请升级您的浏览器');
-                    return false;
-                }
-                var image = new Image();         
-                var vm = this;
-                var leng=file.length;
-                for(var i=0;i<leng;i++){
-                    var reader = new FileReader();
-                    reader.readAsDataURL(file[i]); 
-                    reader.onload =function(e){
-                    vm.images.push(e.target.result);                                    
-                    };                 
-                }                        
-            },
-            delImage:function(index){
-                this.images.shift(index);
-            },
-            removeImage: function(e) {
-                this.images = [];
-            },
-            /*以上是上传图片的js*/
-            submit_issue_project:function(){
-                var _this = this;
-                _this.url_ajax = '/vdg/api/project/create'
-                if(edit){
-                    _this.url_ajax = '/vdg/api/project/update'
-                }
-                var formElement = document.getElementById("project_form");
-                var formData = new FormData(formElement);
-                axios({
-                    method: 'post',
-                    url: _this.url_ajax,
-                    data: formData,
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    },
-                }).then(function(res){
-                    console.log(res);
-                }).catch(function(error) {
-                    console.log(error);
-                });
-            }
-        },
-    })
+      }).then(function(res){
+        console.log(res);
+      }).catch(function(error) {
+        console.log(error);
+      });
+    }
+  },
+})
 ~~~
 
-### FileReader和FormData实现图片预览和上传(base64转二进制文件)
+### FileReader和FormData实现图片预览和上传
+
+(base64转二进制文件)
 
 预览：预览使用 `FileReader` 对象来读：
 
@@ -545,7 +551,7 @@ function preview(e) {
 }
 ~~~
 
-##### 提交图片文件（二进制文件 非 base64）
+提交图片文件（二进制文件 非 base64）
 
 base64 转 二进制文件
 
@@ -596,11 +602,11 @@ $.ajax({
 
 注意：不要漏了指定 `processData` 和 `contentType` 为 `false` 。
 
-#### 压缩
+压缩
 
 业务中不需要前端不需要压缩，因为后端有更靠谱的压缩方案，但是前端其实也可以压缩，那就是用 `canvas` 把图画出适合的大小，然后上传。
 
-#### 主要流程：
+主要流程：
 
 - 在 `new` 出来的 `Image` 对象，我们监听它的 `onload` 事件
 - 按照压缩比例，算出压缩后的图片尺寸
@@ -636,7 +642,7 @@ img.onload = function () {
 img.src = reader.result;
 ~~~
 
-PS：需要注意的是，通过 `canvas` 绘制的图片，低版本 `IOS` 会出现比例不正确的情况
+
 
 ###  上传本地图片遇到的问题
 
@@ -646,19 +652,19 @@ PS：需要注意的是，通过 `canvas` 绘制的图片，低版本 `IOS` 
  * @param file_id 图片文件选择对应的id
  */
 function validateFileType(file_id) {
-    try {
-        var filePath = $("#"+file_id+"").val() ;    //获取文件路径
-        var extStart = filePath.lastIndexOf(".") ;
-        var ext = filePath.substring(extStart, filePath.length).toUpperCase() ;    //获取文件拓展名
-        //判断文件是否是图片文件
-        if(ext !=".JPG" && ext != ".PNG" && ext != ".BMP" && ext != ".DIF" && ext != ".JPEG"){
-            return false;
-        }
-        return true ;    
-    } catch (e) {
-        // TODO: handle exception
-        alert('错误','校验图片类型异常','error') ;
+  try {
+    var filePath = $("#"+file_id+"").val() ;    //获取文件路径
+    var extStart = filePath.lastIndexOf(".") ;
+    var ext = filePath.substring(extStart, filePath.length).toUpperCase() ;    //获取文件拓展名
+    //判断文件是否是图片文件
+    if(ext !=".JPG" && ext != ".PNG" && ext != ".BMP" && ext != ".DIF" && ext != ".JPEG"){
+      return false;
     }
+    return true ;    
+  } catch (e) {
+    // TODO: handle exception
+    alert('错误','校验图片类型异常','error') ;
+  }
 }
 
 /**
@@ -667,24 +673,24 @@ function validateFileType(file_id) {
  * @returns fileSize 图片文件大小（单位为byte）
  */
 function getFileSize(file_id) {
-    try {
-        var fileInput = $("#"+file_id+"")[0] ;
-        var fileSize = fileInput.files[0].size ;
-        return fileSize ;        
-    } catch (e) {
-        // TODO: handle exception
-        alert('错误','获取文件大小异常','error') ;
-    }
+  try {
+    var fileInput = $("#"+file_id+"")[0] ;
+    var fileSize = fileInput.files[0].size ;
+    return fileSize ;        
+  } catch (e) {
+    // TODO: handle exception
+    alert('错误','获取文件大小异常','error') ;
+  }
 }
 //查看图片
 $("#showPicture").click(function(){
-   var reader = new FileReader();  
-   reader.readAsDataURL($("#file")[0].files[0]);
-   reader.onload = function(evt){
-   　　var imgSrc = evt.target.result;
-      $("#picture").attr("src", imgSrc) ;
-   } ;
-   return false ;
+  var reader = new FileReader();  
+  reader.readAsDataURL($("#file")[0].files[0]);
+  reader.onload = function(evt){
+    var imgSrc = evt.target.result;
+    $("#picture").attr("src", imgSrc) ;
+  } ;
+  return false ;
 }) ;
 
 /**
@@ -693,20 +699,20 @@ $("#showPicture").click(function(){
  * @returns param 
  */
 function pictureFit_auto( maxWidth, maxHeight, width, height ){
-    //图片返回信息   
-    var param = {top:0, left:0, width:width, height:height};  
-    if(width > height){        //宽 > 高
-        param.width = maxWidth-4 ;
-        param.height = (param.width/width)*height ;
-        param.left = 2;  
-        param.top = Math.round((maxHeight - param.height) / 2);  
-    }else{
-        param.height = maxHeight-4 ;
-        param.width = (param.height/height)*width
-        param.left = Math.round((maxWidth - param.width) / 2);  
-        param.top = 2;  
-    }   
-    return param;  
+  //图片返回信息   
+  var param = {top:0, left:0, width:width, height:height};  
+  if(width > height){        //宽 > 高
+    param.width = maxWidth-4 ;
+    param.height = (param.width/width)*height ;
+    param.left = 2;  
+    param.top = Math.round((maxHeight - param.height) / 2);  
+  }else{
+    param.height = maxHeight-4 ;
+    param.width = (param.height/height)*width
+    param.left = Math.round((maxWidth - param.width) / 2);  
+    param.top = 2;  
+  }   
+  return param;  
 }  
 
 ~~~

@@ -8,8 +8,8 @@ to do list
 - [ ] move VUE to another Repo(special for VUE) 
 - [ ] review codes in 2018，then put them into learn folder. (Sig and eme)
   - [x] 2018-08（2019-09 1th week）
-  - [ ] 2018-09（2019-09 2th week）
-  - [ ] 2018-10（2019-09 2th week）
+  - [x] 2018-09（2019-09 2th week）
+  - [x] 2018-10（2019-09 2th week）
   - [ ] 2018-11（2019-09 3th week）
   - [ ] 2018-12（2019-09 3th week）
 - [ ] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
