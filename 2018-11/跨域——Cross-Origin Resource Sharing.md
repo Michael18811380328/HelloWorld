@@ -1,4 +1,4 @@
-跨域——Cross-Origin Resource Sharing
+# 跨域——Cross-Origin Resource Sharing2
 
 跨域请求：简单说，不同域名之间可以请求到数据的行为；
 
@@ -23,6 +23,8 @@ CORS是一种可以让你实现跨站点请求并同时阻止恶意js的请求�
  如果你的浏览器发起一个“非简单”请求（比如这个请求里包含了*cookies*，或者*Content-type*是*application/x-ww-form-urlencoded*, *multipart/form-data* 或者 *text-plain*）一个叫做**预检查**的机制会发送一个*OPTIONS*请求到服务器。如果服务器没有返回带有特殊头部的数据，简单请求GET或者POST请求仍然会发送，服务器的数据也会返回，但是浏览器会阻止Javascript获取这次请求。
 
 如果明确的需要在一个请求里添加cookies，自定义头部信息或则其他特性，这将不在是一个简单请求，并且服务器没有适当的返回，这次请求讲不会发送。就是复杂请求时，如果OPTIONS的请求，服务器没有做出适当的返回，后面真实的请求将不会发送。
+
+
 
 # 如何修复CORS“错误”？
 

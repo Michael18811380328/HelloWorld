@@ -19,8 +19,7 @@ function Example() {
   );
 }
 
-// useState is a hook. It contains to parameters. The first is a viriate and the second is a control function.
-// useState is like this.setState. 异步赋值
+// useState is a hook. It contains to parameters. The first is a viriate and the second is a control function. useState is like this.setState. 异步赋值
 ~~~
 
 目前项目中没有使用这部分功能，所以后续使用的时候再加强。

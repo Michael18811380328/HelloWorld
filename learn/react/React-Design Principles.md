@@ -2,7 +2,7 @@
 
 We wrote this document so that you have a better idea of how we decide what React does and what React doesn’t do, and what our development philosophy is like. While we are excited to see community contributions, we are not likely to choose a path that violates one or more of these principles.
 
-写这篇文档的目睹是介绍React做了什么或者美哦与做什么。我们建议使用React时不要违背这样的原则。这个文档在于对React的理解，并不是React的应用或者组件。
+写这篇文档的目睹是介绍React做了什么。我们建议使用React时不要违背这样的原则。这个文档在于对React的理解，并不是React的应用或者组件。
 
 > **Note:**
 >
@@ -38,11 +38,23 @@ This is why sometimes we add features to React itself. If we notice that many co
 
 We always discuss such improvement proposals with the community. You can find some of those discussions by the [“big picture”](https://github.com/facebook/react/issues?q=is:open+is:issue+label:%22big+picture%22) label on the React issue tracker.
 
+通常，我们拒绝添加可以在用户环境中实现的功能。我们不想使用无用的库代码来夸大您的应用程序。但是，也有例外。
+
+例如，如果React不提供对本地状态或生命周期挂钩的支持，人们将为其创建自定义抽象。当有多个抽象竞争时，React无法强制或利用其中任何一个的属性。它必须使用最低公分母来工作。
+
+这就是为什么有时我们向React本身添加功能的原因。如果我们注意到许多组件以不兼容或低效的方式实现了某个功能，那么我们可能更喜欢将其烘焙到React中。我们不能轻易做到。当我们这样做时，这是因为我们有信心提高抽象级别会使整个生态系统受益。状态，生命周期挂钩，跨浏览器事件规范化就是很好的例子。
+
+我们总是与社区讨论此类改进建议。您可以通过React问题跟踪器上的“大图”标签找到其中一些讨论。
+
 ### Escape Hatches
 
 React is pragmatic. It is driven by the needs of the products written at Facebook. While it is influenced by some paradigms that are not yet fully mainstream such as functional programming, staying accessible to a wide range of developers with different skills and experience levels is an explicit goal of the project.
 
 If we want to deprecate a pattern that we don’t like, it is our responsibility to consider all existing use cases for it and [educate the community about the alternatives](https://react.docschina.org/blog/2016/07/13/mixins-considered-harmful.html) before we deprecate it. If some pattern that is useful for building apps is hard to express in a declarative way, we will [provide an imperative API](https://react.docschina.org/docs/more-about-refs.html) for it. If we can’t figure out a perfect API for something that we found necessary in many apps, we will [provide a temporary subpar working API](https://react.docschina.org/docs/context.html) as long as it is possible to get rid of it later and it leaves the door open for future improvements.
+
+React是程序化的。 它由在Facebook上编写的产品的需求驱动。 尽管它受到尚未完全成为主流的一些范例（例如函数式编程）的影响，但使具有不同技能和经验水平的众多开发人员可以使用它是该项目的明确目标。
+
+如果我们要弃用我们不喜欢的模式，则我们有责任考虑它的所有现有用例，并在弃用之前对社区进行替代教育。 如果很难以声明的方式表达一些对构建应用有用的模式，那么我们将为其提供命令性的API。 如果我们无法为许多应用程序中需要的东西找到理想的API，我们将提供一个临时的，低于标准的API，只要有可能稍后将其淘汰，并为将来的改进打开方便之门。
 
 ### Stability
 
@@ -63,6 +75,26 @@ For example, we added a [warning about unknown DOM props](https://react.docschin
 When we add a deprecation warning, we keep it for the rest of the current major version, and [change the behavior in the next major version](https://react.docschina.org/blog/2016/02/19/new-versioning-scheme.html). If there is a lot of repetitive manual work involved, we release a [codemod](https://www.youtube.com/watch?v=d0pOgY8__JM) script that automates most of the change. Codemods enable us to move forward without stagnation in a massive codebase, and we encourage you to use them as well.
 
 You can find the codemods that we released in the [react-codemod](https://github.com/reactjs/react-codemod) repository.
+
+我们重视API的稳定性。在Facebook，我们有超过2万个使用React的组件。其他许多公司，包括Twitter和Airbnb，也是React的重度用户。这就是为什么我们通常不愿更改公共API或行为的原因。
+
+但是，我们认为“没有任何变化”意义上的稳定性被高估了。它很快变成停滞状态。取而代之的是，我们更喜欢“在生产中大量使用它，并且当某些事情发生变化时，会有一条清晰的（最好是自动化的）迁移路径。”
+
+弃用模式时，我们会在Facebook上研究其内部用法并添加弃用警告。他们让我们评估了变化的影响。有时，如果我们发现为时过早，我们会退后一步，我们需要更策略性地考虑使代码库达到可以进行此更改的程度。
+
+如果我们确信更改不会带来太大破坏，并且迁移策略对所有用例都可行，那么我们将向开源社区发布弃用警告。我们与Facebook以外的React的许多用户保持着密切联系，并且我们监视流行的开源项目并指导他们解决这些过时的问题。
+
+考虑到Facebook React代码库的庞大规模，成功进行内部迁移通常可以很好地表明其他公司也不会遇到问题。不过，有时人们会指出我们没有想到的其他用例，因此我们为它们添加了逃生舱口，或者重新考虑了我们的方法。
+
+没有充分的理由，我们不会弃用任何东西。我们认识到有时弃用警告会造成挫败感，但我们添加它们是因为弃用警告为我们和社区中许多人认为有价值的改进和新功能扫清了道路。
+
+例如，我们在React 15.2.0中添加了有关未知DOM道具的警告。许多项目受此影响。但是修复此警告很重要，这样我们才能将对自定义属性的支持引入到React中。在我们添加的每个不赞成使用行为背后都有这样的原因。
+
+添加弃用警告时，我们会将其保留在当前主要版本的其余部分中，并在下一个主要版本中更改其行为。如果涉及大量重复的手动工作，我们将发布一个使大多数更改自动化的codemod脚本。 Codemods使我们能够在庞大的代码库中前进而不会停滞不前，并且我们鼓励您也使用它们。
+
+您可以在react-codemod存储库中找到我们发布的codemod。
+
+
 
 ### Interoperability
 
