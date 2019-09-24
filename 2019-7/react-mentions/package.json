@@ -84,7 +84,7 @@
   "dependencies": {
     "@babel/runtime": "7.4.5",
     "invariant": "^2.2.4",
-    "lodash": "^4.5.1",
+    "lodash": "4.17.13",
     "prop-types": "^15.5.8",
     "substyle": "^6.3.1"
   },
