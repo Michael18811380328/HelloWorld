@@ -12,7 +12,7 @@
 
 5、脚本放在html代码后面；JS执行从上到下；如果一段JS代码引入外部链接，那么会先下载JS文件后执行，期间其他的代码阻塞；(其他的css、image下载暂停)。所以优先把script部分放在界面底部。
 
-6、优化循环的性能：循环过程中，次数不确定，需要消耗较多性能；在循环体内减少变量数量等。
+6、==优化循环的性能==：循环过程中，次数不确定，需要消耗较多性能；在循环体内减少变量数量等。
 
 ~~~js
 for (let i = 0; i < 10; i++) {
@@ -27,7 +27,7 @@ do {
 ~~~
 
 7、最小化访问nodeList对象
-document.getElementByTagName("img");
+`document.getElementByTagName("img");`
 获取 tagName、childrenNode/attributes/ 等会得到 NodeList 对象，减少这样的使用；
 
 8、避免使用循环引用：
@@ -46,8 +46,6 @@ instanceof 判断一个对象是否在另一个对象的原型链上；
 https://www.jianshu.com/p/eece86baec10
 
 
-
-11.14
 onload 用于监测用户的浏览器版本和信息；
 onload and onundoad 用于处理 cookies；
 
@@ -55,21 +53,19 @@ addEventListener 可以向一个对象添加多个同类型的事件句柄(两�
 
 ~~~js
 window.addEventListener("resize", function() {
-
   document.getElementByID("demo").innerHTML = 'resizing';
-
 });
-
 addEventListener(event, function, useCapture);
-
 ~~~
 
 第三个参数：true-false 选择事件冒泡还是事件捕获(默认是 false 事件冒泡)
 事件冒泡：一个事件发生，首先触发内部元素的事件回调函数（内部span）；
 事件捕获：一个事件发生，首先触发外部元素的事件回调函数（外部div）；
+~~~html
 <div>
 	<span></span>  
 </div>
+~~~
 早期ie浏览器具有兼容性问题；
 
 API
@@ -80,13 +76,14 @@ exec() 方法用于检索字符串中的正则表达式的匹配。
 
 提示：请注意，无论 RegExpObject 是否是全局模式，exec() 都会把完整的细节添加到它返回的数组中。这就是 exec() 与 String.match() 的不同之处，后者在全局模式下返回的信息要少得多。因此我们可以这么说，在循环中反复地调用 exec() 方法是唯一一种获得全局模式的完整模式匹配信息的方法。
 
+~~~js
 var str = "Visit W3School"; 
 var patt = new RegExp("W3School","g");
 var result = patt.exec(str);
 console.log(result);
 console.log(patt);
+~~~
 
 使用构造函数创建数组时，如果传入的参数是一个数值，就创建这个长度的数组(数组是空的)；使用对象字面量创建数组，如果传入一个数值，数组的第一个元素就是这个数值。
 let array1 = new Array(5);
 let array2 = [5];
-

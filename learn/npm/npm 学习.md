@@ -23,7 +23,8 @@ npm install grunt-cli
 # 安装0.1.9版本的grunt-cli
 npm install grunt-cli@"0.1.9"
 # 通过package.json进行安装(已有package.json)
-npm instapackage.jsonl
+npm install 
+# package.json
 ~~~
 
 ### 卸载
@@ -36,7 +37,6 @@ npm instapackage.jsonl
 
 ~~~bash
 npm update react
-
 npm update react@"1.1.2"
 ~~~
 
@@ -116,8 +116,6 @@ npm publish
 # 将当前仓库发布到官网上去(需要在package.json 中改进版本号到下一个)
 ~~~
 
-
-
 ## 2、NPM配置
 
 npm 在内网中的配置：npm config 主要是增删改查，下面以代理服务器 proxy 进行分析。这部分功能目前使用不多。
@@ -182,8 +180,8 @@ npm config edit
 
 1. name: package的名字（由于他会成为url的一部分，所以 non-url-safe 的字母不会通过，也不允许出现"."、"_"），最好先在[http://registry.npmjs.org/上搜下你取的名字是否已经存在](http://registry.npmjs.org/%E4%B8%8A%E6%90%9C%E4%B8%8B%E4%BD%A0%E5%8F%96%E7%9A%84%E5%90%8D%E5%AD%97%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8)
 2. version: package的版本，当package发生变化时，version也应该跟着一起变化，同时，你声明的版本需要通过semver的校验（semver可自行谷歌）
-3. dependencies: package的应用依赖模块，即别人要使用这个package，至少需要安装哪些东东。应用依赖模块会安装到当前模块的node_modules目录下。例如运行时需要的 react vue bootstrap.
-4. devDependencies：package的开发依赖模块，即别人要在这个package上进行开发。例如 webpack
+3. dependencies: ==package的应用依赖模块，即别人要使用这个package，至少需要安装哪些东东==。应用依赖模块会安装到当前模块的node_modules目录下。例如运行时需要的 react vue bootstrap.
+4. devDependencies：==package的开发依赖模块，即别人要在这个package上进行开发==。例如 webpack
 
 ## 4、版本号
 
@@ -229,5 +227,3 @@ npm install npm@latest -g
 > To solve both these issues, many developers opt to use a node version manager, or nvm, to install npm. The version manager will avoid permissions errors, and will solve the complexities of updating Node.js and npm.
 
 > In addition, developers can use an nvm to test their applications on multiple versions of npm. The nvm enables you to easily switch npm as well as node versions. This makes it easier to ensure that your applications work for most users, even if they are using other versions of npm. If you decide to install a version manager, use the instructions for the version manager you select to learn how to switch versions, and to learn how to keep up-to-date with the latest version of npm.
-
-参考自 npm 官方文档：npm的出现，不需要考虑版本问题，让

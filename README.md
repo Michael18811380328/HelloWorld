@@ -10,7 +10,7 @@ to do list
   - [x] 2018-08（2019-09 1th week）
   - [x] 2018-09（2019-09 2th week）
   - [x] 2018-10（2019-09 2th week）
-  - [ ] 2018-11（2019-09 3th week）
+  - [x] 2018-11（2019-09 3th week）
   - [ ] 2018-12（2019-09 3th week）
 - [ ] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
 - [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
