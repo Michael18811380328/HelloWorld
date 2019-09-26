@@ -1,10 +1,10 @@
-### Range对象学习
+## Range对象学习
 
 Range表示包含节点和部分文本节点的文档片段。
 
  `Range`可以用 [`Document`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document) 对象的 [`createRange`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createRange)方法创建，也可以用[`Selection`](https://developer.mozilla.org/zh-CN/docs/Web/API/Selection)对象的[`getRangeAt`](https://developer.mozilla.org/zh-CN/docs/Web/API/Selection/getRangeAt)方法取得。另外，可以通过构造函数 [`Range()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Range/Range) 来获得一个 `Range `。
 
-### 属性[节](https://developer.mozilla.org/zh-CN/docs/Web/API/Range#Properties)
+### 属性
 
 - [`Range.collapsed`](https://developer.mozilla.org/zh-CN/docs/Web/API/Range/collapsed) 只读
 
@@ -30,7 +30,7 @@ Range表示包含节点和部分文本节点的文档片段。
 
   返回 startContainer 中表示 `Range `起始位置的数字。
 
-### 方法[节](https://developer.mozilla.org/zh-CN/docs/Web/API/Range#Methods)
+### 方法
 
 #### 定位方法
 

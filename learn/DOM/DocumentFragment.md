@@ -1,14 +1,16 @@
 # DocumentFragment
 
-The **DocumentFragment** interface represents a minimal document object that has no parent. It is used as a lightweight version of [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) that stores a segment of a document structure comprised of nodes just like a standard document. The key difference is that because the document fragment isn't part of the active document tree structure, changes made to the fragment don't affect the document, cause [reflow](https://developer.mozilla.org/en-US/docs/Glossary/reflow), or incur any performance impact that can occur when changes are made.
+The **DocumentFragment** interface represents a minimal document object that has no parent. It is used as a lightweight version of [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) that stores a segment of a document structure comprised of nodes just like a standard document. 
+
+The key difference is that because the document fragment isn't part of the active document tree structure, ==changes made to the fragment don't affect the document, cause [reflow](https://developer.mozilla.org/en-US/docs/Glossary/reflow), or incur any performance impact that can occur== when changes are made.
 
 A common use for `DocumentFragment` is to create one, assemble a DOM subtree within it, then append or insert the fragment into the DOM using [`Node`](https://developer.mozilla.org/en-US/docs/Web/API/Node) interface methods such as [`appendChild()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) or [`insertBefore()`](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore). Doing this moves the fragment's nodes into the DOM, leaving behind an empty `DocumentFragment`. Because all of the nodes are inserted into the document at once, only one reflow and render is triggered instead of potentially one for each node inserted if they were inserted separately.
 
-This interface is also of great use with Web components: [` elements contain a `DocumentFragment` in their [`HTMLTemplateElement.content`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement/content) property.
+This interface is also of great use with Web components: elements contain a `DocumentFragment` in their [`HTMLTemplateElement.content` property.
 
 An empty `DocumentFragment` can be created using the [`document.createDocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment) method or the constructor.
 
-## Properties[Section](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment#Properties)
+## Properties
 
 *This interface has no specific properties, but inherits those of its parent, Node, and implements those of the ParentNode interface.*
 
@@ -28,15 +30,15 @@ An empty `DocumentFragment` can be created using the [`document.createDocumentFr
 
   Returns an `unsigned long` giving the amount of children that the `DocumentFragment`has.
 
-## Constructor[Section](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment#Constructor)
+## Constructor
 
 - [`DocumentFragment()`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment/DocumentFragment) 
 
   Returns an empty `DocumentFragment` object.
 
-## Methods[Section](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment#Methods)
+## Methods
 
-*This interface inherits the methods of its parent, Node, and implements those of the ParentNode interface**.*
+This interface inherits the methods of its parent, Node, and implements those of the ParentNode interface.
 
 - [`DocumentFragment.querySelector()`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment/querySelector)
 
@@ -50,7 +52,7 @@ An empty `DocumentFragment` can be created using the [`document.createDocumentFr
 
   Returns the first [`Element`](https://developer.mozilla.org/en-US/docs/Web/API/Element) node within the `DocumentFragment`, in document order, that matches the specified ID.
 
-## Specifications[Section](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment#Specifications)
+## Specifications
 
 | Specification                                                | Status          | Comment                                                      |
 | ------------------------------------------------------------ | --------------- | ------------------------------------------------------------ |

@@ -1,3 +1,6 @@
+## C 语言
+
+~~~c
 
 #include<stdio.h>
 int main ()
@@ -1095,3 +1098,5 @@ int main()
   return 0;
 }
 调用函数实现：
+~~~
+

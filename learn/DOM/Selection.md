@@ -2,15 +2,11 @@
 
 Selection对象表示用户选择的文本范围或插入符号的当前位置。它代表页面中的文本选区，可能横跨多个元素。文本选区由用户拖拽鼠标经过文字而产生。要获取用于检查或修改的Selection对象，请调用 [`window.getSelection()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection)。
 
- 
-
-用户可能从左到右（与文档方向相同）选择文本或从右到左（与文档方向相反）选择文本。**anchor**指向用户开始选择的地方，而**focus**指向用户结束选择的地方。如果你使用鼠标选择文本的话，anchor 就指向你按下鼠标键的地方，而focus就指向你松开鼠标键的地方。anchor 和 focus 的概念不能与选区的起始位置和终止位置混淆，因为anchor指向的位置可能在focus指向的位置的前面，也可能在focus指向位置的后面，这取决于你选择文本时鼠标移动的方向（也就是按下鼠标键和松开鼠标键的位置）。
-
- 
+用户可能从左到右（与文档方向相同）选择文本或从右到左（与文档方向相反）选择文本。**anchor**指向用户开始选择的地方，而**focus**指向用户结束选择的地方。如果你使用鼠标选择文本的话，anchor 就指向你按下鼠标键的地方，而focus就指向你松开鼠标键的地方。anchor 和 focus 的概念不能与选区的起始位置和终止位置混淆，因为anchor指向的位置可能在focus指向的位置的前面，也可能在focus指向位置的后面，这取决于你选择文本时鼠标移动的方向（也就是按下鼠标键和松开鼠标键的位置）。 
 
 Selection对象所对应的是用户所选择的 [`ranges`](https://developer.mozilla.org/zh-CN/docs/Web/API/Range) （区域），俗称拖蓝。默认情况下，该函数只针对一个区域，我们可以这样使用这个函数：
 
-```
+```js
 var selObj = window.getSelection();
 var range  = selObj.getRangeAt(0);
 ```
@@ -20,7 +16,7 @@ var range  = selObj.getRangeAt(0);
 
 调用 [`Selection.toString()`](https://developer.mozilla.org/zh-CN/docs/Web/API/Selection/toString) 方法会返回被选中区域中的**纯文本**。要求变量为字符串的函数会自动对对象进行该处理，例如：
 
-```
+```js
 var selObj = window.getSelection();
 window.alert(selObj);
 ```
@@ -124,10 +120,3 @@ window.alert(selObj);
 - [`containsNode`](https://developer.mozilla.org/zh-CN/docs/Web/API/Selection/containsNode)
 
   判断某一个node是否为当前选区的一部分。
-
-## 扩展
-
-- [`window.getSelection`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getSelection), [`document.getSelection`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/getSelection), [Range](https://developer.mozilla.org/en-US/docs/DOM/range)
-- HTML5 DOM Range [Interface Selection](http://html5.org/specs/dom-range.html#selection)
-- [IDL definition in Mozilla cross-reference](http://lxr.mozilla.org/mozilla/source/content/base/public/nsISelection.idl)
-- [目前 CSS 实现竖排文本较为通用的方式是什么？](http://www.zhihu.com/question/20874144)（页内搜索"Bidi"可了解Bidi优先顺序）

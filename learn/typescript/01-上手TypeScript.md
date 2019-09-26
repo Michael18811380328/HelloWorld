@@ -27,6 +27,15 @@ function greeter(person) {
 let user = "Jane User";
 
 document.body.innerHTML = greeter(user);
+
+// eg
+function greeter(person) {
+    return "Hello, " + person;
+}
+
+let user = "Jane User";
+
+document.body.innerHTML = greeter(user);
 ```
 
 ## 编译代码
