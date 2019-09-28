@@ -2,7 +2,7 @@
 
 This is Michael An's frontend knowledge blogs and codes.
 
-2019 09 to do list 
+2019-09
 
 - [x] remove C and Java codes from this repo. 
 - [x] move VUE to another Repo(special for VUE) 
@@ -13,20 +13,18 @@ This is Michael An's frontend knowledge blogs and codes.
   - [x] 2018-11（2019-09 3th week）
   - [x] 2018-12（2019-09 3th week）
 - [ ] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
-- [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
-- [ ] put books into another repo(if necessary)
 
+2019-10
 
-
-2019 10 to learn list
-
-- [ ] 深入学习数据结构(sig and eme)
+- [ ] 深入学习数据结构 JS data structure 全书看过60页，还有100页。国庆节期间学完，核心代码抄写3次以上。
 
 
 
 Future
 
 - [ ] 深入学习算法（Leecode）
+- [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
+- [ ] Vue.js
 - [ ] Swiper.js 
 - [ ] Three.js
 

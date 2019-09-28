@@ -201,3 +201,9 @@ And I have worked in Seafile for a whole year, I learn much things during the wh
 ### 2019.08
 
 Things are still complex. A pile of papers and blogs should be reviewed.I have studied ECMA5 from RuanYF and basic ES6. The mind map is doing.
+
+### 2019.09
+
+I reviewed and rewrite some notes from 2018-09 to 2018-12. Till now,  notes in 2018 have been reviewed.
+
+I found some informations: The basic knowledge(JS basic grammar) is more important than structure(such as jquery and react). During the last three years, we used backbone, angular, react, VUE, and in the future, new structure will replace react and VUE again. And basic knowledge is stable. So next month I should learn basic knowledge again. 
