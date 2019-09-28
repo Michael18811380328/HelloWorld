@@ -12,11 +12,12 @@ This is Michael An's frontend knowledge blogs and codes.
   - [x] 2018-10（2019-09 2th week）
   - [x] 2018-11（2019-09 3th week）
   - [x] 2018-12（2019-09 3th week）
-- [ ] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
+- [x] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
 
 2019-10
 
-- [ ] 深入学习数据结构 JS data structure 全书看过60页，还有100页。国庆节期间学完，核心代码抄写3次以上。
+- [ ] 国庆节假期：深入学习数据结构 JS data structure 全书看过60页，还有100页。国庆节期间学完，核心代码抄写3次以上。
+- [ ] 2019-01 代码复习
 
 
 
