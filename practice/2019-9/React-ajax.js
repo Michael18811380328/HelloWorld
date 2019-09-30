@@ -37,9 +37,7 @@ class Ajax extends React.Component {
     else {
       return (
         <ul>
-          {
-            items.map(item => (...))
-          }
+          { items.map(item => (...))}
         </ul>
       );
     }
