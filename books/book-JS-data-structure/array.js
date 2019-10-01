@@ -25,7 +25,7 @@ let a = num.reduce(function(previous, current, index){
 console.log(a); //15(累加)
 // reduce：叠加器函数：依次执行数组的每一项。根据返回值进行计算。
 // array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-// total 初始值或者计算结束后的返回值；arr（可选）当前元素所属的数组对象。initilaValue（可选）传递给函数的初始值。
+// total 初始值或者计算结束后的返回值；arr（可选）当前元素所属的数组对象。initialValue（可选）传递给函数的初始值。
 
 // 02 字符串高级排序
 // 通常情况下字符串按照ASCII编码进行排序。可以使用sort方法进行排序。

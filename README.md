@@ -1,8 +1,8 @@
 # README.md
 
-This is Michael An's frontend knowledge blogs and codes.
+This is Michael An's frontend knowledge blogs and codes and todo lists.
 
-2019-09
+### 2019-09
 
 - [x] remove C and Java codes from this repo. 
 - [x] move VUE to another Repo(special for VUE) 
@@ -14,9 +14,15 @@ This is Michael An's frontend knowledge blogs and codes.
   - [x] 2018-12（2019-09 3th week）
 - [x] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
 
-2019-10
+### 2019-10
 
-- [ ] 国庆节假期：深入学习数据结构 JS data structure 全书看过60页，还有100页。国庆节期间学完，核心代码抄写3次以上。
+- [ ] 国庆节假期：学习数据结构，全书看过60页，还有100页。国庆节期间学完，代码抄三遍
+  - [ ] 抄写前60页代码2次
+  - [ ] 60-80
+  - [ ] 80-100
+  - [ ] 100-120
+  - [ ] 120-140
+  - [ ] 140-160
 - [ ] 2019-01 代码复习
 
 
@@ -28,6 +34,7 @@ Future
 - [ ] Vue.js
 - [ ] Swiper.js 
 - [ ] Three.js
+- [ ] Statistics.js
 
 
 
@@ -38,3 +45,4 @@ Future
 - 简单知识：基础的HTML和JS等，直接删除
 - 重点知识：复习并保留，放在learn路径下
 - 第三方库介绍和学习：归类放在 lib 目录下
+
