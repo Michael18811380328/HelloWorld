@@ -2,8 +2,6 @@
 
 JEST 集成了断言库，不需要再引入第三方的断言库，并且非常完美的支持React组件化测试。
 
-s
-
 #### 操作流程
 
 1、新建文件夹（项目资料库）npm init 完成基本配置
@@ -73,8 +71,6 @@ npm test
 官方断言库
 
 https://jestjs.io/docs/zh-Hans/expect
-
-
 
 #### 其他操作
 

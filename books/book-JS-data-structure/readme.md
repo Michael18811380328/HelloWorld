@@ -713,7 +713,7 @@ this.bfs = function(v, callback) {
     let u = queue.dequeue();
     // 从字典中获取当前节点的全部相邻节点
     let neighbors = adjList.get(u);
-    // 设置全部相邻节点是灰色（已经访问，但是没有深入）
+    // 设置节点是灰色（已经访问，但是没有深入）
     color[u] = 'grey';
     // 遍历每一个相邻节点
     for (let i = 0; i < neighbors.length; i++) {
@@ -732,7 +732,255 @@ this.bfs = function(v, callback) {
 }
 ~~~
 
-P120
+改进算法：使用BFS算法计算不同节点的距离：在遍历相邻节点时，增加一个距离变量，这样可以存储不同相邻节点和初始节点的位置。下面是优化后的算法
+
+疑问：如果是子节点有不同的路径，通过多个路径可以访问一个节点，那么哪个路径是最短对的路径？
+
+~~~js
+let BFS = function(v) {
+  let color = initializeColor();
+  let queue = new Queue();
+  let d = []; // 存放不同节点的路径
+  let pred = []; // 存放前一个节点，用来计算最短距离
+  
+  queue.enqueue(v);
+  
+  // 初始化全部的路径距离是0，前一个节点是空
+  for (let i = 0; i < vertices.length; i++) {
+    d[vertices[i]] = 0;
+    pred[vertices[i]] = null;
+  }
+  
+  while (!queue.isEmpty()) {
+    let u = queue.dequeue();
+    let neighbors = adjList.get(u);
+    color[u] = 'grey';
+    for (let i = 0; i < neighbors.length; i++) {
+      let w = neighbors[i];
+      if (color[w] === 'white') {
+        color[w] = 'grey';
+        // 路径增加，设置前一个节点为父节点
+        d[w] = d[u] + 1;
+        pred[w] = u;
+        queue.enqueue(w);
+      }
+    }
+    color[u] = 'black';
+  }
+  return {
+    distances: d,
+    predecessors: pred,
+  };
+};
+
+// distances: [A: 0, B: 1, C: 1, D: 1, E: 2, F: 2, G: 2, H: 2 , I: 3],
+// predecessors: [A: null, B: "A", C: "A", D: "A", E: "B", F: "B", G:"C", H: "D", I: "E"]
+
+// 然后计算顶点（A）到其他节点的路径
+~~~
+
+#### 2、深度优先算法 dfs
+
+首先探索一个分支，沿着路径探索，直到这个路径被全部探索，然后原路返回探索下一个路径。深度优先算法是递归的，所以使用栈更合适。
+
+~~~js
+// 辅助函数和上面相同
+// 开始第一个节点
+this.des = function(callback) {
+  let color = initializeColor();
+  for (let i = 0; i < vertices.length; i++) {
+    if (color[vertices[i]] === 'white') {
+      dfsVisit(vertices[i], color, callback);
+    }
+  }
+}
+// 访问节点函数
+let dfsVisit = function(u, color, callback) {
+  color[u] = 'grey';
+  if (callback) callback(u);
+  let neighbors = adjList.get(u);
+  for (let i = 0; i < neighbors.length; i++) {
+    let w = neighbors[i];
+    if (color[w] === 'white') {
+      // 递归遍历这个节点
+      dfsVisit(w, color, callback);
+    }
+  }
+  // 遍历结束后，设置当前节点是黑色
+  color[u] = 'black';
+}
+~~~
+
+深度优先算法改进：我们需要知道一个节点变成灰色（开始探索）的时间，一个节点变成黑色（结束探索的时间）以及这个节点的前一个节点（node）
+
+下面是改进的 DFS 算法
+
+~~~js
+let time;
+
+this.DFS = function(callback) {
+  let color = initializeColor();
+  // 设置初始时间是0
+  time = 0;
+  // 创建开始时间和结束时间的数组
+  let discovery = []; 
+  let finished = [];
+  // 存储前一个节点的数组
+  let predecessors = [];
+	for (let i = 0; i < vertices.length; i++) {
+    discovery[vertices[i]] = 0;
+    finished[vertices[i]] = 0;
+    predecessors[vertices[i]] = null;
+  }
+  for (let i = 0; i < vertices.length; i++) {
+    if (color[vertices[i]] === 'white') {
+      dfsVisit(vertices[i], color, discovery, finished, predecessors, callback);
+    }
+  }
+  return { discovery, finished, predecessors };
+}
+
+dfsVisit = (u, color, d, f, p, callback) => {
+  // 开始探索U节点
+  color[u] = 'grey';
+  d[u] = ++time;
+  if (callback) callback;
+  let neighbors = adjList.get(u);
+  for (let i = 0; i < neighbors.length; i++) {
+    let w = neighbors[i];
+    if (color[w] === 'white') {
+      dfsVisit(w, color, d, f, p, callback);
+      p[w] = u;
+    }
+    color[u] = 'black';
+    f[u] = ++time;
+    // 结束探索U节点
+  }
+}
+~~~
+
+改进后的算法满足（V表示节点的数量）通过 d[u] / f[u] 可以计算不同节点的时间比值，可以用于拓扑排序
+
+1 ≤ d[u] < f[u] ≤2 |V|
+
+
+
+拓扑排序（DFS扩展）
+
+实例：如果一些任务的执行时连续的（需要步骤）然后不同的任务构成不同的节点，节点之间可以获取最短路径，可以计算具体遍历节点的时间，可以计算多种遍历节点的情况。
+
+
+
+## 第十章 排序和搜索算法
+
+排序算法是搜索算法的基础
+
+用数组构建一个简单的数据结构来排序
+
+~~~js
+function ArrayList() {
+  let arr = [];
+  this.insert = (item) => {
+    arr.push(item);
+  };
+  // 验证排序的结果
+  this.toString = () => {
+    console.log(arr.join(''));
+  }
+} 
+~~~
+
+下面是五个排序算法，由差变好
+
+~~~js
+function ArrayList() {
+  let arr = [];
+  this.insert = (item) => {
+    arr.push(item);
+  };
+  this.toString = () => {
+    console.log(arr.join(''));
+  }
+  
+  // 1、冒泡排序法(n平方)
+  // 缺点：内循环和外循环消耗时间，频繁交换数组的位置消耗内存。
+  bubbleSort = () => {
+    let len = arr.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          let k = arr[j + 1];
+          arr[j + 1] = arr[j];
+          arr[j] = k;
+        }
+      }
+    }
+  }
+  // 改进版冒泡排序法（内循环次数减半）
+  bubbleSortUpdate = () => {
+    let len = arr.length;
+    for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len - i - 1; j++) {
+        if (arr[j] < arr[j + 1]) {
+          // 交换函数，交换数组中两个项的位置；
+          swap(arr[j], arr[j + 1]);
+        }
+      }
+    }
+  }
+  
+  // 2 选择排序法（遍历数组获取最小值，然后和第一位交换）时间复杂度n平方
+  selectionSort = () => {
+    let len = arr.length;
+    let minItem;
+    for (let i = 0; i < len; i++) {
+      minItem = i;
+      for (let j = i; j < len; j++) {
+        if (arr[minItem] > arr[j]) {
+          minItem = j;
+        }
+      }
+      if (i !== minItem) {
+        swap(arr[i], arr[minItem]);
+      }
+    }
+  }
+  
+  // 3 插入排序法
+  insertSort = () => {
+    let len = arr.length;
+    let j , temp;
+    for (let i = 0; i < len; i++) {
+      j = i;
+      temp = arr[i];
+      while (j > 0 && arr[j - 1] > temp) {
+        arr[j] = arr[j - 1];
+        j--;
+      }
+      arr[j] = temp;
+    }
+  }
+  
+  // 前三个派系性能不好，后面两个排序可以用在实际工作中
+  
+}
+~~~
+
+P150
+
+上面的代码把一部分变量定义的函数内部开始位置，不定义在循环内部，这样可以节省内存。
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -16,7 +16,7 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 
 ### 2019-10
 
-- [ ] move all VUE to another Repo
+- [x] Delete all VUE and python codes
 - [ ] Data structure
   - [x] Pre 60 page (1th)
   - [x] 60-80 (1th)
@@ -25,20 +25,21 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
   - [ ] 120-140 (2th)
   - [ ] 140-160 (3th)
 - [ ] review codes in 2019
-  - [ ] 2019-01(3th)
-  - [ ] 2019-02(4th)
+  - [x] 2019-01(3th)
+  - [x] 2019-02(4th)
   - [ ] 2019-03(4th)
 
 
 
 Future
 
-- [ ] 深入学习算法（Leecode）
+- [ ] 深入学习算法（Leecode）another repo
 - [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
 - [ ] Vue.js
 - [ ] Swiper.js 
 - [ ] Three.js
 - [x] Statistics.js
+- [ ] 把JS部分小游戏单独拿出来，放在另一个仓库中。对外使用React-router实现路由。
 
 
 
