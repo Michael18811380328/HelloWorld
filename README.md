@@ -16,14 +16,18 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 
 ### 2019-10
 
-- [ ] 国庆节假期：学习数据结构，全书看过60页，还有100页。国庆节期间学完，代码抄三遍
-  - [ ] 抄写前60页代码2次
-  - [ ] 60-80
-  - [ ] 80-100
-  - [ ] 100-120
-  - [ ] 120-140
-  - [ ] 140-160
-- [ ] 2019-01 代码复习
+- [ ] move all VUE to another Repo
+- [ ] Data structure
+  - [x] Pre 60 page (1th)
+  - [x] 60-80 (1th)
+  - [x] 80-100 (1th)
+  - [x] 100-120 (2th)
+  - [ ] 120-140 (2th)
+  - [ ] 140-160 (3th)
+- [ ] review codes in 2019
+  - [ ] 2019-01(3th)
+  - [ ] 2019-02(4th)
+  - [ ] 2019-03(4th)
 
 
 
@@ -34,15 +38,13 @@ Future
 - [ ] Vue.js
 - [ ] Swiper.js 
 - [ ] Three.js
-- [ ] Statistics.js
+- [x] Statistics.js
 
 
 
 代码复习重构中
 
-- 备份文件（例如安全、浏览器性能）：文件备份，放在 backup 路径下
-- 练习代码：代码重构，放在 practice 路径下
-- 简单知识：基础的HTML和JS等，直接删除
-- 重点知识：复习并保留，放在learn路径下
-- 第三方库介绍和学习：归类放在 lib 目录下
-
+- 备份文件（例如安全、浏览器性能）：备份 backup
+- 练习代码：代码重构，practice
+- 重点知识：复习并保留，learn
+- 第三方库：lib

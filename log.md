@@ -207,3 +207,7 @@ Things are still complex. A pile of papers and blogs should be reviewed.I have s
 I reviewed and rewrite some notes from 2018-09 to 2018-12. Till now,  notes in 2018 have been reviewed.
 
 I found some informations: The basic knowledge(JS basic grammar) is more important than structure(such as jquery and react). During the last three years, we used backbone, angular, react, VUE, and in the future, new structure will replace react and VUE again. And basic knowledge is stable. So next month I should learn basic knowledge again. 
+
+### 2019.10
+
+There are less than 100 days left in 2019. Don't leave any regrets these days.

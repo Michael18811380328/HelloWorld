@@ -40,7 +40,7 @@ function linkedList() {
   // 链表相关API操作不熟练
   this.insert = function(position, ele) {
     if (position >= 0 && position <= length) {
-      let node = new Node(element);
+      let node = new Node(ele);
       let current = head;
       let previous;
       let index = 0;
@@ -188,8 +188,6 @@ function DoubleLinkedList() {
     }
     length ++;
     return true;
-  } else {
-    return false;
   }
 
   this.removeAt = (position) => {
