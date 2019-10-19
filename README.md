@@ -38,7 +38,7 @@ Future
 - [ ] Swiper.js 
 - [ ] Three.js
 - [x] Statistics.js
-- [ ] Chart.js
+- [ ] Chart.js（[https://www.chartjs.org](https://www.chartjs.org/)）http://chartjs.cn/
 - [ ] 把JS部分小游戏单独拿出来，放在另一个仓库中。对外使用React-router实现路由。
 
 

@@ -1,17 +1,5 @@
 # webpack打包原理
 
-![96](https://upload.jianshu.io/users/upload_avatars/5779996/f4c9fa0b-aece-41ce-a9e0-5fe30c624d2c.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96)
-
- 
-
-[lawpachi](https://www.jianshu.com/u/209bd3bc6844)
-
- 
-
-关注
-
- 1.1 2018.02.05 10:26 字数 919 阅读 28831评论 0喜欢 29
-
 webpack只是一个打包模块的机制，只是把依赖的模块转化成可以代表这些包的静态文件。并不是什么commonjs或者amd之类的模块化规范。webpack就是识别你的 入口文件。识别你的模块依赖，来打包你的代码。至于你的代码使用的是commonjs还是amd或者es6的import。webpack都会对其进行分析。来获取代码的依赖。webpack做的就是分析代码。转换代码，编译代码，输出代码。webpack本身是一个node的模块，所以webpack.config.js是以commonjs形式书写的(node中的模块化是commonjs规范的)
 
 webpack中每个模块有一个唯一的id，是从0开始递增的。整个打包后的bundle.js是一个匿名函数自执行。参数则为一个数组。数组的每一项都为个function。function的内容则为每个模块的内容，并按照require的顺序排列。
