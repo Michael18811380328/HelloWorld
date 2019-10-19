@@ -23,6 +23,8 @@
 
 
 
+
+
 ## 第一章 概述
 
 ### 数据结构
@@ -288,17 +290,19 @@ function HashTable() {
 
 ~~~js
 // 分离链接：首先写一个辅助类（在哈希表内部），把键值对存放在一个对象实例中
-let valuePair = (key, value) => {
+let ValuePair = (key, value) => {
   this.key = key;
   this.value = value;
 }
+// 注意：上面是一个类（可以把key value 设置到当前类的属性上）
+
 // 下面改写散列表的方法
 this.put = (key, value) => {
   let position = lostHashCode(key);
   if (table[position] === undefined) {
     table[position] = new LinkedList();
   }
-  let obj = valuePair(key, value);
+  let obj = new ValuePair(key, value);
   table[position].append(obj);
 }
 
@@ -403,7 +407,7 @@ this.remove = (key) => {
 }
 ~~~
 
-==更好的散列函数== 之前的散列函数会产生很多散列冲突，所以我们需要写一个冲突少，性能好的函数。下面的函数是社区推荐的较好的散列函数
+==更好的散列函数== 之前的散列函数会产生很多散列冲突，所以我们需要写一个冲突少，性能好的函数。下面的函数是社区推荐的较好的散列函数。
 
 ~~~js
 function djb2HashCode(key) {
@@ -875,6 +879,8 @@ dfsVisit = (u, color, d, f, p, callback) => {
 
 排序算法是搜索算法的基础
 
+### 排序算法
+
 用数组构建一个简单的数据结构来排序
 
 ~~~js
@@ -892,6 +898,8 @@ function ArrayList() {
 
 下面是五个排序算法，由差变好
 
+#### 1 冒泡排序法
+
 ~~~js
 function ArrayList() {
   let arr = [];
@@ -902,7 +910,6 @@ function ArrayList() {
     console.log(arr.join(''));
   }
   
-  // 1、冒泡排序法(n平方)
   // 缺点：内循环和外循环消耗时间，频繁交换数组的位置消耗内存。
   bubbleSort = () => {
     let len = arr.length;
@@ -928,59 +935,339 @@ function ArrayList() {
       }
     }
   }
-  
-  // 2 选择排序法（遍历数组获取最小值，然后和第一位交换）时间复杂度n平方
-  selectionSort = () => {
-    let len = arr.length;
-    let minItem;
-    for (let i = 0; i < len; i++) {
-      minItem = i;
-      for (let j = i; j < len; j++) {
-        if (arr[minItem] > arr[j]) {
-          minItem = j;
-        }
-      }
-      if (i !== minItem) {
-        swap(arr[i], arr[minItem]);
-      }
-    }
-  }
-  
-  // 3 插入排序法
-  insertSort = () => {
-    let len = arr.length;
-    let j , temp;
-    for (let i = 0; i < len; i++) {
-      j = i;
-      temp = arr[i];
-      while (j > 0 && arr[j - 1] > temp) {
-        arr[j] = arr[j - 1];
-        j--;
-      }
-      arr[j] = temp;
-    }
-  }
-  
-  // 前三个派系性能不好，后面两个排序可以用在实际工作中
-  
 }
 ~~~
 
-P150
 
-上面的代码把一部分变量定义的函数内部开始位置，不定义在循环内部，这样可以节省内存。
+#### 2 选择排序法
+
+（遍历数组获取最小值，然后和第一位交换）时间复杂度n平方
+
+~~~js
+selectionSort = () => {
+  let len = arr.length;
+  let minItem;
+  for (let i = 0; i < len; i++) {
+    minItem = i;
+    for (let j = i; j < len; j++) {
+      if (arr[minItem] > arr[j]) {
+        minItem = j;
+      }
+    }
+    if (i !== minItem) {
+      swap(arr[i], arr[minItem]);
+    }
+  }
+}
+~~~
+
+#### 3 插入排序法  
+
+  ~~~js
+insertSort = () => {
+  let len = arr.length;
+  let j , temp;
+  for (let i = 0; i < len; i++) {
+    j = i;
+    temp = arr[i];
+    while (j > 0 && arr[j - 1] > temp) {
+      arr[j] = arr[j - 1];
+      j--;
+    }
+    arr[j] = temp;
+  }
+}
+  // 前三个性能不好，后面两个排序可以用在实际工作中
+  // 上面的代码把一部分变量定义的函数内部开始位置，不定义在循环内部，这样可以节省内存。
+  ~~~
+
+#### 4 并归排序
+
+nlogn 火狐浏览器使用
+
+思路：把一个数组切分成很多小数组，然后对每个小数组排序，最后将小数组并归一个排序完整的大数组。
+
+~~~js
+this.mergeSort = function() {
+  array = mergeSortRec(array);
+}
+
+let mergeSortRect = function(array) {
+  let len = array.length;
+  if (len === 1) {
+    return array;
+  }
+  let mid = Math.floor(length / 2);
+  let left = array.slice(0, mid);
+  let right = array.slice(min, len);
+  return merge(mergeSortRect(left), mergeSortRect(right));
+}
+
+let merge = function(left, right) {
+  let result = [];
+  let il, ir;
+  // 用新数组迭代两个旧数组
+  while (il < left.length && ir < right.length) {
+    if (left[il] < right[ir]) {
+      result.push(left[il]);
+    } else {
+      result.push(right[ir]);
+    }
+  }
+  while (il < left.length) {
+    result.push(left[il]);
+  }
+  while (ir < right.length) {
+    result,push(right[ir]);
+  }
+  return result;
+}
+~~~
+
+#### 5 快速排序
+
+快速排序法较复杂，性能最好 nLogn。
+
+思想：首先获取数组的中间项（主元）；然后设置第一个项为前指针，最后一个项是后指针。前指针向后移动，直到找到一个比中间项大的元素，后指针向前移动，找到一个比中间项小的元素，交换两个元素的位置。然后继续执行，直到前指针大于后指针。那么这样一轮过后，前面的项都比中间项小，后面的项都比中间项大；之后利用递归的思想，把数组划分成前后两部分，继续排序，最后排序结束。
+
+~~~js
+this.quickSort = function() {
+  quick(array, 0, array.length - 1);
+}
+
+function quick(array, left, right) {
+  let index;
+  if (array.length > 1) {
+    index = partition(array, left, right);
+    if (left < index - 1) {
+      quick(array, left, index - 1);
+    }
+    if (index < right) {
+      quick(array, index, right);
+    }
+  }
+}
+
+function partition(array, left, right) {
+  // 主元可以随机选择；通常选择中间一个排序性能较好
+  let middle = array[Math.floor((left + right) / 2)];
+  let i = left, j = right;
+  while (i < j) {
+    while (array[i] < middle) {
+      i++;
+    }
+    while (array[j] > middle) {
+      j--;
+    }
+    if (i <= j) {
+      swapQuickStort(array, i, j);
+      i++;
+      j--;
+    }
+  }
+  return i;
+}
+
+function swapQuickStort(array, index1, index2) {
+  const temp = array[index1];
+  array[index1] = array[index2];
+  array[index2] = temp;
+}
+~~~
+
+### 搜索算法
+
+#### 1 顺序搜索
+
+最低效的搜索方法，需要遍历整个数组。
+
+~~~js
+function sequentialSearch(array, target) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === target) {
+      return i;
+    }
+  }
+  return -1;
+}
+~~~
+
+#### 2 二分搜索
+
+要求被搜索的数组已经排序，然后找到中间的值，和目标值相比较，直到找到目标值。
+
+~~~js
+this.binarySearch = function(target) {
+  this.quickSort();
+  let low = 0, height = array.length - 1;
+  let middle, element;
+  while (low <= height) {
+    mid = Math.floor((low + height) / 2);
+    element = array[mid];
+    if (element < target) {
+      low = middle + 1
+    } else if (element > target) {
+      height = middle - 1;
+    } else {
+      return middle;
+    }
+  }
+  return -1;
+}
+~~~
+
+## 第十一章 算法补充
+
+### 递归
+
+递归：把一个复杂问题转化成多步重复计算。可以一个函数调用自己，可以两个函数互相调用。
+
+在ES6中，可以使用尾调用（函数最后一句代码调用函数）进行优化。其他语言中递归性能不好，ES6通过尾递归可以优化性能。
+注意：递归需要有边界条件，避免无限递归造成浏览器内存溢出（stack overflow error）。例如斐波那契数列：
+
+~~~js
+function fibonacci(n) {
+  if (n === 1 || n === 2) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+// 非递归写法
+function fib(num) {
+  let result = 1;
+  let n1 = 1, n2 = 1;
+  for (let i = 3; i < num; i++) {
+    result = n1 + n2;
+    n1 = n2;
+    n2 = result;
+  }
+  return result;
+}
+~~~
+
+递归代码量很少，更容易理解；难点是边界条件和开始条件。
+
+### 动态规划
+
+分而治之：把一个复杂的问题分解成很多无关联的小问题（例如接雨水）。
+
+动态规划：把一个复杂的问题分解成很多关联的小问题（识别子问题和边界条件）下面是典型问题
+
+~~~markdown
+- 背包问题:给出一组项目，各自有值和容量，目标是找出总值最大的项目的集合。这个 问题的限制是，总容量必须小于等于“背包”的容量。
+- 最长公共子序列:找出一组序列的最长公共子序列(可由另一序列删除元素但不改变余 下元素的顺序而得到)。
+- 矩阵链相乘:给出一系列矩阵，目标是找到这些矩阵相乘的最高效办法(计算次数尽可 能少)。相乘操作不会进行，解决方案是找到这些矩阵各自相乘的顺序。
+- 硬币找零:给出面额为d1...dn的一定数量的硬币和要找零的钱数，找出有多少种找零的 方法。
+- 图的全源最短路径:对所有顶点对(u, v)，找出从顶点u到顶点v的最短路径。
+~~~
+
+### 最少硬币找零算法
+
+硬币找零问题是给出要找零的钱数，以及可 用的硬币面额d1...dn及其数量，找出有多少种找零方法。
+
+最少硬币找零问题是给出要找零的钱数， 以及可用的硬币面额d1...dn及其数量，找到所需的最少的硬币个数（就是上面硬币找零算法结果中，硬币最少的一种算法）。 
+
+例如：美国有以下面额(硬币):d1=1，d2=5，d3=10，d4=25。 如果要找36美分的零钱，我们可以用1个25美分、1个10美分和1个便士(1美分)。 
+
+~~~js
+function MinCoinChange(coins) {
+  let coins = coins;
+  let cache = {};
+  this.makeChange = (amount) => {
+    let me = this;
+    if (!amount) return [];
+    if (cache[amount]) return cache[amount];
+    
+    let min = [], newMin, newAmount;
+    for (let i = 0; i < coins.length; i++) {
+      let coin = coins[i];
+      newAmount = amount - coin;
+      if (newAmount >= 0) {
+        // 递归获取最小值
+        newMin = me.makeChange(newAmount);
+      }
+      if (newAmount >=0 && (newMin.length < min.length - 1) || !min.length) && (newMin.length || !newAmount)) {
+        min = [coin].concat(newMin);
+        console.log(min, amount);
+      }
+    }
+    return (cache[amount] = min);
+  }
+}
+~~~
+
+### 贪心算法
+
+贪心算法：追求每一个局部的问题的最优解。大部分情况下可以获取正确的值，少出情况不是最优解，这样写性能很好。
+
+~~~js
+function MinCoinChange(coins) {
+  let coins = coins;
+  // 这里的coins是从小到大排序的，然后依次把最大的值加入到total中，然后把coin存储在change中
+  this.makeChange = (amount) => {
+    let change = [];
+    let total = 0;
+    for (let i = coins.length; i >= 0; i--) {
+      let coin = coins[i];
+      while (total + coin <= amount) {
+        change.push(coin);
+        total += coin;
+      }
+    }
+    return change;
+  }
+}
+~~~
+
+如果是 [1, 5, 10, 25] target 36 可以算对；如果是[1, 3, 4] target 6 就会算错
+
+如果对算法精度要求不高，贪心算法可以在较好的时间内计算出可以接受的答案。
+
+### 大O表示法与时间复杂度
+
+如果算法的计算时间和传入参数大小无关，即算法的耗时是一个常数，那么复杂度就是O1
+
+~~~js
+function add (a,b) {
+  return a + b;
+}
+~~~
+
+如果算法的计算时间和传入的数组的参数个数相等，那么就是On
+
+~~~js
+function index(arr, target) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === target) return i;
+  }
+  return -1;
+}
+~~~
+
+如果计算时间和数组的参数的平方相等，就是On2，例如冒泡排序法的内循环*外循环
+
+常见的算法复杂度的计算
 
 
 
+最后列出算法比赛的网站
 
+- UVa Online Judge(http://uva.onlinejudge.org/):这个网站包含了世界各大赛事的题目， 包括由IBM赞助的ACM国际大学生程序竞赛 ICPC 
 
+- Sphere Online Judge(http://www.spoj.com/): 这个网站和UVa Online Judge差不多，但支 
 
+  持用更多语言解题(包括JavaScript)。 
 
+-   Coder Byte(http://coderbyte.com/):这个网站包含了74个可以用JavaScript解答的题目(简 
 
+  单、中等难度和非常困难)。 
 
+-   Project Euler(https://projecteuler.net/):这个网站包含了一系列数学/计算机的编程题目。 
 
+  你所要做的就是输入那些题目的答案，不过我们可以用算法来找到正确的解答。 Hacker Rank(https://www.hackerrank.com):这个网站包含了263个挑战，分为16个类别 
 
+  (可以应用本书中的算法和更多其他算法)。它也支持JavaScript和其他语言。 
 
+-   Code Chef(http://www.codechef.com/):这个网站包含一些题目，并会举办在线比赛。 
 
+-   Top Coder(http://www.topcoder.com/):此网站会举办算法联赛，这些联赛通常由NASA、 
 
-
+  Google、Yahoo!、Amazon和Facebook这样的公司赞助。参加其中一些赛事，你可以获得 到赞助公司工作的机会，而参与另一些赛事会赢得奖金。这个网站也提供很棒的解题和 算法教程。 

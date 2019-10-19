@@ -1,4 +1,4 @@
-// 创建一个字典类，基于数组
+// 方法一：创建一个字典类，基于数组
 function Dictionary() {
 
   this.dataStore = [];
@@ -54,3 +54,56 @@ dictionary.add('tel', '18812345678');
 dictionary.showAll();
 dictionary.remove('tel');
 dictionary.showAll();
+
+
+// 方法二：字典类似于 Map 对象
+function Dictionary() {
+
+  items = {};
+
+  this.has = (key) => {
+    return key in items;
+  }
+
+  this.set = (key, value) => {
+    items[key] = value;
+  }
+
+  this.get = (key) => {
+    return items.has[key] ? items[key] : undefined;
+  }
+
+  this.remove = (key) => {
+    if (this.has(key)) {
+      delete items[key];
+      return true;
+    }
+    return false;
+  }
+
+  this.values = () => {
+    let values = [];
+    for (let key in items) {
+      if (this.has(key)) {
+        values.push(items[key]);
+      }
+    }
+    return values;
+  }
+
+  this.keys = () => {
+    return items.keys
+  }
+
+  this.clear = () => {
+    items = {};
+  }
+
+  this.size = () => {
+    return Object.keys(items).length;
+  }
+
+  this.getItems = () => {
+    return items;
+  }
+}

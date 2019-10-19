@@ -22,7 +22,7 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
   - [x] 60-80 (1th)
   - [x] 80-100 (1th)
   - [x] 100-120 (2th)
-  - [ ] 120-140 (2th)
+  - [x] 120-140 (2th)
   - [ ] 140-160 (3th)
 - [ ] review codes in 2019
   - [x] 2019-01(3th)
@@ -33,12 +33,12 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 
 Future
 
-- [ ] 深入学习算法（Leecode）another repo
 - [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
 - [ ] Vue.js
 - [ ] Swiper.js 
 - [ ] Three.js
 - [x] Statistics.js
+- [ ] Chart.js
 - [ ] 把JS部分小游戏单独拿出来，放在另一个仓库中。对外使用React-router实现路由。
 
 

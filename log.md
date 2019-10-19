@@ -211,3 +211,4 @@ I found some informations: The basic knowledge(JS basic grammar) is more importa
 ### 2019.10
 
 There are less than 100 days left in 2019. Don't leave any regrets these days.
+

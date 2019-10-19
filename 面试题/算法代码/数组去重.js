@@ -1,7 +1,5 @@
 // 方法一：
-
 // 双层循环， 外层循环元素， 内层循环时比较值
-
 // 如果有相同的值则跳过， 不相同则push进数组
 
 Array.prototype.distinct = function() {
@@ -22,14 +20,10 @@ Array.prototype.distinct = function() {
 }
 var arra = [1, 2, 3, 4, 4, 1, 1, 2, 1, 1, 1];
 arra.distinct(); //返回[3,4,2,1]
+
 // 方法二： 利用splice直接在原数组进行操作
-
-// 双层循环， 外层循环元素， 内层循环时比较值
-
-// 值相同时， 则删去这个值
-
+// 双层循环， 外层循环元素， 内层循环时比较值，值相同时， 则删去这个值
 // 注意点: 删除元素之后， 需要将数组的长度也减1.
-
 Array.prototype.distinct = function() {
   var arr = this,
     i,
@@ -54,7 +48,6 @@ console.log(b.toString()); //1,2,3,4,5,6,56
 // 缺点： 占用内存高， 速度慢
 
 // 方法三： 利用对象的属性不能相同的特点进行去重
-
 Array.prototype.distinct = function() {
   var arr = this,
     i,
@@ -72,12 +65,9 @@ Array.prototype.distinct = function() {
 var a = [1, 2, 3, 4, 5, 6, 5, 3, 2, 4, 56, 4, 1, 2, 1, 1, 1, 1, 1, 1, ];
 var b = a.distinct();
 console.log(b.toString()); //1,2,3,4,5,6,56
+
 // 方法四： 数组递归去重
-
-// 运用递归的思想
-
-// 先排序， 然后从最后开始比较， 遇到相同， 则删除
-
+// 运用递归的思想， 先排序， 然后从最后开始比较， 遇到相同， 则删除
 Array.prototype.distinct = function() {
   var arr = this,
     len = arr.length;
@@ -99,8 +89,8 @@ Array.prototype.distinct = function() {
 var a = [1, 2, 3, 4, 5, 6, 5, 3, 2, 4, 56, 4, 1, 2, 1, 1, 1, 1, 1, 1, 56, 45, 56];
 var b = a.distinct();
 console.log(b.toString()); //1,2,3,4,5,6,45,56
-// 方法五： 利用indexOf以及forEach
 
+// 方法五： 利用indexOf以及forEach
 Array.prototype.distinct = function() {
   var arr = this,
     result = [],

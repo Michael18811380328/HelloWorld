@@ -19,19 +19,6 @@
 11. [软技能（95道）](https://github.com/pwstrick/daily/blob/master/interview/skill.md)
 12. [前端（7道）](https://github.com/pwstrick/daily/blob/master/interview/fe.md)
 
-## 文章集锦
-分享与面试相关的文章，不定期更新。
-
-[2019年](https://github.com/pwstrick/daily/blob/master/article/2019.md)
-
-## 书籍分享
-
-在下面目录中的书都是我以前浏览过的，有些是精读过的，有些是粗读过的，有些是翻过页的，其中有些还有专门的书摘。
-
-[书籍目录](https://github.com/pwstrick/daily/blob/master/book/names.md)
-
-
-
 
 
 
