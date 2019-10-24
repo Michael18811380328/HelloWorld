@@ -2,35 +2,6 @@
 
 This is Michael An's frontend knowledge blogs and codes and todo lists.
 
-### 2019-09
-
-- [x] remove C and Java codes from this repo. 
-- [x] move VUE to another Repo(special for VUE) 
-- [x] review codes in 2018，then put them into learn folder. (Sig and eme)
-  - [x] 2018-08（2019-09 1th week）
-  - [x] 2018-09（2019-09 2th week）
-  - [x] 2018-10（2019-09 2th week）
-  - [x] 2018-11（2019-09 3th week）
-  - [x] 2018-12（2019-09 3th week）
-- [x] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
-
-### 2019-10
-
-- [x] Delete all VUE and python codes
-- [ ] Data structure
-  - [x] Pre 60 page (1th)
-  - [x] 60-80 (1th)
-  - [x] 80-100 (1th)
-  - [x] 100-120 (2th)
-  - [x] 120-140 (2th)
-  - [ ] 140-160 (3th)
-- [ ] review codes in 2019
-  - [x] 2019-01(3th)
-  - [x] 2019-02(4th)
-  - [ ] 2019-03(4th)
-
-
-
 Future
 
 - [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.

@@ -1,10 +1,12 @@
 # webpack打包原理
 
-webpack只是一个打包模块的机制，只是把依赖的模块转化成可以代表这些包的静态文件。并不是什么commonjs或者amd之类的模块化规范。webpack就是识别你的 入口文件。识别你的模块依赖，来打包你的代码。至于你的代码使用的是commonjs还是amd或者es6的import。webpack都会对其进行分析。来获取代码的依赖。webpack做的就是分析代码。转换代码，编译代码，输出代码。webpack本身是一个node的模块，所以webpack.config.js是以commonjs形式书写的(node中的模块化是commonjs规范的)
+webpack只是一个打包模块的机制，只是把依赖的模块转化成可以代表这些包的静态文件。并不是什么commonjs或者amd之类的模块化规范。
+
+webpack就是识别你的 入口文件、模块依赖，来打包你的代码。至于你的代码使用的是commonjs还是amd或者es6的import。webpack都会对其进行分析。来获取代码的依赖。webpack做的就是分析代码。转换代码，编译代码，输出代码。webpack本身是一个node的模块，所以webpack.config.js是以commonjs形式书写的(node中的模块化是commonjs规范的)
 
 webpack中每个模块有一个唯一的id，是从0开始递增的。整个打包后的bundle.js是一个匿名函数自执行。参数则为一个数组。数组的每一项都为个function。function的内容则为每个模块的内容，并按照require的顺序排列。
 
-```
+```js
 // webpack.config.js
 module.exports = {
   entry:'./a.js',
@@ -14,21 +16,18 @@ module.exports = {
 };
 ```
 
-```
+```js
 // a.js
 var b = require('./b.js');
-
 console.log('a');
-
 b.b1();
 ```
 
-```
+```js
 // b.js
 exports.b1 = function () {
   console.log('b1')
 };
-
 exports.b2 = function () {
   console.log('b2')
 };
@@ -36,26 +35,22 @@ exports.b2 = function () {
 
 以上代码我们打包处理的js为
 
-```
+```js
 // bundle.js
 /******/ (function(modules) { // webpackBootstrap
 /******/    // The module cache
 /******/    var installedModules = {};
-
 /******/    // The require function
 /******/    function __webpack_require__(moduleId) {
-
 /******/        // Check if module is in cache
 /******/        if(installedModules[moduleId])
 /******/            return installedModules[moduleId].exports;
-
 /******/        // Create a new module (and put it into the cache)
 /******/        var module = installedModules[moduleId] = {
 /******/            exports: {},
 /******/            id: moduleId,
 /******/            loaded: false
 /******/        };
-
 /******/        // Execute the module function
 /******/        modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
@@ -65,17 +60,12 @@ exports.b2 = function () {
 /******/        // Return the exports of the module
 /******/        return module.exports;
 /******/    }
-
-
 /******/    // expose the modules object (__webpack_modules__)
 /******/    __webpack_require__.m = modules;
-
 /******/    // expose the module cache
 /******/    __webpack_require__.c = installedModules;
-
 /******/    // __webpack_public_path__
 /******/    __webpack_require__.p = "";
-
 /******/    // Load entry module and return exports
 /******/    return __webpack_require__(0);
 /******/ })
@@ -83,26 +73,18 @@ exports.b2 = function () {
 /******/ ([
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
-
     var b = __webpack_require__(1);
-
     console.log('a');
-
     b.b1();
-
-
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
-
     exports.b1 = function () {
       console.log('b1')
     };
-
     exports.b2 = function () {
       console.log('b2')
     };
-
 /***/ }
 /******/ ]);
 ```
@@ -110,7 +92,7 @@ exports.b2 = function () {
 我们看到_*webpack_require*是模块加载函数，接收模块id（对，webpack中每个模块都会有一个独一无二的id，其实也就是在IIFE传参数组中的索引值（0，1，2.....）
 a依赖b，所以在a中调用webpack加载模块的函数
 
-```
+```js
 // 1是模块b的id
 var b = __webpack_require__(1);
 ```

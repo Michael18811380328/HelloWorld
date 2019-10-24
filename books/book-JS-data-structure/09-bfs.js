@@ -41,7 +41,7 @@ let BFS = function(v) {
   };
 };
 
-BFS = (v) => {
+let BFS = (v) => {
   let color = initializeColor();
   let queue = new Queue();
   let d = [];
@@ -73,15 +73,3 @@ BFS = (v) => {
     predecessors: pred,
   };
 };
-
-
-
-
-
-
-
-
-
-
-
-

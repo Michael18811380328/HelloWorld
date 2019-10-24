@@ -327,7 +327,7 @@ this.remove = (key) => {
   let position = loseHashCode(key);
   if (table[position] !== undefined) {
     let current = table[position].getHead();
-    while(current.next) {
+    while (current.next) {
       if (current.element.key === key) {
         table[position].remove(current.element);
         if (table[position].isEmpty()) {
@@ -339,7 +339,7 @@ this.remove = (key) => {
     }
     if (current.element.key === key) {
       table[position].remove(current.element);
-      if (tab;e[position].isEmpty()) {
+      if (table[position].isEmpty()) {
         table[position] = undefined;
       }
       return true;
@@ -398,7 +398,7 @@ this.remove = (key) => {
         index++;
       }
       if (table[index].key === key) {
-        table[position] = undefined;
+        table[index] = undefined;
         return true;
       }
     }

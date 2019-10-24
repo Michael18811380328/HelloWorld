@@ -62,11 +62,7 @@ August is a very busy month. Not only did I finish so mush codes of html, css, j
 
 1. Do some unit test.
 
-It is significant to do unit test before using a new javascript API. When we finished writing an API, we must test it right away. The main test tool are Mocha or Jest. Using assertions to test if the API could return a right value. Unit test is basic test.
-
-The basic method is test APIs one by one. The advanced method is test lots of APIs once. Using one result as other API's parameters. But you should make sure that most of APIs are right and can return what you want. If there are some errors or warnings, you should check them one by one.
-
-For a fresh bird, I choose the first method now. In the future, I will use the advanced methods to release my work pressure and deal with other projects. Time is precious.
+It is significant to do unit test before using a new javascript API. When we finished writing an API, we must test it right away. The main test tool are Mocha or Jest. Using assertions to test if the API could return a right value. Unit test is basic test. The basic method is test APIs one by one. The advanced method is test lots of APIs once. Using one result as other API's parameters. But you should make sure that most of APIs are right and can return what you want. If there are some errors or warnings, you should check them one by one. For a fresh bird, I choose the first method now. In the future, I will use the advanced methods to release my work pressure and deal with other projects. Time is precious.
 
 2. learn new OS（operating system）
 
@@ -78,21 +74,11 @@ Till now I can't find adequate PS and other softwares in MAC. I didn't have an A
 
 What's more, there are many new knowledge points. I need to learn reactstrap(bootstrap in react framework). The ECMAscript6 is necessary. The differences between const and let (let use much memory than const, about 2% to 3% maybe). And array function is useful. It can bind this to using function automaticly.Others, learn button/DropDown/Modal compoennts of reactstrap.
 
-React framework contains several life cycle fucntion. How to use them fluently needs much time to practice.
-
-And slate.js framework, a rich text framework, is also important.
-
-Map Object/Selectiom/Value/Change and ... blob file
-
-write later because there are much things to deal now.
-
-reading blog from RuanYF
+React framework contains several life cycle fucntion. How to use them fluently needs much time to practice. And slate.js framework, a rich text framework, is also important. Map Object/Selectiom/Value/Change and ... blob file. write later because there are much things to deal now. reading blog from RuanYF.
 
 ### 2018.09
 
-plan: learn slate.js (the main APIs) and react framework step by step. Hurry up!
-
-And this is the first time to use vim to write readme.md And use it more.
+Plan: learn slate.js (the main APIs) and react framework step by step. Hurry up! And this is the first time to use vim to write readme.md And use it more.
 
 There are so many things to learn. And I found that it is important for us to learn not only code basic using but also inner logic of basic. For instance, learning slate-core codes is significant for understanding lower codes logic.
 
@@ -118,27 +104,15 @@ The memory of function. In fibonacci method, we can use resursion to culculate. 
 
 2.Learning methods
 
-learn more of data structure. If I just use some basic components in my daily work, I won't get more new information of CS development.
+learn more of data structure. If I just use some basic components in my daily work, I won't get more new information of CS development. It is necessary for me to learn new method and new grammar(ES7). The latest React structure has some useful utils. React-Routers and React-Native are some of them. I need to learn them. 
 
-It is necessary for me to learn new method and new grammar(ES7). The latest React structure has some useful utils. React-Routers and React-Native are some of them. I need to learn them. 
-
-We all know that if you didn't study every day, you would been last for a long distance. So just hurry up! Don't hesitate to learn new knowledge. We all know that it is totally diffcult for us to learn in such a short periods, but we need to learn for the future.
-
-Two years age, angular is hot in whole China, plenty of my friends use angular as their basic front-end structure. Now, if you use angular, it is not a wise choice.
+We all know that if you didn't study every day, you would been last for a long distance. So just hurry up! Don't hesitate to learn new knowledge. We all know that it is totally diffcult for us to learn in such a short periods, but we need to learn for the future. Two years age, angular is hot in whole China, plenty of my friends use angular as their basic front-end structure. Now, if you use angular, it is not a wise choice.
 
 3.Singles' day thoughts
 
-Today is Nov 11th, the traditional shopping days. Ten years age, shopping day was created by Alibaba. Ten years later, there are 100 billion yuan trades during just ten hours. But I never buy any goods, because I must learn new CS knowledge. 
+Today is Nov 11th, the traditional shopping days. Ten years age, shopping day was created by Alibaba. Ten years later, there are 100 billion yuan trades during just ten hours. But I never buy any goods, because I must learn new CS knowledge. During ten years development, the main trades have changed a lot. Much people use mobile Apps to buy goods thought internet. And basic desktop browsers are decrease. 
 
-During ten years development, the main trades have changed a lot. Much people use mobile Apps to buy goods thought internet. And basic desktop browsers are decrease. 
-
-And I need to learn some mobile front-end methods. 
-
-First, mobile app use lastest brower in Android or iphone, so we need't deal with old ie version. The new mobile screen and flex design are more important.
-
-Second, our mobile phone's hardwares are becoming more and more gaint. We can add some complex tecnology to increase clients thought.
-
-Third, 5G network will use in daily life. And we need to thought how to open web page sooner. And sending much data or async functions will use much. Using lazy-loading tec is also important.
+And I need to learn some mobile front-end methods. First, mobile app use lastest brower in Android or iphone, so we need't deal with old ie version. The new mobile screen and flex design are more important. Second, our mobile phone's hardwares are becoming more and more gaint. We can add some complex tecnology to increase clients thought. Third, 5G network will use in daily life. And we need to thought how to open web page sooner. And sending much data or async functions will use much. Using lazy-loading tec is also important.
 
 
 ### 2018.12
@@ -208,7 +182,29 @@ I reviewed and rewrite some notes from 2018-09 to 2018-12. Till now,  notes in 2
 
 I found some informations: The basic knowledge(JS basic grammar) is more important than structure(such as jquery and react). During the last three years, we used backbone, angular, react, VUE, and in the future, new structure will replace react and VUE again. And basic knowledge is stable. So next month I should learn basic knowledge again. 
 
+- [x] remove C and Java codes from this repo. 
+- [x] move VUE to another Repo(special for VUE) 
+- [x] review codes in 2018，then put them into learn folder. (Sig and eme)
+  - [x] 2018-08（2019-09 1th week）
+  - [x] 2018-09（2019-09 2th week）
+  - [x] 2018-10（2019-09 2th week）
+  - [x] 2018-11（2019-09 3th week）
+  - [x] 2018-12（2019-09 3th week）
+- [x] move makefile and babel into another repo(webpack-babel)，remove src folder and dist folder.
+
 ### 2019.10
 
 There are less than 100 days left in 2019. Don't leave any regrets these days.
 
+- [x] Delete all VUE and python codes
+- [x] Data structure
+  - [x] Pre 60 page (1th)
+  - [x] 60-80 (1th)
+  - [x] 80-100 (1th)
+  - [x] 100-120 (2th)
+  - [x] 120-140 (2th)
+  - [x] 140-160 (3th)
+- [x] review codes in 2019
+  - [x] 2019-01(3th)
+  - [x] 2019-02(4th)
+  - [x] 2019-03(4th)

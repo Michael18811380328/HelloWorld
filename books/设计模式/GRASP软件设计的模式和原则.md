@@ -20,8 +20,6 @@
 
 GRASP，全称为**General Responsibility Assignment Software Pattern**，即**通用职责分配软件模式**，它由《UML和模式应用》(*Applying UML and Patterns*)一书作者Craig Larman提出。与其将它们称之为设计模式，不如称之为设计原则，因为它是站在面向对象设计的角度，告诉我们**怎样设计问题空间中的类与分配它们的行为职责，以及明确类之间的相互关系等**，而不像GoF模式一样是针对特定问题而提出的解决方案。因此GRASP站在一个更高的角度来看待面向对象软件的设计，**它是GoF设计模式的基础**。GRASP是**对象职责分配**的基本原则，其核心思想是**职责分配(Responsibility Assignment)，用职责设计对象(Designing Objects with Responsibilities)。**它包含如下9个基本特征或原则
 
-
-
 ### 1. 信息专家 (Information Expert)
 
 ​     **(1) 问题：**给对象分配职责的通用原则是什么？
