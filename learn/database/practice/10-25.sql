@@ -86,8 +86,6 @@ ALTER TABLE UserActivityStat ADD INDEX `idx_activity_time_org` (`timestamp`, `or
 
 DROP TABLE UserTrafficStat;
 
-
-
 CREATE TABLE `repo_tags_repotags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `repo_id` varchar(36) NOT NULL,
@@ -98,8 +96,6 @@ CREATE TABLE `repo_tags_repotags` (
   KEY `repo_tags_repotags_name_3f4c9027` (`name`),
   KEY `repo_tags_repotags_color_1292b6c1` (`color`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
-
 
 CREATE TABLE `file_tags_filetags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

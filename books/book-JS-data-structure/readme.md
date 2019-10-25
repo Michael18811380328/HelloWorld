@@ -569,7 +569,7 @@ function BinarySearchTree() {
   this.remove = function(key) {
     root = removeNode(root, key); 
   }
-  let removeNode = function(node. key) {
+  let removeNode = function(node, key) {
     if (node === null) {
       return null;
     }
@@ -695,7 +695,7 @@ function Graph() {
 #### 1、广度优先算法 bfs
 
 ~~~js
-let initializeColor = function() {
+ let initializeColor = function() {
   // 辅助函数：初始化图：全部的节点是白色（未访问）
   let color = [];
   for (let i = 0; i < vertices.length; i++) {
@@ -729,7 +729,7 @@ this.bfs = function(v, callback) {
       }
     }
     // 深入后的节点设置属性为黑色
-    color[u]= 'black';
+    color[u] = 'black';
     // 如果传入回调函数，出队列的节点执行回调函数
     if (callback) callback(u);
   }
@@ -867,8 +867,6 @@ dfsVisit = (u, color, d, f, p, callback) => {
 
 1 ≤ d[u] < f[u] ≤2 |V|
 
-
-
 拓扑排序（DFS扩展）
 
 实例：如果一些任务的执行时连续的（需要步骤）然后不同的任务构成不同的节点，节点之间可以获取最短路径，可以计算具体遍历节点的时间，可以计算多种遍历节点的情况。
@@ -989,7 +987,7 @@ nlogn 火狐浏览器使用
 
 ~~~js
 this.mergeSort = function() {
-  array = mergeSortRec(array);
+  array = mergeSortRect(array);
 }
 
 let mergeSortRect = function(array) {
@@ -997,15 +995,15 @@ let mergeSortRect = function(array) {
   if (len === 1) {
     return array;
   }
-  let mid = Math.floor(length / 2);
+  let mid = Math.floor(len / 2);
   let left = array.slice(0, mid);
-  let right = array.slice(min, len);
+  let right = array.slice(mid, len);
   return merge(mergeSortRect(left), mergeSortRect(right));
 }
 
 let merge = function(left, right) {
   let result = [];
-  let il, ir;
+  let il = 0, ir = 0;
   // 用新数组迭代两个旧数组
   while (il < left.length && ir < right.length) {
     if (left[il] < right[ir]) {
@@ -1018,11 +1016,13 @@ let merge = function(left, right) {
     result.push(left[il]);
   }
   while (ir < right.length) {
-    result,push(right[ir]);
+    result.push(right[ir]);
   }
   return result;
 }
 ~~~
+
+并归排序的思路：先把复杂问题分成小问题，然后从多个简单的小问题中找到统一的解决方法，然后使用小问题，最后将不同的小问题并归后，大问题就解决了。
 
 #### 5 快速排序
 
@@ -1060,7 +1060,7 @@ function partition(array, left, right) {
       j--;
     }
     if (i <= j) {
-      swapQuickStort(array, i, j);
+      swapQuickSort(array, i, j);
       i++;
       j--;
     }
@@ -1068,7 +1068,7 @@ function partition(array, left, right) {
   return i;
 }
 
-function swapQuickStort(array, index1, index2) {
+function swapQuickSort(array, index1, index2) {
   const temp = array[index1];
   array[index1] = array[index2];
   array[index2] = temp;
@@ -1128,7 +1128,7 @@ this.binarySearch = function(target) {
 ~~~js
 function fibonacci(n) {
   if (n === 1 || n === 2) return 1;
-  return fibonacci(n - 1) + fibonacci(n - 2)
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 // 非递归写法
 function fib(num) {
@@ -1169,7 +1169,6 @@ function fib(num) {
 
 ~~~js
 function MinCoinChange(coins) {
-  let coins = coins;
   let cache = {};
   this.makeChange = (amount) => {
     let me = this;

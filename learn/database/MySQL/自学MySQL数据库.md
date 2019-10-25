@@ -1,9 +1,5 @@
 # 如何自学MySQL数据库
 
-作者：龚子捷
-
-先给出我的核心观点：学习，无论你是学什么，也无论你有没有基础。思考永远是第一位的，有些知识你没接触过不要紧，用不着害怕，也没必要害怕。重要的是一秒钟也不要停止思考，问题要想透彻，正所谓磨刀不误砍柴工。尤其是作为工程师，要有打破砂锅问到底的精神，否则你怎么学都没用。
-
 ## MySQL知识体系
 
 基础：
@@ -44,17 +40,11 @@
 
 看完这些并且实践+思考之后，可以算入门了。
 
-## 接下来对于希望深入学习的童鞋
+## MySQL深入学习
 
 我推荐几本书（很多大神都这么推荐），《高性能MySQL(第3版)》、 《MySQL技术内幕(第4版)》，《MySQL技术内幕 InnoDB存储引擎》，《深入理解MySQL》还有Mysql的官网。读完这些东西，再加些丰富的经验，理论上来讲就具备DBA的水平了。
 
 十分推荐阅读[Planet MySQL](https://link.zhihu.com/?target=http%3A//planet.mysql.com/)上汇总的博客，特别是[Percona's MySQL & InnoDB performance and scalability blog](https://link.zhihu.com/?target=http%3A//www.percona.com/blog/).
-
-
-
-但是，正如我开头所言的。面对问题的时候一定要积极思考！
-
-比如：
 
 我问你，面对一个并发量比较高的场景，如何配置mysql的连接数？
 
@@ -119,7 +109,7 @@ W3Schools [SQL 教程](https://link.zhihu.com/?target=http%3A//www.w3school.com.
 
 [mysql官方手册：14 The InnoDB Storage Engine](https://link.zhihu.com/?target=https%3A//dev.mysql.com/doc/refman/5.6/en/innodb-storage-engine.html)
 
-### 大牛的博客
+### 大牛博客
 
 领域专家的博客是十分具有学习价值的，下面列举几个比较好的：
 
@@ -133,15 +123,9 @@ W3Schools [SQL 教程](https://link.zhihu.com/?target=http%3A//www.w3school.com.
 
 [Planet MySQL](https://link.zhihu.com/?target=https%3A//planet.mysql.com/)
 
-## 最后
-
-在工作中多使用（类似git操作多使用就会了）
 
 
-
-# 如何自学MySQL数据库
-
-作者：姜健
+# 转行自学MySQL数据库
 
 本人是个活生生的例子，大学学的仪器仪表专业，毕业前第一份实习工作是电路板测试。0基础自学mysql和linux，现任国内某公有云mysql &&mongodb  dba。
 
@@ -168,5 +152,3 @@ W3Schools [SQL 教程](https://link.zhihu.com/?target=http%3A//www.w3school.com.
 由于我的历史原因，对c++等几乎不懂，平时也用不到，所以看代码等事实际太累，于是我再去学mongodb，接了公司mongodb运维的活，算是在广度上的一个扩展，万一哪天mysql不行了呢
 
 6、 总之，对于db小白来说，最重要的一点就是，**学习的过程不能断**。
-
-PS  上面的方法比较野路子，适合没什么基础的童鞋，如果本来就是DBA，比如从oracle转到mysql，那么建议直接看mysql官方文档，而官方文档是db达到一定水平后必看，出问题时必查的权威文档
