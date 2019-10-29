@@ -124,14 +124,9 @@ function linkedList() {
   };
 
   // 列表使用了node类，所以需要重写继承于对象的toString方法，只输出元素的值。
-  this.print = function() {
-    console.log(this);
-  };
-
   this.getHead = function() {
     return head;
   }
-
 }
 
 // test append API
