@@ -105,7 +105,7 @@ function outputAttributes(element){
 
 document.createTextNode()
 
-#### 10.1.8 DocumentFragment 类型
+#### 10.1.8 DocumentFragment
 
 DOM规定文档片段 document fragment是一种“轻量级”的文档，虽然不能把它直接添加到文档中，但是可以把它当成仓库使用。主要用来暂时存储Nodes，用于复制粘贴节点，或者保存上一步的节点。
 
