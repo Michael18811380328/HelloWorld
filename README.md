@@ -4,7 +4,42 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 
 
 
-need learn 
+to do lists
+
+- [x] basic MySQL 阿里云
+- [x] Whole stack basic by RYF（React+node+test）
+- [ ] Redux
+  - [ ] [https://www.redux.org.cn](https://www.redux.org.cn/) 
+  - [ ] 菜鸟教程
+  - [ ] https://www.jianshu.com/p/f6c5434c6e2d
+- [ ] JS秘密花园
+- [ ] React 技术胖的视频教程
+
+
+
+need read
+
+- [ ] JS 高级程序设计
+- [ ] CSS 禅意花园
+- [ ] JS 秘密花园
+- [ ] JavaScript 模式
+- [ ] 代码整洁之道（后半本）
+- [ ] 面向对象分析与设计
+- [ ] 深入浅出React和Redux
+
+
+
+have read
+
+- [x] Javascript 数据结构与算法
+- [x] Javascript 语言精粹
+- [x] Javascript 基础（阮一峰电子版）
+- [x] ECMA6 入门（阮一峰电子版）
+- [x] JS全栈工程是入门（阮一峰电子版）
+
+
+
+need learn structure
 
 
 - [ ] Swiper.js 
@@ -14,6 +49,7 @@ need learn
 - [ ]  schema
 - [ ] react-i18nex
 - [ ] prism
+- [ ] Redux
 
 
 
@@ -21,7 +57,6 @@ need learn
 need update
 
 - [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
-- [ ] Vue.js
 - [ ]  把JS部分小游戏单独拿出来，放在另一个仓库中。对外使用React-router实现路由。
 - [ ] 小程序
 - [ ] flex 高级布局 Canvas 动画 
@@ -31,6 +66,18 @@ need update
 - [ ] 渲染的原理（重绘等）
 
 
+
+future
+
+- [x] review 2018 nodes
+- [x] basic data structure
+- [x] basic algre
+- [ ] TimePicker demo TS
+- [ ] Leetcode
+- [ ] lenovo Xmind and notes review
+- [ ] python + GoLang
+- [ ] Bitcoin and block chain
+- [ ] Vue + Java spring
 
 
 

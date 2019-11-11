@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+  </head>
+  <body>
+    <div id="journal">
+      <input type="text" v-model="message">
+      <div>{{message}}</div>
+    </div>
+    <script>
+      var journal = new Vue({
+        el: '#journal',
+        data: {
+          message: 'placehoulder'
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+  </head>
+  <body>
+    <div id="my_view">
+      <input v-model="search" type="text" />
+      <ul>
+        <li v-for="friend in friends | filterBy search in 'name">{{ friend.naem }}</li>
+      </ul>
+    </div>
+    <script>
+      var myModel = {
+        name: 'Ashley',
+        age: 24,
+        friends: [{
+          name: 'Bob',
+          age: 21
+        }, {
+          name: 'Jane',
+          age: 20
+        }, {
+          name: 'Anna',
+          age: 29
+        }],
+        search: ''
+      };
+      var myViewModel = new Vue({
+        el: '#my_view',
+        data: myModel
+      });
+    </script>
+  </body>
+</html>
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue Demo</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{ counter }}</div>
+      <button v-on:click="increase">Increment</button>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          counter: 0
+        },
+        methods: {
+          increase() {
+            this.counter++;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

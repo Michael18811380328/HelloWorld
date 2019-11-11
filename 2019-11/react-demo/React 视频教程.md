@@ -1,4 +1,4 @@
-## React 视频教程
+## React 视频教程(技术胖)
 
 [https://jspang.com/posts/2019/05/04/new-react-base.html#%E7%AC%AC01%E8%8A%82%EF%BC%9Areact%E8%AF%BE%E7%A8%8B%E5%89%8D%E8%A8%80](https://jspang.com/posts/2019/05/04/new-react-base.html#第01节：react课程前言)
 

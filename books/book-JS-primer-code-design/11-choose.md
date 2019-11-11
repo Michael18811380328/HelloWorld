@@ -8,11 +8,13 @@ document.querySelectorAll() 查找符合标准的全部元素的集合
 
 括号中填写 css 选择器，比 getElementBy 更广泛。
 
+
+
 ### 11.2 元素遍历
 
 获取当前元素的父亲、儿子、兄弟元素。
 
-对于元素间的空格，IE9及之前的版本不会返回文本节点，而其他所有浏览器都会返回文本节点。这样就导致了使用childNodes与firstChild等属性时的行为不一致。为了弥补这一差异，而同时又保证DOM规范不变，Element Traversal 规范新定义了一组属性。
+对于元素间的空格，IE9及之前的版本不会返回文本节点，而其他所有浏览器都会返回文本节点。这样就导致了==使用childNodes与firstChild等属性时的行为不一致==。为了弥补这一差异，而同时又保证DOM规范不变，Element Traversal 规范新定义了一组属性。
 
 ```js
 childElementCount //返回子元素(不包括文本节点和注释)的个数
@@ -21,6 +23,8 @@ lastElementChild  //指向最后一个元素
 previousElementChild //指向前一个同辈元素
 nextElementSibling  //指向后一个同辈元素
 ```
+
+
 
 ### 11.3 HTML5 新特性
 
@@ -37,7 +41,7 @@ nextElementSibling  //指向后一个同辈元素
 ```js
 var div = document.getElementById('div'); //获取元素
 var classNames = div.className.split(/\s+/);  //将元素的class属性划分为数组
-for (var i = 0, var len=classNames.length; i < len; i++) {
+for (var i = 0, var len = classNames.length; i < len; i++) {
   if (classNames[i] == "user") {  //遍历比对，找到位置
     break;
   }
@@ -61,7 +65,7 @@ classList.length 获取当前类名的个数
 方法 
 
 - add('main-panel') 增加n个类名。如果类名已经存在，则不会继续添加(不报错) 
-- contains(value) 判断元素是否具有这个类名，返回布尔值 
+- contains(value) 判断元素是否具有这个类名，返回布尔值
 - remove(value) 删除一个类名，如果类名不存在，不会报错
 - toggle(value) 切换一个类名(增减类名)
 - item(1) 获取某一个类名(通常直接获取全部类的数组)
@@ -72,13 +76,11 @@ classList.length 获取当前类名的个数
 
 元素获得焦点的方式有页面加载，用户输入、在代码中使用focus()方法。 
 
-1. document.activeElement 
-   这个属性会始终引用DOM中当前获得了焦点的元素。默认情况下，文档刚刚加载完成，指向的是body元素，加载期间为null。 
-2. document.hasFocus() 
-   用于确定文档是否获得了焦点。
+document.activeElement：这个属性会始终引用DOM中当前获得了焦点的元素。默认情况下，文档刚刚加载完成，指向的是body元素，加载期间为null。 
 
-插入标记
-innerHTML属性 outerHTML属性 insertAdjacentHTML方法
+document.hasFocus()：用于确定文档是否获得了焦点。
+
+插入标记 innerHTML属性 outerHTML属性 insertAdjacentHTML方法
 
 ### 11.4 专有扩展
 
@@ -94,15 +96,18 @@ innerText 属性
 textContent属性
 outerText属性
 
-表单的基础知识
-获取表单的方式： 
+#### 表单的基础知识
 
-1. 通过id等方式找到 
-2. 通过document.forms获取文档对象上所有的表单。
+##### 获取表单
 
-提交表单
+通过id等方式找到；通过document.forms获取文档对象上所有的表单。
+
+##### 提交表单
+
 用户点击提交按钮或者图像按钮的时候，就会提交表单。 
+
 `<input type="image" src="./ionic.png">`
+
 只要表单上存在提交按钮或者图像按钮，那么在相应表单拥有焦点的时候，按下回车键就可以提交表单。（textarea是例外，会换行） 
 
 以上述方式提交时，会首先出发submit事件。我们可以通过阻止这个事件的默认行为就可以取消表单提交。
@@ -116,38 +121,42 @@ testForm.addEventListener('submit', function(e) {
 });
 ```
 
-重置表单
-使用type为reset的input或者button可以创建重置按钮，点击会触发reset事件。 
-一样可以阻止也可以以编程方式触发。与submit不同，reset会触发reset事件。
+##### 重置表单
 
-表单字段
+使用type为reset的input或者button可以创建重置按钮，点击会触发reset事件。 一样可以阻止也可以以编程方式触发。与submit不同，reset会触发reset事件。
+
+##### 表单字段
+
 使用原生的DOM方法访问表单元素，每个表单都有elements属性，该属性是表单中所有表单元素的集合。 
 这个elements集合是一个有序列表。另外如果给表单元素添加了name属性，则该元素也会以name暴露给elements集合。 
+
 所以可以同时以位置和name特性访问。 
 注：如果多个表单元素name相同，则返回一个NodeList。
 
-方法
+##### 表单方法
+
 每个表单元元素都有focus()与blur()这两个方法。html5为表单字段新增了一个autofocus属性。 
 `<input type="text" name="first-name" autofocus>`
 
-注：在组件 Input 中，这个属性不能直接更改，需要获取内部的ref，然后设置focus。
+注：在组件 Input 中，这个属性不能直接更改，需要获取内部的ref，然后设置focus。在早期，没有readonly方法，因此可以调用blur()方法来创建只读字段。
 
-在早期，没有readonly方法，因此可以调用blur()方法来创建只读字段。
+##### 表单事件
 
-
-
-事件
 blur
 focus
 change 失去焦点且value的值改变时触发 
 
 注意：blur与change事件在不同浏览器中触发顺序不同。
 
-样式
+
+
+#### 样式
+
 HTML中定义样式的方式有3种：<link>引入外部样式表文件，使用<style>元素定义嵌入式样式,以及使用style特性定义针对特定元素的样式。
 
 访问元素的样式
 style属性 任何支持style特性的HTML元素在JavaScript中都有一个对应的style属性。包含着通过HTML的style特性指定的所有样式信息，但不包含与外部样式表或嵌入样式表经层叠而来的样式。
+
 计算的样式 getComputedStyle 
 可以获取来自3者的所有计算后得到的样式,但是只读，不可写。 
 getComputedStyle(div).color 
@@ -183,9 +192,9 @@ function getElementLeft(element){
 }
 ```
 
+客户区大小
 
-
-**客户区大小** client dimension 
+client dimension 
 元素的客户区大小指的是元素内容及其内边距所占据的空间大小。
 
 clientWidth
@@ -220,6 +229,4 @@ previousSibling()
 
 **范围**
 
-document.createRange()
-
-在创建范围的时候，内部会为这个范围创建一个文档片段，范围所属的全部节点都被添加到了这个文档的片段之中。
+document.createRange() 在创建范围的时候，内部会为这个范围创建一个文档片段，范围所属的全部节点都被添加到了这个文档的片段之中。
