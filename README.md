@@ -2,22 +2,26 @@
 
 This is Michael An's frontend knowledge blogs and codes and todo lists.
 
+### 2019-11
+
+- [ ] React 技术胖剩余视频教程
+- [ ] JS 秘密花园
+- [ ] LeetCode
+  - [x] 增加单元测试
+  - [ ] 增加新题目（双十一100题）
 
 
-to do lists
 
-- [x] basic MySQL 阿里云
-- [x] Whole stack basic by RYF（React+node+test）
+### to do lists
+
 - [ ] Redux
   - [ ] [https://www.redux.org.cn](https://www.redux.org.cn/) 
   - [ ] 菜鸟教程
   - [ ] https://www.jianshu.com/p/f6c5434c6e2d
-- [ ] JS秘密花园
-- [ ] React 技术胖的视频教程
 
 
 
-need read
+### need read
 
 - [ ] JS 高级程序设计
 - [ ] CSS 禅意花园
@@ -26,12 +30,14 @@ need read
 - [ ] 代码整洁之道（后半本）
 - [ ] 面向对象分析与设计
 - [ ] 深入浅出React和Redux
+- [ ] lodash 源码 主要学习使用数据结构（internal）
 
 
 
-have read
+### have read
 
 - [x] Javascript 数据结构与算法
+  - [ ] 广度搜索、深度搜索算法，快速排序算法，需要熟练操作
 - [x] Javascript 语言精粹
 - [x] Javascript 基础（阮一峰电子版）
 - [x] ECMA6 入门（阮一峰电子版）
@@ -39,7 +45,7 @@ have read
 
 
 
-need learn structure
+### need learn
 
 
 - [ ] Swiper.js 
@@ -53,8 +59,7 @@ need learn structure
 
 
 
-
-need update
+### need update
 
 - [ ] some difficult points (regexp) and some inportant points(webpack axios flex) should review several time. DataBase/Datastructure/Network also need review.
 - [ ]  把JS部分小游戏单独拿出来，放在另一个仓库中。对外使用React-router实现路由。
@@ -62,12 +67,12 @@ need update
 - [ ] flex 高级布局 Canvas 动画 
 - [ ] React 性能问题优化
 - [ ] webpack loader 不熟悉
-- [ ] axios 请求
+- [ ] axios 请求（库）
 - [ ] 渲染的原理（重绘等）
 
 
 
-future
+### future
 
 - [x] review 2018 nodes
 - [x] basic data structure
@@ -81,9 +86,10 @@ future
 
 
 
-代码复习重构中
+### Code refactoring
 
 - 备份文件（例如安全、浏览器性能）：备份 backup
 - 练习代码：代码重构，practice
 - 重点知识：复习并保留，learn
 - 第三方库：lib
+

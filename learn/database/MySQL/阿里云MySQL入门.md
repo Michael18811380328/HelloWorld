@@ -16,7 +16,7 @@ MySQL 关系型数据库，是数据库的一种（其他的Oracle）。MYSQL是
 
 ## 02 安装
 
-官网：dev.myqsl.com/downloads/mysql
+官网：dev.mysql.com/downloads/mysql
 
 ### windows 安装
 
@@ -48,7 +48,6 @@ mysqladmin -u root -p password 'root'
 
 ~~~bash
 /usr/local/mysql/bin/mysqladmin -u root -p password root
-
 # 安装测试成功，密码和开机密码一致
 ~~~
 
@@ -61,6 +60,25 @@ sudo /Library/StartupItems/MySQLCOM/MYSQLCOM start | stop | restart
 GUI
 
 系统配置 - MYSQL - stop |start
+
+==注意==：安装过程中，会选择强密码或者是弱密码。现在本地测试使用弱密码。密码最少是8位，这里设置12345678 作为root的密码。
+
+==注意2==：
+
+如果mysql已经运行，但是输入 mysql 显示命令不存在：遇上-bash: mysql: command not found的情况别着急
+
+这个是因为/usr/local/bin目录下缺失mysql导致，只需要一下方法建立软链接，即可以解决：
+把mysql安装目录，比如MYSQLPATH/bin/mysql，映射到/usr/local/bin目录下： 
+
+\# cd /usr/local/bin
+\# ln -fs /MYSQLPATH/bin/mysql mysql
+
+还有其它常用命令mysqladmin、mysqldump等不可用时候都可按用此方法解决。
+注：其中MYSQLPATH是mysql的实际安装路径（MAC 默认路径 /usr/local/mysql/bin/mysql）
+
+原文链接：https://www.cnblogs.com/yang1314/p/9288767.html
+
+
 
 ## 03 配置
 

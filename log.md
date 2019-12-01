@@ -211,3 +211,5 @@ There are less than 100 days left in 2019. Don't leave any regrets these days.
 
 ### 2019.11 
 
+- [x] basic MySQL by aliyun education
+- [x] Whole stack basic by RYF（React+node+test）
