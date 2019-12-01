@@ -73,7 +73,7 @@ function linkedList() {
         head = current.next;
       }
       else {
-        while (index ++ < position) {
+        while (index++ < position) {
           previous = current;
           current = current.next;
         }
