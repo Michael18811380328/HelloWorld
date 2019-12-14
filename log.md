@@ -131,7 +131,7 @@ I find it is so busy in my daily life. And it may be the real life. Just face th
 
 Happy new year and just continue coding! In 2019, there are several things I need to learn. It is obvious that CS develep rapidly, so learning new knowledge is necessary to every code farmer(hahaha). Don't hesitate to code!
 
-There are much things that are useful. I am sure that svg and canvas will replace traditional image ,such as png and icon. And I founs watermark-dom and echarts are amazing. Using python to create html is so convenient. These techs should be learned as soon as possible. Canvas and csv image are also useful. 
+There are much things that are useful. I am sure that svg and canvas will replace traditional image ,such as png and icon. And I think watermark-dom and echarts are amazing. Using python to create html is so convenient. These techs should be learned as soon as possible. Canvas and csv image are also useful. 
 
 These days I found that old knowledge should be learned again so that we can get new treasure. And fix some weaknesses during this period. Learning some difficult things is needed. 
 
@@ -143,7 +143,7 @@ Happy Spring Festicval! The code-mirror is a useful library when we show codes i
 
 At the last day in March, I need a review about this month. There are some thoughts. 
 
-1. How to deal with new knowledge and old tect knowledge? React-Router is much better than hash-transfer. And it may save more resoouces. When we use <Link> tag to jump to other page, the whole page don't reload, React just repaint for the added component. The inner tag is <a>, and react-router forbit the default function of <a> tag.
+1. How to deal with new knowledge and old tect knowledge? React-Router is much better than hash-transfer. And it may save more resources. When we use <Link> tag to jump to other page, the whole page don't reload, React just repaint for the added component. The inner tag is <a>, and react-router forbid the default function of <a> tag.
 
 2. You shouldn't create a circle, and you should use the circle. Make our dialogs and other component more useful.
 
@@ -162,13 +162,13 @@ What is the difference between code farmer and code designer? The farmer can onl
 
 ### 2019.06
 
-After about one year coding, I found that I have wrote down more than 40 thousands lines of code in public repo in github(seahub/editor/dtable/api). I need to learn more knowledge about network/algie/data-structure in my free time. There are many coding language in different area, but the above basic points is similar. Seven years age, I started to learn basic computer programming(C), then I learned basic C++ by myself(just a little C++). Five years age, python was hot and I know it is a glue and can generate codes from C and C++, however, I didn't learn pyhton at that time. Two years ago, I learn a little visual basic(VB) when I use excel software, it is boring. And I learn HTML/CSS/JS in the whole year. Last year, I learn a little php/ruby/java because my co-worker use them as network backend. Now I learn python in my free time, python can do much thing, such as network programming(django/flask), Artificial Intelligence, Machine learning, scaning webpage, it is amazing. During these years, my data-structure and database was still weak. Hurry up and make great progress!
+After about one year coding, I found that I have wrote down more than 40 thousands lines of code in public repo in github(seahub/editor/dtable/api). I need to learn more knowledge about network/algie/data-structure in my free time. There are many coding language in different area, but the above basic points is similar. Seven years age, I started to learn basic computer programming(C), then I learned basic C++ by myself(just a little C++). Five years age, python was hot and I know it is a glue and can generate codes from C and C++, however, I didn't learn python at that time. Two years ago, I learn a little visual basic(VB) when I use excel software, it is boring. And I learn HTML/CSS/JS in the whole year. Last year, I learn a little ruby/java because my co-worker use them as network backend. Now I learn python in my free time, python can do much thing, such as network programming(django/flask), Artificial Intelligence, Machine learning, scaning webpage, it is amazing. During these years, my data-structure and database was still weak. Hurry up and make great progress!
 
 ### 2019.07 
 
-July is a little busy. During daily work time, I spent much time on dtable. This project is a table just like excel. And data structure and view-model structure is complex. From app-table to view, from interaction-mast to canvas/row/cell/editor. Data store and data show are devided in several files. And there are many views, a function should work well in every views. There is a mess.
+July is a little busy. During daily work time, I spent much time on dtable. This project is a table just like excel. And data structure and view-model structure is complex. From table to view, from mast to canvas row cell editor. App-store and apply-invert data are devided in several files. And there are many views, a function should work well in every views. There is a mess.
 
-In my free time, I learn basic ES5 again.(including DOM Event, except BOM, because I waste much time on other thing). The e-book was written by RYF. Lucky, I pull two requests into this book after I find some mistakes. I thought I could learn it before July 15th, but I didn't. On weekends(only six days), I climbed mountains and enjoy with friends. So DDL is not valid. Otherwise, it was really hot in my house without a fan or air conditioner. I bought it last week thought Taobao but I can't receive fan till now! It is hot now! So I have to stay at KFC at evening. Sometimes there were some mosquitos in my house. It was terrible.
+In my free time, I learn basic ES5 again.(including DOM Event, except BOM, because I waste much time on other thing). The e-book was written by RYF. Lucky, I pull two requests into this book after I find some mistakes. I thought I could learn it before July 15th, but I didn't. On weekends(only six days), I climbed mountains and enjoy with friends. So DDL is not valid. Otherwise, it was really hot in my house without a fan or air-conditioner. I bought it last week thought Taobao but I can't receive fan till now! It is hot now! So I have to stay at KFC at evening. Sometimes there were some mosquitos in my house. It was terrible.
 
 And I have worked in Seafile for a whole year, I learn much things during the whole year. Everyone have same time in his lives, I am trying to save my time and learn efficiently.
 
@@ -213,3 +213,9 @@ There are less than 100 days left in 2019. Don't leave any regrets these days.
 
 - [x] basic MySQL by aliyun education
 - [x] Whole stack basic by RYF（React+node+test）
+- [x] React video JSpang(not good)
+- [x] Leetcode 50 + unit test + pytest
+
+### 2019.12 
+
+The most important thing is that review whole year knowledge. And try to sovel leetcode problems as many as possible.

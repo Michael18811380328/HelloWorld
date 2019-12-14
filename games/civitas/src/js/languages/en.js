@@ -1,1 +1,0 @@
-civitas.lang = {};
