@@ -2,13 +2,12 @@
 
 This is Michael An's frontend knowledge blogs and codes and todo lists.
 
-### 2019-11
+### 2019-12
 
-- [ ] React 技术胖剩余视频教程
 - [ ] JS 秘密花园
 - [ ] LeetCode
-  - [x] 增加单元测试
-  - [ ] 增加新题目（双十一100题）
+  - [ ] 100题目
+  - [ ] 代码格式化+单元测试通过
 
 
 
@@ -56,6 +55,7 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 - [ ] react-i18nex
 - [ ] prism
 - [ ] Redux
+- [ ] React-dnd https://react-dnd.github.io/react-dnd/about
 
 
 
