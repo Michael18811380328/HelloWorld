@@ -219,3 +219,11 @@ There are less than 100 days left in 2019. Don't leave any regrets these days.
 ### 2019.12 
 
 The most important thing is that review whole year knowledge. And try to sovel leetcode problems as many as possible.
+
+- [x] leetcode 100+
+
+## 2020
+
+### 2020.01
+
+- [ ] review 2019 notes

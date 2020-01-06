@@ -891,21 +891,8 @@ console.log(sum.toString());
 
 Function.prototype.toString()的支持情况：
 
-
-
-![img](https://user-gold-cdn.xitu.io/2019/12/3/16ec757fa6a35cb6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-
-
-欢迎关注公众号：**前端工匠**，你的成长我们一起见证！**给大家推荐一个好用的BUG监控工具[Fundebug](https://www.fundebug.com/?utm_source=liao)，欢迎免费试用！**
-
-![img](https://user-gold-cdn.xitu.io/2019/3/9/169618de64c54768?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-
-
 ## 参考资料
 
-- [珠峰架构课(推荐)](http://www.zhufengpeixun.cn/main/course/index.html)
 - [再学JavaScript ES（6-10）全版本语法大全](https://coding.imooc.com/learn/list/389.html)
 - [ECMAScript 6 入门](https://es6.ruanyifeng.com/#README)
 - [MDN文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/TrimRight)
