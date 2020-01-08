@@ -1,89 +1,24 @@
-# JSON Server [![img](https://camo.githubusercontent.com/a421588394ea9e0ecb32748b17b5bc7a2b37ce81/68747470733a2f2f7472617669732d63692e6f72672f74797069636f64652f6a736f6e2d7365727665722e7376673f6272616e63683d6d6173746572)](https://travis-ci.org/typicode/json-server) [![img](https://camo.githubusercontent.com/b9bd2e485334a23113018992d4413a9e40171fa3/68747470733a2f2f62616467652e667572792e696f2f6a732f6a736f6e2d7365727665722e737667)](http://badge.fury.io/js/json-server)
+# JSON Server
 
-Get a full fake REST API with **zero coding** in **less than 30 seconds** (seriously)
+JsonServer主要的作用就是搭建本地的数据接口，创建json文件，便于调试调用
 
-Created with <3 for front-end developers who need a quick back-end for prototyping and mocking.
+如果我们只是get一些数据，只用借助 json placeholder（http://jsonplaceholder.typicode.com）就可以很好的实现，但是如果我们想要post一些数据，使用jsonplaceholder就有些力不从心了，所以我们今天就来聊聊怎么借助于 json-server 来搭建我们的本地的数据接口，对我们的数据进行增删改查。
 
-- [Egghead.io free video tutorial - Creating demo APIs with json-server](https://egghead.io/lessons/nodejs-creating-demo-apis-with-json-server)
-- [JSONPlaceholder - Live running version](https://jsonplaceholder.typicode.com/)
-- [**My JSON Server** - no installation required, use your own data](https://my-json-server.typicode.com/)
+json-server网址：https://www.npmjs.com/package/json-server
 
-See also:
 
-- 🐶 [husky - Git hooks made easy](https://github.com/typicode/husky)
-- 🏨 [hotel - developer tool with local .localhost domain and https out of the box](https://github.com/typicode/hotel)
-
- 
-
-## Gold sponsors 🥇
-
- 
-
-[![img](https://camo.githubusercontent.com/76c198997f6de91632941ca350fbb3ce4707c3d4/68747470733a2f2f692e696d6775722e636f6d2f4942497441546e2e706e67)](https://tryretool.com/?utm_source=sponsor&utm_campaign=typicode)
-
- 
-
-## Bronze sponsors 🥉
-
- 
-
-[![img](https://camo.githubusercontent.com/62a5546453d7ea199b2fac28f99ebc4aa8dda3c5/68747470733a2f2f692e696d6775722e636f6d2f336d4a475441512e706e67)](https://www.zinggrid.com/hello/json-server?utm_source=jsonserver&utm_medium=github&utm_campaign=sponsorship)
-
- 
-
-[Become a sponsor and have your company logo here](https://github.com/users/typicode/sponsorship)
-
-## Table of contents
-
-- [Getting started](https://github.com/typicode/json-server#getting-started)
-- Routes
-  - [Plural routes](https://github.com/typicode/json-server#plural-routes)
-  - [Singular routes](https://github.com/typicode/json-server#singular-routes)
-  - [Filter](https://github.com/typicode/json-server#filter)
-  - [Paginate](https://github.com/typicode/json-server#paginate)
-  - [Sort](https://github.com/typicode/json-server#sort)
-  - [Slice](https://github.com/typicode/json-server#slice)
-  - [Operators](https://github.com/typicode/json-server#operators)
-  - [Full-text search](https://github.com/typicode/json-server#full-text-search)
-  - [Relationships](https://github.com/typicode/json-server#relationships)
-  - [Database](https://github.com/typicode/json-server#database)
-  - [Homepage](https://github.com/typicode/json-server#homepage)
-- Extras
-  - [Static file server](https://github.com/typicode/json-server#static-file-server)
-  - [Alternative port](https://github.com/typicode/json-server#alternative-port)
-  - [Access from anywhere](https://github.com/typicode/json-server#access-from-anywhere)
-  - [Remote schema](https://github.com/typicode/json-server#remote-schema)
-  - [Generate random data](https://github.com/typicode/json-server#generate-random-data)
-  - [HTTPS](https://github.com/typicode/json-server#https)
-  - [Add custom routes](https://github.com/typicode/json-server#add-custom-routes)
-  - [Add middlewares](https://github.com/typicode/json-server#add-middlewares)
-  - [CLI usage](https://github.com/typicode/json-server#cli-usage)
-  - Module
-    - [Simple example](https://github.com/typicode/json-server#simple-example)
-    - [Custom routes example](https://github.com/typicode/json-server#custom-routes-example)
-    - [Access control example](https://github.com/typicode/json-server#access-control-example)
-    - [Custom output example](https://github.com/typicode/json-server#custom-output-example)
-    - [Rewriter example](https://github.com/typicode/json-server#rewriter-example)
-    - [Mounting JSON Server on another endpoint example](https://github.com/typicode/json-server#mounting-json-server-on-another-endpoint-example)
-    - [API](https://github.com/typicode/json-server#api)
-  - [Deployment](https://github.com/typicode/json-server#deployment)
-- Links
-  - [Video](https://github.com/typicode/json-server#video)
-  - [Articles](https://github.com/typicode/json-server#articles)
-  - [Third-party tools](https://github.com/typicode/json-server#third-party-tools)
-- [License](https://github.com/typicode/json-server#license)
 
 ## Getting started
 
 Install JSON Server
 
-```
+```bash
 npm install -g json-server
 ```
 
 Create a `db.json` file with some data
 
-```
+```json
 {
   "posts": [
     { "id": 1, "title": "json-server", "author": "typicode" }
@@ -97,13 +32,13 @@ Create a `db.json` file with some data
 
 Start JSON Server
 
-```
+```bash
 json-server --watch db.json
 ```
 
 Now if you go to http://localhost:3000/posts/1, you'll get
 
-```
+```json
 { "id": 1, "title": "json-server", "author": "typicode" }
 ```
 
@@ -114,11 +49,13 @@ Also when doing requests, it's good to know that:
 - Id values are not mutable. Any `id` value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.
 - A POST, PUT or PATCH request should include a `Content-Type: application/json` header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.
 
-## Routes
 
-Based on the previous `db.json` file, here are all the default routes. You can also add [other routes](https://github.com/typicode/json-server#add-custom-routes) using `--routes`.
 
-### Plural routes
+## Routes 路由
+
+Based on the previous `db.json` file, here are all the default routes. You can also add [other routes](https://github.com/typicode/json-server#add-custom-routes) using `--routes`. 下面是默认的路由，可以使用 --routes 增加其他的路由。
+
+### Plural routes 多路由
 
 ```
 GET    /posts
@@ -129,7 +66,7 @@ PATCH  /posts/1
 DELETE /posts/1
 ```
 
-### Singular routes
+### Singular routes 单路由
 
 ```
 GET    /profile
@@ -138,7 +75,7 @@ PUT    /profile
 PATCH  /profile
 ```
 
-### Filter
+### Filter 过滤
 
 Use `.` to access deep properties
 
@@ -148,7 +85,7 @@ GET /posts?id=1&id=2
 GET /comments?author.name=typicode
 ```
 
-### Paginate
+### Paginate 分页
 
 Use `_page` and optionally `_limit` to paginate returned data.
 
@@ -161,7 +98,7 @@ GET /posts?_page=7&_limit=20
 
 *10 items are returned by default*
 
-### Sort
+### Sort 排序
 
 Add `_sort` and `_order` (ascending order by default)
 
@@ -176,7 +113,7 @@ For multiple fields, use the following format:
 GET /posts?_sort=user,views&_order=desc,asc
 ```
 
-### Slice
+### Slice 获取数据切片
 
 Add `_start` and `_end` or `_limit` (an `X-Total-Count` header is included in the response)
 
@@ -188,7 +125,7 @@ GET /posts/1/comments?_start=20&_limit=10
 
 *Works exactly as [Array.slice](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) (i.e. `_start` is inclusive and `_end` exclusive)*
 
-### Operators
+### Operators 操作符
 
 Add `_gte` or `_lte` for getting a range
 
@@ -208,7 +145,7 @@ Add `_like` to filter (RegExp supported)
 GET /posts?title_like=server
 ```
 
-### Full-text search
+### Full-text search 全文检索
 
 Add `q`
 
@@ -216,7 +153,7 @@ Add `q`
 GET /posts?q=internet
 ```
 
-### Relationships
+### Relationships 父子关系
 
 To include children resources, add `_embed`
 
@@ -239,13 +176,13 @@ GET  /posts/1/comments
 POST /posts/1/comments
 ```
 
-### Database
+### Database 数据库
 
 ```
 GET /db
 ```
 
-### Homepage
+### Homepage 主页
 
 Returns default index file or serves `./public` directory
 
@@ -253,24 +190,28 @@ Returns default index file or serves `./public` directory
 GET /
 ```
 
-## Extras
 
-### Static file server
+
+
+
+## Extras 额外功能
+
+### Static file server 静态文件服务器
 
 You can use JSON Server to serve your HTML, JS and CSS, simply create a `./public` directory or use `--static` to set a different static files directory.
 
-```
+```bash
 mkdir public
 echo 'hello world' > public/index.html
 json-server db.json
 json-server db.json --static ./some-other-dir
 ```
 
-### Alternative port
+### Alternative port 可选择的端口
 
 You can start JSON Server on other ports with the `--port` flag:
 
-```
+```bash
 $ json-server --watch db.json --port 3004
 ```
 
@@ -278,20 +219,20 @@ $ json-server --watch db.json --port 3004
 
 You can access your fake API from anywhere using CORS and JSONP.
 
-### Remote schema
+### Remote schema 远程模式
 
 You can load remote schemas.
 
-```
+```bash
 $ json-server http://example.com/file.json
 $ json-server http://jsonplaceholder.typicode.com/db
 ```
 
-### Generate random data
+### Generate random data 生成随机值
 
 Using JS instead of a JSON file, you can create data programmatically.
 
-```
+```js
 // index.js
 module.exports = () => {
   const data = { users: [] }
@@ -301,20 +242,21 @@ module.exports = () => {
   }
   return data
 }
+
 $ json-server index.js
 ```
 
 **Tip** use modules like [Faker](https://github.com/Marak/faker.js), [Casual](https://github.com/boo1ean/casual), [Chance](https://github.com/victorquinn/chancejs) or [JSON Schema Faker](https://github.com/json-schema-faker/json-schema-faker).
 
-### HTTPS
+### HTTPS 
 
 There are many ways to set up SSL in development. One simple way is to use [hotel](https://github.com/typicode/hotel).
 
-### Add custom routes
+### Add custom routes 增加自定义路由
 
 Create a `routes.json` file. Pay attention to start every route with `/`.
 
-```
+```json
 {
   "/api/*": "/$1",
   "/:resource/:id/show": "/:resource/:id",
@@ -339,23 +281,24 @@ Now you can access resources using additional routes.
 /articles?id=1 # → /posts/1
 ```
 
-### Add middlewares
+### Add middlewares 中间件
 
 You can add your middlewares from the CLI using `--middlewares` option:
 
-```
+```js
 // hello.js
 module.exports = (req, res, next) => {
   res.header('X-Hello', 'World')
   next()
 }
+
 json-server db.json --middlewares ./hello.js
 json-server db.json --middlewares ./first.js ./second.js
 ```
 
 ### CLI usage
 
-```
+```bash
 json-server [options] <source>
 
 Options:
@@ -388,19 +331,19 @@ https://github.com/typicode/json-server
 
 You can also set options in a `json-server.json` configuration file.
 
-```
+```json
 {
   "port": 3000
 }
 ```
 
-### Module
+### Module 模块化
 
 If you need to add authentication, validation, or **any behavior**, you can use the project as a module in combination with other Express middlewares.
 
 #### Simple example
 
-```
+```js
 $ npm install json-server --save-dev
 // server.js
 const jsonServer = require('json-server')
@@ -413,12 +356,13 @@ server.use(router)
 server.listen(3000, () => {
   console.log('JSON Server is running')
 })
+
 $ node server.js
 ```
 
 The path you provide to the `jsonServer.router` function is relative to the directory from where you launch your node process. If you run the above code from another directory, it’s better to use an absolute path:
 
-```
+```js
 const path = require('path')
 const router = jsonServer.router(path.join(__dirname, 'db.json'))
 ```
@@ -431,7 +375,7 @@ Please note also that `jsonServer.router()` can be used in existing Express proj
 
 Let's say you want a route that echoes query parameters and another one that set a timestamp on every resource created.
 
-```
+```js
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
@@ -465,7 +409,7 @@ server.listen(3000, () => {
 
 #### Access control example
 
-```
+```js
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
@@ -489,7 +433,7 @@ server.listen(3000, () => {
 
 To modify responses, overwrite `router.render` method:
 
-```
+```js
 // In this example, returned resources will be wrapped in a body property
 router.render = (req, res) => {
   res.jsonp({
@@ -500,7 +444,7 @@ router.render = (req, res) => {
 
 You can set your own status code for the response:
 
-```
+```js
 // In this example we simulate a server side error response
 router.render = (req, res) => {
   res.status(500).jsonp({
@@ -513,7 +457,7 @@ router.render = (req, res) => {
 
 To add rewrite rules, use `jsonServer.rewriter()`:
 
-```
+```js
 // Add this before server.use(router)
 server.use(jsonServer.rewriter({
   '/api/*': '/$1',
@@ -528,6 +472,8 @@ Alternatively, you can also mount the router on `/api`.
 ```
 server.use('/api', router)
 ```
+
+
 
 #### API
 
@@ -550,36 +496,8 @@ Returns middlewares used by JSON Server.
 
 Returns JSON Server router.
 
-### Deployment
 
-You can deploy JSON Server. For example, [JSONPlaceholder](http://jsonplaceholder.typicode.com/) is an online fake API powered by JSON Server and running on Heroku.
 
-## Links
+参考链接
 
-### Video
-
-- [Creating Demo APIs with json-server on egghead.io](https://egghead.io/lessons/nodejs-creating-demo-apis-with-json-server)
-
-### Articles
-
-- [Node Module Of The Week - json-server](http://nmotw.in/json-server/)
-- [Mock up your REST API with JSON Server](http://www.betterpixels.co.uk/projects/2015/05/09/mock-up-your-rest-api-with-json-server/)
-- [ng-admin: Add an AngularJS admin GUI to any RESTful API](http://marmelab.com/blog/2014/09/15/easy-backend-for-your-restful-api.html)
-- [Fast prototyping using Restangular and Json-server](https://glebbahmutov.com/blog/fast-prototyping-restangular-and-json-server/)
-- [Create a Mock REST API in Seconds for Prototyping your Frontend](https://coligo.io/create-mock-rest-api-with-json-server/)
-- [No API? No Problem! Rapid Development via Mock APIs](https://medium.com/@housecor/rapid-development-via-mock-apis-e559087be066#.93d7w8oro)
-- [Zero Code REST With json-server](https://dzone.com/articles/zero-code-rest-with-json-server)
-
-### Third-party tools
-
-- [Grunt JSON Server](https://github.com/tfiwm/grunt-json-server)
-- [Docker JSON Server](https://github.com/clue/docker-json-server)
-- [JSON Server GUI](https://github.com/naholyr/json-server-gui)
-- [JSON file generator](https://github.com/dfsq/json-server-init)
-- [JSON Server extension](https://github.com/maty21/json-server-extension)
-
-## License
-
-MIT
-
-[Supporters](https://thanks.typicode.com/) ✨
+https://blog.csdn.net/lhjuejiang/article/details/81475993
