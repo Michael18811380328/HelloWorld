@@ -18,9 +18,3 @@
 10. [性能（4道）](https://github.com/pwstrick/daily/blob/master/interview/performance.md)
 11. [软技能（95道）](https://github.com/pwstrick/daily/blob/master/interview/skill.md)
 12. [前端（7道）](https://github.com/pwstrick/daily/blob/master/interview/fe.md)
-
-
-
-
-
-

@@ -2,14 +2,7 @@
 
 This is Michael An's frontend knowledge blogs and codes and todo lists.
 
-### 2019-12
-
-- [ ] JS 秘密花园
-- [ ] LeetCode
-  - [ ] 100题目
-  - [ ] 代码格式化+单元测试通过
-
-
+### 2020
 
 ### to do lists
 
@@ -17,8 +10,6 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
   - [ ] [https://www.redux.org.cn](https://www.redux.org.cn/) 
   - [ ] 菜鸟教程
   - [ ] https://www.jianshu.com/p/f6c5434c6e2d
-
-
 
 ### need read
 
@@ -31,8 +22,6 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 - [ ] 深入浅出React和Redux
 - [ ] lodash 源码 主要学习使用数据结构（internal）
 
-
-
 ### have read
 
 - [x] Javascript 数据结构与算法
@@ -42,10 +31,7 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 - [x] ECMA6 入门（阮一峰电子版）
 - [x] JS全栈工程是入门（阮一峰电子版）
 
-
-
 ### need learn
-
 
 - [ ] Swiper.js 
 - [ ] Three.js
@@ -56,8 +42,6 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 - [ ] prism
 - [ ] Redux
 - [ ] React-dnd https://react-dnd.github.io/react-dnd/about
-
-
 
 ### need update
 
@@ -70,8 +54,6 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 - [ ] axios 请求（库）
 - [ ] 渲染的原理（重绘等）
 
-
-
 ### future
 
 - [x] review 2018 nodes
@@ -83,8 +65,6 @@ This is Michael An's frontend knowledge blogs and codes and todo lists.
 - [ ] python + GoLang
 - [ ] Bitcoin and block chain
 - [ ] Vue + Java spring
-
-
 
 ### Code refactoring
 

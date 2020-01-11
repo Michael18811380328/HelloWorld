@@ -218,12 +218,14 @@ There are less than 100 days left in 2019. Don't leave any regrets these days.
 
 ### 2019.12 
 
-The most important thing is that review whole year knowledge. And try to sovel leetcode problems as many as possible.
+The most important thing is that review whole year knowledge. And try to sovel leetcode problems as many as possible. It is really busy in December.
 
 - [x] leetcode 100+
 
 ## 2020
 
 ### 2020.01
+
+The main task is review 2019 codes. During 2019, I have learned basic knowledge of ES5 and ES6, mysql and data structure. And try my best to finish at least 100 Leetcode issues. It is a challenge for me at first. In 2020, learn and review them again.
 
 - [ ] review 2019 notes
