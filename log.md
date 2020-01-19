@@ -228,4 +228,4 @@ The most important thing is that review whole year knowledge. And try to sovel l
 
 The main task is review 2019 codes. During 2019, I have learned basic knowledge of ES5 and ES6, mysql and data structure. And try my best to finish at least 100 Leetcode issues. It is a challenge for me at first. In 2020, learn and review them again.
 
-- [ ] review 2019 notes
+- [x] review 2019 notes
