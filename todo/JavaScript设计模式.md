@@ -8,28 +8,18 @@
 
 ### 设计模式原则
 
-- S – Single Responsibility Principle 单一职责原则
-  - 一个程序只做好一件事
-  - 如果功能过于复杂就拆分开，每个部分保持独立
-- O – OpenClosed Principle 开放/封闭原则
-  - 对扩展开放，对修改封闭
-  - 增加需求时，扩展新代码，而非修改已有代码
-- L – Liskov Substitution Principle 里氏替换原则
-  - 子类能覆盖父类
-  - 父类能出现的地方子类就能出现
-- I – Interface Segregation Principle 接口隔离原则
-  - 保持接口的单一独立
-  - 类似单一职责原则，这里更关注接口
-- D – Dependency Inversion Principle 依赖倒转原则
-  - 面向接口编程，依赖于抽象而不依赖于具体
-  - 使用方只关注接口而不关注具体类的实现
+- S – Single Responsibility Principle 单一职责原则：一个程序只做好一件事，如果功能过于复杂就拆分开，每个部分保持独立
+- O – OpenClosed Principle 开放/封闭原则：对扩展开放，对修改封闭；增加需求时，扩展新代码，而非修改已有代码
+- L – Liskov Substitution Principle 里氏替换原则：子类能覆盖父类；父类能出现的地方子类就能出现
+- I – Interface Segregation Principle 接口隔离原则：保持接口的单一独立；类似单一职责原则，这里更关注接口
+- D – Dependency Inversion Principle 依赖倒转原则：面向接口编程，依赖于抽象而不依赖于具体；使用方只关注接口而不关注具体类的实现
+
+
 
 SO体现较多，举个栗子：（比如Promise）
 
 - 单一职责原则：每个then中的逻辑只做好一件事
 - 开放封闭原则（对扩展开放，对修改封闭）：如果新增需求，扩展then
-
-再举个栗子
 
 ```js
 //checkType('165226226326','mobile')
@@ -88,8 +78,6 @@ checkType.addRule('money',function (str) {
 });
 //使用金额校验规则
 console.log(checkType.check('18.36','money'));
-
-
 ```
 
 
