@@ -21,7 +21,7 @@ Features
 
 ## Example
 
-```
+```jsx
 import React, { Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
@@ -130,7 +130,7 @@ Play with the code on the [example on CodeSandbox](https://codesandbox.io/s/l9n3
 
 After cloning the repository and running `npm install` inside, you can use the following commands to develop and build the project.
 
-```
+```bash
 # Starts a webpack dev server that hosts a demo page with the lightbox.
 # It uses react-hot-loader so changes are reflected on save.
 npm start

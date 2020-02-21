@@ -2,14 +2,6 @@
 
 原文链接：https://www.jianshu.com/p/9f71e260925d
 
-
-
-[![img](https://upload.jianshu.io/users/upload_avatars/3700891/e2d9ef80972f?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp)](https://www.jianshu.com/u/5cc3aae52717)
-
-[leach_chen](https://www.jianshu.com/u/5cc3aae52717)关注
-
-32018.03.04 16:29:11字数 2,777阅读 22,367
-
 GitHub搭建个人网站，大家在网上一搜能搜到一大把的教程，但是大部分都讲的差不多，并不能满足自己想搭建的网站详细需求。我之前在搭建本站的时候也是查了较多资料，学习了下jekyll语法，参考了几个主题模板，才把符合我需求网站搭建出来。那么今天我将详细介绍下本站从**github代码托管，jekyll安装，jekyll主题选择，jekyll目录结构，jekyll基本语法，jekyll主题修改，网站留言，访问量统计等子功能整入**的详细过程。顺便当作自己记录下吧，防止以后忘记了。
 
 也欢迎大家[star本站源码](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fleach-chen%2Fblogdemo)改造成属于你自己喜欢的个人网站。

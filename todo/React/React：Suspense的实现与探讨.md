@@ -1,22 +1,6 @@
 # React：Suspense的实现与探讨
 
-[![方正](https://pic1.zhimg.com/v2-deae641fba60b071f255ad1f0e3613cb_xs.jpg)](https://www.zhihu.com/people/fang-zheng-3-34)
-
-[方正](https://www.zhihu.com/people/fang-zheng-3-34)
-
-「训记+」微信小程序；
-
-关注他
-
-122 人赞同了该文章
-
-> 前言：本文带你实现一下createFetcher，loading，placeholder，等不及的同学请看仓库：[215566435/think-in-suspense](https://link.zhihu.com/?target=https%3A//github.com/215566435/think-in-suspense)
-
-
-
 Suspense的实现很诡异，也备受争议。
-
-
 
 用Dan的原话讲：**你将会恨死它，然后你会爱上他。**
 
@@ -62,17 +46,17 @@ Suspense的实现很诡异，也备受争议。
 ```js
 var cached = {};
 export const createFetcher = (promiseTask) => {
-    let ref = cached;
-    return () => {
-        const task = promiseTask();
-        task.then(res => {
-            ref = res
-        });
-        if (ref === cached) {
-            throw task
-        }
-        return ref
+  let ref = cached;
+  return () => {
+    const task = promiseTask();
+    task.then(res => {
+      ref = res
+    });
+    if (ref === cached) {
+      throw task
     }
+    return ref
+  }
 }
 ```
 
@@ -86,39 +70,39 @@ export const createFetcher = (promiseTask) => {
 
 **1.2实现Placeholder**
 
-```js
+```jsx
 export class Placeholder extends React.Component {
-    state = {
-        isLoading: false
-    };
+  state = {
+    isLoading: false
+  };
 
-    componentDidCatch(error) {
+componentDidCatch(error) {
+  if (this._mounted) {
+    if (typeof error.then === 'function') {
+      this.setState({ isLoading: true });
+      error.then(() => {
         if (this._mounted) {
-            if (typeof error.then === 'function') {
-                this.setState({ isLoading: true });
-                error.then(() => {
-                    if (this._mounted) {
-                        this.setState({ isLoading: false })
-                    }
-                });
-            }
+          this.setState({ isLoading: false })
         }
+      });
     }
-    componentDidMount() {
-        this._mounted = true;
-    }
-    componentWillUnmount() {
-        console.log('unm')
-        this._mounted = false;
-    }
+  }
+}
+componentDidMount() {
+  this._mounted = true;
+}
+componentWillUnmount() {
+  console.log('unm')
+  this._mounted = false;
+}
 
 
-    render() {
-        const { children } = this.props;
-        const { isLoading } = this.state;
+render() {
+  const { children } = this.props;
+  const { isLoading } = this.state;
 
-        return isLoading ? '加载数据中，请稍后...' : children;
-    }
+  return isLoading ? '加载数据中，请稍后...' : children;
+}
 }
 ```
 
@@ -189,50 +173,50 @@ render() {
 
 在外部的时候这么使用
 
-```js
+```jsx
 const getData = createFetcher(fetchSometingApi);
 
 const FangZheng = ({ name }) => {
-    return <h1>{getData()}!</h1>
+  return <h1>{getData()}!</h1>
 }
 
 class App extends React.Component {
-    state = {
-        show: false
-    }
+  state = {
+    show: false
+  }
 
-    handleClick = () => {
-        this.setState({
-            show: true
-        })
-    }
+handleClick = () => {
+  this.setState({
+    show: true
+  })
+}
 
-    handleClickBack = () => {
-        this.setState({
-            show: false
-        })
-    }
-    handleClickClear = () => {
-        location.reload();
-    }
+handleClickBack = () => {
+  this.setState({
+    show: false
+  })
+}
+handleClickClear = () => {
+  location.reload();
+}
 
-    render() {
-        return (
-            <div>
-                <button onClick={this.handleClick}>加载</button>
-                <button onClick={this.handleClickBack}>回退</button>
-                <button onClick={this.handleClickClear}>清除缓存</button>
-                <div>
-                    {this.state.show ?
-                        <Loading>
-                            {isLoading => isLoading ? <Spin /> : <FangZheng />}
-                        </Loading> :
-                        null
-                    }
-                </div>
-            </div>
-        );
-    }
+render() {
+  return (
+    <div>
+      <button onClick={this.handleClick}>加载</button>
+      <button onClick={this.handleClickBack}>回退</button>
+      <button onClick={this.handleClickClear}>清除缓存</button>
+      <div>
+        {this.state.show ?
+          <Loading>
+            {isLoading => isLoading ? <Spin /> : <FangZheng />}
+          </Loading> :
+        null
+        }
+      </div>
+    </div>
+  );
+}
 }
 ```
 
@@ -250,8 +234,6 @@ easy!
 
 这一种组件的书写方式，可以说完全破坏了我们之前的固有思维：**render必须是纯函数**
 
-
-
 我们来说说好处：
 
 1. 非常实用，这一部分啰啰嗦嗦的逻辑在redux中搞的话，必须得指定多个状态然后才能完事
@@ -259,39 +241,17 @@ easy!
 3. 异步同步化。异步的同步化这几年一直都在做，而且这一次可以说解决得更加彻底，连之前的yield async/await都没了
 4. 副作用粒度小，本来一个组件的「自更新」就是他自己的事情，得益于这样的设计，我们的组件可以重新回归，自己状态自己管理这种好事中去。
 
-
-
 再来说说坏处：
 
 1. Hack，不得不说，虽然巧妙，但是用throw promise是一个hack，利用语言特性制造的这种hack，可能会导致某些问题难以排查。我想这也就是为什么react team把一个「本来可以放在外面实现的功能，写进了react」，他们一定也在摸索到底会有什么奇怪的bug。
 2. render 函数不再纯：一个纯函数的最大好处就是，他的一切结果我们都能预知，带有副作用的函数一两个还好，多了就可能会导致bug。况且，render函数并不是一个普通的函数，而是React的根基，每一个组件都必须要有一个render（无状态组件也叫render） 函数。
 
-
-
 ## **三）最后总结**
 
 实际上suspense已经可以在我们的日常生活中使用了，也就是像我一样去自己实现一个。从第一直觉来看，suspense是一个优点贼多，缺点感觉又可以忽略不计的新特性。
 
-
-
 当然，目前来说，suspense并没有投入大规模使用，有什么神奇的bug还不好说，但是就冲throw promise这一点，我决定下周就再项目中写一个小组件试试手....
-
-
-
-
 
 最后，今天的分析代码我放在了：[https://github.com/215566435/think-in-suspense](https://link.zhihu.com/?target=https%3A//github.com/215566435/think-in-suspense)
 
 
-
-有兴趣的同学，请移步github，下载。
-
-
-
-参考文献：
-
-[Beyond React 16 by Dan Ambramov - Async Rendering and React Suspensenews.ycombinator.com](https://link.zhihu.com/?target=https%3A//news.ycombinator.com/item%3Fid%3D16492973)[https://twitter.com/acdlite/status/969171217356746752twitter.com](https://link.zhihu.com/?target=https%3A//twitter.com/acdlite/status/969171217356746752)[https://github.com/facebook/react/blob/master/packages/simple-cache-provider/src/SimpleCacheProvider.js#L187github.com](https://link.zhihu.com/?target=https%3A//github.com/facebook/react/blob/master/packages/simple-cache-provider/src/SimpleCacheProvider.js%23L187)
-
-
-
-编辑于 2018-03-04
