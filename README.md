@@ -2,10 +2,13 @@
 
 This is Michael An's frontend knowledge blogs and codes and todo lists.
 
+
+
 ### 2020
 
 ### to do lists
 
+- [ ] ES5 复习
 - [ ] Redux
   - [ ] [https://www.redux.org.cn](https://www.redux.org.cn/) 
   - [ ] 菜鸟教程

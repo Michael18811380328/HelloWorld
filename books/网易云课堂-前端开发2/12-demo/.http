@@ -1,0 +1,10 @@
+@url = http://localhost:3000/api
+@type:Content-Type: application/json
+
+POST {{url}}/user/register HTTP/1.1
+{{type}}
+
+{
+	"username": "admin",
+	"password": "654321"
+}
