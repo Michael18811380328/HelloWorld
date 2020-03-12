@@ -1,4 +1,110 @@
-这个文件夹时常用的第三方库、框架、插件，除此外还有下面常见的工具
+# 常用第三方库介绍
+
+这部分第三方库是我经常使用或者接触的第三方库。
+
+我们要站在巨人的肩膀上摘苹果，不要重复造轮子。当然，过多使用第三方轮子可能造成兼容性问题，项目代码繁杂，第三方潜在的风险，第三方不能满足我们的需求。
+
+### UI 框架
+
+bootstrap
+Ant-Design
+Font-awesome
+iscroll-master
+
+### React 系列
+react
+react-data-grid
+react-mentions
+react-motion
+react-responsr
+react-select
+react15-modal-demo
+reactstrap
+immutable
+
+### 编辑器
+GGEditor
+codemirror
+echarts
+editorJS
+slate
+
+### 文件操作
+file-upload
+seafile
+zipJS
+
+### 图片编辑
+
+基本上基于canvas，是单独的图片编辑工具，适应于 PC 端编辑图片，移动端不确定使用效果
+
+### cropper 
+
+cropper.js 这是国内同行写的组件，星标 7.8K，比较稳定。缺点：最新版本基于Jquery，早期版本原生JS。代码链接：https://fengyuanchen.github.io/cropper/
+
+###  fabricjs
+
+国外同行写的组件，github stars15K，代码成熟稳定。功能强大，适合矢量图和栅格图的编辑，Javascript Canvas Library, SVG-to-Canvas (& canvas-to-SVG) Parser。官网链接：http://fabricjs.com/；https://github.com/fabricjs/fabric.js
+
+### EaselJS
+
+功能强大，支持复杂的图片编辑。github stars 7.5K。Easel Javascript库提供了完整的分层显示列表，核心交互模型和帮助程序类，使使用HTML5 Canvas元素更加容易。这是一个用于在HTML5中构建高性能交互式2D内容的库。 它提供了功能丰富的显示列表，可让您操作和制作图形动画。 它还为鼠标和触摸交互提供了强大的交互模型。它非常适合构建游戏，生成艺术，广告，数据可视化以及其他高度图形化的体验。 它可以单独使用，也可以与其他CreateJS套件（SoundJS，PreloadJS和TweenJS）配合使用。它没有外部依赖关系，可以与使用的任何框架兼容。支持复杂图片编辑：液化蒙版模糊等
+
+官网链接：http://createjs.com/；https://www.createjs.com/easeljs；https://github.com/CreateJS/EaselJS
+
+### fabric-photo
+
+这个是国内作者，基于思路2的代码，做出的React兼容的库。优点：和React兼容。缺点：github stars 80 较少。https://github.com/ximing/fabric-photo
+
+
+
+### 移动端操作
+
+说明：下面是基于 React 的移动端 UI 框架
+
+#### 1、frozenUI
+
+stars: 2.9k 由腾讯团队开发，使用iconfont展示图标，包含了按钮，列表，表单，提示，弹窗等常用组件。使用sass编写css代码。使用简单（静态CSS代码）。官网链接：<http://frozenui.github.io/>
+
+ `<link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">`
+
+
+#### 2、MUI
+
+Stars: 12k。MUI不依赖任何第三方JS库，压缩后的JS和CSS文件仅有100+K和60+K；接近原生 APP 体验。有很多原生APP的组件，单独做移动端的网页的话比较麻烦，适合做APP混合开发。官网链接：<https://dev.dcloud.net.cn/mui/>
+
+
+#### 3、AmazeUI
+
+stars 13k，国内首家 UI 框架，官网链接 [https://amazeui.clouddeep.cn](https://amazeui.clouddeep.cn/) 
+
+#### 4、SUI
+
+Stars: 6k。淘宝团队 主要借鉴 **Framework7** 的形态并以此为基础，核心库压缩Gzip后的JS、CSS网络传输体积**总共只有52K**。<http://m.sui.taobao.org/>
+
+
+#### 5、Ant-design
+
+stars: 7k 蚂蚁金服团队主要用于淘宝支付宝；UI 风格和 calendar 组件类似。<https://mobile.ant.design/index-cn>
+
+#### 6、React WeUI
+
+基于微信和 React 框架制作，没有在 github 上开源。官网链接：<https://weui.github.io/react-weui/docs/#/react-weui/docs/page/0/articles/0>
+
+### 其他
+
+html5shiv-master
+i18n
+water-mark
+jQuery
+jest
+response
+svg
+swiper
+text-runner-JS
+zepto
+
+### 
 
 ## 打包工具
 
@@ -34,12 +140,12 @@
 
 ## 包管理
 
-- [yarn](https://github.com/yarnpkg/yarn) - 我用这个。
-- [npm](https://github.com/npm/cli)
+- [yarn](https://github.com/yarnpkg/yarn)
+- [npm](https://github.com/npm/cli) 这个市场占有率更高
 
 ## babel
 
-- [babel](https://github.com/babel/babel)
+- [babel](https://github.com/babel/babel) 把ES6转换成ES5必备的工具
 - [babel-plugin-rawest](https://github.com/sokra/rawact) - React 的 DOM 直出方案。
 - [babel-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) - 前端文件写 node 逻辑。
 - [babel-plugin-dynamic-import-node](https://github.com/airbnb/babel-plugin-dynamic-import-node) - 有些场景下会需要禁用 `import()` 语法。
@@ -48,7 +154,7 @@
 
 ## 测试
 
-- [jest](https://github.com/facebook/jest)
+- [jest](https://github.com/facebook/jest) 适合单元测试
 - [ts-jest](https://github.com/kulshekhar/ts-jest)
 - [enzyme](https://github.com/airbnb/enzyme)
 - [jsdom](https://github.com/jsdom/jsdom)
@@ -82,6 +188,24 @@
 - [react-dnd](https://github.com/react-dnd/react-dnd)
 - [react-helmet](https://github.com/nfl/react-helmet)
 
+## 数据流
+
+- [redux](https://github.com/reduxjs/redux)
+- [immer](https://github.com/mweststrate/immer)
+- [mobx](https://github.com/mobxjs/mobx)
+- [unstated](https://github.com/jamiebuilds/unstated)
+- [rxjs](https://github.com/ReactiveX/rxjs)
+- [dva](https://github.com/dvajs/dva)
+- [rematch](https://github.com/rematch/rematch) - 基于 redux。
+
+## redux 扩展
+
+- [react-redux](https://github.com/reduxjs/react-redux) - 绑定 react 和 redux，这个名字取得不好，react-redux 还是 redux-react 老是记不清楚。
+- [redux-saga](https://github.com/redux-saga/redux-saga)
+- [redux-persist](https://github.com/rt2zz/redux-persist)
+- [redux-bundler](https://github.com/henrikjoreteg/redux-bundler)
+- [redux-box](https://github.com/anish000kumar/redux-box)
+
 ## vue 相关库
 
 - [vuex](https://github.com/vuejs/vuex)
@@ -94,30 +218,12 @@
 - [lodash](https://github.com/lodash/lodash)
 - [fastclick](https://github.com/ftlabs/fastclick)
 
-## 数据流
-
-- [redux](https://github.com/reduxjs/redux)
-- [immer](https://github.com/mweststrate/immer)
-- [mobx](https://github.com/mobxjs/mobx)
-- [unstated](https://github.com/jamiebuilds/unstated)
-- [rxjs](https://github.com/ReactiveX/rxjs)
-- [dva](https://github.com/dvajs/dva) - 我写的数据流，基于 redux。
-- [rematch](https://github.com/rematch/rematch) - 基于 redux。
-
-### redux 扩展
-
-- [react-redux](https://github.com/reduxjs/react-redux) - 绑定 react 和 redux，这个名字取得不好，react-redux 还是 redux-react 老是记不清楚。
-- [redux-saga](https://github.com/redux-saga/redux-saga)
-- [redux-persist](https://github.com/rt2zz/redux-persist)
-- [redux-bundler](https://github.com/henrikjoreteg/redux-bundler)
-- [redux-box](https://github.com/anish000kumar/redux-box)
-
 ## 性能优化
 
 - [workbox](https://github.com/GoogleChrome/workbox) - PWA 方案，Google 出品。
 - [critical](https://github.com/addyosmani/critical) - 提取关键 CSS。
 
-## 语言
+## 其他语言
 
 - [typescript](https://github.com/Microsoft/TypeScript)
 - [flow](https://github.com/facebook/flow)
@@ -182,58 +288,56 @@
 
 ## 其他
 
-- [electron](https://github.com/electron/electron)
+这部分是 nodeJS 等第三方库
 
+[electron](https://github.com/electron/electron)
+[async](https://www.npmjs.com/package/async)                异步操作管理            
+[bl](https://www.npmjs.com/package/bl)                      二进制数据解析          
+[bluebird](https://www.npmjs.com/package/bluebird)          异步操作管理            
+[browserify](https://www.npmjs.com/package/browserify)      发布浏览器可用的包      
+[bunyan](https://www.npmjs.com/package/bunyan)              日志（logging）管理     
+[chai](https://www.npmjs.com/package/chai)                  断言                    
+[chalk](https://www.npmjs.com/package/chalk)                命令行彩色输出          
+[co](https://www.npmjs.com/package/co)                      异步流程管理            
+[colors](https://www.npmjs.com/package/colors)              命令行彩色输出          
+[commander](https://www.npmjs.com/package/commander)        命令行工具              
+[debug](https://www.npmjs.com/package/debug)                Debug输出器             
+[dockerode](https://www.npmjs.com/package/dockerode)        Docker管理              
+[duplexify](https://www.npmjs.com/package/duplexify)        Stream流操作工具        
+[event-stream](https://www.npmjs.com/package/event-stream)  Stream流操作工具        
+[express](https://www.npmjs.com/package/express)            Server服务器框架        
+[glob](https://www.npmjs.com/package/glob)                  文件名匹配              
+[grunt](https://www.npmjs.com/package/grunt)                构建工具                
+[gulp](https://www.npmjs.com/package/gulp)                  构建工具                
+[hapi](https://www.npmjs.com/package/hapi)                  Server服务器框架        
+[hyperquest](https://www.npmjs.com/package/hyperquest)      轻量级HTTP客户端        
+[istanbul](https://www.npmjs.com/package/istanbul)          测试用例覆盖率分析      
+[JSONStream](https://www.npmjs.com/package/JSONStream)      Stream流管理工具        
+[koa](https://www.npmjs.com/package/koa)                    Server服务器框架        
+[levelup](https://www.npmjs.com/package/levelup)            LevelDB                 
+[lodash](https://www.npmjs.com/package/lodash)              函数式编程工具          
+[log4js](https://www.npmjs.com/package/log4js)              日志（logging）管理工具 
+[minimatch](https://www.npmjs.com/package/minimatch)        文件名匹配              
+[minimist](https://www.npmjs.com/package/minimist)          命令行操作              
+[mocha](https://www.npmjs.com/package/mocha)                单元测试                
+[moment](https://www.npmjs.com/package/moment)              日期时间输出            
+[mongodb](https://www.npmjs.com/package/mongodb)            MongoDB                 
+[mysql](https://www.npmjs.com/package/mysql)                MySQL                   
+[nconf](https://www.npmjs.com/package/nconf)                配置工具                
+[needle](https://www.npmjs.com/package/needle)              轻量级HTTP客户端        
+[node-fetch](https://www.npmjs.com/package/node-fetch)      Fetch API               
+[nodemailer](https://www.npmjs.com/package/nodemailer)      Email客户端             
+[passport](https://www.npmjs.com/package/passport)          登录和认证              
+[pg](https://www.npmjs.com/package/pg)                      Postgres                
+[pump](https://www.npmjs.com/package/pump)                  Stream流管理工具        
+[redis](https://www.npmjs.com/package/redis)                Redis                   
+[request](https://www.npmjs.com/package/request)            HTTP客户端              
+[restify](https://www.npmjs.com/package/restify)            REST API搭建            
+[socket.io](https://www.npmjs.com/package/socket.io)        WebSocket实时通信       
+[split2](https://www.npmjs.com/package/split2)              Stream流管理工具        
+[tape](https://www.npmjs.com/package/tape)                  单元测试                
+[through2](https://www.npmjs.com/package/through2)          Stream流管理工具        
+[underscore](https://www.npmjs.com/package/underscore)      函数式编程工具          
+[ws](https://www.npmjs.com/package/ws)                      Websockets              
+[xml2js](https://www.npmjs.com/package/xml2js)              XML转换为JavaScript     
 
-
-| **模块名**                                                 | **作者**       | **简介**                |
-| ---------------------------------------------------------- | -------------- | ----------------------- |
-| [async](https://www.npmjs.com/package/async)               | caolan         | 异步操作管理            |
-| [bl](https://www.npmjs.com/package/bl)                     | rvagg          | 二进制数据解析          |
-| [bluebird](https://www.npmjs.com/package/bluebird)         | petkaantonov   | 异步操作管理            |
-| [browserify](https://www.npmjs.com/package/browserify)     | substack       | 发布浏览器可用的包      |
-| [bunyan](https://www.npmjs.com/package/bunyan)             | trentm         | 日志（logging）管理     |
-| [chai](https://www.npmjs.com/package/chai)                 | jakeluer       | 断言                    |
-| [chalk](https://www.npmjs.com/package/chalk)               | sindresorhus   | 命令行彩色输出          |
-| [co](https://www.npmjs.com/package/co)                     | tjholowaychuk  | 异步流程管理            |
-| [colors](https://www.npmjs.com/package/colors)             | marak          | 命令行彩色输出          |
-| [commander](https://www.npmjs.com/package/commander)       | tjholowaychuk  | 命令行工具              |
-| [debug](https://www.npmjs.com/package/debug)               | tjholowaychuk  | Debug输出器             |
-| [dockerode](https://www.npmjs.com/package/dockerode)       | apocas         | Docker管理              |
-| [duplexify](https://www.npmjs.com/package/duplexify)       | mafintosh      | Stream流操作工具        |
-| [event-stream](https://www.npmjs.com/package/event-stream) | dominictarr    | Stream流操作工具        |
-| [express](https://www.npmjs.com/package/express)           | tjholowaychuk  | Server服务器框架        |
-| [glob](https://www.npmjs.com/package/glob)                 | isaacs         | 文件名匹配              |
-| [grunt](https://www.npmjs.com/package/grunt)               | cowboy         | 构建工具                |
-| [gulp](https://www.npmjs.com/package/gulp)                 | contra         | 构建工具                |
-| [hapi](https://www.npmjs.com/package/hapi)                 | hueniverse     | Server服务器框架        |
-| [hyperquest](https://www.npmjs.com/package/hyperquest)     | substack       | 轻量级HTTP客户端        |
-| [istanbul](https://www.npmjs.com/package/istanbul)         | gotwarlost     | 测试用例覆盖率分析      |
-| [JSONStream](https://www.npmjs.com/package/JSONStream)     | dominictarr    | Stream流管理工具        |
-| [koa](https://www.npmjs.com/package/koa)                   | tjholowaychuk  | Server服务器框架        |
-| [levelup](https://www.npmjs.com/package/levelup)           | rvagg          | LevelDB                 |
-| [lodash](https://www.npmjs.com/package/lodash)             | jdalton        | 函数式编程工具          |
-| [log4js](https://www.npmjs.com/package/log4js)             | nomiddlename   | 日志（logging）管理工具 |
-| [minimatch](https://www.npmjs.com/package/minimatch)       | isaacs         | 文件名匹配              |
-| [minimist](https://www.npmjs.com/package/minimist)         | substack       | 命令行操作              |
-| [mocha](https://www.npmjs.com/package/mocha)               | tjholowaychuk  | 单元测试                |
-| [moment](https://www.npmjs.com/package/moment)             | timrwood       | 日期时间输出            |
-| [mongodb](https://www.npmjs.com/package/mongodb)           | christkv       | MongoDB                 |
-| [mysql](https://www.npmjs.com/package/mysql)               | felixge        | MySQL                   |
-| [nconf](https://www.npmjs.com/package/nconf)               | indexzero      | 配置工具                |
-| [needle](https://www.npmjs.com/package/needle)             | tomas          | 轻量级HTTP客户端        |
-| [node-fetch](https://www.npmjs.com/package/node-fetch)     | bitinn         | Fetch API               |
-| [nodemailer](https://www.npmjs.com/package/nodemailer)     | andris9        | Email客户端             |
-| [passport](https://www.npmjs.com/package/passport)         | jaredhanson    | 登录和认证              |
-| [pg](https://www.npmjs.com/package/pg)                     | brianc         | Postgres                |
-| [pump](https://www.npmjs.com/package/pump)                 | mafintosh      | Stream流管理工具        |
-| [redis](https://www.npmjs.com/package/redis)               | mjr            | Redis                   |
-| [request](https://www.npmjs.com/package/request)           | mikeal         | HTTP客户端              |
-| [restify](https://www.npmjs.com/package/restify)           | mcavage        | REST API搭建            |
-| [socket.io](https://www.npmjs.com/package/socket.io)       | rauchg         | WebSocket实时通信       |
-| [split2](https://www.npmjs.com/package/split2)             | matteo.collina | Stream流管理工具        |
-| [tape](https://www.npmjs.com/package/tape)                 | substack       | 单元测试                |
-| [through2](https://www.npmjs.com/package/through2)         | rvagg          | Stream流管理工具        |
-| [underscore](https://www.npmjs.com/package/underscore)     | jashkenas      | 函数式编程工具          |
-| [ws](https://www.npmjs.com/package/ws)                     | einaros        | Websockets              |
-| [xml2js](https://www.npmjs.com/package/xml2js)             | leonidas       | XML转换为JavaScript     |
