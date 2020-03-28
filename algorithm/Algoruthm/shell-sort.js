@@ -1,5 +1,5 @@
 /**
-* shell sort O(Nlog2N)
+* shell sort O(Nlog2N) 希尔排序
 **/
 function shellSort(arr) {
     let l = arr.length;
@@ -22,7 +22,3 @@ function shellSort(arr) {
 }
 
 module.exports = shellSort;
-
-document.addEventListener('event', function(e) {
-  
-});

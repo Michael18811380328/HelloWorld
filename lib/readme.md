@@ -6,33 +6,36 @@
 
 ### UI 框架
 
-bootstrap
-Ant-Design
-Font-awesome
-iscroll-master
+- bootstrap
+- Ant-Design
+- Font-awesome
+- iscroll-master
 
 ### React 系列
-react
-react-data-grid
-react-mentions
-react-motion
-react-responsr
-react-select
-react15-modal-demo
-reactstrap
-immutable
+
+- react
+- react-data-grid
+- react-mentions
+- react-motion
+- react-responsr
+- react-select
+- react15-modal-demo
+- reactstrap
+- immutable
 
 ### 编辑器
-GGEditor
-codemirror
-echarts
-editorJS
-slate
+
+- GGEditor
+- codemirror
+- echarts
+- editorJS
+- slate
 
 ### 文件操作
-file-upload
-seafile
-zipJS
+
+- file-upload
+- seafile
+- zipJS
 
 ### 图片编辑
 

@@ -1,7 +1,6 @@
-/**
-* stack LIFO
-**/
-
+/* stack LIFO */
+// LIFO: Last in, First out(后进先出)
+// FIFO: First in, First out(先进先出)
 class Stack {
   constructor() {
     this.dataSource = [];
@@ -10,7 +9,6 @@ class Stack {
   
   push(el) {
     this.dataSource[this.top++] = el;
-    
   }
   
   pop() {

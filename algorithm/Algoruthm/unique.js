@@ -11,9 +11,7 @@ let unique = function(arr) {
       data.push(arr[i]);
     }
   }
-  
   return data
-  
 }
 
 module.exports = unique;
