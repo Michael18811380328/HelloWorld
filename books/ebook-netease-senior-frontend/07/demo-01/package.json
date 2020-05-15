@@ -1,0 +1,16 @@
+{
+  "name": "demo-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test && npm run unit && npm run e2e",
+    "start": "npm run dev",
+    "lint": "eslint --ext .js src test/unit test/e2e/spaces",
+    "build": "node build/build.js",
+    "build-online": "node build/build.js online",
+    "css": "sass --watch --scss --no-cache --unix-newlines src:src -t compressed",
+  },
+  "author": "",
+  "license": "ISC"
+}

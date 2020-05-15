@@ -1,0 +1,13 @@
+{
+  "name": "ejs-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Michael An",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-ejs": "^4.3.0",
+    "koa-router": "^8.0.8",
+    "vue": "^2.6.11"
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>适配方案三</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+		}
+
+		/*公司开发，按着UI稿件进行网页布局*/
+
+		/* 640 和 750 并存状态 */
+
+		/*公式*/
+
+		/*1、将UI图（假设640px）分成若干份（如20份）*/
+		/*2、UI图宽度（640px） / 若干份（20份）= 基数（32）*/
+
+		/* 每份 32px */
+		/* 问16像素占多份？16 / 32 = 0.5份 */
+
+		/*3、结合媒体查询，检测屏幕宽度（layout viewport）*/
+		/*4、layout viewport 宽度 / 若干份（20份）= font-size*/
+
+		/* 每份 font-size */
+		/* 0.5份 * font-size = 在不同设备下的实际大小 */
+
+		/*常见屏幕尺寸 320、360、375、400、414*/
+		
+		/*分成20份*/
+
+		@media only screen and (width: 320px) {
+			html {
+				font-size: 16px;
+			}
+		}
+
+		@media only screen and (width: 360px) {
+			html {
+				font-size: 18px;
+			}
+		}
+
+		@media only screen and (width: 375px) {
+			html {
+				font-size: 18.75px;
+			}
+		}
+
+		@media only screen and (width: 400px) {
+			html {
+				font-size: 20px;
+			}
+		}
+
+		@media only screen and (width: 412px) {
+			html {
+				font-size: 20.6px;
+			}
+		}
+
+		@media only screen and (width: 414px) {
+			html {
+				font-size: 20.7px;
+			}
+		}
+
+		.box {
+			width: 5rem;
+			height: 5rem;
+			background-color: pink;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="box">
+	</div>
+
+
+	<script>
+		
+	 	var viewport = document.documentElement;
+
+	 	var width = viewport.clientWidth;
+
+	 	var fontSize = width / 20;
+
+	 	viewport.style.fontSize = fontSize;
+
+	</script>
+</body>
+</html>

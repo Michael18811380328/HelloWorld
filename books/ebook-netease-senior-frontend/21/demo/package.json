@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "npm run dev",
+    "build": "node build/build.js",
+    "build:client": "webpack --config build/webpack.buildclient.js",
+    "build:server": "webpack --config build/webpack.buildserver.js"
+  }
+}

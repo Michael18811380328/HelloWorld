@@ -1,0 +1,14 @@
+doctype
+html
+	head
+		meta(charset='utf-8')
+		title=title
+		body
+			div(class='div1')
+				h1 hello world
+			ul
+				each item in list
+					li(class='item')
+						span=item.name
+						span=item.age
+			script alert('#{title}')

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "npm run unit",
+    "unit": "cross-env BABEL-ENV=test karma start test/unit/karma.conf.js --single-run",
+  }
+}

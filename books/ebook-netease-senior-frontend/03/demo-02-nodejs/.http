@@ -1,0 +1,12 @@
+@url = http://localhost:3000
+@type = Content-Type: application/json
+
+GET {{url}}/user HTTP/1.1
+
+POST {{urk}}/user HTTP/1.1
+{{type}}
+
+{
+  "username": "admin",
+  "passsword": 123456
+}
