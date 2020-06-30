@@ -1,0 +1,31 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "export DEBUG=test* && node scripts/start.js",
+    "esm": "rm -rf es && export BABEL_ENV=prodution && ./node_modules/.bin/babel src --out-dir es --copy_files",
+    "lib": "rm -rf lib && export BABEL_ENV=node && ./node_modules/.bin/babel src --out-dir lib --copy-files",
+    "umd": "rm -rf dist && export BABEL_ENV=production && webpack -- config ./webpack.config.js",
+    "dev": "webpack-dev-server",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "react",
+    "react-dom": "react-dom"
+  },
+  "devDependencies": {
+    "webpack": "webpack",
+    "webpack-cli": "webpack-cli",
+    "babel-core": "babel-core",
+    "babel-loader": "babel-loader",
+    "babel-plugin-transdorm-runtime": "babel-plugin-transform-runtime",
+    "babel-preset-env": "babel-preset-env",
+    "babel-preset-stage-0": "babel-preset-stage-0",
+    "babel-preset-react": "babel-preset-react",
+  }
+}

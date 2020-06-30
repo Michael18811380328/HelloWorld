@@ -1,0 +1,28 @@
+<div id="app">
+  <input v-modal="uname" />
+  <button @click="add"></button>
+  <ul>
+    <li v-for="item in list" :key="item.id">
+      {(item.id)} + {(item.name)}
+    </li>
+  </ul>
+</div>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      list: [
+        {id: 0, name: "Mike"}
+      ]
+    },
+    methods: {
+      add() {
+        var newuser = {
+          id: this.list.length,
+          name: this.name
+        };
+        this.list.push(newuser);
+      }
+    }
+  })
+</script>
