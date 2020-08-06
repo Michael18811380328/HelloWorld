@@ -115,7 +115,7 @@ Hook 在设计阶段就考虑了静态类型的问题。因为它们是函数，
 
 举个例子，比如我们有这么个计数器组件：
 
-```
+```jsx
 function Example() {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -134,10 +134,11 @@ function Example() {
 
 我们会使用 React DOM 来测试它。为了确保它表现得和在浏览器中一样，我们会把代码渲染的部分包裹起来，并更新为 [`ReactTestUtils.act()`](https://zh-hans.reactjs.org/docs/test-utils.html#act) 调用:
 
-```
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';import Counter from './Counter';
+import { act } from 'react-dom/test-utils';
+import Counter from './Counter';
 
 let container;
 
@@ -153,7 +154,10 @@ afterEach(() => {
 
 it('can render and update a counter', () => {
   // 测试首次渲染和 effect
-  act(() => {    ReactDOM.render(<Counter />, container);  });  const button = container.querySelector('button');
+  act(() => {    
+    ReactDOM.render(<Counter />, container);  
+  });  
+  const button = container.querySelector('button');
   const label = container.querySelector('p');
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
@@ -204,14 +208,15 @@ it('can render and update a counter', () => {
 
 你可以在 `useEffect` 内部对其进行写入:
 
-```
+```jsx
 function Timer() {
   const intervalRef = useRef();
   useEffect(() => {
     const id = setInterval(() => {
       // ...
     });
-    intervalRef.current = id;    return () => {
+    intervalRef.current = id;    
+    return () => {
       clearInterval(intervalRef.current);
     };
   });
@@ -222,7 +227,7 @@ function Timer() {
 
 如果我们只是想设定一个循环定时器，我们不会需要这个 ref（`id` 可以是在 effect 本地的），但如果我们想要在一个事件处理器中清除这个循环定时器的话这就很有用了：
 
-```
+```jsx
   // ...
   function handleCancelClick() {
     clearInterval(intervalRef.current);  }
@@ -244,7 +249,7 @@ function Box() {
 
 现在假设我们想要编写一些逻辑以便在用户移动鼠标时改变 `left` 和 `top`。注意到我们是如何必须手动把这些字段合并到之前的 state 对象的：
 
-```
+```jsx
 // ...
   useEffect(() => {
     function handleWindowMouseMove(e) {
@@ -262,7 +267,7 @@ function Box() {
 
 举个例子，我们可以把组件的 state 拆分为 `position` 和 `size` 两个对象，并永远以非合并的方式去替换 `position`：
 
-```
+```jsx
 function Box() {
   const [position, setPosition] = useState({ left: 0, top: 0 });  const [size, setSize] = useState({ width: 100, height: 100 });
 
@@ -274,7 +279,7 @@ function Box() {
 
 把独立的 state 变量拆分开还有另外的好处。这使得后期把一些相关的逻辑抽取到一个自定义 Hook 变得容易，比如说:
 
-```
+```jsx
 function Box() {
   const position = useWindowPosition();  const [size, setSize] = useState({ width: 100, height: 100 });
   // ...
@@ -300,7 +305,7 @@ function useWindowPosition() {  const [position, setPosition] = useState({ left:
 
 目前，你可以 [通过 ref](https://zh-hans.reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables) 来手动实现：
 
-```
+```jsx
 function Counter() {
   const [count, setCount] = useState(0);
 
@@ -314,7 +319,7 @@ function Counter() {
 
 这或许有一点错综复杂，但你可以把它抽取成一个自定义 Hook：
 
-```
+```jsx
 function Counter() {
   const [count, setCount] = useState(0);
   const prevCount = usePrevious(count);  return <h1>Now: {count}, before: {prevCount}</h1>;
@@ -330,7 +335,7 @@ function usePrevious(value) {  const ref = useRef();
 
 注意看这是如何作用于 props， state，或任何其他计算出来的值的。
 
-```
+```jsx
 function Counter() {
   const [count, setCount] = useState(0);
 
@@ -346,7 +351,7 @@ function Counter() {
 
 组件内部的任何函数，包括事件处理函数和 effect，都是从它被创建的那次渲染中被「看到」的。例如，考虑这样的代码：
 
-```
+```jsx
 function Example() {
   const [count, setCount] = useState(0);
 

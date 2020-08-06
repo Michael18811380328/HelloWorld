@@ -311,10 +311,10 @@ class MyComponent extends React.Component {
 
 `React.forwardRef` 接受渲染函数作为参数。React 将使用 `props` 和 `ref` 作为参数来调用此函数。此函数应返回 React 节点。
 
-
-
 ```jsx
-const FancyButton = React.forwardRef((props, ref) => (  <button ref={ref} className="FancyButton">    {props.children}
+const FancyButton = React.forwardRef((props, ref) => (  
+  <button ref={ref} className="FancyButton">    
+    {props.children}
   </button>
 ));
 

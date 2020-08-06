@@ -82,7 +82,8 @@ class Counter extends React.Component {
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';import Counter from './Counter';
+import { act } from 'react-dom/test-utils';
+import Counter from './Counter';
 
 let container;
 
@@ -98,13 +99,19 @@ afterEach(() => {
 
 it('can render and update a counter', () => {
   // 首先测试 render 和 componentDidMount
-  act(() => {    ReactDOM.render(<Counter />, container);  });  const button = container.querySelector('button');
+  act(() => {    
+    ReactDOM.render(<Counter />, container);  
+  });  
+  const button = container.querySelector('button');
   const label = container.querySelector('p');
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
 
   // 再测试 render 和 componentDidUpdate
-  act(() => {    button.dispatchEvent(new MouseEvent('click', {bubbles: true}));  });  expect(label.textContent).toBe('You clicked 1 times');
+  act(() => {    
+    button.dispatchEvent(new MouseEvent('click', {bubbles: true}));  
+  });  
+  expect(label.textContent).toBe('You clicked 1 times');
   expect(document.title).toBe('You clicked 1 times');
 });
 ```
@@ -315,7 +322,7 @@ Simulate.{eventName}(
 
 **点击元素**
 
-```
+```jsx
 // <button ref={(node) => this.button = node}>...</button>
 const node = this.button;
 ReactTestUtils.Simulate.click(node);
@@ -323,7 +330,7 @@ ReactTestUtils.Simulate.click(node);
 
 **修改一个 input 输入框的值，然后按回车键。**
 
-```
+```jsx
 // <input ref={(node) => this.textInput = node} />
 const node = this.textInput;
 node.value = 'giraffe';

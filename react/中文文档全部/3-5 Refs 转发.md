@@ -109,7 +109,8 @@ const ref = React.createRef();
 <FancyButton
   label="Click Me"
   handleClick={handleClick}
-  ref={ref}/>;
+  ref={ref}
+/>;
 ```
 
 幸运的是，我们可以使用 `React.forwardRef` API 明确地将 refs 转发到内部的 `FancyButton` 组件。`React.forwardRef` 接受一个渲染函数，其接收 `props` 和 `ref` 参数并返回一个 React 节点。例如：

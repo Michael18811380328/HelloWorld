@@ -8,7 +8,8 @@
 import React, { useState } from 'react';
 
 function Example() {
-  // 声明一个叫 "count" 的 state 变量  const [count, setCount] = useState(0);
+  // 声明一个叫 "count" 的 state 变量  
+  const [count, setCount] = useState(0);
   return (
     <div>
       <p>You clicked {count} times</p>
@@ -105,9 +106,9 @@ function Example() {
 class Example extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {      
-      count: 0    
-    };  
+    this.state = {
+      count: 0
+    };
   }
 ```
 
@@ -119,6 +120,7 @@ import React, { useState } from 'react';
 function Example() {
   // 声明一个叫 “count” 的 state 变量  
   const [count, setCount] = useState(0);
+}
 ```
 
 **`调用 useState` 方法的时候做了什么?** 它定义一个 “state 变量”。我们的变量叫 `count`， 但是我们可以叫他任何名字，比如 `banana`。这是一种在函数调用时保存变量的方式 —— `useState` 是一种新方法，它与 class 里面的 `this.state` 提供的功能完全相同。一般来说，在函数退出后变量就会”消失”，而 state 中的变量会被 React 保留。
@@ -186,7 +188,8 @@ function Example() {
  6:    return (
  7:      <div>
  8:        <p>You clicked {count} times</p>
- 9:        <button onClick={() => setCount(count + 1)}>10:         Click me
+ 9:        <button onClick={() => setCount(count + 1)}>
+10:         Click me
 11:        </button>
 12:      </div>
 13:    );
@@ -249,3 +252,4 @@ function ExampleWithManyStates() {
 ```
 
 你**不必**使用多个 state 变量。State 变量可以很好地存储对象和数组，因此，你仍然可以将相关数据分为一组。然而，不像 class 中的 `this.setState`，更新 state 变量总是*替换*它而不是合并它。
+

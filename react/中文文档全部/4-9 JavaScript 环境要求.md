@@ -22,3 +22,4 @@ React 同时还依赖于 `requestAnimationFrame`（甚至包括测试环境）�
 ```jsx
 import 'raf/polyfill';
 ```
+

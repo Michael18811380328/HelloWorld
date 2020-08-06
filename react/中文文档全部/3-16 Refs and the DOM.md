@@ -134,7 +134,8 @@ class CustomTextInput extends React.Component {  // ...
 默认情况下，**你不能在函数组件上使用 `ref` 属性**，因为它们没有实例：
 
 ```jsx
-function MyFunctionComponent() {  return <input />;
+function MyFunctionComponent() {  
+  return <input />;
 }
 
 class Parent extends React.Component {
@@ -158,7 +159,8 @@ class Parent extends React.Component {
 
 ```jsx
 function CustomTextInput(props) {
-  // 这里必须声明 textInput，这样 ref 才可以引用它  const textInput = useRef(null);
+  // 这里必须声明 textInput，这样 ref 才可以引用它  
+  const textInput = useRef(null);
   function handleClick() {
     textInput.current.focus();  
   }
@@ -227,11 +229,13 @@ class CustomTextInput extends React.Component {
       <div>
         <input
           type="text"
-          ref={this.setTextInputRef}        />
+          ref={this.setTextInputRef}        
+          />
         <input
           type="button"
           value="Focus the text input"
-          onClick={this.focusTextInput}        />
+          onClick={this.focusTextInput}        
+          />
       </div>
     );
   }
@@ -246,7 +250,8 @@ React 将在组件挂载时，会调用 `ref` 回调函数并传入 DOM 元素�
 function CustomTextInput(props) {
   return (
     <div>
-      <input ref={props.inputRef} />    </div>
+      <input ref={props.inputRef} />    
+    </div>
   );
 }
 

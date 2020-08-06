@@ -230,7 +230,8 @@ function App1() {
 
 function App2() {
   const props = {firstName: 'Ben', lastName: 'Hector'};
-  return <Greeting {...props} />;}
+  return <Greeting {...props} />;
+}
 ```
 
 你还可以选择只保留当前组件需要接收的 props，并使用展开运算符将其他 props 传递下去。
@@ -354,7 +355,8 @@ function TodoList() {
   const todos = ['finish doc', 'submit pr', 'nag dan to review'];
   return (
     <ul>
-      {todos.map((message) => <Item key={message} message={message} />)}    </ul>
+      {todos.map((message) => <Item key={message} message={message} />)}    
+    </ul>
   );
 }
 ```
@@ -443,3 +445,4 @@ function ListOfTenThings() {
   My JavaScript variable is {String(myVariable)}.
 </div>
 ```
+

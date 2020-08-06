@@ -32,9 +32,11 @@ render(
 ```jsx
 render(
   <App>
-    <Profiler id="Navigation" onRender={callback}>      <Navigation {...props} />
+    <Profiler id="Navigation" onRender={callback}>      
+      <Navigation {...props} />
     </Profiler>
-    <Profiler id="Main" onRender={callback}>      <Main {...props} />
+    <Profiler id="Main" onRender={callback}>      
+      <Main {...props} />
     </Profiler>
   </App>
 );
