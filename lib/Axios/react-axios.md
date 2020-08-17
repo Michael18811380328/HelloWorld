@@ -34,7 +34,7 @@ $ npm install prop-types
 
 #### Base Request Component
 
-```
+```jsx
 <Request
   instance={axios.create({})} /* custom instance of axios - optional */
   method="" /* get, delete, head, post, put and patch - required */
@@ -53,7 +53,7 @@ $ npm install prop-types
 
 #### Helper Components
 
-```
+```jsx
 <Get ... />
 <Delete ... />
 <Head ... />
@@ -66,13 +66,13 @@ $ npm install prop-types
 
 Include in your file
 
-```
+```jsx
 import { AxiosProvider, Request, Get, Delete, Head, Post, Put, Patch, withAxios } from 'react-axios'
 ```
 
 Performing a `GET` request
 
-```
+```jsx
 // Post a request for a user with a given ID
 render() {
   return (
@@ -110,7 +110,7 @@ render() {
 
 Create an axios instance
 
-```
+```jsx
 const axiosInstance = axios.create({
   baseURL: '/api/',
   timeout: 2000,
@@ -122,7 +122,7 @@ const axiosInstance = axios.create({
 
 Pass down through a provider
 
-```
+```jsx
 <AxiosProvider instance={axiosInstance}>
   <Get url="test">
     {(error, response, isLoading, onReload) => {
@@ -136,7 +136,7 @@ Pass down through a provider
 
 Or pass down through props
 
-```
+```jsx
 <Get url="test" instance={axiosInstance}>
   {(error, response, isLoading, onReload) => {
     ...
@@ -149,7 +149,7 @@ Or pass down through props
 Retrieve from custom provider (when you need to directly use axios).
 The default instance will be passed if not inside an ``.
 
-```
+```jsx
 const MyComponent = withAxios(class MyComponentImpl extends React.Component {
   componentWillMount() {
     this.props.axios('test').then(result => {

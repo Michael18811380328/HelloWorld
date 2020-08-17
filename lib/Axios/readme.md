@@ -22,12 +22,6 @@ Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js �
 $ npm install axios
 ```
 
-使用 bower:
-
-```
-$ bower install axios
-```
-
 使用 cdn:
 
 ```
@@ -142,7 +136,7 @@ axios('/user/12345');
 
 ### 并发
 
-处理并发请求的助手函数
+处理并发请求的辅助函数
 
 ##### axios.all(iterable)
 
@@ -417,14 +411,14 @@ axios.interceptors.response.use(function (response) {
 
 如果你想在稍后移除拦截器，可以这样：
 
-```
+```jsx
 var myInterceptor = axios.interceptors.request.use(function () {/*...*/});
 axios.interceptors.request.eject(myInterceptor);
 ```
 
 可以为自定义 axios 实例添加拦截器
 
-```
+```jsx
 var instance = axios.create();
 instance.interceptors.request.use(function () {/*...*/});
 ```
@@ -502,10 +496,6 @@ cancel();
 
 Note : 可以使用同一个 cancel token 取消多个请求
 
-## Semver
-
-Until axios reaches a `1.0` release, breaking changes will be released with a new minor version. For example `0.5.1`, and `0.5.4`will have the same API, but `0.6.0` will have breaking changes.
-
 ## Promises
 
 axios 依赖原生的 ES6 Promise 实现而[被支持](http://caniuse.com/promises).
@@ -513,9 +503,8 @@ axios 依赖原生的 ES6 Promise 实现而[被支持](http://caniuse.com/promis
 
 ## TypeScript
 
-axios includes [TypeScript](http://typescriptlang.org/) definitions.
-
-```
+```typescript
 import axios from 'axios';
 axios.get('/user?ID=12345');
 ```
+
