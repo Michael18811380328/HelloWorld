@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 过滤器</title>
+</head>
+<body ng-app="App">
+	<ul ng-controller="DemoController">
+		<li>{{price|currency:'￥'}}</li>
+		<li>{{now|date:'yyyy/MM/dd hh:mm:ss'}}</li>
+		<li>{{items|filter:'s'}}</li>
+		<li>{{students|filter:{age: 16} }}</li>
+		<li>{{students|json}}</li>
+		<li>{{items|limitTo:-1}}</li>
+		<li>{{str|uppercase|limitTo:3}}</li>
+		<li>{{str|lowercase}}</li>
+		<li>{{num|number:2}}</li>
+		<li>{{items|orderBy: '':true}}</li>
+		<li>{{students|orderBy: 'age': false}}</li>
+	</ul>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		App.controller('DemoController', ['$scope', function ($scope) {
+			$scope.price = 11.11;
+			$scope.now = new Date;
+			$scope.items = ['html', 'css', 'js'];
+			$scope.students = [
+				{name: '小红', age: 16},
+				{name: '小明', age: 16},
+				{name: '小米', age: 10}
+			];
+			$scope.str = 'hello Angular';
+			$scope.num = '10.2345';
+		}]);
+	</script>
+</body>
+</html>

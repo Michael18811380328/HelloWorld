@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 服务</title>
+</head>
+<body>
+	<div ng-controller="DemoController">
+		<ul>
+			<li>{{msg}}</li>
+			<li>{{now|date: 'yyyy-MM-dd hh:mm:ss'}}</li>
+			<li><button ng-click="stop()">停</button></li>
+		</ul>
+	</div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		App.controller('DemoController', ['$scope', '$timeout', '$interval',function ($scope, $timeout, $interval) {
+			$timeout(function () {
+				$scope.msg = '执行了';
+			}, 3000);
+			var timer = $interval(function () {
+				$scope.now = new Date;
+			}, 1000);
+			$scope.stop = function () {
+				$interval.cancel(timer);
+			}
+		}]);
+	</script>
+</body>
+</html>

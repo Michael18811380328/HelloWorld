@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS $http服务例子</title>
+</head>
+<body ng-app="App">
+	
+	<div ng-controller="StarController">
+		<button ng-click="getData()">获取数据</button>
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+				<td>头像</td>
+				<td>专辑</td>
+			</tr>
+			<tr ng-repeat="star in stars">
+				<td>{{star.name}}</td>
+				<td>{{star.age}}</td>
+				<td>{{star.sex}}</td>
+				<td>{{star.photo}}</td>
+				<td>{{star.ablum}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		App.controller('StarController', ['$http', '$scope', '$log', function ($http, $scope, $log) {
+			$scope.getData = function () {
+				// 发送请求
+				$http({
+					url: './stars.php',
+					method: 'get'
+				}).success(function (info) {
+					$log.info(info);
+					$scope.stars = info;
+				});
+			}
+		}]);
+	</script>
+</body>
+</html>

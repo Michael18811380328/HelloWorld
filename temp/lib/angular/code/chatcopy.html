@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		h3 {
+			text-align: center;
+		}
+
+		.chatbox {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid #CCC;
+			background-color: #FFF;
+			border-radius: 5px;
+		}
+
+		.messages {
+			height: 350px;
+			padding: 20px 40px;
+			box-sizing: border-box;
+			border-bottom: 1px solid #CCC;
+			overflow: scroll;
+		}
+
+		.messages h5 {
+			font-size: 20px;
+			margin: 10px 0;
+		}
+
+		.messages p {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.self {
+			text-align: left;
+		}
+
+		.other {
+			text-align: right;
+		}
+
+		.form {
+			height: 150px;
+		}
+
+		.form .input {
+			height: 110px;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+
+		.form .btn {
+			height: 40px;
+			box-sizing: border-box;
+			border-top: 1px solid #CCC;
+		}
+
+		.form textarea {
+			display: block;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: none;
+			resize: none;
+			outline: none;
+			font-size: 20px;
+		}
+
+		.form input {
+			display: block;
+			width: 100px;
+			height: 30px;
+			margin-top: 5px;
+			margin-right: 20px;
+			float: right;
+		}
+	</style>
+</head>
+<body ng-app="Chat">
+	<h3>简单的Ajax实例</h3>
+	<div class="chatbox" ng-controller="MessageController">
+		<!-- 聊天内容 -->
+		<div class="messages">
+			<div class="{{message.cls}}" ng-repeat="message in messages">
+				<h5>{{message.role}}</h5>
+				<p>{{message.text}}</p>
+			</div>
+		</div>
+		<!-- 表单 -->
+		<div class="form">
+			<form ng-keyup="send($event)">
+				<!-- 输入框 -->
+				<div class="input">
+					<textarea ng-model="message"></textarea>
+				</div>
+				<!-- 按钮 -->
+				<div class="btn">
+					<input type="button" value="发送">
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="./libs/angular.min.js"></script>
+
+	<script>
+
+		var Chat = angular.module('Chat', []);
+
+		Chat.controller('MessageController', ['$scope', '$http', '$log', function ($scope, $http, $log) {
+			// 接口文档
+			// 一般提供了 接口地址、请求方式、请求参数、返回参数
+			// 
+
+			/* 
+		     *接口地址: http://xxxx.com/example.php
+		     *请求方式：get
+		     *请求参数：
+		              {
+						id: 1,
+						page: 0
+		              }
+			 *返回数据格式：[
+				{"name": "王力宏", age: 39, sex: "男"},
+				{"name": "王力宏", age: 39, sex: "男"},
+				{"name": "王力宏", age: 39, sex: "男"}
+			 ]
+			*/
+
+			// 根据实际业务获取所需参数 id = 1; page=2;
+
+			// $http({
+			// 	url: 'example.php',
+			// 	method: 'get',
+			// 	data: {id: 1, page: 2}
+
+			// }).success(function (data) {
+			// 	$log.log(data);
+			// });
+
+			$scope.messages = [];
+
+			$scope.send = function (ev) {
+				
+				if(ev.keyCode == 13) {
+
+					// alert($scope.message);
+					// 拼凑数据
+					var message = {text: $scope.message, role: '我说', cls: 'self'}
+
+					// 追加消息
+					$scope.messages.push(message);
+
+					// 清空输入框
+					$scope.message = '';
+
+					// 发起请求
+					$http({
+						url: 'chat.php',
+						method: 'get'
+					}).success(function (data) {
+						$log.log(data);
+
+						message = {text: data, role: '对方说', cls: 'other'};
+
+						$scope.messages.push(message);
+
+					});
+
+				}
+
+			}
+
+		}]);
+
+	</script>
+</body>
+</html>

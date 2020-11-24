@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="./node_modules/jszip/dist/jszip.min.js"></script>
+  <script src="./node_modules/file-saver/dist/FileSaver.min.js"></script>
+  <script>
+    // var JSZip = require("jszip");
+    // var saveAs = require('file-saver');
+
+    var zip = new JSZip();
+    var urlLength = 0;
+    var zipLength = 0;
+
+    function zipFile(blob) {
+      console.log(123);
+      zip.file(urlLength + "Hello.doc", blob);      
+      zipLength++;
+      if (zipLength === urlLength) {
+        console.log(zipLength);
+        downLoad();
+      }
+    }
+
+    function downLoad() {
+      // zip.folder("docs");
+      zip.generateAsync({type:"blob"}).then(function(content) {
+        saveAs(content, "example.zip");
+      });
+    }
+
+    function download(url) {
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.setRequestHeader("Cache-Control", "no-cache");
+      xhr.setRequestHeader("If-Modified-Since","0");
+      xhr.responseType = "blob";
+
+      xhr.onload = function() {
+        if (this.status == 200) {
+          var blob = this.response;
+          zipFile(blob);
+        }
+        $("#export").attr("disabled",false);
+      }
+      xhr.send();
+    }
+
+    $.ajax({
+      type: "GET",
+      url: "http://m.tpfep.com/api/test/index",
+      async: false,
+      success: function (res) {
+        if (Array.isArray(res)) {
+          let urls = res;
+          urlLength = urls.length;
+          for (let j = 0; j < urlLength; j++) {
+            download(urls[j]);
+          }
+        }
+      }
+    });
+
+  function onSave(value) {
+    const info = { 'version': 1, type: this.documentType };
+    let zip = new JSZip();
+    zip.file('info.json', JSON.stringify(info));
+    zip.file('content.json', JSON.stringify(value.document));
+    zip.folder('assets');
+    zip.generateAsync({ type: 'blob' }).then((blob) => {
+      this.editorUtilities.saveContent(blob).then(() => {
+        console.log('file_saved');
+      }, (err) => {
+        console.log(err);
+      });
+    }, function (err) {
+      console.log(err);
+    });
+  }
+
+  </script>
+</body>
+</html>

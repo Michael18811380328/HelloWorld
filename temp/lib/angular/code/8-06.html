@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 自定义服务</title>
+</head>
+<body>
+	<div ng-controller="DemoController">
+		<span>{{now}}</span>
+	</div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// 定义一个名叫showTime的服务
+		App.factory('showTime', ['$filter', function ($filter) {
+			// return function () {
+			// 	var now = new Date();
+			// 	var date = $filter('date');
+			// 	return date(now, 'y-M-d H:m:s');
+			// }
+			var now = new Date();
+			var date = $filter('date');
+			return {
+				now: date(now, 'y-M-d H:m:s')
+			}
+		}]);
+		App.controller('DemoController', ['$scope', 'showTime', function($scope, showTime) {
+			// $scope.now = showTime();
+			$scope.now = showTime.now;
+		}])
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 服务</title>
+</head>
+<body>
+	<ul ng-controller="DemoController"></ul>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// 使用日志服务
+		App.controller('DemoController', ['$log', function ($log) {
+			$log.info('普通信息');
+			$log.warn('警告信息');
+			$log.error('错误信息');
+			$log.log('打印信息');
+			$log.debug('调试信息');
+		}]);
+	</script>
+</body>
+</html>

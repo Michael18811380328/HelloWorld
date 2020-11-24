@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS $http服务</title>
+</head>
+<body ng-app="App">
+	<div ng-controller="DemoController"></div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		App.controller('DemoController', ['$scope', '$http', '$log', function ($scope, $http, $log) {
+			// $http 本质是对XMLHttpRequest对象封装
+			// var xhr = new XMLHttpRequest;
+			// 打开一个链接
+			// xhr.open('get/post', 'example.php?name=itcast');
+
+			// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+			// xhr.send('age=10');
+
+			$http({
+				url: 'example.php',
+				// method: 'get',
+				method: 'post',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				params: { // get 参数
+					name: 'itcast',
+					sex: '男'
+				},
+				// data: 'age=10'
+				data: { // post 传参
+					age: 10
+				}
+			}).success(function (info) {
+				// info 就是返回的数据
+				$log.info(info);
+			});
+
+		}]);
+
+		// 接口方式
+		// SOAP RESTFUL
+
+		// 一个说你该如何请求数据的文档
+
+		// 请求地址: xxx/xxx.php
+		// 请求方式：post
+		// 参数：id [用户ID] page [页码]
+
+		// 如下数据
+		// [] '' {}
+
+
+		// 传递的数据可以是'key=val&key=val'形式，这种形式叫formData
+		// Content-Type 设成 application/x-www-form-urlencoded
+		// 当请求数据类型不一样，后端在接收的时采取方法也不一样
+		// 假如上述方式以PHP为例可以使用$_POST接收
+
+		// application/json;charset=UTF-8 就是json对象形式传
+		// Request Payload
+		// 假如采用上述方式，以PHP为例$_POST就不能接收了
+
+	</script>
+</body>
+</html>

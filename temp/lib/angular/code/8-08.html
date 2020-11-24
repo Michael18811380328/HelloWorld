@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 自定义服务</title>
+</head>
+<body>
+	<div ng-controller="DemoController">
+		{{author}}
+		{{ver}}
+	</div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+
+		// 自定义常量服务
+		App.value('author', 'itcast');
+		App.value('version', '1.0');
+
+		// 本质上一个服务
+		// 从表现形式上是一个常量
+		// 常量就是不变的值与变对量相对应
+
+		// 声明依赖调用服务
+		App.controller('DemoController', ['$scope', 'author', 'version', function($scope, author, version) {
+
+			$scope.author = author;
+			$scope.ver = version;
+		}]);
+
+	</script>
+
+</body>
+</html>

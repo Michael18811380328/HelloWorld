@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 依赖注入</title>
+</head>
+<body ng-app="App">
+	<div ng-controller="DemoController">
+		<h3>{{name}}</h3>
+	</div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// 行内式注入
+		App.controller('DemoController', ['$scope', '$http', function (abc, bcd) {
+			abc.name = '依赖注入';
+		}]);
+	</script>
+</body>
+</html>

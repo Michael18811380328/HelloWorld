@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 服务</title>
+</head>
+<body>
+	<dl ng-controller="DemoController">
+		<dt>{{title}}</dt>
+		<dd>absUrl: {{absUrl}}</dd>
+		<dd>url: {{url}}</dd>
+		<dd>host: {{host}}</dd>
+		<dd>search: {{search}}</dd>
+		<dd>hash: {{hash}}</dd>
+		<dd>protocol: {{protocol}}</dd>
+		<dd>port: {{port}}</dd>
+	</dl>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// $location内置服务
+		// AngularJS 专门提供了一个帮你获URL地址一个服务
+		App.controller('DemoController', ['$scope', '$location', function($scope, $location) {
+			$scope.title = '学习$location服务';
+			// $location就是angularJS提前封装好的
+			// 提供获取地址相关信息的服务
+			// console.log($location);
+			$scope.absUrl = $location.absUrl();
+			$scope.url = $location.url();
+			$scope.host = $location.host();
+			$scope.search = $location.search();
+			$scope.hash = $location.hash();
+			$scope.protocol = $location.protocol();
+			$scope.port = $location.port();
+		}]);
+		for(var key in location) {
+			console.log(key + '=>' + location[key]);
+		}
+		// 地址是有若干部分组合成的
+		// http:// 协议
+		// www.baidu.com / 124.12.134.12 主机
+		// :8080 端口号
+		// #abc  锚点
+		// ?name=itcast&age=10 查询参数据(querystring)
+	</script>
+</body>
+</html>

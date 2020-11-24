@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 服务</title>
+</head>
+<body>
+	<ul ng-controller="DemoController">
+		<li>价格: {{price}}</li>
+		<li>大写：{{str}}</li>
+		<li>截取: {{str1}}</li>
+	</ul>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// $filter是过滤器
+		App.controller('DemoController', ['$scope', '$filter', function ($scope, $filter) {
+			// $filter是九种过滤器中任何一个
+			$scope.price = 11.11;
+			var currency = $filter('currency');
+			$scope.price = currency($scope.price);
+			$scope.str = 'hello angular';
+			var uppercase = $filter('uppercase');
+			$scope.str = uppercase($scope.str);
+			$scope.str1 = $filter('limitTo')($scope.str, 2);
+		}]);
+	</script>
+</body>
+</html>

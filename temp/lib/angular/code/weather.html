@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 0A5bc3c4fb543c8f9bc54b77bc155724 -->
+	<div ng-controller="WeatherController">
+		<table>
+			<!-- 视图 -->
+			<tr ng-repeat="item in weatherData">
+				<td>{{item.date}}</td>
+				<td><img ng-src="{{item.dayPictureUrl}}" alt=""></td>
+				<td><img ng-src="{{item.nightPictureUrl}}" alt=""></td>
+				<td>{{item.temperature}}</td>
+				<td>{{item.weather}}</td>
+				<td>{{item.wind}}</td>
+			</tr>
+		</table>
+	</div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// 定义控制器并声明依赖
+		App.controller('WeatherController', ['$scope', '$http', '$log', function($scope, $http, $log) {
+			// 请求数据
+			$http({
+				method: 'jsonp', // 支持jsonp
+				url: 'http://api.map.baidu.com/telematics/v3/weather?callback=JSON_CALLBACK',
+				params: { // 请求的参数
+					location: '北京',
+					output: 'json',
+					ak: '0A5bc3c4fb543c8f9bc54b77bc155724'
+				}
+			})
+			.success(function (data) {
+				$log.log(data); // 成功的回调
+
+				// 请求回的数据放到模型上
+				$scope.weatherData = data.results[0].weather_data;
+			});
+
+		}])
+	</script>
+</body>
+</html>

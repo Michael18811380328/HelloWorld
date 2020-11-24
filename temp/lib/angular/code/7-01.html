@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS 依赖注入</title>
+</head>
+<body ng-app="App">
+	<div class="box" ng-controller="DemoController"></div>
+	<script src="./libs/angular.min.js"></script>
+	<script>
+		var App = angular.module('App', []);
+		// AngularJS 内置一些具有特殊功能的“模块”开发者在开发的时候可以直接使用这些“模块”
+		// 推断式依赖注入
+		App.controller('DemoController', function ($scope, $http) {
+		});
+	</script>
+</body>
+</html>
