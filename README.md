@@ -1,6 +1,3 @@
-
-
-
 # 写在前面
 
 这里是总结的 `web开发` 相关归档学习资料，同时也是自己平时工作中的总结。
@@ -55,5 +52,9 @@
 [VUE](https://github.com/Michael18811380328/HelloVUE)
 
 [Go](https://github.com/Michael18811380328/HelloGo)
+
+## 测试评级
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Michael18811380328)](https://github.com/anuraghazra/github-readme-stats)
 
 
