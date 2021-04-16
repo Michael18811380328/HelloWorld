@@ -6,15 +6,15 @@ let transporter = nodemailer.createTransport({
   host: 'smtp.qq.com',
   secure: true,
   auth: {
-    user: '2331806369@qq.com',//输入你开启SMTP服务的QQ邮箱
-    pass: 'ybospzvlfbijecih' //输入我们刚才获得的那串字符
+    user: '马化腾@qq.com',//输入你开启SMTP服务的QQ邮箱
+    pass: 'xxxxxxxx' //输入我们刚才获得的那串字符
   }
 })
 
 //3.配置发送邮件的信息
 let mailOptions = {
-  from: '2331806369@qq.com', // 发送者,也就是你的QQ邮箱
-  to: '1822852997@qq.com', // 接受者邮箱,可以同时发送多个,以逗号隔开
+  from: '马化腾@qq.com', // 发送者,也就是你的QQ邮箱
+  to: '雷军@qq.com', // 接受者邮箱,可以同时发送多个,以逗号隔开
   subject: '测试发送邮件', // 邮件标题
   html: `
   <p>这是我的测试邮件</p>
@@ -29,13 +29,13 @@ transporter.sendMail(mailOptions, function(err, data) {
   console.log(err); // null
   console.log(data);  
   // {
-  //   accepted: [ '1822852997@qq.com' ],
+  //   accepted: [ '雷军@qq.com' ],
   //   rejected: [],
   //   envelopeTime: 241,
   //   messageTime: 431,
   //   messageSize: 396,
   //   response: '250 OK: queued as.',
-  //   envelope: { from: '2331806369@qq.com', to: [ '1822852997@qq.com' ] },
+  //   envelope: { from: '马化腾@qq.com', to: [ '雷军@qq.com' ] },
   //   messageId: '<f2ed0a44-f4c9-2824-4ae9-1b44b6baa4f0@qq.com>'
   // }
 });
